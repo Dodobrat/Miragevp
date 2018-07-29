@@ -5,7 +5,8 @@ namespace App\Modules\Users;
 use App\Modules\Users\Http\Controllers\Admin\UsersController;
 use ProVision\Administration\Contracts\Module;
 
-class Administration implements Module {
+class Administration implements Module
+{
 
     /**
      * Init Dashboard boxes.
@@ -37,6 +38,19 @@ class Administration implements Module {
      */
     public function menu($module)
     {
+        \AdministrationMenu::addModule(trans('users::admin.module_name'), [
+            'icon' => 'users'
+        ], function ($menu) {
+            $menu->addItem('View all', [
+                'url'=> \Administration::route('users.index'),
+                'icon' => 'list'
+            ]);
+
+            $menu->addItem('Add', [
+                'url'=> \Administration::route('users.create'),
+                'icon' => 'plus'
+            ]);
+        });
 
     }
 
