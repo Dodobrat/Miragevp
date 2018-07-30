@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes([
+            __DIR__.'/../../vendor/provision/administration/resources/views' => resource_path('views/vendor/administration'),
+        ],'administration');
     }
 
     /**

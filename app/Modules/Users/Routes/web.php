@@ -27,8 +27,8 @@ if (\Administration::routeInAdministration()) {
         $box->setBoxClass('col-md-12'); //set boostrap column class
         $box->setHtml('<div class="bg-info">
                                 <br>
-                                <h1 class="display-1 text-center">Welcome to MVP Dashboard</h1>
-                                <p class="lead text-center">Here you can manage your website with a click of a button!</p>
+                                <h1 class="display-1 text-center">'.trans('users::admin.dash_title').'</h1>
+                                <p class="lead text-center">'.trans('users::admin.dash_desc').'</p>
                                 <br>
                             </div>
                             <br>');
@@ -43,7 +43,6 @@ if (\Administration::routeInAdministration()) {
         $box->setIconClass('fa-users');
         $box->setLink(trans('users::admin.dash_users_linkbox'), Administration::route('users.index'));
         \Dashboard::add($box);
-
     }
 }
 

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'login_title' => 'LOGIN',
     'module_name' => 'Users',
     'full_name' => 'Full Name',
     'user' => 'User',
@@ -13,5 +14,7 @@ return [
     'delete' => 'Delete',
     'dash_users_linkbox' => 'View Users',
     'dash_users_linkbox_title' => 'Users',
+    'dash_title' => 'Welcome to MVP Dashboard',
+    'dash_desc' => 'Here you can manage your website with a click of a button!',
 
 ];
