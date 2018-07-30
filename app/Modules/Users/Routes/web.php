@@ -25,19 +25,23 @@ if (\Administration::routeInAdministration()) {
         //insert box code here
         $box = new \ProVision\Administration\Dashboard\HtmlBox();
         $box->setBoxClass('col-md-12'); //set boostrap column class
-        $box->setHtml('<div class="bg-info"><br>
+        $box->setHtml('<div class="bg-info">
+                                <br>
                                 <h1 class="display-1 text-center">Welcome to MVP Dashboard</h1>
-                                <p class="lead text-center">Here you can manage your website with a click of a button!</p><br>
-                            </div><br>');
+                                <p class="lead text-center">Here you can manage your website with a click of a button!</p>
+                                <br>
+                            </div>
+                            <br>');
         \Dashboard::add($box);
 
 
         $box = new \ProVision\Administration\Dashboard\LinkBox();
-        $box->setTitle('Users');
+        $box->setBoxClass('col-md-3'); //set boostrap column class
+        $box->setTitle(trans('users::admin.dash_users_linkbox_title'));
         $box->setValue(\App\User::whereDoesntHave('roles')->count());
         $box->setBoxBackgroundClass('bg-aqua');
         $box->setIconClass('fa-users');
-        $box->setLink('View Users', Administration::route('users.index'));
+        $box->setLink(trans('users::admin.dash_users_linkbox'), Administration::route('users.index'));
         \Dashboard::add($box);
 
     }
