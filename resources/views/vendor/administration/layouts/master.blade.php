@@ -24,7 +24,7 @@
 
     @stack('top_css')
 </head>
-<body class="hold-transition skin-black sidebar-mini fixed @if(\Request::cookie('administration-navigation-collapsed')=='true') sidebar-collapse @endif">
+<body class="hold-transition skin-black sidebar-mini fixed @if(\Request::cookie('administration-navigation-collapsed')=='false') sidebar-collapse @endif">
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -275,7 +275,7 @@
         <div class="pull-right hidden-xs">
             {{--<b>Version</b> {{Config::get('provision_administration.version')}}--}}
         </div>
-        <strong><a href="http://www.provision.bg/?ref=cms5" target="_blank"><b>MirageVisualisationProperty</b></a> Administration</strong>.
+        <strong><a href="http://www.provision.bg/?ref=cms5" target="_blank"><b>MVP</b></a> Administration</strong>.
         All rights reserved.
     </footer>
 

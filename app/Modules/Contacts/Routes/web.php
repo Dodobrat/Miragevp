@@ -16,3 +16,21 @@ Route::group(['prefix' => 'contacts'], function () {
         dd('This is the Contacts module index page. Build something great!');
     });
 });
+
+
+if (\Administration::routeInAdministration()) {
+    //administration menu code
+
+
+    if (\Administration::isDashboard()) {
+
+        $box = new \ProVision\Administration\Dashboard\LinkBox();
+        $box->setBoxClass('col-md-3'); //set boostrap column class
+        $box->setTitle(trans('contacts::contacts.dash_contacts_linkbox_title'));
+        $box->setValue(App\Modules\Contacts\Models\Contacts::count());
+        $box->setBoxBackgroundClass('bg-purple');
+        $box->setIconClass('fa-envelope');
+        $box->setLink(trans('contacts::contacts.dash_contacts_linkbox'), Administration::route('contacts.index'));
+        \Dashboard::add($box);
+    }
+}

@@ -15,7 +15,7 @@ class AddNamesToUsers extends Migration
         Schema::table('users', function($table)
         {
             $table->string('first_name')->nullable()->default(null);
-            $table->string('last_name')->nullable()->default(null);;
+            $table->string('last_name')->nullable()->default(null);
         });
     }
 
