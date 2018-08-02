@@ -6,6 +6,6 @@
  */
 
 return [
-    'title' => 'Настройка',
-    'base_settings' => 'Базови настройки',
+    'title' => 'Settings',
+    'base_settings' => 'Base Settings',
 ];

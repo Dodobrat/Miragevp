@@ -3,10 +3,10 @@
 @section('content')
     <div class="login-box">
         <div class="login-logo">
-            <a href="/" target="_blank"><b>{{Request::server ('APP_NAME','MirageVP')}}</b></a>
+            <a href="/" target="_blank"><b>{{config('APP.NAME','MirageVP')}}</b></a>
         </div><!-- /.login-logo -->
         <div class="login-box-body">
-            <p class="login-box-msg">{{trans('users::admin.login_title')}}</p>
+            <p class="login-box-msg">LOGIN</p>
 
             <form action="{{route('provision.administration.login_post')}}" method="post">
                 {{ csrf_field() }}

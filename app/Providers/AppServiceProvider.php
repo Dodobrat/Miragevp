@@ -16,6 +16,17 @@ class AppServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../vendor/provision/administration/resources/views' => resource_path('views/vendor/administration'),
         ],'administration');
+        $this->publishes([
+            __DIR__.'/../../vendor/provision/administration/resources/lang' => resource_path('lang/vendor/administration'),
+        ],'administration-lang');
+        $this->publishes([
+            __DIR__.'/../../vendor/provision/media-manager/resources/views' => resource_path('views/vendor/media-manager'),
+        ],'media-manager');
+        $this->publishes([
+            __DIR__.'/../../vendor/provision/media-manager/resources/lang' => resource_path('lang/vendor/media-manager/en'),
+        ],'media-manager');
+        $this->loadTranslationsFrom(__DIR__.'/../../resources/lang/vendor/media-manager', 'media-manager');
+        $this->loadTranslationsFrom(__DIR__.'/../../resources/lang/vendor/administration', 'administration-lang');
     }
 
     /**
