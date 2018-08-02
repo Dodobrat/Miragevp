@@ -24,7 +24,7 @@
 
     @stack('top_css')
 </head>
-<body class="hold-transition skin-black sidebar-mini fixed @if(\Request::cookie('administration-navigation-collapsed')=='false') sidebar-collapse @endif">
+<body class="hold-transition skin-black sidebar-mini fixed @if(\Request::cookie('administration-navigation-collapsed')=='true') sidebar-collapse @endif">
 <!-- Site wrapper -->
 <div class="wrapper">
 
