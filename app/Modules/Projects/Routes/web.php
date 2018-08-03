@@ -11,9 +11,9 @@
 |
 */
 
-Route::group(['prefix' => 'blog'], function () {
+Route::group(['prefix' => 'projects'], function () {
     Route::get('/', function () {
-        dd('This is the Blog module index page. Build something great!');
+        dd('This is the Projects module index page. Build something great!');
     });
 });
 
@@ -25,11 +25,11 @@ if (\Administration::routeInAdministration()) {
 
         $box = new \ProVision\Administration\Dashboard\LinkBox();
         $box->setBoxClass('col-lg-3 col-md-4 col-sm-6 col-xs-12'); //set boostrap column class
-        $box->setTitle(trans('blog::admin.dash_blog_linkbox_title'));
-        $box->setValue(App\Modules\Blog\Models\Blog::count());
-        $box->setBoxBackgroundClass('bg-yellow');
-        $box->setIconClass('fa-newspaper-o');
-        $box->setLink(trans('blog::admin.dash_blog_linkbox'), Administration::route('blog.index'));
+        $box->setTitle(trans('projects::admin.dash_projects_linkbox_title'));
+        $box->setValue(App\Modules\Projects\Models\Projects::count());
+        $box->setBoxBackgroundClass('bg-blue');
+        $box->setIconClass('fa-file-o');
+        $box->setLink(trans('projects::admin.dash_projects_linkbox'), Administration::route('projects.index'));
         \Dashboard::add($box);
     }
 }

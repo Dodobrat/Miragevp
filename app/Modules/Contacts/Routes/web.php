@@ -25,7 +25,7 @@ if (\Administration::routeInAdministration()) {
     if (\Administration::isDashboard()) {
 
         $box = new \ProVision\Administration\Dashboard\LinkBox();
-        $box->setBoxClass('col-md-3'); //set boostrap column class
+        $box->setBoxClass('col-lg-3 col-md-4 col-sm-6 col-xs-12'); //set boostrap column class
         $box->setTitle(trans('contacts::contacts.dash_contacts_linkbox_title'));
         $box->setValue(App\Modules\Contacts\Models\Contacts::count());
         $box->setBoxBackgroundClass('bg-purple');

@@ -19,15 +19,6 @@ class Administration implements Module {
         \AdministrationMenu::addModule(trans('blog::admin.module_name'), [
             'icon' => 'newspaper-o'
         ], function ($menu) {
-            $menu->addItem(trans('blog::admin.add'), [
-                'url' => \Administration::route('blog.create'),
-                'icon' => 'plus'
-            ]);
-            $menu->addItem(trans('blog::admin.list'), [
-                'url' => \Administration::route('blog.index'),
-                'icon' => 'list'
-            ]);
-
             $menu->addItem(trans('blog::admin.blog_categories'), [
                 'icon' => 'arrow-right'
             ], function ($submenu)
@@ -41,7 +32,18 @@ class Administration implements Module {
                     'icon' => 'list'
                 ]);
             });
+            $menu->addItem(trans('blog::admin.add'), [
+                'url' => \Administration::route('blog.create'),
+                'icon' => 'plus'
+            ]);
+            $menu->addItem(trans('blog::admin.list'), [
+                'url' => \Administration::route('blog.index'),
+                'icon' => 'list'
+            ]);
+
+
         });
+
     }
 
 

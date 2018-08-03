@@ -36,7 +36,7 @@ if (\Administration::routeInAdministration()) {
 
 
         $box = new \ProVision\Administration\Dashboard\LinkBox();
-        $box->setBoxClass('col-md-3'); //set boostrap column class
+        $box->setBoxClass('col-lg-3 col-md-4 col-sm-6 col-xs-12'); //set boostrap column class
         $box->setTitle(trans('users::admin.dash_users_linkbox_title'));
         $box->setValue(\App\User::whereDoesntHave('roles')->count());
         $box->setBoxBackgroundClass('bg-aqua');

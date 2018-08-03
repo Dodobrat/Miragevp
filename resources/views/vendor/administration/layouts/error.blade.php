@@ -22,7 +22,7 @@
     <div class="pull-right hidden-xs">
         <b>Version</b> {{Config::get('provision_administration.version')}}
     </div>
-    <strong><a href="http://www.provision.bg/?ref=cms5" target="_blank"><b>ProVision</b></a> Administration</strong>. All rights reserved.
+    <strong><a href="#" target="_blank"><b>MVP</b></a> Administration</strong>. All rights reserved.
 </footer>
 
 

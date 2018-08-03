@@ -6,8 +6,8 @@
  */
 
 return [
-    'confirm_title' => 'Потвърждение за действие',
-    'confirm_text' => 'Сигурни ли сте, че искате да изтриете данните?',
-    'yes' => 'Да',
-    'no' => 'Не',
+    'confirm_title' => 'Are you sure?',
+    'confirm_text' => 'Are you sure you want to delete this data? They may not be able to be restored!',
+    'yes' => 'Yes',
+    'no' => 'No',
 ];
