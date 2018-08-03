@@ -2,6 +2,7 @@
 
 return [
     'module_categories_name' => 'Projects',
+    'module_name' => 'Projects',
     'visible' => 'Visible',
     'date' => 'Date',
     'create' => 'Create',

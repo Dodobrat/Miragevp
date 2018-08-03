@@ -87,18 +87,22 @@ class BlogController extends BaseAdministrationController
                 'data' => 'title',
                 'name' => 'title',
                 'title' => trans('administration::administrators.name'),
+                'orderable' => false,
             ])->addColumn([
                 'data' => 'category',
                 'name' => 'category',
                 'title' => trans('blog::admin.category'),
+                'orderable' => false,
             ])->addColumn([
                 'data' => 'visible',
                 'name' => 'visible',
                 'title' => trans('blog::admin.visible'),
+                'orderable' => false,
             ])->addColumn([
                 'data' => 'created_at',
                 'name' => 'created_at',
                 'title' => trans('blog::admin.date'),
+                'orderable' => false,
             ]);
         return view('administration::empty-listing', compact('table'));
     }
