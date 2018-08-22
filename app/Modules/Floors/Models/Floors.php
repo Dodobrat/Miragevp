@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Modules\Projects\Models;
+namespace App\Modules\Floors\Models;
 
-use App\Modules\Floors\Models\Floors;
+use App\Modules\Projects\Models\Projects;
 use Dimsav\Translatable\Translatable;
 use Kalnoy\Nestedset\NodeTrait;
 use ProVision\Administration\AdminModel;
@@ -10,29 +10,26 @@ use ProVision\Administration\Traits\RevisionableTrait;
 use ProVision\Administration\Traits\ValidationTrait;
 use ProVision\MediaManager\Traits\MediaManagerTrait;
 
-class Projects extends AdminModel
+class Floors extends AdminModel
 {
     use NodeTrait, MediaManagerTrait, ValidationTrait, Translatable, RevisionableTrait;
 
-    public $translationForeignKey = 'projects_id';
+    public $translationForeignKey = 'floor_id';
     /**
      * @var array
      */
     public $translatedAttributes = [
         'title',
         'description',
-        'meta_title',
-        'meta_description',
-        'meta_keywords',
         'slug',
     ];
-    protected $table = 'projects';
+    protected $table = 'floors';
     /**
      * @var array
      */
     protected $fillable = [
-        'visible',
-        'show_media'
+        'show_media',
+        'project_id'
     ];
     /**
      * The attributes that should be casted to native types.
@@ -40,15 +37,15 @@ class Projects extends AdminModel
      * @var array
      */
     protected $casts = [
-        'visible' => 'boolean',
         'show_media' => 'boolean',
     ];
 
     protected $with = ['translations'];
 
-    public function levels()
+
+    public function level()
     {
-        $this->hasMany(Floors::class, 'floor_id', 'id');
+        return $this->hasOne(Projects::class, 'project_id', 'id');
     }
 
     /**
@@ -59,6 +56,11 @@ class Projects extends AdminModel
      */
     public function scopeActive($query)
     {
-        return $query->where('projects.visible', 1);
+        return $query->where('floors.visible', 1);
+    }
+
+    public function header_media()
+    {
+        return $this->media('header');
     }
 }
