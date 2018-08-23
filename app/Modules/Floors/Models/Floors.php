@@ -42,11 +42,17 @@ class Floors extends AdminModel
 
     protected $with = ['translations'];
 
-
-    public function level()
-    {
-        return $this->hasOne(Projects::class, 'project_id', 'id');
+    public function project() {
+        return $this->hasOne(Projects::class, 'id', 'project_id');
     }
+
+
+//    public function level()
+//    {
+//        return $this->hasOne(Projects::class, 'id', 'project_id');
+//    }
+
+    //тука трябва да се направи релацията
 
     /**
      * Scope a query to only include active users.

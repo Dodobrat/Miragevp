@@ -48,7 +48,7 @@ class Projects extends AdminModel
 
     public function levels()
     {
-        $this->hasMany(Floors::class, 'floor_id', 'id');
+        $this->hasMany(Floors::class, 'project_id', 'id');
     }
 
     /**

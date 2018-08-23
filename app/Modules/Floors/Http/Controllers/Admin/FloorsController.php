@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Modules\Floors\Forms\FloorForm;
 use App\Modules\Floors\Http\Requests\StoreFloorsRequest;
 use App\Modules\Floors\Models\Floors;
+use App\Modules\Projects\Models\Projects;
 use Form;
 
 use Illuminate\Support\Facades\Redirect;
@@ -29,7 +30,7 @@ class FloorsController extends BaseAdministrationController
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $floors = Floors::withTranslation(['project'])->reversed();
+            $floors = Floors::with(['project'])->reversed();
             $datatables = Datatables::of($floors)
                 ->addColumn('action', function ($floors) {
                     $actions = '';
@@ -55,12 +56,14 @@ class FloorsController extends BaseAdministrationController
                 })->addColumn('show_media', function ($floor) {
                     return Form::adminSwitchButton('show_media', $floor);
                 })->addColumn('project', function ($floor) {
-                    if (!empty($floor->project->title)) {
+//                    $project = Projects::reversed()->get()->pluck('title');
+                    if (!empty($floor->project)) {
                         return $floor->project->title;
                     }
                     return '';
                 });
             return $datatables->make(true);
+            //еи там горе трябва да сложиш addColumn project и да жърнеш името на проекта. е
         }
 
         Administration::setTitle(trans('floors::admin.module_name'));
