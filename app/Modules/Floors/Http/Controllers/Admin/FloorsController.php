@@ -2,15 +2,12 @@
 
 namespace App\Modules\Floors\Http\Controllers\Admin;
 
-
-use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
-use Illuminate\Http\Request;
 use App\Modules\Floors\Forms\FloorForm;
 use App\Modules\Floors\Http\Requests\StoreFloorsRequest;
 use App\Modules\Floors\Models\Floors;
-use App\Modules\Projects\Models\Projects;
 use Form;
-
+use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Kris\LaravelFormBuilder\FormBuilder;
 use ProVision\Administration\Administration;
@@ -63,7 +60,6 @@ class FloorsController extends BaseAdministrationController
                     return '';
                 });
             return $datatables->make(true);
-            //еи там горе трябва да сложиш addColumn project и да жърнеш името на проекта. е
         }
 
         Administration::setTitle(trans('floors::admin.module_name'));

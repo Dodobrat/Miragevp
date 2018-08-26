@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Modules\Projects\Models;
+namespace App\Modules\Apartments\Models;
 
-use App\Modules\Apartments\Models\Apartments;
 use App\Modules\Floors\Models\Floors;
+use App\Modules\Projects\Models\Projects;
 use Dimsav\Translatable\Translatable;
 use Kalnoy\Nestedset\NodeTrait;
 use ProVision\Administration\AdminModel;
@@ -11,11 +11,11 @@ use ProVision\Administration\Traits\RevisionableTrait;
 use ProVision\Administration\Traits\ValidationTrait;
 use ProVision\MediaManager\Traits\MediaManagerTrait;
 
-class Projects extends AdminModel
+class Apartments extends AdminModel
 {
     use NodeTrait, MediaManagerTrait, ValidationTrait, Translatable, RevisionableTrait;
 
-    public $translationForeignKey = 'projects_id';
+    public $translationForeignKey = 'apartment_id';
     /**
      * @var array
      */
@@ -27,13 +27,15 @@ class Projects extends AdminModel
         'meta_keywords',
         'slug',
     ];
-    protected $table = 'projects';
+    protected $table = 'apartments';
     /**
      * @var array
      */
     protected $fillable = [
-        'visible',
-        'show_media'
+        'show_media',
+        'project_id',
+        'floor_id',
+        'reserved'
     ];
     /**
      * The attributes that should be casted to native types.
@@ -41,21 +43,19 @@ class Projects extends AdminModel
      * @var array
      */
     protected $casts = [
-        'visible' => 'boolean',
         'show_media' => 'boolean',
+        'reserved' => 'boolean',
     ];
 
     protected $with = ['translations'];
 
-    public function levels()
-    {
-        $this->hasMany(Floors::class, 'project_id', 'id');
+    public function project() {
+        return $this->hasOne(Projects::class, 'id', 'project_id');
     }
 
-    public function apartments() {
-        return $this->hasMany(Apartments::class, 'id', 'apartment_id');
+    public function floor() {
+        return $this->hasOne(Floors::class, 'id', 'floor_id');
     }
-
     /**
      * Scope a query to only include active users.
      *
@@ -64,6 +64,11 @@ class Projects extends AdminModel
      */
     public function scopeActive($query)
     {
-        return $query->where('projects.visible', 1);
+        return $query->where('apartments.visible', 1);
+    }
+
+    public function header_media()
+    {
+        return $this->media('header');
     }
 }

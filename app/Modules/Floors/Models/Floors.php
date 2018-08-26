@@ -2,6 +2,7 @@
 
 namespace App\Modules\Floors\Models;
 
+use App\Modules\Apartments\Models\Apartments;
 use App\Modules\Projects\Models\Projects;
 use Dimsav\Translatable\Translatable;
 use Kalnoy\Nestedset\NodeTrait;
@@ -46,13 +47,9 @@ class Floors extends AdminModel
         return $this->hasOne(Projects::class, 'id', 'project_id');
     }
 
-
-//    public function level()
-//    {
-//        return $this->hasOne(Projects::class, 'id', 'project_id');
-//    }
-
-    //тука трябва да се направи релацията
+    public function apartment() {
+        return $this->hasMany(Apartments::class, 'id', 'apartment_id');
+    }
 
     /**
      * Scope a query to only include active users.
