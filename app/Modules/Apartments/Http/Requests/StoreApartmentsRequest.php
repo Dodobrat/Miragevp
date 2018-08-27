@@ -48,7 +48,7 @@ class StoreApartmentsRequest extends FormRequest
         }
 
         $trans['show_media'] = 'boolean';
-        $trans['user_id'] = 'integer';
+        $trans['reserved'] = 'boolean';
         $trans['floor_id'] = 'integer';
         $trans['project_id'] = 'integer';
 
