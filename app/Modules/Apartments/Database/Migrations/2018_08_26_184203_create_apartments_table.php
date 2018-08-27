@@ -24,6 +24,7 @@ class CreateApartmentsTable extends Migration
             NestedSet::columns($table);
             $table->timestamps();
             $table->foreign('floor_id')->references('id')->on('floors')->onDelete('cascade');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
         });
 
         Schema::create('apartments_translations', function (Blueprint $table) {

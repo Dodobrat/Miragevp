@@ -47,8 +47,8 @@ class Floors extends AdminModel
         return $this->hasOne(Projects::class, 'id', 'project_id');
     }
 
-    public function apartment() {
-        return $this->hasMany(Apartments::class, 'id', 'apartment_id');
+    public function apartments() {
+        return $this->hasMany(Apartments::class, 'floor_id', 'id');
     }
 
     /**

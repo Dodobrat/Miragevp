@@ -23,13 +23,14 @@ class ApartmentForm extends AdminForm
         $this->addSeoFields();
 
         $projects = Projects::reversed()->get()->pluck('title', 'id')->toArray();
-        $floors = Floors::reversed()->get()->pluck('title', 'id')->toArray();
 
         $this->add('project_id', 'select', [
             'label' => trans('apartments::admin.project_select'),
             'choices' => $projects,
             'selected' => @$this->model->project_id,
         ]);
+
+        $floors = Floors::reversed()->get()->pluck('title', 'id')->toArray();
 
         $this->add('floor_id', 'select', [
             'label' => trans('apartments::admin.floor_select'),

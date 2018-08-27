@@ -29,6 +29,7 @@ class StoreApartmentsRequest extends FormRequest
 
         $trans = [];
 
+
         foreach ($locales as $locale) {
             $trans[$locale . '.title'] = 'required|string';
             $trans[$locale . '.meta_title'] = 'nullable|string';
@@ -37,7 +38,7 @@ class StoreApartmentsRequest extends FormRequest
             $trans[$locale . '.description'] = 'nullable|string';
 
             if ($this->method() == 'PATCH' || $this->method() == 'PUT') {
-                $locale_alb = ApartmentsTranslation::where('apartment_id', $this->route('apartments'))->where('locale', $locale)->first();
+                $locale_alb = ApartmentsTranslation::where('apartment_id', $this->route('apartment'))->where('locale', $locale)->first();
                 if($this->has($locale.'.title') && !empty($locale_alb)) {
                     $trans[$locale . '.slug'] = 'nullable|string|unique:apartments_translations,slug,' . $locale_alb->id;
                 }
@@ -47,7 +48,9 @@ class StoreApartmentsRequest extends FormRequest
         }
 
         $trans['show_media'] = 'boolean';
-        $trans['reserved'] = 'boolean';
+        $trans['user_id'] = 'integer';
+        $trans['floor_id'] = 'integer';
+        $trans['project_id'] = 'integer';
 
         return $trans;
     }
