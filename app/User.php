@@ -5,6 +5,7 @@ namespace App;
 use App\Modules\Users\Models\UserRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Cache;
 
 class User extends Authenticatable
 {
@@ -28,7 +29,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function isOnline()
+    {
+        return Cache::has('user-is-online-' . $this->id);
+    }
+
     public function roles() {
         return $this->hasMany(UserRoles::class, 'user_id','id');
     }
+
+
 }

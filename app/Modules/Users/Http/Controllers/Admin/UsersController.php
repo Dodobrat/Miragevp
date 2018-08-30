@@ -47,6 +47,12 @@ class UsersController extends BaseAdministrationController
                         $actions .= Form::adminDeleteButton(trans('administration::index.delete'), Administration::route('users.destroy', $user->id));
                     }
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('users.edit', $user->id)) . $actions;
+                })->addColumn('online', function ($user) {
+                    if ($user->isOnline()){
+                        return "Online";
+                    }else{
+                        return "Away";
+                    }
                 });
 
             return $datatables->make(true);
@@ -65,6 +71,10 @@ class UsersController extends BaseAdministrationController
                 'data' => 'id',
                 'name' => 'id',
                 'title' => trans('administration::administrators.id')
+            ])->addColumn([
+                'data' => 'online',
+                'name' => 'online',
+                'title' => trans('users::admin.status')
             ])->addColumn([
                 'data' => 'full_name',
                 'name' => 'full_name',

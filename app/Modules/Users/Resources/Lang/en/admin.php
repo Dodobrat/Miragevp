@@ -3,6 +3,7 @@
 return [
     'login_title' => 'LOGIN',
     'module_name' => 'Users',
+    'status' => 'Status',
     'full_name' => 'Full Name',
     'user' => 'User',
     'email' => 'E-mail',
