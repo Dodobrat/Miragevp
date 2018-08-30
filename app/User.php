@@ -3,9 +3,9 @@
 namespace App;
 
 use App\Modules\Users\Models\UserRoles;
-use Illuminate\Notifications\Notifiable;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name','last_name', 'email', 'password',
+        'first_name', 'last_name', 'email', 'password',
     ];
 
     /**
@@ -31,11 +31,13 @@ class User extends Authenticatable
 
     public function isOnline()
     {
-        return Cache::has('user-is-online-' . $this->id);
+        return ($this->last_activity > Carbon::now()->subMinutes(1)) ? true : false;
+
     }
 
-    public function roles() {
-        return $this->hasMany(UserRoles::class, 'user_id','id');
+    public function roles()
+    {
+        return $this->hasMany(UserRoles::class, 'user_id', 'id');
     }
 
 

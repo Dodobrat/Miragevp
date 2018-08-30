@@ -5,17 +5,15 @@ namespace App\Modules\Users\Http\Controllers\Admin;
 use App\Modules\Users\Forms\UserForm;
 use App\Modules\Users\Http\Requests\EditUserRequest;
 use App\Modules\Users\Http\Requests\StoreUserRequest;
-use App\Modules\Users\Models\UserRoles;
 use App\User;
-use Illuminate\Http\Request;
-
-
 use Form;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Kris\LaravelFormBuilder\FormBuilder;
 use ProVision\Administration\Facades\Administration;
 use ProVision\Administration\Http\Controllers\BaseAdministrationController;
 use Yajra\DataTables\Facades\DataTables;
+
 
 class UsersController extends BaseAdministrationController
 {
@@ -48,9 +46,9 @@ class UsersController extends BaseAdministrationController
                     }
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('users.edit', $user->id)) . $actions;
                 })->addColumn('online', function ($user) {
-                    if ($user->isOnline()){
+                    if ($user->isOnline()) {
                         return "Online";
-                    }else{
+                    } else {
                         return "Away";
                     }
                 });
@@ -148,7 +146,7 @@ class UsersController extends BaseAdministrationController
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
     public
-    function edit($id,FormBuilder $formBuilder)
+    function edit($id, FormBuilder $formBuilder)
     {
 
         $user = User::where('id', $id)->first();
