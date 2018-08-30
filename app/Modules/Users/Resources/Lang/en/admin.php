@@ -17,5 +17,6 @@ return [
     'dash_users_linkbox_title' => 'Users',
     'dash_title' => 'Welcome to MVP Dashboard',
     'dash_desc' => 'Here you can manage your website with a click of a button!',
-
+    'filter_names' => 'Search Names',
+    'filter_status' => 'Filter Status'
 ];

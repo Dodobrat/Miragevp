@@ -72,6 +72,7 @@ class ProjectsController extends BaseAdministrationController
                 'data' => 'id',
                 'name' => 'id',
                 'title' => trans('administration::administrators.id'),
+                'orderable' => false,
             ])->addColumn([
                 'data' => 'title',
                 'name' => 'title',

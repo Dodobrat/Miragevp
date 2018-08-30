@@ -3,11 +3,14 @@
 namespace App\Modules\Users\Http\Controllers\Admin;
 
 use App\Modules\Users\Forms\UserForm;
+use App\Modules\Users\Forms\UsersFilterForm;
 use App\Modules\Users\Http\Requests\EditUserRequest;
 use App\Modules\Users\Http\Requests\StoreUserRequest;
 use App\User;
+use Carbon\Carbon;
 use Form;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Kris\LaravelFormBuilder\FormBuilder;
 use ProVision\Administration\Facades\Administration;
@@ -51,10 +54,24 @@ class UsersController extends BaseAdministrationController
                     } else {
                         return "Away";
                     }
+                })->filter(function ($query) use ($request){
+                    if ($request->has('filter_names') && !empty($request->get('filter_names'))) {
+                        $query->where(DB::raw('concat(first_name," ",last_name)'),'LIKE', '%'. $request->get('filter_names') .'%');
+                    }
+
+                    if ($request->has('online_status') && $request->get('online_status') == 'true') {
+                        $query->where('last_activity', '>', Carbon::now()->subMinutes(1));
+                    }
                 });
 
             return $datatables->make(true);
         }
+
+        $filterForm = $this->form(UsersFilterForm::class, [
+                'method' => 'POST',
+                'url' => Administration::route('users.index')
+            ]
+        );
 
         Administration::setTitle(trans('users::admin.module_name'));
 
@@ -68,26 +85,31 @@ class UsersController extends BaseAdministrationController
             ->addColumn([
                 'data' => 'id',
                 'name' => 'id',
-                'title' => trans('administration::administrators.id')
+                'title' => trans('administration::administrators.id'),
+                'orderable' => false,
             ])->addColumn([
                 'data' => 'online',
                 'name' => 'online',
-                'title' => trans('users::admin.status')
+                'title' => trans('users::admin.status'),
+                'orderable' => false,
             ])->addColumn([
                 'data' => 'full_name',
                 'name' => 'full_name',
-                'title' => trans('users::admin.full_name')
+                'title' => trans('users::admin.full_name'),
+                'orderable' => false,
             ])->addColumn([
                 'data' => 'email',
                 'name' => 'email',
-                'title' => trans('users::admin.email')
+                'title' => trans('users::admin.email'),
+                'orderable' => false,
             ])->addColumn([
                 'data' => 'created_at',
                 'name' => 'created_at',
-                'title' => trans('users::admin.date')
+                'title' => trans('users::admin.date'),
+                'orderable' => false,
             ]);
 
-        return view('administration::empty-listing', compact('table'));
+        return view('administration::empty-listing', compact('table','filterForm'));
 
     }
 

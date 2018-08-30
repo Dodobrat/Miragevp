@@ -54,23 +54,28 @@ class ContactsController extends BaseAdministrationController
             ->addColumn([
                 'data' => 'id',
                 'name' => 'id',
-                'title' => trans('administration::administrators.id')
+                'title' => trans('administration::administrators.id'),
+                'orderable' => false,
             ])->addColumn([
                 'data' => 'mobile',
                 'name' => 'mobile',
-                'title' => trans('contacts::contacts.mobile')
+                'title' => trans('contacts::contacts.mobile'),
+                'orderable' => false,
             ])->addColumn([
                 'data' => 'phone',
                 'name' => 'phone',
-                'title' => trans('contacts::contacts.phone')
+                'title' => trans('contacts::contacts.phone'),
+                'orderable' => false,
             ])->addColumn([
                 'data' => 'email',
                 'name' => 'email',
-                'title' => trans('contacts::contacts.email')
+                'title' => trans('contacts::contacts.email'),
+                'orderable' => false,
             ])->addColumn([
                 'data' => 'address',
                 'name' => 'address',
-                'title' => trans('contacts::contacts.address')
+                'title' => trans('contacts::contacts.address'),
+                'orderable' => false,
             ]);
 
         return view('administration::empty-listing', compact('table'));
