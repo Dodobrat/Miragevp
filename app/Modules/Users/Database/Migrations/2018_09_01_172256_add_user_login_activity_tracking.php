@@ -1,21 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddNamesToUsers extends Migration
+class AddUserLoginActivityTracking extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
+    public function up()
+    {
         Schema::table('users', function($table)
         {
-            $table->string('first_name')->nullable()->default(null);
-            $table->string('last_name')->nullable()->default(null);
+            $table->integer('login_counter')->unsigned()->default(0);
+            $table->string('last_activity')->nullable()->default(null);
         });
+
     }
 
     /**
@@ -27,8 +30,8 @@ class AddNamesToUsers extends Migration
     {
         Schema::table('users', function($table)
         {
-            $table->dropColumn('first_name');
-            $table->dropColumn('last_name');
+            $table->dropColumn('last_activity');
+            $table->dropColumn('login_counter');
         });
     }
 }

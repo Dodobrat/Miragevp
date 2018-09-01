@@ -4,6 +4,7 @@ return [
     'login_title' => 'LOGIN',
     'module_name' => 'Users',
     'status' => 'Status',
+    'login_counter' => 'Login Counts',
     'full_name' => 'Full Name',
     'user' => 'User',
     'email' => 'E-mail',
@@ -18,5 +19,5 @@ return [
     'dash_title' => 'Welcome to MVP Dashboard',
     'dash_desc' => 'Here you can manage your website with a click of a button!',
     'filter_names' => 'Search Names',
-    'filter_status' => 'Filter Status'
+    'filter_status' => 'Online'
 ];

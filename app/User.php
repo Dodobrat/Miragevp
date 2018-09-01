@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password',
+        'first_name', 'last_name', 'email', 'password'
     ];
 
     /**
@@ -31,8 +31,7 @@ class User extends Authenticatable
 
     public function isOnline()
     {
-        return ($this->last_activity > Carbon::now()->subMinutes(1)) ? true : false;
-
+        return ($this->last_activity > Carbon::now()->subMinutes(5)) ? true : false;
     }
 
     public function roles()

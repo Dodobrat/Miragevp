@@ -54,6 +54,8 @@ class UsersController extends BaseAdministrationController
                     } else {
                         return "Away";
                     }
+                })->addColumn('login_counter', function ($user) {
+                        return $user->login_counter;
                 })->filter(function ($query) use ($request){
                     if ($request->has('filter_names') && !empty($request->get('filter_names'))) {
                         $query->where(DB::raw('concat(first_name," ",last_name)'),'LIKE', '%'. $request->get('filter_names') .'%');
@@ -91,6 +93,11 @@ class UsersController extends BaseAdministrationController
                 'data' => 'online',
                 'name' => 'online',
                 'title' => trans('users::admin.status'),
+                'orderable' => false,
+            ])->addColumn([
+                'data' => 'login_counter',
+                'name' => 'login_counter',
+                'title' => trans('users::admin.login_counter'),
                 'orderable' => false,
             ])->addColumn([
                 'data' => 'full_name',
