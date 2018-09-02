@@ -20,7 +20,6 @@ class CreateApartmentsTable extends Migration
             $table->boolean('show_media')->default(true)->comment('Show media'); //show media
             $table->integer('project_id')->unsigned()->nullable();
             $table->integer('floor_id')->unsigned()->nullable();
-            $table->boolean('reserved')->default(false);
             $table->integer('user_id')->unsigned()->default(null)->nullable();
             NestedSet::columns($table);
             $table->timestamps();

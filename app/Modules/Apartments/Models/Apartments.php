@@ -44,8 +44,7 @@ class Apartments extends AdminModel
      * @var array
      */
     protected $casts = [
-        'show_media' => 'boolean',
-        'reserved' => 'boolean',
+        'show_media' => 'boolean'
     ];
 
     protected $with = ['translations'];
