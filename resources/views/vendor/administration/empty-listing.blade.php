@@ -24,7 +24,7 @@
                     'label' => '<i class="fa fa-search" aria-hidden="true"></i> ' . trans('administration::index.filter'),
                     'attr' => [
                         'type' => 'submit',
-                        'class' => 'btn btn-sm btn-primary'
+                        'class' => 'btn btn-sm btn-primary search-button'
                     ]
                 ]);
                 ?>
@@ -37,18 +37,19 @@
         {{--<div class="box-header with-border">--}}
         {{--<h3 class="box-title">{{trans('administration::index.administrators')}}</h3>--}}
         {{--</div>--}}
-        <div class="box-body no-padding">
+        <div class="box-body no-padding table-responsive">
 
-            <?php
-            $table->addAction([
-                'title' => trans('administration::index.actions')
-            ]);
-            $table->setTableAttributes([
-                'class' => 'table table-hover'
-            ]);
-            ?>
+                <?php
+                $table->addAction([
+                    'title' => trans('administration::index.actions')
+                ]);
+                $table->setTableAttributes([
+                    'class' => 'table table-hover table-bordered table-condensed table-striped'
+                ]);
+                ?>
 
-            {!! $table->table() !!}
+                {!! $table->table() !!}
+
 
         </div>
     </div>
@@ -64,7 +65,7 @@
                 //"stateSave": true,
                 "lengthChange": true,
                 "lengthMenu": [10, 25, 50, 100, 200, 500, 1000],
-                "responsive": true,
+                "responsive": false,
                 "processing": true,
                 "ordering": true,
                 "info": true,

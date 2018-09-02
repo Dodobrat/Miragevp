@@ -3,11 +3,13 @@
 namespace App\Modules\Apartments\Http\Controllers\Admin;
 
 use App\Modules\Apartments\Forms\ApartmentForm;
+use App\Modules\Apartments\Forms\ApartmentsFilterForm;
 use App\Modules\Apartments\Http\Requests\StoreApartmentsRequest;
 use App\Modules\Apartments\Models\Apartments;
 use Form;
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Kris\LaravelFormBuilder\FormBuilder;
 use ProVision\Administration\Administration;
@@ -62,9 +64,25 @@ class ApartmentsController extends BaseAdministrationController
                     return '';
                 })->addColumn('reserved', function ($apartment) {
                     return Form::adminSwitchButton('reserved', $apartment);
+                })->filter(function ($query) use ($request){
+                    if ($request->has('filter_apartments') && !empty($request->get('filter_apartments'))){
+                        $query->whereTranslationLike('title','%' . $request->get('filter_apartments') . '%');
+                    }
+
+                    if ($request->has('reservation_status') && $request->get('reservation_status') == 'true'){
+                        $query->where('reserved', '>', '0');
+                    }
+
                 });
+
             return $datatables->make(true);
         }
+
+        $filterForm = $this->form(ApartmentsFilterForm::class, [
+                'method' => 'POST',
+                'url' => Administration::route('apartments.index')
+            ]
+        );
 
         Administration::setTitle(trans('apartments::admin.module_name'));
         Breadcrumbs::register('admin_final', function ($breadcrumbs) {
@@ -108,7 +126,7 @@ class ApartmentsController extends BaseAdministrationController
                 'title' => trans('apartments::admin.date'),
                 'orderable' => false,
             ]);
-        return view('administration::empty-listing', compact('table'));
+        return view('administration::empty-listing', compact('table','filterForm'));
     }
     /**
      * Show the form for creating a new resource.

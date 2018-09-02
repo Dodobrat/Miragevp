@@ -3,11 +3,13 @@
 namespace App\Modules\Floors\Http\Controllers\Admin;
 
 use App\Modules\Floors\Forms\FloorForm;
+use App\Modules\Floors\Forms\FloorsFilterForm;
 use App\Modules\Floors\Http\Requests\StoreFloorsRequest;
 use App\Modules\Floors\Models\Floors;
 use Form;
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Kris\LaravelFormBuilder\FormBuilder;
 use ProVision\Administration\Administration;
@@ -58,9 +60,19 @@ class FloorsController extends BaseAdministrationController
                         return $floor->project->title;
                     }
                     return '';
+                })->filter(function ($query) use ($request){
+                    if ($request->has('filter_floors') && !empty($request->get('filter_floors'))) {
+                        $query->whereTranslationLike('title', '%' . $request->get('filter_floors') . '%');
+                    }
                 });
             return $datatables->make(true);
         }
+
+        $filterForm = $this->form(FloorsFilterForm::class, [
+                'method' => 'POST',
+                'url' => Administration::route('floors.index')
+            ]
+        );
 
         Administration::setTitle(trans('floors::admin.module_name'));
         Breadcrumbs::register('admin_final', function ($breadcrumbs) {
@@ -99,7 +111,7 @@ class FloorsController extends BaseAdministrationController
                 'title' => trans('floors::admin.date'),
                 'orderable' => false,
             ]);
-        return view('administration::empty-listing', compact('table'));
+        return view('administration::empty-listing', compact('table','filterForm'));
     }
 
     /**

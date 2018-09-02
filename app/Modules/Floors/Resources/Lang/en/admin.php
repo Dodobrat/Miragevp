@@ -2,6 +2,7 @@
 
 return [
     'module_name' => 'Floors',
+    'filter_floors' => 'Search Floors',
     'visible' => 'Visible',
     'date' => 'Date',
     'create' => 'Create',

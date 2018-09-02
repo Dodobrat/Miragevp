@@ -2,6 +2,8 @@
 
 return [
     'module_name' => 'Apartments',
+    'filter_apartments' => 'Search Apartments',
+    'reservation_status' => 'Reserved',
     'visible' => 'Visible',
     'date' => 'Date',
     'create' => 'Create',

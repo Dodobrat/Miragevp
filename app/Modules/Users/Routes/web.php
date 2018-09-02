@@ -19,22 +19,7 @@ Route::group(['prefix' => 'users'], function () {
 
 if (\Administration::routeInAdministration()) {
     //administration menu code
-
-
     if (\Administration::isDashboard()) {
-        //insert box code here
-//        $box = new \ProVision\Administration\Dashboard\HtmlBox();
-//        $box->setBoxClass('col-md-12'); //set boostrap column class
-//        $box->setHtml('<div class="bg-info">
-//                                <br>
-//                                <h1 class="display-1 text-center">'.trans('users::admin.dash_title').'</h1>
-//                                <p class="lead text-center">'.trans('users::admin.dash_desc').'</p>
-//                                <br>
-//                            </div>
-//                            <br>');
-//        \Dashboard::add($box);
-
-
         $box = new \ProVision\Administration\Dashboard\LinkBox();
         $box->setBoxClass('col-lg-3 col-md-4 col-sm-6 col-xs-12'); //set boostrap column class
         $box->setTitle(trans('users::admin.dash_users_linkbox_title'));
