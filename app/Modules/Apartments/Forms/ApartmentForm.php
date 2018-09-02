@@ -4,6 +4,7 @@ namespace App\Modules\Apartments\Forms;
 
 use App\Modules\Floors\Models\Floors;
 use App\Modules\Projects\Models\Projects;
+use App\User;
 use ProVision\Administration\Forms\AdminForm;
 
 class ApartmentForm extends AdminForm
@@ -38,16 +39,24 @@ class ApartmentForm extends AdminForm
             'selected' => @$this->model->floor_id,
         ]);
 
+        $users_raw = User::whereDoesntHave('roles')->get();
+        $users = array();
+
+        foreach ($users_raw as $user) {
+            $users[$user->id] = $user->getFullName();
+        }
+
+        $this->add('user_id', 'select', [
+            'label' => trans('apartments::admin.user_select'),
+            'choices' => $users,
+            'selected' => @$this->model->user_id,
+            'empty_value' => ' ',
+        ]);
+
         $this->add('show_media', 'checkbox', [
             'label' => trans('apartments::admin.show_media'),
             'value' => 1,
             'checked' => @$this->model->show_media,
-        ]);
-
-        $this->add('reserved', 'checkbox', [
-            'label' => trans('apartments::admin.reserved'),
-            'value' => 1,
-            'checked' => @$this->model->reserved,
         ]);
 
         $this->add('footer', 'admin_footer');

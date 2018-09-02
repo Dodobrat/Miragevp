@@ -56,6 +56,8 @@ class UsersController extends BaseAdministrationController
                     }
                 })->addColumn('login_counter', function ($user) {
                         return $user->login_counter;
+                })->addColumn('last_sign_in_at', function ($user) {
+                    return $user->last_sign_in_at;
                 })->filter(function ($query) use ($request){
                     if ($request->has('filter_names') && !empty($request->get('filter_names'))) {
                         $query->where(DB::raw('concat(first_name," ",last_name)'),'LIKE', '%'. $request->get('filter_names') .'%');
@@ -108,6 +110,11 @@ class UsersController extends BaseAdministrationController
                 'data' => 'email',
                 'name' => 'email',
                 'title' => trans('users::admin.email'),
+                'orderable' => false,
+            ])->addColumn([
+                'data' => 'last_sign_in_at',
+                'name' => 'last_sign_in_at',
+                'title' => trans('users::admin.last_sign_in_at'),
                 'orderable' => false,
             ])->addColumn([
                 'data' => 'created_at',

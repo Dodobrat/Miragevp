@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use Carbon\Carbon;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -28,6 +29,7 @@ class LogSuccessfulLogin
     {
         $user = $event->user;
         $user->login_counter += 1;
+        $user->last_sign_in_at = Carbon::now();
         $user->save();
     }
 }

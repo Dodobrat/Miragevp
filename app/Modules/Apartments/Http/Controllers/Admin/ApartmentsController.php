@@ -29,7 +29,7 @@ class ApartmentsController extends BaseAdministrationController
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $apartments = Apartments::with(['project','floor'])->reversed();
+            $apartments = Apartments::with(['project','floor','user'])->reversed();
             $datatables = Datatables::of($apartments)
                 ->addColumn('action', function ($apartments) {
                     $actions = '';
@@ -62,15 +62,18 @@ class ApartmentsController extends BaseAdministrationController
                         return $apartment->floor->title;
                     }
                     return '';
-                })->addColumn('reserved', function ($apartment) {
-                    return Form::adminSwitchButton('reserved', $apartment);
+                })->addColumn('user_id', function ($apartment) {
+                    if (!empty($apartment->user)) {
+                        return $apartment->user->getFullName();
+                    }
+                    return '';
                 })->filter(function ($query) use ($request){
                     if ($request->has('filter_apartments') && !empty($request->get('filter_apartments'))){
                         $query->whereTranslationLike('title','%' . $request->get('filter_apartments') . '%');
                     }
 
                     if ($request->has('reservation_status') && $request->get('reservation_status') == 'true'){
-                        $query->where('reserved', '>', '0');
+                        $query->whereHas('user');
                     }
 
                 });
@@ -116,9 +119,9 @@ class ApartmentsController extends BaseAdministrationController
                 'title' => trans('apartments::admin.show_media'),
                 'orderable' => false,
             ])->addColumn([
-                'title' => trans('apartments::admin.reserved'),
-                'data' => 'reserved',
-                'name' => 'reserved',
+                'title' => trans('apartments::admin.reserved_by'),
+                'data' => 'user_id',
+                'name' => 'user_id',
                 'orderable' => false,
             ])->addColumn([
                 'data' => 'created_at',

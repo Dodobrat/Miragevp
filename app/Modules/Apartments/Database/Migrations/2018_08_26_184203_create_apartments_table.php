@@ -21,10 +21,12 @@ class CreateApartmentsTable extends Migration
             $table->integer('project_id')->unsigned()->nullable();
             $table->integer('floor_id')->unsigned()->nullable();
             $table->boolean('reserved')->default(false);
+            $table->integer('user_id')->unsigned()->default(null)->nullable();
             NestedSet::columns($table);
             $table->timestamps();
             $table->foreign('floor_id')->references('id')->on('floors')->onDelete('cascade');
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
         Schema::create('apartments_translations', function (Blueprint $table) {

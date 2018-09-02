@@ -17,6 +17,7 @@ class AddUserLoginActivityTracking extends Migration
         {
             $table->integer('login_counter')->unsigned()->default(0);
             $table->string('last_activity')->nullable()->default(null);
+            $table->timestamp('last_sign_in_at')->nullable();
         });
 
     }
@@ -32,6 +33,7 @@ class AddUserLoginActivityTracking extends Migration
         {
             $table->dropColumn('last_activity');
             $table->dropColumn('login_counter');
+            $table->dropColumn('last_sign_in_at');
         });
     }
 }

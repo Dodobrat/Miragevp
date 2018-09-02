@@ -4,6 +4,7 @@ namespace App\Modules\Apartments\Models;
 
 use App\Modules\Floors\Models\Floors;
 use App\Modules\Projects\Models\Projects;
+use App\User;
 use Dimsav\Translatable\Translatable;
 use Kalnoy\Nestedset\NodeTrait;
 use ProVision\Administration\AdminModel;
@@ -35,7 +36,7 @@ class Apartments extends AdminModel
         'show_media',
         'project_id',
         'floor_id',
-        'reserved'
+        'user_id'
     ];
     /**
      * The attributes that should be casted to native types.
@@ -56,6 +57,11 @@ class Apartments extends AdminModel
     public function floor() {
         return $this->hasOne(Floors::class, 'id', 'floor_id');
     }
+
+    public function user() {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
     /**
      * Scope a query to only include active users.
      *
