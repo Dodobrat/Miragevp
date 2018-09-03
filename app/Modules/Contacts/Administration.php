@@ -4,6 +4,7 @@ namespace App\Modules\Contacts;
 
 use App\Modules\Apartments\Models\Apartments;
 use App\Modules\Blog\Models\Blog;
+use App\Modules\Blog\Models\BlogTranslation;
 use App\Modules\Contacts\Http\Controllers\Admin\ContactsController;
 use App\Modules\Contacts\Models\Contacts;
 use App\Modules\Floors\Models\Floors;
@@ -15,9 +16,6 @@ use ProVision\Administration\Contracts\Module;
 class Administration implements Module
 {
 
-    public function route() {
-
-    }
 
     /**
      * Init Dashboard boxes.
@@ -123,62 +121,67 @@ var App = {	init: function() {this.datetime(), setInterval("App.datetime();", 1e
         \Dashboard::add($box);
 
 
-                $box = new \ProVision\Administration\Dashboard\LinkBox();
-                $box->setBoxClass('col-lg-3 col-md-4 col-sm-6 col-xs-12'); //set boostrap column class
-                $box->setTitle(trans('users::admin.dash_users_linkbox_title'));
-                $box->setValue(User::whereDoesntHave('roles')->count());
-                $box->setBoxBackgroundClass('bg-aqua');
-                $box->setIconClass('fa-users');
-                $box->setLink(trans('users::admin.dash_users_linkbox'), Administration::route('users.index'));
-                \Dashboard::add($box);
+        $box = new \ProVision\Administration\Dashboard\LinkBox();
+        $box->setBoxClass('col-lg-3 col-md-6 col-sm-6 col-xs-12'); //set boostrap column class
+        $box->setTitle(trans('users::admin.dash_users_linkbox_title'));
+        $box->setValue(User::whereDoesntHave('roles')->count());
+        $box->setBoxBackgroundClass('bg-aqua');
+        $box->setIconClass('fa-users');
+        $box->setLink(trans('users::admin.dash_users_linkbox'), \Administration::route('users.index'));
+        \Dashboard::add($box);
 
 
+        $box = new \ProVision\Administration\Dashboard\LinkBox();
+        $box->setBoxClass('col-lg-3 col-md-6 col-sm-6 col-xs-12'); //set boostrap column class
+        $box->setTitle(trans('projects::admin.dash_projects_linkbox_title'));
+        $box->setValue(Projects::count());
+        $box->setBoxBackgroundClass('bg-purple');
+        $box->setIconClass('fa-file-o');
+        $box->setLink(trans('projects::admin.dash_projects_linkbox'), \Administration::route('projects.index'));
+        \Dashboard::add($box);
 
-                $box = new \ProVision\Administration\Dashboard\LinkBox();
-                $box->setBoxClass('col-lg-3 col-md-4 col-sm-6 col-xs-12'); //set boostrap column class
-                $box->setTitle(trans('projects::admin.dash_projects_linkbox_title'));
-                $box->setValue(Projects::count());
-                $box->setBoxBackgroundClass('bg-purple');
-                $box->setIconClass('fa-file-o');
-                $box->setLink(trans('projects::admin.dash_projects_linkbox'), Administration::route('projects.index'));
-                \Dashboard::add($box);
 
+        $box = new \ProVision\Administration\Dashboard\LinkBox();
+        $box->setBoxClass('col-lg-3 col-md-6 col-sm-6 col-xs-12'); //set boostrap column class
+        $box->setTitle(trans('floors::admin.dash_floors_linkbox_title'));
+        $box->setValue(Floors::count());
+        $box->setBoxBackgroundClass('bg-orange');
+        $box->setIconClass('fa fa-building');
+        $box->setLink(trans('floors::admin.dash_floors_linkbox'), \Administration::route('floors.index'));
+        \Dashboard::add($box);
 
-                $box = new \ProVision\Administration\Dashboard\LinkBox();
-                $box->setBoxClass('col-lg-3 col-md-4 col-sm-6 col-xs-12'); //set boostrap column class
-                $box->setTitle(trans('floors::admin.dash_floors_linkbox_title'));
-                $box->setValue(Floors::count());
-                $box->setBoxBackgroundClass('bg-orange');
-                $box->setIconClass('fa fa-building');
-                $box->setLink(trans('floors::admin.dash_floors_linkbox'), Administration::route('floors.index'));
-                \Dashboard::add($box);
+        $box = new \ProVision\Administration\Dashboard\LinkBox();
+        $box->setBoxClass('col-lg-3 col-md-6 col-sm-6 col-xs-12'); //set boostrap column class
+        $box->setTitle(trans('apartments::admin.dash_apartments_linkbox_title'));
+        $box->setValue(Apartments::count());
+        $box->setBoxBackgroundClass('bg-green');
+        $box->setIconClass('fa fa-building-o');
+        $box->setLink(trans('apartments::admin.dash_apartments_linkbox'), \Administration::route('apartments.index'));
+        \Dashboard::add($box);
 
-                $box = new \ProVision\Administration\Dashboard\LinkBox();
-                $box->setBoxClass('col-lg-3 col-md-4 col-sm-6 col-xs-12'); //set boostrap column class
-                $box->setTitle(trans('apartments::admin.dash_apartments_linkbox_title'));
-                $box->setValue(Apartments::count());
-                $box->setBoxBackgroundClass('bg-green');
-                $box->setIconClass('fa fa-building-o');
-                $box->setLink(trans('apartments::admin.dash_apartments_linkbox'), Administration::route('apartments.index'));
-                \Dashboard::add($box);
+        $box = new \ProVision\Administration\Dashboard\RecentListBox();
+        $box->setTitle(trans('blog::admin.dash_blog_linkbox_title'));
+        $box->setBoxClass('col-lg-6 col-md-6 col-sm-6 col-xs-12'); //set boostrap column class
+        $box->setIconBoxBackgroundClass('bg-white');
+        $articles = Blog::take(5)->orderBy('id','desc')->get();
 
-                $box = new \ProVision\Administration\Dashboard\LinkBox();
-                $box->setBoxClass('col-lg-3 col-md-4 col-sm-6 col-xs-12'); //set boostrap column class
-                $box->setTitle(trans('blog::admin.dash_blog_linkbox_title'));
-                $box->setValue(Blog::count());
-                $box->setBoxBackgroundClass('bg-yellow');
-                $box->setIconClass('fa-newspaper-o');
-                $box->setLink(trans('blog::admin.dash_blog_linkbox'), Administration::route('blog.index'));
-                \Dashboard::add($box);
+        foreach ($articles as $article) {
+            $box->addItem($article->title, \Administration::route('blog.edit', $article->id), substr(strip_tags($article->description), 0, 100), $article->updated_at);
+        }
+        $box->setFooterButton(trans('blog::admin.dash_blog_linkbox'), \Administration::route('blog.index'));
+        \Dashboard::add($box);
 
-                $box = new \ProVision\Administration\Dashboard\LinkBox();
-                $box->setBoxClass('col-lg-3 col-md-4 col-sm-6 col-xs-12'); //set boostrap column class
-                $box->setTitle(trans('contacts::contacts.dash_contacts_linkbox_title'));
-                $box->setValue(Contacts::count());
-                $box->setBoxBackgroundClass('bg-primary');
-                $box->setIconClass('fa-envelope');
-                $box->setLink(trans('contacts::contacts.dash_contacts_linkbox'), Administration::route('contacts.index'));
-                \Dashboard::add($box);
+        $box = new \ProVision\Administration\Dashboard\RecentListBox();
+        $box->setTitle(trans('contacts::contacts.dash_contacts_linkbox_title'));
+        $box->setBoxClass('col-lg-6 col-md-6 col-sm-6 col-xs-12'); //set boostrap column class
+        $box->setIconBoxBackgroundClass('bg-white');
+        $contacts = Contacts::take(5)->orderBy('id','desc')->get();
+
+        foreach ($contacts as $contact) {
+            $box->addItem($contact->email, \Administration::route('contacts.edit', $contact->id), substr(strip_tags($contact->mobile), 0, 20), $contact->updated_at);
+        }
+        $box->setFooterButton(trans('contacts::contacts.dash_contacts_linkbox'), \Administration::route('blog.index'));
+        \Dashboard::add($box);
 
     }
 
@@ -205,12 +208,12 @@ var App = {	init: function() {this.datetime(), setInterval("App.datetime();", 1e
             'icon' => 'envelope'
         ], function ($menu) {
             $menu->addItem('View all', [
-                'url'=> \Administration::route('contacts.index'),
+                'url' => \Administration::route('contacts.index'),
                 'icon' => 'list'
             ]);
 
             $menu->addItem('Add', [
-                'url'=> \Administration::route('contacts.create'),
+                'url' => \Administration::route('contacts.create'),
                 'icon' => 'plus'
             ]);
         });

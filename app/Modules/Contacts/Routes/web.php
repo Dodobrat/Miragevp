@@ -17,6 +17,4 @@ Route::group(['prefix' => 'contacts'], function () {
         dd('This is the Contacts module index page. Build something great!');
     });
 });
-//ei sa idvam
 
-//em shoto ddz mislq che sam si gi pochnesh se taq ostavqm go
