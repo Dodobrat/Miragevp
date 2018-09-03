@@ -11,26 +11,12 @@
 |
 */
 
+
 Route::group(['prefix' => 'contacts'], function () {
     Route::get('/', function () {
         dd('This is the Contacts module index page. Build something great!');
     });
 });
+//ei sa idvam
 
-
-if (\Administration::routeInAdministration()) {
-    //administration menu code
-
-
-    if (\Administration::isDashboard()) {
-
-        $box = new \ProVision\Administration\Dashboard\LinkBox();
-        $box->setBoxClass('col-lg-3 col-md-4 col-sm-6 col-xs-12'); //set boostrap column class
-        $box->setTitle(trans('contacts::contacts.dash_contacts_linkbox_title'));
-        $box->setValue(App\Modules\Contacts\Models\Contacts::count());
-        $box->setBoxBackgroundClass('bg-purple');
-        $box->setIconClass('fa-envelope');
-        $box->setLink(trans('contacts::contacts.dash_contacts_linkbox'), Administration::route('contacts.index'));
-        \Dashboard::add($box);
-    }
-}
+//em shoto ddz mislq che sam si gi pochnesh se taq ostavqm go

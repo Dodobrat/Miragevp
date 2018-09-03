@@ -17,19 +17,4 @@ Route::group(['prefix' => 'floors'], function () {
     });
 });
 
-if (\Administration::routeInAdministration()) {
-    //administration menu code
 
-
-    if (\Administration::isDashboard()) {
-
-        $box = new \ProVision\Administration\Dashboard\LinkBox();
-        $box->setBoxClass('col-lg-3 col-md-4 col-sm-6 col-xs-12'); //set boostrap column class
-        $box->setTitle(trans('floors::admin.dash_floors_linkbox_title'));
-        $box->setValue(App\Modules\Floors\Models\Floors::count());
-        $box->setBoxBackgroundClass('bg-green');
-        $box->setIconClass('fa fa-building');
-        $box->setLink(trans('floors::admin.dash_floors_linkbox'), Administration::route('floors.index'));
-        \Dashboard::add($box);
-    }
-}

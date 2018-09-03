@@ -17,19 +17,4 @@ Route::group(['prefix' => 'projects'], function () {
     });
 });
 
-if (\Administration::routeInAdministration()) {
-    //administration menu code
 
-
-    if (\Administration::isDashboard()) {
-
-        $box = new \ProVision\Administration\Dashboard\LinkBox();
-        $box->setBoxClass('col-lg-3 col-md-4 col-sm-6 col-xs-12'); //set boostrap column class
-        $box->setTitle(trans('projects::admin.dash_projects_linkbox_title'));
-        $box->setValue(App\Modules\Projects\Models\Projects::count());
-        $box->setBoxBackgroundClass('bg-blue');
-        $box->setIconClass('fa-file-o');
-        $box->setLink(trans('projects::admin.dash_projects_linkbox'), Administration::route('projects.index'));
-        \Dashboard::add($box);
-    }
-}

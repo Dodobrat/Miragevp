@@ -17,18 +17,6 @@ Route::group(['prefix' => 'users'], function () {
     });
 });
 
-if (\Administration::routeInAdministration()) {
-    //administration menu code
-    if (\Administration::isDashboard()) {
-        $box = new \ProVision\Administration\Dashboard\LinkBox();
-        $box->setBoxClass('col-lg-3 col-md-4 col-sm-6 col-xs-12'); //set boostrap column class
-        $box->setTitle(trans('users::admin.dash_users_linkbox_title'));
-        $box->setValue(\App\User::whereDoesntHave('roles')->count());
-        $box->setBoxBackgroundClass('bg-aqua');
-        $box->setIconClass('fa-users');
-        $box->setLink(trans('users::admin.dash_users_linkbox'), Administration::route('users.index'));
-        \Dashboard::add($box);
-    }
-}
+
 
 

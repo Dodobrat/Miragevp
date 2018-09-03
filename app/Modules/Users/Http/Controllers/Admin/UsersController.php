@@ -34,8 +34,8 @@ class UsersController extends BaseAdministrationController
             $users = User::whereDoesntHave('roles');
             $datatables = Datatables::of($users)
                 ->addColumn('full_name', function ($user) {
-                    $name = $user->first_name . ' ' . $user->last_name;
-                    if (empty($user->first_name) && empty($user->last_name)) {
+                    $name = $user->getFullName();
+                    if (empty($user->getFullName())) {
                         $name = trans('users::admin.user');
                     }
                     return $name;
