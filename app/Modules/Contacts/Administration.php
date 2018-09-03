@@ -166,7 +166,7 @@ var App = {	init: function() {this.datetime(), setInterval("App.datetime();", 1e
         $articles = Blog::take(5)->orderBy('id','desc')->get();
 
         foreach ($articles as $article) {
-            $box->addItem($article->title, \Administration::route('blog.edit', $article->id), substr(strip_tags($article->description), 0, 100), $article->updated_at);
+            $box->addItem($article->title . ' | '. $article->category->title, \Administration::route('blog.edit', $article->id), substr(strip_tags($article->description), 0, 100), $article->updated_at);
         }
         $box->setFooterButton(trans('blog::admin.dash_blog_linkbox'), \Administration::route('blog.index'));
         \Dashboard::add($box);
