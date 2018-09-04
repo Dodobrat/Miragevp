@@ -6,5 +6,6 @@
  */
 
 window.Popper = require('popper.js').default;
-require('bootstrap/dist/js/bootstrap');
+require('bootstrap/dist/js/bootstrap.js');
+var $ =require('jquery');
 

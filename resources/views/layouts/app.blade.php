@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'MirageVP') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+    <link href="{{ mix('/assets/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -73,6 +73,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ mix('assets/js/app.js') }}"></script>
 </body>
 </html>
