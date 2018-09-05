@@ -33,6 +33,9 @@
                 <a class="btn btn-link" href="{{ route('password.request') }}">
                     Forgot Your Password?
                 </a>
+                <button class="btn btn-default">
+                    <a href="{{url('auth/facebook')}}">Facebook</a>
+                </button>
             </form>
         </div>
     </div>
