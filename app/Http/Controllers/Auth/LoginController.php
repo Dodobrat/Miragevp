@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -57,7 +59,10 @@ class LoginController extends Controller
     {
         $user = Socialite::driver('facebook')->user();
 
+        $socialUser = User::firstOrCreate(['first_name' => $user->getName(),'last_name' => ' -> FB', 'email' => $user->getEmail()]);
         // $user->token;
-        dd($user);
+        $socialUser->save();
+        Auth::login($socialUser, true);
+        return redirect('home');
     }
 }
