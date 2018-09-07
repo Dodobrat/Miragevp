@@ -10471,3 +10471,69 @@ a.text-dark:focus {
   }
 }
 
+.login-separator-border {
+  padding-top: 10px;
+  text-align: center;
+  border-bottom: 1px solid #999;
+  line-height: 0.1em;
+  margin: 20px 32px 30px !important;
+  color: #424242;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.login-separator {
+  background: #fff;
+  padding: 0 10px;
+}
+
+.social-media-login-button {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  height: 60px;
+  margin: 0 32px 10px;
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 3px;
+  opacity: 0.85;
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  color: white;
+}
+
+.social-media-login-button:hover {
+  opacity: 1;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+.social-media-login-button svg {
+  padding-right: 18px;
+}
+
+.social-media-login-button .contents {
+  margin-bottom: 2px;
+}
+
+.social-media-login-button .contents > * {
+  display: block;
+  line-height: 1;
+  color: inherit;
+}
+
+.social-media-login-button .contents .title {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.login-social-button:hover {
+  text-decoration: none;
+}
+
