@@ -36,6 +36,9 @@
                 <button class="btn btn-default">
                     <a href="{{url('auth/facebook')}}">Facebook</a>
                 </button>
+                <button class="btn btn-default">
+                    <a href="{{url('auth/google')}}">Google</a>
+                </button>
             </form>
         </div>
     </div>

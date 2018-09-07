@@ -43,23 +43,25 @@ class LoginController extends Controller
     /**
      * Redirect the user to the GitHub authentication page.
      *
+     * @param $service
      * @return \Illuminate\Http\Response
      */
-    public function redirectToProvider()
+    public function redirectToProvider($service)
     {
-        return Socialite::driver('facebook')->redirect();
+        return Socialite::driver($service)->redirect();
     }
 
     /**
      * Obtain the user information from GitHub.
      *
+     * @param $service
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback($service)
     {
-        $user = Socialite::driver('facebook')->user();
+        $user = Socialite::driver($service)->user();
 
-        $socialUser = User::firstOrCreate(['first_name' => $user->getName(),'last_name' => ' -> FB', 'email' => $user->getEmail()]);
+        $socialUser = User::firstOrCreate(['first_name' => $user->getName(),'last_name' => ' : '.$service, 'email' => $user->getEmail()]);
         // $user->token;
         $socialUser->save();
         Auth::login($socialUser, true);

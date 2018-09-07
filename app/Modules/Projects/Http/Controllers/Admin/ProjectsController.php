@@ -51,7 +51,7 @@ class ProjectsController extends BaseAdministrationController
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('projects.edit', $projects->id)).$actions;
                 })
                 ->editColumn('description', function ($project) {
-                    return strip_tags(substr($project->description,0,20));
+                    return strip_tags(substr($project->description,0,30));
                 })
                 ->addColumn('visible', function ($projects) {
                     return Form::adminSwitchButton('visible', $projects);
