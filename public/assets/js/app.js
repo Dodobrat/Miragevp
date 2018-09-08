@@ -18520,6 +18520,7 @@ __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
 var $ = __webpack_require__("./node_modules/jquery/dist/jquery.js");
 __webpack_require__("./node_modules/particles.js/particles.js");
 
+// Preloader
 // Function declarations
 function preloader() {
     var overlay = document.getElementById("overlay");
@@ -18534,6 +18535,7 @@ function preloader() {
 // callbacks
 preloader();
 
+// Moving Placeholder Up in Input fields
 $('input').focus(function () {
     $(this).parents('.form-group').addClass('focused');
 });

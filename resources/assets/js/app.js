@@ -10,6 +10,7 @@ require('bootstrap/dist/js/bootstrap.js');
 var $ =require('jquery');
 require('particles.js');
 
+// Preloader
 // Function declarations
 function preloader(){
     let overlay = document.getElementById("overlay");
@@ -25,6 +26,7 @@ function preloader(){
 // callbacks
 preloader();
 
+// Moving Placeholder Up in Input fields
 $('input').focus(function(){
     $(this).parents('.form-group').addClass('focused');
 });
