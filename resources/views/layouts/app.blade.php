@@ -14,8 +14,22 @@
     <link href="{{ mix('/assets/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+<div id="overlay">
+    <!-- <div class="spinner"></div> -->
+
+    <div class="bounce">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+
+    <!--<div class="preload-text">-->
+    <!--<p>Mirage Visualisation</p>-->
+    <!--</div>-->
+
+</div>
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -35,7 +49,7 @@
                     @guest
                         <ul class="navbar-nav">
                             <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
+                            {{--<li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>--}}
                         </ul>
                     @else
                         <ul class="navbar-nav">

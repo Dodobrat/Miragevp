@@ -5,7 +5,36 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-window.Popper = require('popper.js').default;
+window.Popper = require('popper.js');
 require('bootstrap/dist/js/bootstrap.js');
 var $ =require('jquery');
+require('particles.js');
 
+// Function declarations
+function preloader(){
+    let overlay = document.getElementById("overlay");
+    window.addEventListener('load', function(){
+        setTimeout(() => {
+            overlay.style.transition = '0.5s opacity linear';
+            overlay.style.opacity = '0';
+            overlay.style.zIndex = '0';
+        }, 1);
+
+    })
+}
+// callbacks
+preloader();
+
+$('input').focus(function(){
+    $(this).parents('.form-group').addClass('focused');
+});
+
+$('input').blur(function(){
+    var inputValue = $(this).val();
+    if ( inputValue == "" ) {
+        $(this).removeClass('filled');
+        $(this).parents('.form-group').removeClass('focused');
+    } else {
+        $(this).addClass('filled');
+    }
+})
