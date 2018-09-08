@@ -7,7 +7,6 @@
 //Main CSS
 
 //Preloader
-
 /*.preload-text{*/
 /*position: absolute;*/
 /*top: 55%;*/
@@ -25,7 +24,6 @@
 /*font-weight: 100;*/
 /*text-shadow: 0px 0px 1px rgba(0,122,255,.5);*/
 /*}*/
-
 .bounce {
   content: "";
   box-sizing: border-box;
@@ -36,7 +34,6 @@
   /*margin-top: -50px;*/
   margin-left: -50px;
 }
-
 .bounce>div {
   width: 15px;
   height: 15px;
@@ -46,15 +43,12 @@
   display: inline-block;
   animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }
-
 .bounce .bounce1 {
   animation-delay: -0.32s;
 }
-
 .bounce .bounce2 {
   animation-delay: -0.16s;
 }
-
 @keyframes sk-bouncedelay {
   0%,
   80%,
@@ -65,8 +59,6 @@
     transform: scale(1.0);
   }
 }
-
-
 #overlay {
   height: 100%;
   width: 100%;
@@ -76,12 +68,10 @@
   top: 0;
   z-index: 9999;
 }
-
 //General Styles
 body{
   background-color: #eeeeee;
 }
-
 //Login, Register Page
 .form-wrapper{
   padding: 30px 0;
