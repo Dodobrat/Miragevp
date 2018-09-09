@@ -18523,17 +18523,31 @@ __webpack_require__("./node_modules/particles.js/particles.js");
 // Preloader
 // Function declarations
 function preloader() {
+    var navbar = document.querySelector('.navbar');
     var overlay = document.getElementById("overlay");
     window.addEventListener('load', function () {
         setTimeout(function () {
             overlay.style.transition = '0.5s opacity linear';
             overlay.style.opacity = '0';
             overlay.style.zIndex = '0';
+            navbar.style.opacity = '1';
         }, 1);
     });
 }
+
 // callbacks
 preloader();
+
+// Shrinking Navigation on Scroll
+$(function () {
+    $(window).scroll(function () {
+        if ($(window).scrollTop() >= 100) {
+            $('nav').addClass('scrolled');
+        } else {
+            $('nav').removeClass('scrolled');
+        }
+    });
+});
 
 // Moving Placeholder Up in Input fields
 $('input').focus(function () {
@@ -18549,6 +18563,49 @@ $('input').blur(function () {
         $(this).addClass('filled');
     }
 });
+
+// Form Dynamic Validation
+var firstName = document.querySelector("#first_name");
+var lastName = document.querySelector("#last_name");
+var inputEmail = document.querySelector("#email");
+if (firstName != null && lastName != null && inputEmail != null) {
+    var validateFirstName = function validateFirstName() {
+        var name = document.querySelector("#first_name");
+        var re = /^[a-zA-Zа-яА-Я\ \-]{2,20}$/;
+
+        if (!re.test(name.value)) {
+            name.style.borderBottom = "3px solid rgb(150,50,50)";
+        } else {
+            name.style.borderBottom = "3px solid rgb(50,150,50)";
+        }
+    };
+
+    var validateLastName = function validateLastName() {
+        var name = document.querySelector("#last_name");
+        var re = /^[a-zA-Zа-яА-Я\ \-]{2,20}$/;
+
+        if (!re.test(name.value)) {
+            name.style.borderBottom = "3px solid rgb(150,50,50)";
+        } else {
+            name.style.borderBottom = "3px solid rgb(50,150,50)";
+        }
+    };
+
+    var validateEmail = function validateEmail() {
+        var email = document.querySelector("#email");
+        var re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+
+        if (!re.test(email.value)) {
+            email.style.borderBottom = "3px solid rgb(150,50,50)";
+        } else {
+            email.style.borderBottom = "3px solid rgb(50,150,50)";
+        }
+    };
+
+    firstName.addEventListener('keyup', validateFirstName);
+    lastName.addEventListener('keyup', validateLastName);
+    inputEmail.addEventListener('keyup', validateEmail);
+} else {}
 
 /***/ }),
 
