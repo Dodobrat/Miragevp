@@ -13,7 +13,7 @@ require('particles.js');
 // Preloader
 // Function declarations
 function preloader(){
-    let navbar = document.querySelector('.navbar');
+    let navbar = document.querySelector('nav');
     let overlay = document.getElementById("overlay");
     window.addEventListener('load', function(){
         setTimeout(() => {
@@ -41,6 +41,14 @@ $(function(){
             $('nav').removeClass('scrolled');
         }
     });
+});
+
+// Navigation DropDown
+$('.dropdown').on('show.bs.dropdown', function(e){
+    $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
+});
+$('.dropdown').on('hide.bs.dropdown', function(e){
+    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
 });
 
 // Moving Placeholder Up in Input fields

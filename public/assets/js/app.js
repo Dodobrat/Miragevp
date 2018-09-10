@@ -18523,7 +18523,7 @@ __webpack_require__("./node_modules/particles.js/particles.js");
 // Preloader
 // Function declarations
 function preloader() {
-    var navbar = document.querySelector('.navbar');
+    var navbar = document.querySelector('nav');
     var overlay = document.getElementById("overlay");
     window.addEventListener('load', function () {
         setTimeout(function () {
@@ -18547,6 +18547,14 @@ $(function () {
             $('nav').removeClass('scrolled');
         }
     });
+});
+
+// Navigation DropDown
+$('.dropdown').on('show.bs.dropdown', function (e) {
+    $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
+});
+$('.dropdown').on('hide.bs.dropdown', function (e) {
+    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
 });
 
 // Moving Placeholder Up in Input fields

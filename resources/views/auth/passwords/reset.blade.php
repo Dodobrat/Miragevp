@@ -5,7 +5,7 @@
         <div class="row justify-content-md-center">
             <div class="col-lg-6 col-md-8 form-wrapper">
                 <div class="panel panel-default">
-                    <h1 class="text-center text-white pb-5">RESET PASSWORD</h1>
+                    <h1 class="text-center text-white pb-5">{{trans('front.reset-password')}}</h1>
 
 
                     @if (session('status'))
@@ -18,7 +18,7 @@
                         {{ csrf_field() }}
                         <input type="hidden" name="token" value="{{ $token }}">
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="form-label" for="email">Email</label>
+                            <label class="form-label" for="email">{{trans('front.email')}}</label>
                             <input autocomplete="reset-email" id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required>
                             @if ($errors->has('email'))
                                 <p class="error pl-2 pb-0">{{ $errors->first('email') }}</p>
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="form-label" for="password">Password</label>
+                            <label class="form-label" for="password">{{trans('front.password')}}</label>
                             <input autocomplete="reset-pass" id="password" type="password" class="form-control" name="password" required>
                             @if ($errors->has('password'))
                                 <p class="error pl-2 pb-0">{{ $errors->first('password') }}</p>
@@ -34,14 +34,14 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label class="form-label" for="password-confirm">Password</label>
+                            <label class="form-label" for="password-confirm">{{trans('front.password-confirm')}}</label>
                             <input autocomplete="reset-pass-conf" id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             @if ($errors->has('password_confirmation'))
                                 <p class="error pl-2 pb-0">{{ $errors->first('password_confirmation') }}</p>
                             @endif
                         </div>
 
-                        <button type="submit" class="btn submit-btn"><p>Reset Password</p></button>
+                        <button type="submit" class="btn submit-btn"><p>{{trans('front.reset-password')}}</p></button>
                     </form>
 
                 </div>

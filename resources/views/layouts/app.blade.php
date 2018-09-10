@@ -29,59 +29,64 @@
 
 </div>
     <div id="app">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'MirageVP') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">SMTH</a>
-                        </li>
-                    </ul>
-                    <!-- Authentication Links -->
-                    @guest
-                        <ul class="navbar-nav">
-                            <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-                            {{--<li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>--}}
-                        </ul>
-                    @else
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        @if(isset( Auth::user()->first_name))
-                                            {{Auth::user()->first_name}}
-                                        @else
-                                            {{Auth::user()->name}}
-                                        @endif <span class="caret"></span>
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <a class="dropdown-item" href="{{ route('home') }}">Dashboard</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    @endguest
-                </div>
-            </div>
-        </nav>
+
+
+
+<nav>
+    <input type="checkbox" id="nav" class="hidden">
+    <label for="nav" class="nav-btn">
+        <i></i>
+        <i></i>
+        <i></i>
+    </label>
+    <div class="logo">
+        <a href="{{ url('/') }}">{{ config('app.name', 'MirageVP') }}</a>
+    </div>
+
+    <div class="nav-wrapper">
+        @auth
+            <ul class="left-nav">
+                <li><a href="#">{{trans('front.explore-nav')}}</a></li>
+                <li><a href="#">{{trans('front.blog')}}</a></li>
+            </ul>
+            <ul class="logged-in-user">
+                <li>
+                    <div class="dropdown">
+                        <a href="#" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @if(isset( Auth::user()->first_name))
+                                {{Auth::user()->first_name}}
+                            @else
+                                {{Auth::user()->name}}
+                            @endif
+                        </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+                        <a href="{{ route('home') }}">{{trans('front.dashboard')}}</a>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{trans('front.logout')}}</a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                            </form>
+                    </div>
+                    </div>
+                </li>
+            </ul>
+        @endauth
+        @guest
+            <ul>
+                <li>
+                    <a href="{{ route('login') }}">{{trans('front.login')}}</a>
+                </li>
+            </ul>
+        @endguest
+    </div>
+</nav>
+
+
+
+
+        <div style='height:100px;'></div>
 
         @yield('content')
     </div>

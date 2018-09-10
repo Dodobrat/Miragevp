@@ -10574,38 +10574,318 @@ body {
   background-color: #eeeeee;
 }
 
-.navbar {
+nav {
+  z-index: 9980;
   opacity: 0;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  background-color: #999999;
-  padding: 20px 0;
-  -webkit-transition: 0.35s all ease;
-  transition: 0.35s all ease;
-  z-index: 9000;
-}
-
-.scrolled {
-  padding: 5px 0;
-  background-color: #777777;
+  background-color: transparent;
+  padding: 18px 15px;
   -webkit-transition: 0.35s all ease;
   transition: 0.35s all ease;
 }
 
-.scrolled:hover {
+.logo {
+  float: left;
+  padding: 8px;
+  margin-left: 16px;
+  margin-top: 8px;
+}
+
+.logo a {
+  z-index: 9999;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+nav .left-nav {
+  float: left;
+}
+
+nav .logged-in-user {
+  float: right;
+}
+
+nav ul {
+  float: right;
+}
+
+nav ul li {
+  margin-top: -7px;
+  display: inline-block;
+  float: left;
+}
+
+nav ul li:not(:first-child) {
+  margin-left: 48px;
+}
+
+nav ul li:last-child {
+  margin-right: 24px;
+}
+
+nav ul li a {
+  display: inline-block;
+  outline: none;
+  color: #000;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  -webkit-transition: 0.1s color ease;
+  transition: 0.1s color ease;
+}
+
+nav ul li a:hover {
+  text-decoration: none;
+  color: #777777;
+  -webkit-transition: 0.1s color ease;
+  transition: 0.1s color ease;
+}
+
+.dropdown-menu {
+  min-width: 0;
+  padding: 0;
+  background-color: white;
+  border: none;
+  border-radius: 0;
+  padding: 10px 30px;
+  margin: 19px -6px 0 0;
+  text-align: right;
+  -webkit-transition: 0.35s padding ease;
+  transition: 0.35s padding ease;
+}
+
+.dropdown-menu a {
   padding: 10px 0;
 }
 
-.navbar a {
-  text-decoration: none;
-  color: #333333;
+@media screen and (max-width: 864px) {
+  .logo {
+    padding: 0;
+  }
+
+  .nav-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    z-index: -1;
+    background: #fff;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+  }
+
+  .nav-wrapper ul {
+    position: absolute;
+    top: 30%;
+    -webkit-transform: translateY(-30%);
+            transform: translateY(-30%);
+    width: 100%;
+  }
+
+  .nav-wrapper .logged-in-user {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width: 100%;
+  }
+
+  .nav-wrapper ul li {
+    display: block;
+    float: none;
+    width: 100%;
+    text-align: right;
+    margin-bottom: 0;
+  }
+
+  .nav-wrapper .logged-in-user li {
+    display: block;
+    float: right;
+    width: 70%;
+    text-align: right;
+    margin-bottom: 0;
+  }
+
+  .nav-wrapper .logged-in-user li #dropdownUser {
+    padding-right: 0;
+  }
+
+  .nav-wrapper .dropdown-menu a {
+    border-right: 1px solid  #333333;
+  }
+
+  .nav-wrapper .dropdown-menu {
+    margin-top: 0;
+  }
+
+  .nav-wrapper ul li:nth-child(1) a {
+    -webkit-transition-delay: 0.1s;
+            transition-delay: 0.1s;
+  }
+
+  .nav-wrapper ul li:nth-child(2) a {
+    -webkit-transition-delay: 0.1s;
+            transition-delay: 0.1s;
+  }
+
+  .nav-wrapper ul li:nth-child(3) a {
+    -webkit-transition-delay: 0.1s;
+            transition-delay: 0.1s;
+  }
+
+  .nav-wrapper ul li:nth-child(4) a {
+    -webkit-transition-delay: 0.1s;
+            transition-delay: 0.1s;
+  }
+
+  .nav-wrapper ul li:not(:first-child) {
+    margin-left: 0;
+  }
+
+  .nav-wrapper ul li a {
+    padding: 15px 24px;
+    opacity: 0;
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn {
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    display: block;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    z-index: 9999;
+    border-radius: 50%;
+    -webkit-transition: 0.35s all ease;
+    transition: 0.35s all ease;
+  }
+
+  .nav-btn i {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #000;
+    border-radius: 2px;
+    margin-left: 14px;
+  }
+
+  .nav-btn i:nth-child(1) {
+    margin-top: 16px;
+  }
+
+  .nav-btn i:nth-child(2) {
+    margin-top: 4px;
+    opacity: 1;
+  }
+
+  .nav-btn i:nth-child(3) {
+    margin-top: 4px;
+  }
 }
 
-.navbar a:hover {
-  color: white;
+#nav:checked + .nav-btn {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+#nav:checked + .nav-btn i {
+  background: #000;
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+}
+
+#nav:checked + .nav-btn i:nth-child(1) {
+  -webkit-transform: translateY(6px) rotate(180deg);
+          transform: translateY(6px) rotate(180deg);
+}
+
+#nav:checked + .nav-btn i:nth-child(2) {
+  opacity: 0;
+}
+
+#nav:checked + .nav-btn i:nth-child(3) {
+  -webkit-transform: translateY(-6px) rotate(90deg);
+          transform: translateY(-6px) rotate(90deg);
+}
+
+#nav:checked ~ .nav-wrapper {
+  z-index: 9990;
+  height: 100%;
+}
+
+#nav:checked ~ .nav-wrapper ul li a {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.hidden {
+  display: none;
+}
+
+.scrolled {
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.99);
+  -webkit-transition: 0.35s all ease;
+  transition: 0.35s all ease;
+}
+
+.scrolled .nav-btn {
+  right: 5px;
+  top: -1px;
+  -webkit-transition: 0.35s all ease;
+  transition: 0.35s all ease;
+}
+
+.scrolled .dropdown-menu {
+  margin: 17px -6px 0 0;
+  padding: 10px 35px;
+  -webkit-transition: 0.35s all ease;
+  transition: 0.35s all ease;
+}
+
+.scrolled .logo {
+  padding-bottom: 5px;
+}
+
+.scrolled:hover {
+  padding: 3px 3px;
+}
+
+.scrolled:hover .nav-btn {
+  right: 10px;
+  top: 5px;
+  -webkit-transition: 0.35s padding ease;
+  transition: 0.35s padding ease;
+}
+
+.scrolled:hover .dropdown-menu {
+  margin: 19px -8px 0 0;
+  padding: 10px 35px;
+  -webkit-transition: 0.35s padding ease;
+  transition: 0.35s padding ease;
 }
 
 .form-wrapper {
