@@ -29,11 +29,6 @@
 
 </div>
     <div id="app">
-
-
-
-
-
 <nav>
     <input type="checkbox" id="nav" class="hidden">
     <label for="nav" class="nav-btn">
@@ -60,7 +55,7 @@
                             @else
                                 {{Auth::user()->name}}
                             @endif
-                        </a>
+                        </a><i id="dropdownUserIcon"></i>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu">
                         <a href="{{ route('home') }}">{{trans('front.dashboard')}}</a>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{trans('front.logout')}}</a>
@@ -82,12 +77,6 @@
         @endguest
     </div>
 </nav>
-
-
-
-
-        <div style='height:100px;'></div>
-
         @yield('content')
     </div>
 

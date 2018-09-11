@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-lg-6 col-md-8 form-wrapper">
-            <h1 class="text-center text-white pb-5">{{trans('front.login')}}</h1>
+            <h1 class="text-center form-title">{{trans('front.login')}}</h1>
             <form class="form form-inner-pad" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

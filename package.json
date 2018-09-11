@@ -17,6 +17,7 @@
         "lodash": "^4.17.4"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.3.1",
         "bootstrap": "^4.1.0",
         "jquery": "^3.2.1",
         "particles.js": "^2.0.0",

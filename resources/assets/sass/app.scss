@@ -1,6 +1,8 @@
 //Imports
 @import "~bootstrap/scss/bootstrap.scss";
 @import "variables.scss";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
 
 //Main SCSS
 
@@ -72,21 +74,7 @@
 body{
   background-color: #eeeeee;
 }
-//NAVBAR TEST
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//NAVBAR
 nav {
   z-index: 9980;
   //padding: 8px;
@@ -99,16 +87,13 @@ nav {
   background-color: transparent;
   padding: 18px 15px;
   transition: 0.35s all ease;
-
 }
-
 .logo {
   float: left;
   padding: 8px;
   margin-left: 16px;
   margin-top: 8px;
 }
-
 .logo a {
   z-index: 9999;
   color: #000;
@@ -127,21 +112,17 @@ nav .logged-in-user{
 nav ul {
   float: right;
 }
-
 nav ul li {
   margin-top: -7px;
   display: inline-block;
   float: left;
 }
-
 nav ul li:not(:first-child) {
   margin-left: 48px;
 }
-
 nav ul li:last-child {
   margin-right: 24px;
 }
-
 nav ul li a {
   display: inline-block;
   outline: none;
@@ -153,13 +134,23 @@ nav ul li a {
   font-weight: 600;
   transition: 0.1s color ease;
 }
-
 nav ul li a:hover{
   text-decoration: none;
   color: #777777;
   transition: 0.1s color ease;
 }
-
+.nav-wrapper .logged-in-user li #dropdownUserIcon{
+  position: absolute;
+  padding: 1.5px 0 0 10px;
+  @extend %fa-icon;
+  @extend .fas;
+  &:before {
+    content: fa-content($fa-var-sort-down);
+  }
+}
+.nav-wrapper .logged-in-user li{
+  margin-right: 45px;
+}
 .dropdown-menu{
   min-width: 0;
   padding: 0;
@@ -171,16 +162,13 @@ nav ul li a:hover{
   text-align: right;
   transition: 0.35s padding ease;
 }
-
 .dropdown-menu a{
   padding: 10px 0;
 }
-
 @media screen and (max-width: 864px) {
   .logo {
     padding: 0;
   }
-
   .nav-wrapper {
     position: fixed;
     top: 0;
@@ -191,21 +179,18 @@ nav ul li a:hover{
     background: #fff;
     transition: all 0.35s ease;
   }
-
   .nav-wrapper ul {
     position: absolute;
     top: 30%;
     transform: translateY(-30%);
     width: 100%;
   }
-
   .nav-wrapper .logged-in-user {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 100%;
   }
-
   .nav-wrapper ul li {
     display: block;
     float: none;
@@ -213,7 +198,6 @@ nav ul li a:hover{
     text-align: right;
     margin-bottom: 0;
   }
-
   .nav-wrapper .logged-in-user li {
     display: block;
     float: right;
@@ -221,39 +205,36 @@ nav ul li a:hover{
     text-align: right;
     margin-bottom: 0;
   }
-
+  .nav-wrapper .logged-in-user li{
+    margin-right: 45px;
+  }
   .nav-wrapper .logged-in-user li #dropdownUser{
     padding-right: 0;
   }
-
+  .nav-wrapper .logged-in-user li #dropdownUserIcon{
+    padding: 14px 0px 0px 10px;
+  }
   .nav-wrapper .dropdown-menu a{
     border-right: 1px solid  #333333;
   }
-
   .nav-wrapper .dropdown-menu{
     margin-top: 0;
   }
-
   .nav-wrapper ul li:nth-child(1) a {
-    transition-delay: 0.1s;
+    transition-delay: 0s;
   }
-
   .nav-wrapper ul li:nth-child(2) a {
-    transition-delay: 0.1s;
+    transition-delay: 0s;
   }
-
   .nav-wrapper ul li:nth-child(3) a {
-    transition-delay: 0.1s;
+    transition-delay: 0s;
   }
-
   .nav-wrapper ul li:nth-child(4) a {
-    transition-delay: 0.1s;
+    transition-delay: 0s;
   }
-
   .nav-wrapper ul li:not(:first-child) {
     margin-left: 0;
   }
-
   .nav-wrapper ul li a {
     padding: 15px 24px;
     opacity: 0;
@@ -264,7 +245,6 @@ nav ul li a:hover{
     transform: translateX(-20px);
     transition: all 0.2s ease;
   }
-
   .nav-btn {
     position: fixed;
     right: 15px;
@@ -277,7 +257,6 @@ nav ul li a:hover{
     border-radius: 50%;
     transition: 0.35s all ease;
   }
-
   .nav-btn i {
     display: block;
     width: 20px;
@@ -286,52 +265,41 @@ nav ul li a:hover{
     border-radius: 2px;
     margin-left: 14px;
   }
-
   .nav-btn i:nth-child(1) {
     margin-top: 16px;
   }
-
   .nav-btn i:nth-child(2) {
     margin-top: 4px;
     opacity: 1;
   }
-
   .nav-btn i:nth-child(3) {
     margin-top: 4px;
   }
 }
-
 #nav:checked + .nav-btn {
   transform: rotate(45deg);
 }
-
 #nav:checked + .nav-btn i {
   background: #000;
   transition: transform 0.2s ease;
 }
-
 #nav:checked + .nav-btn i:nth-child(1) {
   transform: translateY(6px) rotate(180deg);
 }
-
 #nav:checked + .nav-btn i:nth-child(2) {
   opacity: 0;
 }
-
 #nav:checked + .nav-btn i:nth-child(3) {
   transform: translateY(-6px) rotate(90deg);
 }
-
 #nav:checked ~ .nav-wrapper {
   z-index: 9990;
   height: 100%;
 }
-
 #nav:checked ~ .nav-wrapper ul li a {
   opacity: 1;
   transform: translateX(0);
 }
-
 .hidden {
   display: none;
 }
@@ -341,7 +309,7 @@ nav ul li a:hover{
   transition: 0.35s all ease;
   .nav-btn {
     right: 5px;
-    top: -1px;
+    top: -3px;
     transition: 0.35s all ease;
   }
   .dropdown-menu{
@@ -357,7 +325,7 @@ nav ul li a:hover{
   padding: 3px 3px;
   .nav-btn {
     right: 10px;
-    top: 5px;
+    top: 0px;
     transition: 0.35s padding ease;
   }
   .dropdown-menu{
@@ -366,28 +334,20 @@ nav ul li a:hover{
     transition: 0.35s padding ease;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Login, Register Page
 .form-wrapper{
-  margin-top: calc(100vh - 90vh);
+  margin: 15vh 3vw 3vh 3vw;
   padding: 30px 0;
   border: none;
   border-radius: 0;
   background:#6b7a8f;
   box-shadow: 0px 5px 15px -2px rgba(0,0,0,0.6);
+}
+.form-title{
+  color: #ffffff;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+  font-size: 30px;
 }
 .form-inner-pad{
   padding: 0 30px;

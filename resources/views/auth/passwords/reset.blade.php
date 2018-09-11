@@ -5,7 +5,7 @@
         <div class="row justify-content-md-center">
             <div class="col-lg-6 col-md-8 form-wrapper">
                 <div class="panel panel-default">
-                    <h1 class="text-center text-white pb-5">{{trans('front.reset-password')}}</h1>
+                    <h1 class="text-center form-title">{{trans('front.reset-password')}}</h1>
 
 
                     @if (session('status'))
