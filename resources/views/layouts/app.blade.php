@@ -23,12 +23,14 @@
         <div class="bounce3"></div>
     </div>
 
-    <!--<div class="preload-text">-->
-    <!--<p>Mirage Visualisation</p>-->
-    <!--</div>-->
+    {{--<div class="preload-text">--}}
+    {{--<p>Mirage Visualisation</p>--}}
+    {{--</div>--}}
 
 </div>
     <div id="app">
+
+
 <nav>
     <input type="checkbox" id="nav" class="hidden">
     <label for="nav" class="nav-btn">
@@ -40,11 +42,16 @@
         <a href="{{ url('/') }}">{{ config('app.name', 'MirageVP') }}</a>
     </div>
 
+
+
+
     <div class="nav-wrapper">
         @auth
             <ul class="left-nav">
                 <li><a href="#">{{trans('front.explore-nav')}}</a></li>
                 <li><a href="#">{{trans('front.blog')}}</a></li>
+                <li><a href="{{ LaravelLocalization::getLocalizedURL('en') }}">ENGLISH</a></li>
+                <li><a href="{{ LaravelLocalization::getLocalizedURL('fr') }}">FRENCH</a></li>
             </ul>
             <ul class="logged-in-user">
                 <li>
@@ -70,6 +77,8 @@
         @endauth
         @guest
             <ul>
+                <li><a href="{{ LaravelLocalization::getLocalizedURL('en') }}">ENGLISH</a></li>
+                <li><a href="{{ LaravelLocalization::getLocalizedURL('fr') }}">FRENCH</a></li>
                 <li>
                     <a href="{{ route('login') }}">{{trans('front.login')}}</a>
                 </li>
@@ -77,6 +86,8 @@
         @endguest
     </div>
 </nav>
+        <div style="height: 50px;"></div>
+
         @yield('content')
     </div>
 

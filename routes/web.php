@@ -11,14 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => LaravelLocalization::setLocale()], function()
+{
+    /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+    Route::get('/', function(){return view('welcome');});
+    Route::get('/home', 'HomeController@index')->name('home');
+    Auth::routes();
+    Route::get('logout', 'Auth\LoginController@logout');
+    Route::get('auth/{service}', 'Auth\LoginController@redirectToProvider');
+    Route::get('auth/{service}/callback', 'Auth\LoginController@handleProviderCallback');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('logout', 'Auth\LoginController@logout');
-
-Route::get('auth/{service}', 'Auth\LoginController@redirectToProvider');
-Route::get('auth/{service}/callback', 'Auth\LoginController@handleProviderCallback');

@@ -9,23 +9,23 @@
 //Main CSS
 
 //Preloader
-/*.preload-text{*/
-/*position: absolute;*/
-/*top: 55%;*/
-/*left: 50%;*/
-/*width: 300px;*/
-/*height: 100px;*/
-/*margin-top: -50px;*/
-/*margin-left: -150px;*/
-/*text-align: center;*/
-/*}*/
-
-/*.preload-text p{*/
-/*font-family: 'Press Start 2P', cursive;*/
-/*font-size: 16px;*/
-/*font-weight: 100;*/
-/*text-shadow: 0px 0px 1px rgba(0,122,255,.5);*/
-/*}*/
+//.preload-text{
+//position: absolute;
+//top: 55%;
+//left: 50%;
+//width: 300px;
+//height: 100px;
+//margin-top: -50px;
+//margin-left: -150px;
+//text-align: center;
+//}
+//
+//.preload-text p{
+//font-family: 'Press Start 2P', cursive;
+//font-size: 16px;
+//font-weight: 100;
+//text-shadow: 0px 0px 1px rgba(0,122,255,.5);
+//}
 .bounce {
   content: "";
   box-sizing: border-box;
@@ -336,7 +336,7 @@ nav ul li a:hover{
 }
 //Login, Register Page
 .form-wrapper{
-  margin: 15vh 3vw 3vh 3vw;
+  margin: 5vh 3vw 3vh 3vw;
   padding: 30px 0;
   border: none;
   border-radius: 0;
