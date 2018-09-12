@@ -51,6 +51,8 @@ class StoreApartmentsRequest extends FormRequest
         $trans['user_id'] = 'nullable|integer';
         $trans['floor_id'] = 'required|integer';
         $trans['project_id'] = 'required|integer';
+        $trans['type'] = 'required|string';
+        $trans['price'] = 'required|numeric';
 
         return $trans;
     }

@@ -36,22 +36,14 @@ class ApartmentsController extends BaseAdministrationController
                     $actions .= Form::adminDeleteButton(trans('administration::index.delete'),Administration::route('apartments.destroy', $apartments->id));
 
                     $actions .= Form::mediaManager($apartments);
-                    $actions .= ' ' . Form::mediaManager($apartments,
-                            [
-                                'filters' => [
-                                    'mediaable_sub_type' => 'header'
-                                ],
-                                'button' => [
-                                    'title' => 'Header',
-                                    'class' => 'media-manager btn btn-sm btn-default',
-                                    'icon' => 'header'
-                                ]
-                            ]
-                        );
                     $actions .= Form::adminOrderButton($apartments);
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('apartments.edit', $apartments->id)).$actions;
                 })->addColumn('show_media', function ($apartment) {
                     return Form::adminSwitchButton('show_media', $apartment);
+                })->addColumn('type', function ($apartment) {
+                    return $apartment->type;
+                })->addColumn('price', function ($apartment) {
+                    return '€ '.$apartment->price;
                 })->addColumn('project', function ($apartment) {
                     if (!empty($apartment->project)) {
                         return $apartment->project->title;
@@ -75,7 +67,6 @@ class ApartmentsController extends BaseAdministrationController
                     if ($request->has('reservation_status') && $request->get('reservation_status') == 'true'){
                         $query->whereHas('user');
                     }
-
                 });
 
             return $datatables->make(true);
@@ -102,6 +93,16 @@ class ApartmentsController extends BaseAdministrationController
                 'data' => 'title',
                 'name' => 'title',
                 'title' => trans('apartments::admin.title'),
+                'orderable' => false,
+            ])->addColumn([
+                'data' => 'type',
+                'name' => 'type',
+                'title' => trans('apartments::admin.type'),
+                'orderable' => false,
+            ])->addColumn([
+                'data' => 'price',
+                'name' => 'price',
+                'title' => trans('apartments::admin.price'),
                 'orderable' => false,
             ])->addColumn([
                 'data' => 'project',

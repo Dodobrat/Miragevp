@@ -36,7 +36,9 @@ class Apartments extends AdminModel
         'show_media',
         'project_id',
         'floor_id',
-        'user_id'
+        'user_id',
+        'type',
+        'price'
     ];
     /**
      * The attributes that should be casted to native types.

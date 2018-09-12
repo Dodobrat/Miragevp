@@ -58,6 +58,8 @@ class UsersController extends BaseAdministrationController
                         return $user->login_counter;
                 })->addColumn('last_sign_in_at', function ($user) {
                     return $user->last_sign_in_at;
+                })->addColumn('provider', function ($user) {
+                    return $user->provider;
                 })->filter(function ($query) use ($request){
                     if ($request->has('filter_names') && !empty($request->get('filter_names'))) {
                         $query->where(DB::raw('concat(first_name," ",last_name)'),'LIKE', '%'. $request->get('filter_names') .'%');
@@ -100,6 +102,11 @@ class UsersController extends BaseAdministrationController
                 'data' => 'login_counter',
                 'name' => 'login_counter',
                 'title' => trans('users::admin.login_counter'),
+                'orderable' => false,
+            ])->addColumn([
+                'data' => 'provider',
+                'name' => 'provider',
+                'title' => trans('users::admin.provider'),
                 'orderable' => false,
             ])->addColumn([
                 'data' => 'full_name',

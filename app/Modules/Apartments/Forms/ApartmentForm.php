@@ -53,6 +53,22 @@ class ApartmentForm extends AdminForm
             'empty_value' => ' ',
         ]);
 
+        $types = ['office' => 'Office', 'apartment' => 'Apartment'];
+
+
+        $this->add('type', 'select', [
+            'label' => trans('apartments::admin.type'),
+            'choices' => $types,
+            'selected' => @$this->model->type
+        ]);
+
+        $this->add('price', 'text', [
+            'label' => trans('apartments::admin.price_euro'),
+            'attr' => [
+                'required' => 'required'
+            ]
+        ]);
+
         $this->add('show_media', 'checkbox', [
             'label' => trans('apartments::admin.show_media'),
             'value' => 1,
@@ -62,9 +78,6 @@ class ApartmentForm extends AdminForm
         $this->add('footer', 'admin_footer');
         $this->add('send', 'submit', [
             'label' => trans('administration::index.save'),
-            'attr' => [
-                'name' => 'save',
-            ],
         ]);
     }
 }

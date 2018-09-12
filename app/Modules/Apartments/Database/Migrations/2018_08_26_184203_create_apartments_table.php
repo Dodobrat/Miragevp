@@ -21,6 +21,8 @@ class CreateApartmentsTable extends Migration
             $table->integer('project_id')->unsigned()->nullable();
             $table->integer('floor_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->default(null)->nullable();
+            $table->string('type');
+            $table->float('price',8,2);
             NestedSet::columns($table);
             $table->timestamps();
             $table->foreign('floor_id')->references('id')->on('floors')->onDelete('cascade');

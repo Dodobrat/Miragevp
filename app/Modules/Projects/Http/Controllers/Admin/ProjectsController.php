@@ -35,19 +35,7 @@ class ProjectsController extends BaseAdministrationController
                     $actions .= Form::adminDeleteButton(trans('administration::index.delete'),Administration::route('projects.destroy', $projects->id));
 
                     $actions .= Form::mediaManager($projects);
-                    $actions .= ' ' . Form::mediaManager($projects,
-                            [
-                                'filters' => [
-                                    'mediaable_sub_type' => 'header'
-                                ],
-                                'button' => [
-                                    'title' => 'Header',
-                                    'class' => 'media-manager btn btn-sm btn-default',
-                                    'icon' => 'header'
-                                ]
-                            ]
-                        );
-                    $actions .= Form::adminOrderButton($projects);
+//                    $actions .= Form::adminOrderButton($projects);
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('projects.edit', $projects->id)).$actions;
                 })
                 ->editColumn('description', function ($project) {

@@ -28,95 +28,27 @@ class Administration implements Module
         $box = new \ProVision\Administration\Dashboard\HtmlBox();
         $box->setBoxClass('col-lg-12 col-md-12 col-sm-12 col-xs-12'); //set boostrap column class
         $box->setHtml('
-
 <style>
-.wrapper-background{
-background-image: linear-gradient(to right, rgb(109,179,191) , rgb(148,207,201), rgb(109,179,191));
-width: 100%;
-margin-bottom: 20px;
-box-shadow: 0px 6px 5px -5px rgba(0,0,0,0.2);
-padding: 10px 0px;
-}
-.hello-wrapper{
-vertical-align: center;
-}
-.hello-text{
-margin: 0;
-padding: 0;
-font-size: 35px;
-font-weight: 600;
-margin: 82px 0;
-color: #004260;
-}
-
-.welcome {
-padding: 30px 0;
+.welcome {float: right;padding: 0px 10px 25px 0px;margin-top: -44px;}
+.date{display: inline;font-size: 18px;padding-right: 10px;color: #777777;}
+.time{display: inline;font-weight: 600;font-size: 23px;color: #444444;}
+@media (max-width: 1200px) {.welcome{
+float: left;
 text-align: center;
-}
-.welcome .datetime .date,
-.welcome .datetime .day {
-margin-bottom: 15px
-}
-.day{
-font-size: 30px;
-font-weight: 600;
-color: #22556E;
-}
-.date{
-font-size: 20px;
-font-weight: 400;
-color: #153641;
-}
-.time{
-font-size: 30px;
-font-weight: 600;
-color: #1C4559;
-}
-
-@media (max-width: 1200px) {
-.hello-text{
-font-size: 25px;
-margin: 10px 0;
-}
-.day{
-font-size: 20px;
-}
-.date{
-font-size: 15px;
-}
-.time{
-font-size: 20px;
-}
-}
-</style>
-
-<div class="wrapper-background">
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="hello-wrapper">
-                <h1 class="text-center hello-text">Hello, ' . Auth::guard('provision_administration')->user()->name . '</h1>
-            </div>            
-        </div>
-        <div class="col-lg-6">
-            <div class="welcome">
-                <div class="datetime">
-                    <div class="day">Thursday</div>
-                    <div class="date">June 18, 2015</div>
-                    <div class="time">08:00 AM</div>
-                </div>
-            </div>
-        </div>
-    </div>    
+padding: 40px 0px 20px 15px;
+}}
+</style>            
+<div class="welcome">
+    <div class="datetime">        
+        <div class="date"></div>
+        <div class="time"></div>
+    </div>
 </div>
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script >
 $(function() {App.init();});
-var App = {	init: function() {this.datetime(), setInterval("App.datetime();", 1e3)},datetime: function() {var e = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"),t = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"),a = new Date,i = a.getYear();1e3 > i && (i += 1900);var s = a.getDay(),n = a.getMonth(),r = a.getDate();10 > r && (r = "0" + r);var l = a.getHours(),c = a.getMinutes(),h = a.getSeconds(),o = "AM";l >= 12 && (o = "PM"), l > 12 && (l -= 12), 0 == l && (l = 12), 9 >= c && (c = "0" + c), 9 >= h && (h = "0" + h), $(".welcome .datetime .day").text(e[s]), $(".welcome .datetime .date").text(t[n] + " " + r + ", " + i), $(".welcome .datetime .time").text(l + ":" + c + ":" + h + " " + o)}};
+var App = {	init: function() {this.datetime(), setInterval("App.datetime();", 1e3)},datetime: function() {var e = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"),t = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"),a = new Date,i = a.getYear();1e3 > i && (i += 1900);var s = a.getDay(),n = a.getMonth(),r = a.getDate();10 > r && (r = "0" + r);var l = a.getHours(),c = a.getMinutes(),h = a.getSeconds(),o = "AM";l >= 12 && (o = "PM"), l > 12 && (l -= 12), 0 == l && (l = 12), 9 >= c && (c = "0" + c), 9 >= h && (h = "0" + h), $(".welcome .datetime .day").text(e[s]), $(".welcome .datetime .time").text(l + ":" + c + ":" + h + " " + o), $(".welcome .datetime .date").text(t[n] + " " + r + ", " + i)}};
 </script>
-
-
 ');
         \Dashboard::add($box);
 

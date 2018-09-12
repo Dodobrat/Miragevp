@@ -10,13 +10,13 @@ class UserForm extends AdminForm {
 
         $this->add('first_name', 'text', [
             'title' => 'First Name',
+            'attr' => [
+                'required' => 'required'
+            ]
         ]);
 
         $this->add('last_name', 'text', [
             'title' => 'Last Name',
-            'attr' => [
-                'required' => 'required'
-            ]
         ]);
 
         $this->add('email', 'email', [

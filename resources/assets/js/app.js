@@ -22,12 +22,8 @@ function preloader(){
             overlay.style.zIndex = '0';
             navbar.style.opacity = '1';
         }, 1);
-
     });
 }
-
-
-
 // callbacks
 preloader();
 

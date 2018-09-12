@@ -5,6 +5,7 @@ return [
     'module_name' => 'Users',
     'status' => 'Status',
     'login_counter' => 'Login Counts',
+    'provider' => 'Provider',
     'last_sign_in_at' => 'Last Login',
     'full_name' => 'Full Name',
     'user' => 'User',

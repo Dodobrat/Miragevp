@@ -36,18 +36,6 @@ class FloorsController extends BaseAdministrationController
                     $actions .= Form::adminDeleteButton(trans('administration::index.delete'),Administration::route('floors.destroy', $floors->id));
 
                     $actions .= Form::mediaManager($floors);
-                    $actions .= ' ' . Form::mediaManager($floors,
-                            [
-                                'filters' => [
-                                    'mediaable_sub_type' => 'header'
-                                ],
-                                'button' => [
-                                    'title' => 'Header',
-                                    'class' => 'media-manager btn btn-sm btn-default',
-                                    'icon' => 'header'
-                                ]
-                            ]
-                        );
                     $actions .= Form::adminOrderButton($floors);
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('floors.edit', $floors->id)).$actions;
                 })->editColumn('description', function ($floor) {
