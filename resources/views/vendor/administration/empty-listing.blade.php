@@ -44,7 +44,7 @@
                     'title' => trans('administration::index.actions')
                 ]);
                 $table->setTableAttributes([
-                    'class' => 'table table-hover table-bordered table-condensed table-striped'
+                    'class' => 'table table-hover table-bordered table-condensed table-striped nowrap'
                 ]);
                 ?>
 
@@ -89,7 +89,7 @@
                         });
                     }
                 },
-                "autoWidth": true, //има проблем при firefox - таблицата минава в responsive при true стойност!
+                "autoWidth": false, //има проблем при firefox - таблицата минава в responsive при true стойност!
                 "serverSide": true,
                 rowReorder: {
                     selector: 'button.btn-row-reorder',
