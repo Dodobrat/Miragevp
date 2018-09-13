@@ -18,16 +18,10 @@ class ContactForm extends AdminForm
 
         $this->add('email', 'email', [
             'title' => 'Email',
-            'attr' => [
-                'required' => 'required'
-            ]
         ]);
 
         $this->add('address', 'text', [
             'title' => 'address',
-            'attr' => [
-                'required' => 'required'
-            ]
         ]);
 
         $this->add('footer', 'admin_footer');

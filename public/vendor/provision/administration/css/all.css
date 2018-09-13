@@ -1036,6 +1036,12 @@ p.help-block {
     margin-top: 0px;
 }
 
+@media (max-width: 1200px) {
+  #box-filter form div.bootstrap-switch {
+    margin-top: 10px;
+  }
+}
+
 .form-group > .wrapper_children {
     padding: 2px 0;
 }

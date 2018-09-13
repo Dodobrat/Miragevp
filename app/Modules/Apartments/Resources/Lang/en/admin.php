@@ -3,9 +3,11 @@
 return [
     'module_name' => 'Apartments',
     'filter_apartments' => 'Search Apartments',
-    'reservation_status' => 'Reserved',
+    'reservation_status' => 'Only Reserved',
     'visible' => 'Visible',
     'type' => 'Type',
+    'filter_apartments_type_office' => 'Only Offices',
+    'filter_apartments_type_apartment' => 'Only Apartments',
     'price' => 'Price',
     'price_euro' => 'Price €',
     'date' => 'Date Created',

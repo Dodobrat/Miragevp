@@ -59,14 +59,12 @@ class ApartmentForm extends AdminForm
         $this->add('type', 'select', [
             'label' => trans('apartments::admin.type'),
             'choices' => $types,
-            'selected' => @$this->model->type
+            'selected' => @$this->model->type,
+            'empty_value' => ' '
         ]);
 
         $this->add('price', 'text', [
             'label' => trans('apartments::admin.price_euro'),
-            'attr' => [
-                'required' => 'required'
-            ]
         ]);
 
         $this->add('show_media', 'checkbox', [

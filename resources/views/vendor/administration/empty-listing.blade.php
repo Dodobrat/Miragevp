@@ -67,7 +67,7 @@
                 "lengthMenu": [10, 25, 50, 100, 200, 500, 1000],
                 "responsive": false,
                 "processing": true,
-                "ordering": true,
+                "ordering": false,
                 "info": true,
                 "searching": false,
                 "ajax": {
@@ -89,7 +89,7 @@
                         });
                     }
                 },
-                "autoWidth": false, //има проблем при firefox - таблицата минава в responsive при true стойност!
+                "autoWidth": true, //има проблем при firefox - таблицата минава в responsive при true стойност!
                 "serverSide": true,
                 rowReorder: {
                     selector: 'button.btn-row-reorder',

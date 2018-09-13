@@ -64,6 +64,14 @@ class ApartmentsController extends BaseAdministrationController
                         $query->whereTranslationLike('title','%' . $request->get('filter_apartments') . '%');
                     }
 
+                    if ($request->has('filter_apartments_type_office') && $request->get('filter_apartments_type_office') == 'true'){
+                        $query->where('type','=','office');
+                    }
+
+                    if ($request->has('filter_apartments_type_apartment') && $request->get('filter_apartments_type_apartment') == 'true'){
+                        $query->where('type','=','apartment');
+                    }
+
                     if ($request->has('reservation_status') && $request->get('reservation_status') == 'true'){
                         $query->whereHas('user');
                     }
