@@ -17,7 +17,7 @@ class Administration implements Module {
     public function menu($module) {
 
         \AdministrationMenu::addModule(trans('blog::admin.module_name'), [
-            'icon' => 'newspaper-o'
+            'icon' => 'rss'
         ], function ($menu) {
             $menu->addItem(trans('blog::admin.blog_categories'), [
                 'icon' => 'arrow-right'

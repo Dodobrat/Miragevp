@@ -30,7 +30,7 @@ class Administration implements Module
      */
     public function routes($module)
     {
-        \Route::resource('newsletter', NewsletterSubscribersController::class);
+        \Route::resource('newsletter_subscriber', NewsletterSubscribersController::class);
         \Route::resource('newsletter_content', NewsletterContentController::class);
     }
 
@@ -43,16 +43,26 @@ class Administration implements Module
     public function menu($module)
     {
         \AdministrationMenu::addModule(trans('newsletter::admin.module_name'), [
-            'icon' => 'envelope'
+            'icon' => 'newspaper-o'
         ], function ($menu) {
             $menu->addItem('View all Subscribers', [
-                'url' => \Administration::route('newsletter.index'),
+                'url' => \Administration::route('newsletter_subscriber.index'),
                 'icon' => 'list'
             ]);
-            $menu->addItem('View all Emails', [
-                'url' => \Administration::route('newsletter_content.index'),
-                'icon' => 'list'
-            ]);
+            $menu->addItem(trans('newsletter::admin.newsletter_view_emails'), [
+                'icon' => 'arrow-right'
+            ], function ($submenu)
+            {
+                $submenu->addItem('View all Emails', [
+                    'url' => \Administration::route('newsletter_content.index'),
+                    'icon' => 'list'
+                ]);
+                $submenu->addItem('Add Email', [
+                    'url' => \Administration::route('newsletter_content.create'),
+                    'icon' => 'plus'
+                ]);
+            });
+
         });
 
     }

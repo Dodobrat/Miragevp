@@ -46,7 +46,7 @@ class NewsletterSubscribersController extends BaseAdministrationController
 
         \Breadcrumbs::register('admin_final', function ($breadcrumbs) {
             $breadcrumbs->parent('admin_home');
-            $breadcrumbs->push(trans('newsletter::admin.module_name'), Administration::route('newsletter.index'));
+            $breadcrumbs->push(trans('newsletter::admin.module_name'), Administration::route('newsletter_subscriber.index'));
         });
 
 

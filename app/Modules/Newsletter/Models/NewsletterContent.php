@@ -2,9 +2,28 @@
 
 namespace App\Modules\Newsletter\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Dimsav\Translatable\Translatable;
+use ProVision\Administration\AdminModel;
 
-class NewsletterContent extends Model
+class NewsletterContent extends AdminModel
 {
-    //
+
+    use Translatable;
+    public $translationForeignKey = 'newsletter_id';
+    protected $table = 'newsletter_content';
+
+    protected $fillable = [
+        'title',
+    ];
+
+    public $translatedAttributes = [
+        'subject',
+        'content',
+    ];
+
+    protected $with = ['translations'];
+
+    protected $casts = [
+        'show_media' => 'boolean',
+    ];
 }
