@@ -22,8 +22,4 @@ class NewsletterContent extends AdminModel
     ];
 
     protected $with = ['translations'];
-
-    protected $casts = [
-        'show_media' => 'boolean',
-    ];
 }

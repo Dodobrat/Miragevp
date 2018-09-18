@@ -13,6 +13,6 @@
 
 Route::group(['prefix' => 'newsletter'], function () {
     Route::get('/', function () {
-        dd('This is the NewsletterSubscribers module index page. Build something great!');
+
     });
 });

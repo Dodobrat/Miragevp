@@ -16,7 +16,6 @@ class CreateNewsletterContentTable extends Migration
         Schema::create('newsletter_content', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->boolean('show_media')->default(true)->comment('Show media'); //show media
             $table->timestamps();
         });
 

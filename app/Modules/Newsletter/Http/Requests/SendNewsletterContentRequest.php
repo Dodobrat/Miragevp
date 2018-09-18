@@ -4,7 +4,7 @@ namespace App\Modules\Newsletter\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreNewsletterContentRequest extends FormRequest
+class SendNewsletterContentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,19 +23,11 @@ class StoreNewsletterContentRequest extends FormRequest
      */
     public function rules()
     {
-        $locales = config('translatable.locales');
 
         $trans = [];
 
-
-        foreach ($locales as $locale) {
-            $trans[$locale . '.subject'] = 'required|string';
-            $trans[$locale . '.content'] = 'required|string';
-        }
-
-        $trans['title'] = 'required|string';
+        $trans['newsletter_id'] = 'required|integer';
 
         return $trans;
-
     }
 }

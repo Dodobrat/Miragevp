@@ -33,15 +33,13 @@ class NewsletterContentController extends BaseAdministrationController
                 ->addColumn('action', function ($news) {
                     $actions = '';
                     $actions .= Form::adminDeleteButton(trans('administration::index.delete'),Administration::route('newsletter_content.destroy', $news->id));
-
-                    $actions .= Form::mediaManager($news);
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('newsletter_content.edit', $news->id)).$actions;
-                })->addColumn('show_media', function ($news) {
-                    return Form::adminSwitchButton('show_media', $news);
                 })->addColumn('title', function ($news) {
                     return $news->title;
                 })->addColumn('subject', function ($news) {
                     return $news->subject;
+                })->addColumn('content', function ($news) {
+                    return strip_tags(substr($news->content,0,50));
                 })->filter(function ($query) use ($request){
                     if ($request->has('filter_title') && !empty($request->get('filter_title'))) {
                         $query->where(DB::raw('title'),'LIKE', '%'. $request->get('filter_title') .'%');
@@ -79,9 +77,9 @@ class NewsletterContentController extends BaseAdministrationController
                 'title' => trans('newsletter::admin.subject'),
                 'orderable' => false,
             ])->addColumn([
-                'data' => 'show_media',
-                'name' => 'show_media',
-                'title' => trans('newsletter::admin.show_media'),
+                'data' => 'content',
+                'name' => 'content',
+                'title' => trans('newsletter::admin.content'),
                 'orderable' => false,
             ])->addColumn([
                 'data' => 'created_at',

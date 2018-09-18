@@ -22,12 +22,6 @@ class NewsletterContentForm extends AdminForm
             'translate' => true,
         ]);
 
-        $this->add('show_media', 'checkbox', [
-            'label' => trans('newsletter::admin.show_media'),
-            'value' => 1,
-            'checked' => @$this->model->show_media,
-        ]);
-
         $this->add('footer', 'admin_footer');
         $this->add('send', 'submit', [
             'label' => trans('administration::index.save'),

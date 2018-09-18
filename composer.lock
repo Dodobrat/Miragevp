@@ -2365,16 +2365,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.0.3",
+            "version": "v4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "bd088dc940a418f09cda079a9b5c7c478890fb8d"
+                "reference": "fa6ee28600d21d49b2b4e1006b48426cec8e579c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/bd088dc940a418f09cda079a9b5c7c478890fb8d",
-                "reference": "bd088dc940a418f09cda079a9b5c7c478890fb8d",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/fa6ee28600d21d49b2b4e1006b48426cec8e579c",
+                "reference": "fa6ee28600d21d49b2b4e1006b48426cec8e579c",
                 "shasum": ""
             },
             "require": {
@@ -2412,7 +2412,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2018-07-15T17:25:16+00:00"
+            "time": "2018-09-18T07:03:24+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -2465,12 +2465,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ProVisionBG/administration.git",
-                "reference": "edadff025b94e4c978cb80eb6b8a1dd8de1e5f62"
+                "reference": "8dab2420fe68ac5c2f8a350644f096dbaa90825d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ProVisionBG/administration/zipball/edadff025b94e4c978cb80eb6b8a1dd8de1e5f62",
-                "reference": "edadff025b94e4c978cb80eb6b8a1dd8de1e5f62",
+                "url": "https://api.github.com/repos/ProVisionBG/administration/zipball/8dab2420fe68ac5c2f8a350644f096dbaa90825d",
+                "reference": "8dab2420fe68ac5c2f8a350644f096dbaa90825d",
                 "shasum": ""
             },
             "require": {
@@ -2547,7 +2547,7 @@
                 "laravel",
                 "modular"
             ],
-            "time": "2018-09-04T08:27:23+00:00"
+            "time": "2018-09-18T08:00:00+00:00"
         },
         {
             "name": "provision/laravel-meta-tags",

@@ -32,7 +32,19 @@ class Administration implements Module
     {
         \Route::resource('newsletter_subscriber', NewsletterSubscribersController::class);
         \Route::resource('newsletter_content', NewsletterContentController::class);
+
+        \Route::get('newsletter_content_send/show',
+            [
+                'as' => 'newsletter_content_send.show',
+                'uses' => 'App\Modules\Newsletter\Http\Controllers\Admin\NewsletterContentSendController@show'
+            ]);
+        \Route::post('newsletter_content_send/send',
+            [
+                'as' => 'newsletter_content_send.send',
+                'uses' => 'App\Modules\Newsletter\Http\Controllers\Admin\NewsletterContentSendController@send'
+            ]);
     }
+    //e
 
     /**
      * Init administration menu.
@@ -60,6 +72,10 @@ class Administration implements Module
                 $submenu->addItem('Add Email', [
                     'url' => \Administration::route('newsletter_content.create'),
                     'icon' => 'plus'
+                ]);
+                $submenu->addItem('Send Email', [
+                    'url' => \Administration::route('newsletter_content_send.show'),
+                    'icon' => 'paper-plane-o'
                 ]);
             });
 
