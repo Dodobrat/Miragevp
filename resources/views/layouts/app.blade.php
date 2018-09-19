@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ mix('/assets/css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
 <div id="overlay">

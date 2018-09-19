@@ -4,6 +4,7 @@ namespace App\Modules\Newsletter\Http\Controllers\Admin;
 
 use App\Modules\Newsletter\Forms\NewsletterContentSendForm;
 use App\Modules\Newsletter\Http\Requests\SendNewsletterContentRequest;
+use App\Modules\Newsletter\Models\NewsletterContent;
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\FormBuilder;
@@ -44,16 +45,11 @@ class NewsletterContentSendController extends BaseAdministrationController
     public function send(SendNewsletterContentRequest $request)
     {
 
-
         //tuka vzimash id-to na teksta
         //izprashtash emaili na vsichki subscriberi
-        //sled tva ot dokumentaaciqta za emails ? da
         // a kak da advam subscribers ot blade kak taka da gi advash kude
         //nali trqbva da si napishat emaila v blade za da mogat da se subsclrllaikbkknkakt i da po
         //qsno mi pravish si formichka vuv frontenda koqto choveka si pishe emaila pravish si pak edna fuknciq i storevash emaila v tablicata
-        //a nqkakvi konfiramtion emaili e da pak she si e s request nqkuv v koito she chekvash dali e validen emaila
-        //nene imam vpredvid da mu se prati email v koito potvurjdava che se e registriral
-        //toi ne se registrira a se subscribva za newsfeed i ne ne mu prashtai nqma smis
 
     }
 }
