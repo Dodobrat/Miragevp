@@ -2,11 +2,15 @@
 
 namespace App\Modules\Newsletter\Http\Controllers\Admin;
 
+use App\Mail\Newsletter;
 use App\Modules\Newsletter\Forms\NewsletterContentSendForm;
 use App\Modules\Newsletter\Http\Requests\SendNewsletterContentRequest;
 use App\Modules\Newsletter\Models\NewsletterContent;
+use App\Modules\Newsletter\Models\NewsletterSubscribers;
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 use Kris\LaravelFormBuilder\FormBuilder;
 use Form;
 use ProVision\Administration\Facades\Administration;
@@ -45,11 +49,13 @@ class NewsletterContentSendController extends BaseAdministrationController
     public function send(SendNewsletterContentRequest $request)
     {
 
-        //tuka vzimash id-to na teksta
-        //izprashtash emaili na vsichki subscriberi
-        // a kak da advam subscribers ot blade kak taka da gi advash kude
-        //nali trqbva da si napishat emaila v blade za da mogat da se subsclrllaikbkknkakt i da po
-        //qsno mi pravish si formichka vuv frontenda koqto choveka si pishe emaila pravish si pak edna fuknciq i storevash emaila v tablicata
+        $newsletter = NewsletterContent::where('id',$request->newsletter_id)->first();
+        $subscribers = NewsletterSubscribers::all();
 
+        foreach($subscribers as $subscriber){
+            Mail::to($subscriber)->send(new Newsletter($newsletter));
+        }
+
+        return Redirect::route(Administration::routeName('newsletter_content.index'));
     }
 }

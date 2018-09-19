@@ -3,6 +3,7 @@
 namespace App\Modules\Floors;
 
 use App\Modules\Floors\Http\Controllers\Admin\FloorsController;
+use App\Modules\Floors\Models\Floors;
 use Kris\LaravelFormBuilder\Form;
 use ProVision\Administration\Contracts\Module;
 
@@ -39,7 +40,16 @@ class Administration implements Module {
      * @return mixed
      */
     public function dashboard($module) {
-        // TODO: Implement dashboard() method.
+        $box = new \ProVision\Administration\Dashboard\LinkBox();
+        $box->setBoxClass('col-lg-3 col-md-6 col-sm-6 col-xs-12'); //set boostrap column class
+        $box->setTitle(trans('floors::admin.dash_floors_linkbox_title'));
+        $box->setValue(Floors::count());
+        $box->setBoxBackgroundClass('bg-orange');
+        $box->setIconClass('fa fa-building');
+        $box->setLink(trans('floors::admin.dash_floors_linkbox'), \Administration::route('floors.index'));
+        \Dashboard::add($box);
+
+
     }
 
     /**

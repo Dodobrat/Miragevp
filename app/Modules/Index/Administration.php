@@ -3,14 +3,8 @@
 namespace App\Modules\Index;
 
 use App\Modules\Index\Http\Controllers\IndexController;
-use App\Modules\Projects\Models\Projects;
 use Kris\LaravelFormBuilder\Form;
 use ProVision\Administration\Contracts\Module;
-use ProVision\Administration\Facades\Settings;
-
-//use ProVision\Administration\Settings;
-
-//use ProVision\Administration\Models\Settings;
 
 
 class Administration implements Module {
@@ -30,12 +24,7 @@ class Administration implements Module {
      * @return mixed
      */
     public function dashboard($module) {
-        $box = new \ProVision\Administration\Dashboard\HtmlBox();
-        $box->setBoxClass('col-lg-12 col-md-12 col-sm-12 col-xs-12'); //set boostrap column class
-        $box->setHtml('
 
-');
-        \Dashboard::add($box);
 
     }
 

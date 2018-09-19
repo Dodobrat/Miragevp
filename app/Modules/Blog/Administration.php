@@ -4,6 +4,7 @@ namespace App\Modules\Blog;
 
 use App\Modules\Blog\Http\Controllers\Admin\BlogCategoriesController;
 use App\Modules\Blog\Http\Controllers\Admin\BlogController;
+use App\Modules\Blog\Models\Blog;
 use Kris\LaravelFormBuilder\Form;
 use ProVision\Administration\Contracts\Module;
 
@@ -55,7 +56,17 @@ class Administration implements Module {
      * @return mixed
      */
     public function dashboard($module) {
-        // TODO: Implement dashboard() method.
+        $box = new \ProVision\Administration\Dashboard\RecentListBox();
+        $box->setTitle(trans('blog::admin.dash_blog_linkbox_title'));
+        $box->setBoxClass('col-lg-6 col-md-6 col-sm-6 col-xs-12'); //set boostrap column class
+        $box->setIconBoxBackgroundClass('bg-white');
+        $articles = Blog::take(5)->orderBy('id','desc')->get();
+
+        foreach ($articles as $article) {
+            $box->addItem($article->title . ' | '. $article->category->title, \Administration::route('blog.edit', $article->id), substr(strip_tags($article->description), 0, 100), $article->updated_at);
+        }
+        $box->setFooterButton(trans('blog::admin.dash_blog_linkbox'), \Administration::route('blog.index'));
+        \Dashboard::add($box);
     }
 
     /**

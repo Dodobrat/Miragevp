@@ -3,6 +3,7 @@
 namespace App\Modules\Projects;
 
 use App\Modules\Projects\Http\Controllers\Admin\ProjectsController;
+use App\Modules\Projects\Models\Projects;
 use Kris\LaravelFormBuilder\Form;
 use ProVision\Administration\Contracts\Module;
 
@@ -39,7 +40,14 @@ class Administration implements Module {
      * @return mixed
      */
     public function dashboard($module) {
-        // TODO: Implement dashboard() method.
+        $box = new \ProVision\Administration\Dashboard\LinkBox();
+        $box->setBoxClass('col-lg-3 col-md-6 col-sm-6 col-xs-12'); //set boostrap column class
+        $box->setTitle(trans('projects::admin.dash_projects_linkbox_title'));
+        $box->setValue(Projects::count());
+        $box->setBoxBackgroundClass('bg-purple');
+        $box->setIconClass('fa-file-o');
+        $box->setLink(trans('projects::admin.dash_projects_linkbox'), \Administration::route('projects.index'));
+        \Dashboard::add($box);
     }
 
     /**

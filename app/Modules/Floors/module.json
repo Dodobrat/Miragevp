@@ -2,5 +2,6 @@
     "name": "Floors",
     "slug": "floors",
     "version": "1.0",
-    "description": "This is the description for the Floors module."
+    "description": "This is the description for the Floors module.",
+    "order": 1002
 }

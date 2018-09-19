@@ -92,6 +92,20 @@
         @yield('content')
     </div>
 
+<footer>
+    <form action="{{ route('newsletter_subscriber.store') }}" method="post">
+        {{ csrf_field() }}
+        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+            <label class="form-label" for="email">{{trans('front.email')}}</label>
+            <input autocomplete="new-email" id="email" type="email" name="email" required>
+            @if ($errors->has('email'))
+                <p class="error pl-2 pb-0">{{ $errors->first('email') }}</p>
+            @endif
+        </div>
+        <button type="submit" class="custom-btn btn-3"><span>{{trans('newsletter::front.subscribe')}}</span></button>
+    </form>
+</footer>
+
     <!-- Scripts -->
     <script src="{{ mix('assets/js/app.js') }}"></script>
 </body>

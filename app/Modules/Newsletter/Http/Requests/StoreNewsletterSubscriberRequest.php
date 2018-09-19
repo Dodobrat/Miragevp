@@ -4,7 +4,7 @@ namespace App\Modules\Newsletter\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SendNewsletterContentRequest extends FormRequest
+class StoreNewsletterSubscriberRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -20,16 +20,11 @@ class SendNewsletterContentRequest extends FormRequest
      * Get the validation rules that apply to the request.
      *
      * @return array
-     *
-     * @property mixed newsletter_id
      */
     public function rules()
     {
-
-        $trans = [];
-
-        $trans['newsletter_id'] = 'required|integer';
-
-        return $trans;
+        return [
+            'email' => 'required|unique:newsletter_subscriber|email',
+        ];
     }
 }

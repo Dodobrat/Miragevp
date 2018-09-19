@@ -2,10 +2,8 @@
 
 namespace App\Modules\Newsletter\Http\Controllers\Admin;
 
-
 use App\Modules\Newsletter\Models\NewsletterSubscribers;
 use Illuminate\Http\Request;
-
 use Form;
 use ProVision\Administration\Facades\Administration;
 use ProVision\Administration\Http\Controllers\BaseAdministrationController;
@@ -27,17 +25,10 @@ class NewsletterSubscribersController extends BaseAdministrationController
             $datatables = Datatables::of($news)
                 ->addColumn('action', function ($news) {
                     $actions = '';
-                    if (!empty($news->deleted_at)) {
-                        $actions .= Form::adminRestoreButton(trans('administration::index.restore'), Administration::route('newsletter.destroy', $news->id));
-                    } else {
-                        $actions .= Form::adminDeleteButton(trans('administration::index.delete'), Administration::route('newsletter.destroy', $news->id));
-                    }
-                    return $actions;
+                    return Form::adminDeleteButton(trans('administration::index.delete'),Administration::route('newsletter_subscriber.destroy', $news->id)).$actions;
                 })->addColumn('active', function ($news) {
                     return Form::adminSwitchButton('active', $news);
                 });
-
-
 
             return $datatables->make(true);
         }

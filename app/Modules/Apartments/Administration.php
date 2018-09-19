@@ -3,6 +3,7 @@
 namespace App\Modules\Apartments;
 
 use App\Modules\Apartments\Http\Controllers\Admin\ApartmentsController;
+use App\Modules\Apartments\Models\Apartments;
 use Kris\LaravelFormBuilder\Form;
 use ProVision\Administration\Contracts\Module;
 
@@ -39,7 +40,14 @@ class Administration implements Module {
      * @return mixed
      */
     public function dashboard($module) {
-        // TODO: Implement dashboard() method.
+        $box = new \ProVision\Administration\Dashboard\LinkBox();
+        $box->setBoxClass('col-lg-3 col-md-6 col-sm-6 col-xs-12'); //set boostrap column class
+        $box->setTitle(trans('apartments::admin.dash_apartments_linkbox_title'));
+        $box->setValue(Apartments::count());
+        $box->setBoxBackgroundClass('bg-green');
+        $box->setIconClass('fa fa-building-o');
+        $box->setLink(trans('apartments::admin.dash_apartments_linkbox'), \Administration::route('apartments.index'));
+        \Dashboard::add($box);
     }
 
     /**

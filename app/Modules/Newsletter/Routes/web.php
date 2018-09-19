@@ -11,8 +11,8 @@
 |
 */
 
-Route::group(['prefix' => 'newsletter'], function () {
-    Route::get('/', function () {
-
-    });
-});
+Route::post('newsletter_subscriber/store',
+    [
+        'as' => 'newsletter_subscriber.store',
+        'uses' => 'NewsletterSubscribersController@store'
+    ]);

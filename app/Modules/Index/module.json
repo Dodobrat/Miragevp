@@ -2,5 +2,6 @@
     "name": "Index",
     "slug": "index",
     "version": "1.0",
-    "description": "This is the description for the Index module."
+    "description": "This is the description for the Index module.",
+    "order": 1007
 }
