@@ -9,6 +9,7 @@ use App\Modules\Newsletter\Models\NewsletterContent;
 use App\Modules\Newsletter\Models\NewsletterSubscribers;
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Kris\LaravelFormBuilder\FormBuilder;
@@ -48,9 +49,8 @@ class NewsletterContentSendController extends BaseAdministrationController
 
     public function send(SendNewsletterContentRequest $request)
     {
-
         $newsletter = NewsletterContent::where('id',$request->newsletter_id)->first();
-        $subscribers = NewsletterSubscribers::all();
+        $subscribers = DB::table('newsletter_subscriber')->where('active', true)->get();
 
         foreach($subscribers as $subscriber){
             Mail::to($subscriber)->send(new Newsletter($newsletter));

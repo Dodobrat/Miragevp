@@ -15938,13 +15938,13 @@ nav ul li a:hover {
   padding: 30px 0;
   border: none;
   border-radius: 0;
-  background: #6b7a8f;
+  background: #fefefe;
   -webkit-box-shadow: 0px 5px 15px -2px rgba(0, 0, 0, 0.6);
           box-shadow: 0px 5px 15px -2px rgba(0, 0, 0, 0.6);
 }
 
 .form-title {
-  color: #ffffff;
+  color: #333333;
   padding-bottom: 20px;
   text-transform: uppercase;
   font-size: 30px;
@@ -15967,7 +15967,7 @@ nav ul li a:hover {
   left: 0;
   margin-left: 10px;
   top: 25%;
-  color: rgba(255, 255, 255, 0.9);
+  color: black;
   background-color: transparent;
   z-index: 10;
   -webkit-transition: font-size 150ms ease-out, -webkit-transform 150ms ease-out;
@@ -15989,18 +15989,18 @@ nav ul li a:hover {
 }
 
 .form-control {
-  color: #ffffff;
+  color: #333333;
   height: 50px;
   border-radius: 0;
   border: none;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
 .form-control:focus {
-  color: #ffffff;
+  color: #333333;
   border: none;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(200, 200, 200, 0.1);
   border-radius: 0;
   border-bottom: 3px solid #9dacc1;
   -webkit-box-shadow: none;
@@ -16013,13 +16013,13 @@ nav ul li a:hover {
 
 .form-group label {
   font-size: 16px;
-  color: #ffffff;
+  color: #333333;
   opacity: 0.8;
 }
 
 .custom-checkbox {
   margin: 15px 0;
-  color: #eeeeee;
+  color: #444444;
 }
 
 input:-webkit-autofill,
@@ -16035,7 +16035,7 @@ input:-webkit-autofill:active {
   position: absolute;
   padding: 0 10px;
   font-size: 18px;
-  color: #eeeeee;
+  color: #444444;
 }
 
 @-webkit-keyframes check {
@@ -16078,7 +16078,7 @@ input:-webkit-autofill:active {
   height: 28px;
   width: 28px;
   border-radius: 0;
-  border: 0;
+  border: 1px solid #666666;
 }
 
 .checkbox span {
@@ -16124,7 +16124,7 @@ input:-webkit-autofill:active {
 }
 
 .submit-btn {
-  background-color: #57667b;
+  background-color: rgba(0, 0, 0, 0.2);
   border-radius: 0;
   border: 0;
   padding: 14px;
@@ -16132,7 +16132,7 @@ input:-webkit-autofill:active {
 }
 
 .submit-btn:hover {
-  background-color: #435267;
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 .submit-btn:active,
@@ -16147,7 +16147,7 @@ input:-webkit-autofill:active {
 }
 
 .submit-btn p {
-  color: #ffffff;
+  color: #333333;
   margin: 0;
   padding: 0;
 }
@@ -16155,7 +16155,7 @@ input:-webkit-autofill:active {
 .custom-btn {
   margin-top: 25px;
   padding: 10px 25px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.1);
   outline: none !important;
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
@@ -16165,7 +16165,7 @@ input:-webkit-autofill:active {
 }
 
 .custom-btn:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 /**** BTN No. 3 ****/
@@ -16186,7 +16186,7 @@ input:-webkit-autofill:active {
 }
 
 .btn-3 span a {
-  color: #ffffff;
+  color: #333333;
   position: relative;
   display: block;
   width: 100%;
@@ -16256,7 +16256,7 @@ input:-webkit-autofill:active {
 }
 
 .or-divider {
-  color: #fff;
+  color: #333;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

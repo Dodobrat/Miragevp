@@ -335,17 +335,17 @@ nav ul li a:hover{
     transition: 0.35s padding ease;
   }
 }
-//Login, Register Page
+//Login, Register Page, FORM
 .form-wrapper{
   margin: 5vh 3vw 3vh 3vw;
   padding: 30px 0;
   border: none;
   border-radius: 0;
-  background:#6b7a8f;
+  background:#fefefe;
   box-shadow: 0px 5px 15px -2px rgba(0,0,0,0.6);
 }
 .form-title{
-  color: #ffffff;
+  color: #333333;
   padding-bottom: 20px;
   text-transform: uppercase;
   font-size: 30px;
@@ -364,7 +364,7 @@ nav ul li a:hover{
   left: 0;
   margin-left: 10px;
   top: 25%;
-  color: rgba(255,255,255,0.9);
+  color: rgba(0,0,0,1);
   background-color: transparent;
   z-index: 10;
   transition: transform 150ms ease-out, font-size 150ms ease-out;
@@ -379,17 +379,17 @@ nav ul li a:hover{
   position: relative;
 }
 .form-control {
-  color: #ffffff;
+  color: #333333;
   height: 50px;
   border-radius: 0;
   border:none;
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(0,0,0,0.1);
   position: relative;
 }
 .form-control:focus{
-  color: #ffffff;
+  color: #333333;
   border: none;
-  background-color: rgba(255,255,255,0);
+  background-color: rgba(200,200,200,0.1);
   border-radius: 0;
   border-bottom: 3px solid rgba(157,172,193,1);
   box-shadow: none;
@@ -399,12 +399,12 @@ nav ul li a:hover{
 }
 .form-group label{
   font-size: 16px;
-  color: #ffffff;
+  color: #333333;
   opacity: 0.8;
 }
 .custom-checkbox{
   margin: 15px 0;
-  color: #eeeeee;
+  color: #444444;
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -418,7 +418,7 @@ input:-webkit-autofill:active {
   position: absolute;
   padding: 0 10px;
   font-size: 18px;
-  color: #eeeeee;
+  color: #444444;
 }
 @keyframes check {0% {height: 0;width: 0;}
   25% {height: 0;width: 10px;}
@@ -430,7 +430,7 @@ input:-webkit-autofill:active {
   height:28px;
   width:28px;
   border-radius:0;
-  border:0;
+  border:1px solid #666666;
 }
 .checkbox span{
   display:block;
@@ -476,14 +476,14 @@ input:-webkit-autofill:active {
 }
 
 .submit-btn{
-  background-color: rgba(87,102,123,1);
+  background-color: rgba(0,0,0,0.2);
   border-radius: 0;
   border: 0;
   padding: 14px;
   width: 100%;
 }
 .submit-btn:hover{
-  background-color: rgba(67,82,103,1);
+  background-color: rgba(0,0,0,0.25);
 }
 .submit-btn:active, .submit-btn:focus, .submit-btn::before, .submit-btn::after{
   box-shadow: none;
@@ -492,14 +492,14 @@ input:-webkit-autofill:active {
   border-radius: 0;
 }
 .submit-btn p{
-  color: #ffffff;
+  color: #333333;
   margin: 0;
   padding: 0;
 }
 .custom-btn {
   margin-top: 25px;
   padding: 10px 25px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.1);
   outline: none !important;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -507,7 +507,7 @@ input:-webkit-autofill:active {
   display: inline-block;
 }
 .custom-btn:hover{
-  background-color: rgba(255,255,255,0.05);
+  background-color: rgba(0,0,0,0.2);
 }
 /**** BTN No. 3 ****/
 .btn-3 {
@@ -524,7 +524,7 @@ input:-webkit-autofill:active {
   height: 100%;
 }
 .btn-3 span a{
-  color: #ffffff;
+  color: #333333;
   position: relative;
   display: block;
   width: 100%;
@@ -580,7 +580,7 @@ input:-webkit-autofill:active {
   width: 100%;
 }
 .or-divider{
-  color: #fff;
+  color: #333;
   display: flex;
   width: 100%;
   align-items: center;

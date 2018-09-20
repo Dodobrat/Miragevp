@@ -97,7 +97,7 @@
         {{ csrf_field() }}
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
             <label class="form-label" for="email">{{trans('front.email')}}</label>
-            <input autocomplete="new-email" id="email" type="email" name="email" required>
+            <input id="news" type="email" name="email" required>
             @if ($errors->has('email'))
                 <p class="error pl-2 pb-0">{{ $errors->first('email') }}</p>
             @endif

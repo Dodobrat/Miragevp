@@ -29,6 +29,7 @@ class Newsletter extends Mailable
     public function build()
     {
         return $this->view('newsletter::emails.news')
-            ->with('newsletter', $this->newsletter);
+            ->with('newsletter', $this->newsletter)
+            ->subject(trans('newsletter::front.subject', ['id' => $this->newsletter->id]));
     }
 }
