@@ -7,16 +7,16 @@
             <h1 class="text-center form-title">{{trans('front.login')}}</h1>
             <form class="form form-inner-pad" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                <div class="form-group form-gr-cust{{ $errors->has('email') ? ' has-error' : '' }}">
                     <label class="form-label" for="email">{{trans('front.email')}}</label>
-                    <input autocomplete="new-email" id="email" type="email" class="form-control" name="email" required>
+                    <input autocomplete="new-email" id="email" type="email" class="form-control form-cont-cust" name="email" required>
                     @if ($errors->has('email'))
                         <p class="error pl-2 pb-0">{{ $errors->first('email') }}</p>
                     @endif
                 </div>
-                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                <div class="form-group form-gr-cust{{ $errors->has('password') ? ' has-error' : '' }}">
                     <label class="form-label" for="password">{{trans('front.password')}}</label>
-                    <input autocomplete="new-password" id="password" type="password" class="form-control" name="password" required>
+                    <input autocomplete="new-password" id="password" type="password" class="form-control form-cont-cust" name="password" required>
                     @if ($errors->has('password'))
                         <p class="error pl-2 pb-0">{{ $errors->first('password') }}</p>
                     @endif

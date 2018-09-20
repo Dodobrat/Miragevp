@@ -16,9 +16,9 @@
 
                     <form class="form form-inner-pad" method="POST" action="{{ route('password.email') }}">
                         {{ csrf_field() }}
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="form-group form-gr-cust{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label class="form-label" for="email">{{trans('front.email')}}</label>
-                            <input autocomplete="reset-email" id="email" type="email" class="form-control" name="email" required>
+                            <input autocomplete="reset-email" id="email" type="email" class="form-control form-cont-cust" name="email" required>
                             @if ($errors->has('email'))
                                 <p class="error pl-2 pb-0">{{ $errors->first('email') }}</p>
                             @endif

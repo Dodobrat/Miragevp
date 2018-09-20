@@ -9,18 +9,18 @@
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-3">
-                            <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+                            <div class="form-group form-gr-cust{{ $errors->has('first_name') ? ' has-error' : '' }}">
                                 <label class="form-label" for="first_name">{{trans('front.first-name')}}</label>
-                                <input id="first_name" type="text" class="form-control" name="first_name" required>
+                                <input id="first_name" type="text" class="form-control form-cont-cust" name="first_name" required>
                                 @if ($errors->has('first_name'))
                                     <p class="error pl-2 pb-0">{{ $errors->first('first_name') }}</p>
                                 @endif
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-3">
-                            <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
+                            <div class="form-group form-gr-cust{{ $errors->has('last_name') ? ' has-error' : '' }}">
                                 <label class="form-label" for="last_name">{{trans('front.last-name')}}</label>
-                                <input id="last_name" type="text" class="form-control" name="last_name" required>
+                                <input id="last_name" type="text" class="form-control form-cont-cust" name="last_name" required>
                                 @if ($errors->has('last_name'))
                                     <p class="error pl-2 pb-0">{{ $errors->first('last_name') }}</p>
                                 @endif
@@ -29,9 +29,9 @@
                     </div>
 
 
-                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                    <div class="form-group form-gr-cust{{ $errors->has('email') ? ' has-error' : '' }}">
                         <label class="form-label" for="email">{{trans('front.email')}}</label>
-                        <input id="email" type="email" class="form-control" name="email" required>
+                        <input id="email" type="email" class="form-control form-cont-cust" name="email" required>
                         @if ($errors->has('email'))
                             <p class="error pl-2 pb-0">{{ $errors->first('email') }}</p>
                         @endif
@@ -39,15 +39,15 @@
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <div class="form-group form-gr-cust{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <label class="form-label" for="password">{{trans('front.password')}}</label>
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="password" type="password" class="form-control form-cont-cust" name="password" required>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mt-3">
-                            <div class="form-group">
+                            <div class="form-group form-gr-cust">
                                 <label class="form-label" for="password_confirm">{{trans('front.password-confirm')}}</label>
-                                <input id="password_confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input id="password_confirm" type="password" class="form-control form-cont-cust" name="password_confirmation" required>
                             </div>
                         </div>
                         @if ($errors->has('password'))

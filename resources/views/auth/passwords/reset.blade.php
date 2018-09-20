@@ -17,25 +17,25 @@
                     <form class="form form-inner-pad" method="POST" action="{{ route('password.request') }}">
                         {{ csrf_field() }}
                         <input type="hidden" name="token" value="{{ $token }}">
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="form-group form-gr-cust{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label class="form-label" for="email">{{trans('front.email')}}</label>
-                            <input autocomplete="reset-email" id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required>
+                            <input autocomplete="reset-email" id="email" type="email" class="form-control form-cont-cust" name="email" value="{{ $email or old('email') }}" required>
                             @if ($errors->has('email'))
                                 <p class="error pl-2 pb-0">{{ $errors->first('email') }}</p>
                             @endif
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                        <div class="form-group form-gr-cust{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label class="form-label" for="password">{{trans('front.password')}}</label>
-                            <input autocomplete="reset-pass" id="password" type="password" class="form-control" name="password" required>
+                            <input autocomplete="reset-pass" id="password" type="password" class="form-control form-cont-cust" name="password" required>
                             @if ($errors->has('password'))
                                 <p class="error pl-2 pb-0">{{ $errors->first('password') }}</p>
                             @endif
                         </div>
 
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                        <div class="form-group form-gr-cust{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                             <label class="form-label" for="password-confirm">{{trans('front.password-confirm')}}</label>
-                            <input autocomplete="reset-pass-conf" id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            <input autocomplete="reset-pass-conf" id="password-confirm" type="password" class="form-control form-cont-cust" name="password_confirmation" required>
                             @if ($errors->has('password_confirmation'))
                                 <p class="error pl-2 pb-0">{{ $errors->first('password_confirmation') }}</p>
                             @endif

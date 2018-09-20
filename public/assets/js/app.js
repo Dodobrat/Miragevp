@@ -18558,14 +18558,14 @@ $('.dropdown').on('hide.bs.dropdown', function (e) {
 
 // Moving Placeholder Up in Input fields
 $('input').focus(function () {
-    $(this).parents('.form-group').addClass('focused');
+    $(this).parents('.form-gr-cust').addClass('focused');
 });
 
 $('input').blur(function () {
     var inputValue = $(this).val();
     if (inputValue == "") {
         $(this).removeClass('filled');
-        $(this).parents('.form-group').removeClass('focused');
+        $(this).parents('.form-gr-cust').removeClass('focused');
     } else {
         $(this).addClass('filled');
     }
