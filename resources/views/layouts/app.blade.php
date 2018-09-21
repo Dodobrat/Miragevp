@@ -29,69 +29,109 @@
     {{--</div>--}}
 
 </div>
-    <div id="app">
+    <div id="app"></div>
 
 
-<nav>
-    <input type="checkbox" id="nav" class="hidden">
-    <label for="nav" class="nav-btn">
-        <i></i>
-        <i></i>
-        <i></i>
-    </label>
-    <div class="logo">
-        <a href="{{ url('/') }}">{{ config('app.name', 'MirageVP') }}</a>
-    </div>
+<div class="wrapper">
 
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3><a href="{{ url('/') }}">{{ config('app.name', 'MirageTower') }}</a></h3>
+        </div>
 
-
-
-    <div class="nav-wrapper">
         @auth
-            <ul class="left-nav">
-                <li><a href="#">{{trans('front.explore-nav')}}</a></li>
-                <li><a href="#">{{trans('front.blog')}}</a></li>
-                <li><a href="{{ LaravelLocalization::getLocalizedURL('en') }}">ENGLISH</a></li>
-                <li><a href="{{ LaravelLocalization::getLocalizedURL('fr') }}">FRENCH</a></li>
-            </ul>
-            <ul class="logged-in-user">
+
+            <ul class="list-unstyled components">
                 <li>
-                    <div class="dropdown">
-                        <a href="#" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            @if(isset( Auth::user()->first_name))
-                                {{Auth::user()->first_name}}
-                            @else
-                                {{Auth::user()->name}}
-                            @endif
-                        </a><i id="dropdownUserIcon"></i>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-                        <a href="{{ route('home') }}">{{trans('front.dashboard')}}</a>
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{trans('front.logout')}}</a>
+                    <a href="{{ route('home') }}">{{trans('front.dashboard')}}</a>
+                </li>
+                <li>
+                    <a href="#">{{trans('front.explore-nav')}}</a>
+                </li>
+                <li>
+                    <a href="#">{{trans('front.blog')}}</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        @if(isset( Auth::user()->first_name))
+                            {{Auth::user()->first_name}}
+                        @else
+                            {{Auth::user()->name}}
+                        @endif</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="{{ route('home') }}">{{trans('front.dashboard')}}</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{trans('front.logout')}}
+                            </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                             </form>
-                    </div>
-                    </div>
+                        </li>
+                    </ul>
                 </li>
+                <li><a href="{{ LaravelLocalization::getLocalizedURL('en') }}">EN</a></li>
+                <li><a href="{{ LaravelLocalization::getLocalizedURL('fr') }}">FR</a></li>
             </ul>
-        @endauth
+
+
+
+            @endauth
+
         @guest
-            <ul>
-                <li><a href="{{ LaravelLocalization::getLocalizedURL('en') }}">ENGLISH</a></li>
-                <li><a href="{{ LaravelLocalization::getLocalizedURL('fr') }}">FRENCH</a></li>
+            <ul class="list-unstyled components">
                 <li>
                     <a href="{{ route('login') }}">{{trans('front.login')}}</a>
                 </li>
+            <li><a href="{{ LaravelLocalization::getLocalizedURL('en') }}">EN</a></li>
+            <li><a href="{{ LaravelLocalization::getLocalizedURL('fr') }}">FR</a></li>
             </ul>
         @endguest
-    </div>
-</nav>
-        <div style="height: 50px;"></div>
+
+
+        {{--<ul class="list-unstyled CTAs">--}}
+            {{--<li>--}}
+                {{--<a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>--}}
+            {{--</li>--}}
+            {{--<li>--}}
+                {{--<a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>--}}
+            {{--</li>--}}
+        {{--</ul>--}}
+    </nav>
+
+
+    <!-- Page Content Holder -->
+    <div id="content">
+
+        <nav class="navbar navbar-light bg-light">
+
+        <button type="button" id="sidebarCollapse" class="navbar-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+            <p>hi</p>
+        </nav>
+
+
+
+
+
+<div id="content-inner">
+
+
+        <div style="height: 500px;"></div>
+
 
         @yield('content')
+</div>
     </div>
-
+</div>
 
     <!-- Scripts -->
     <script src="{{ mix('assets/js/app.js') }}"></script>

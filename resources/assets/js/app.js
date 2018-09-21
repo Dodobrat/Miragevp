@@ -13,14 +13,15 @@ require('particles.js');
 // Preloader
 // Function declarations
 function preloader(){
-    let navbar = document.querySelector('nav');
+    let wrapper = document.querySelector('.wrapper');
     let overlay = document.getElementById("overlay");
     window.addEventListener('load', function(){
         setTimeout(() => {
             overlay.style.transition = '0.5s opacity linear';
             overlay.style.opacity = '0';
             overlay.style.zIndex = '0';
-            navbar.style.opacity = '1';
+            wrapper.style.transition = '0.5s opacity ease-in';
+            wrapper.style.opacity = '1';
         }, 1);
     });
 }
@@ -28,14 +29,21 @@ function preloader(){
 preloader();
 
 // Shrinking Navigation on Scroll
-$(function(){
-    $(window).scroll(function() {
-        if($(window).scrollTop() >= 100) {
-            $('nav').addClass('scrolled');
-        }
-        else {
-            $('nav').removeClass('scrolled');
-        }
+// $(function(){
+//     $(window).scroll(function() {
+//         if($(window).scrollTop() >= 100) {
+//             $('nav').addClass('scrolled');
+//         }
+//         else {
+//             $('nav').removeClass('scrolled');
+//         }
+//     });
+// });
+
+$(document).ready(function () {
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+        $(this).toggleClass('active');
     });
 });
 
