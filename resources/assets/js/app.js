@@ -10,21 +10,77 @@ require('bootstrap/dist/js/bootstrap.js');
 var $ =require('jquery');
 require('particles.js');
 
-// Preloader
-// Function declarations
+// ---------------------------------------------------
+//         PRELOADER
+// ---------------------------------------------------
 function preloader(){
     let overlay = document.getElementById("overlay");
     window.addEventListener('load', function(){
         setTimeout(() => {
             overlay.style.transition = '0.5s opacity linear';
             overlay.style.opacity = '0';
-            overlay.style.zIndex = '0';
             overlay.style.display = 'none';
-        }, 1);
+        }, 200);
     });
 }
-// callbacks
 preloader();
+
+// ---------------------------------------------------
+//         SIDE MENU
+// ---------------------------------------------------
+let horizontalWidth = window.matchMedia("(max-width: 768px)");
+function sideNavMobile() {
+    if (horizontalWidth.matches){
+        function openMobileSlideMenu(){
+            let opener = document.querySelector('#opener');
+            opener.addEventListener('click', function () {
+                document.querySelector('.side-nav').style.width = '100vw';
+                document.querySelector('#main').style.opacity = '0';
+                setTimeout(() => {
+                    document.querySelector('#main').style.display = 'none';
+                }, 500);
+            })
+        }
+        openMobileSlideMenu();
+        function closeMobileSlideMenu(){
+            let closer = document.querySelector('#closer');
+            closer.addEventListener('click', function () {
+                document.querySelector('.side-nav').style.width = '0';
+                document.querySelector('#main').style.opacity = '1';
+                document.querySelector('#main').style.display = 'block';
+            })
+        }
+        closeMobileSlideMenu();
+    }else{
+        function openSlideMenu(){
+            let opener = document.querySelector('#opener');
+            opener.addEventListener('click', function () {
+                document.querySelector('.side-nav').style.width = '250px';
+                document.querySelector('#main').style.marginLeft = '250px';
+                document.querySelector('.top-nav').style.marginLeft = '250px';
+            })
+        }
+        openSlideMenu();
+        function closeSlideMenu(){
+            let closer = document.querySelector('#closer');
+            closer.addEventListener('click', function () {
+                document.querySelector('.side-nav').style.width = '0';
+                document.querySelector('#main').style.marginLeft = '0';
+                document.querySelector('.top-nav').style.marginLeft = '0';
+            })
+        }
+        closeSlideMenu();
+    }
+}
+sideNavMobile(horizontalWidth);
+
+// ---------------------------------------------------
+//         SIDE MENU DROPDOWNS
+// ---------------------------------------------------
+
+
+
+
 
 // Shrinking Navigation on Scroll
 // $(function(){

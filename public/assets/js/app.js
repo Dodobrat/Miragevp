@@ -18520,24 +18520,80 @@ __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
 var $ = __webpack_require__("./node_modules/jquery/dist/jquery.js");
 __webpack_require__("./node_modules/particles.js/particles.js");
 
-// Preloader
-// Function declarations
+// ---------------------------------------------------
+//         PRELOADER
+// ---------------------------------------------------
 function preloader() {
-    // let wrapper = document.querySelector('.wrapper');
     var overlay = document.getElementById("overlay");
     window.addEventListener('load', function () {
         setTimeout(function () {
             overlay.style.transition = '0.5s opacity linear';
             overlay.style.opacity = '0';
-            overlay.style.zIndex = '0';
             overlay.style.display = 'none';
-            // wrapper.style.transition = '0.5s opacity ease-in';
-            // wrapper.style.opacity = '1';
         }, 200);
     });
 }
-// callbacks
 preloader();
+
+// ---------------------------------------------------
+//         SIDE MENU
+// ---------------------------------------------------
+var horizontalWidth = window.matchMedia("(max-width: 768px)");
+function sideNavMobile() {
+    if (horizontalWidth.matches) {
+        var openMobileSlideMenu = function openMobileSlideMenu() {
+            var opener = document.querySelector('#opener');
+            opener.addEventListener('click', function () {
+                document.querySelector('.side-nav').style.width = '100vw';
+                document.querySelector('#main').style.opacity = '0';
+                setTimeout(function () {
+                    document.querySelector('#main').style.display = 'none';
+                }, 500);
+            });
+        };
+
+        var closeMobileSlideMenu = function closeMobileSlideMenu() {
+            var closer = document.querySelector('#closer');
+            closer.addEventListener('click', function () {
+                document.querySelector('.side-nav').style.width = '0';
+                document.querySelector('#main').style.opacity = '1';
+                document.querySelector('#main').style.display = 'block';
+            });
+        };
+
+        openMobileSlideMenu();
+
+        closeMobileSlideMenu();
+    } else {
+        var openSlideMenu = function openSlideMenu() {
+            var opener = document.querySelector('#opener');
+            opener.addEventListener('click', function () {
+                document.querySelector('.side-nav').style.width = '250px';
+                document.querySelector('#main').style.marginLeft = '250px';
+                document.querySelector('.top-nav').style.marginLeft = '250px';
+            });
+        };
+
+        var closeSlideMenu = function closeSlideMenu() {
+            var closer = document.querySelector('#closer');
+            closer.addEventListener('click', function () {
+                document.querySelector('.side-nav').style.width = '0';
+                document.querySelector('#main').style.marginLeft = '0';
+                document.querySelector('.top-nav').style.marginLeft = '0';
+            });
+        };
+
+        openSlideMenu();
+
+        closeSlideMenu();
+    }
+}
+sideNavMobile(horizontalWidth);
+
+// ---------------------------------------------------
+//         SIDE MENU DROPDOWNS
+// ---------------------------------------------------
+
 
 // Shrinking Navigation on Scroll
 // $(function(){

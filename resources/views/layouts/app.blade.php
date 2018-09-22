@@ -29,7 +29,26 @@
     {{--</div>--}}
 
 </div>
-    <div id="app"></div>
+<div id="app"></div>
+
+<div class="top-nav">
+    <a href="#" id="opener" class="top-nav-toggler">OPEN</a>
+    <a href="#" class="top-nav-link">Login</a>
+</div>
+
+
+<div id="closer" class="side-nav">
+    <a href="#" class="btn-close">&times;</a>
+    <a href="{{ url('/') }}" class="side-nav-link-head">{{ config('app.name', 'MirageTower') }}</a>
+    <a class="side-nav-link" href="#">Home</a>
+    <a class="side-nav-link" href="#">About</a>
+</div>
+
+
+
+
+
+
 
 
 {{--<div class="wrapper">--}}
@@ -128,8 +147,11 @@
     <input type="submit">
 </form>
 
+<div id="main">
+    @yield('content')
+</div>
 
-        @yield('content')
+
 
     {{--<div style="height: 500px;"></div>--}}
 
