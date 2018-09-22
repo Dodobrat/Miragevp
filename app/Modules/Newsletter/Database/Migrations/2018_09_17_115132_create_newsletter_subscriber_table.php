@@ -16,6 +16,7 @@ class CreateNewsletterSubscriberTable extends Migration
         Schema::create('newsletter_subscriber', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email');
+            $table->string('locale')->default('en');
             $table->boolean('active')->default(true);
             $table->timestamps();
         });

@@ -49,11 +49,11 @@ class NewsletterContentSendController extends BaseAdministrationController
 
     public function send(SendNewsletterContentRequest $request)
     {
-        $newsletter = NewsletterContent::where('id',$request->newsletter_id)->first();
-        $subscribers = DB::table('newsletter_subscriber')->where('active', true)->get();
+        $newsletter = NewsletterContent::where('id', $request->newsletter_id)->first();
+        $subscribers = NewsletterSubscribers::where('active', 1)->get();
 
-        foreach($subscribers as $subscriber){
-            Mail::to($subscriber)->send(new Newsletter($newsletter));
+        foreach ($subscribers as $subscriber) {
+            Mail::to($subscriber)->send(new Newsletter($newsletter, $subscriber));
         }
 
         return Redirect::route(Administration::routeName('newsletter_content.index'));

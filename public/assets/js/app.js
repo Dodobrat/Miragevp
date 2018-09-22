@@ -18523,16 +18523,17 @@ __webpack_require__("./node_modules/particles.js/particles.js");
 // Preloader
 // Function declarations
 function preloader() {
-    var wrapper = document.querySelector('.wrapper');
+    // let wrapper = document.querySelector('.wrapper');
     var overlay = document.getElementById("overlay");
     window.addEventListener('load', function () {
         setTimeout(function () {
             overlay.style.transition = '0.5s opacity linear';
             overlay.style.opacity = '0';
             overlay.style.zIndex = '0';
-            wrapper.style.transition = '0.5s opacity ease-in';
-            wrapper.style.opacity = '1';
-        }, 1);
+            overlay.style.display = 'none';
+            // wrapper.style.transition = '0.5s opacity ease-in';
+            // wrapper.style.opacity = '1';
+        }, 200);
     });
 }
 // callbacks
@@ -18550,78 +18551,78 @@ preloader();
 //     });
 // });
 
-$(document).ready(function () {
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-        $(this).toggleClass('active');
-    });
-});
+// $(document).ready(function () {
+//     $('#sidebarCollapse').on('click', function () {
+//         $('#sidebar').toggleClass('active');
+//         $(this).toggleClass('active');
+//         $('.cont-wrap').toggleClass('expanded');
+//     });
+// });
 
-// Navigation DropDown
-$('.dropdown').on('show.bs.dropdown', function (e) {
-    $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
-});
-$('.dropdown').on('hide.bs.dropdown', function (e) {
-    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
-});
+// // Navigation DropDown
+// $('.dropdown').on('show.bs.dropdown', function(e){
+//     $(this).find('.dropdown-menu').first().stop(true, true).slideDown(300);
+// });
+// $('.dropdown').on('hide.bs.dropdown', function(e){
+//     $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
+// });
 
 // Moving Placeholder Up in Input fields
-$('input').focus(function () {
-    $(this).parents('.form-gr-cust').addClass('focused');
-});
-
-$('input').blur(function () {
-    var inputValue = $(this).val();
-    if (inputValue == "") {
-        $(this).removeClass('filled');
-        $(this).parents('.form-gr-cust').removeClass('focused');
-    } else {
-        $(this).addClass('filled');
-    }
-});
+// $('input').focus(function(){
+//     $(this).parents('.form-gr-cust').addClass('focused');
+// });
+//
+// $('input').blur(function(){
+//     var inputValue = $(this).val();
+//     if ( inputValue == "" ) {
+//         $(this).removeClass('filled');
+//         $(this).parents('.form-gr-cust').removeClass('focused');
+//     } else {
+//         $(this).addClass('filled');
+//     }
+// })
 
 // Form Dynamic Validation
-var firstName = document.querySelector("#first_name");
-var lastName = document.querySelector("#last_name");
-var inputEmail = document.querySelector("#email");
-if (firstName != null && lastName != null && inputEmail != null) {
-    var validateFirstName = function validateFirstName() {
-        var name = document.querySelector("#first_name");
-        var re = /^[a-zA-Zа-яА-Я\ \-]{2,20}$/;
-
-        if (!re.test(name.value)) {
-            name.style.borderBottom = "3px solid rgb(150,50,50)";
-        } else {
-            name.style.borderBottom = "3px solid rgb(50,150,50)";
-        }
-    };
-
-    var validateLastName = function validateLastName() {
-        var name = document.querySelector("#last_name");
-        var re = /^[a-zA-Zа-яА-Я\ \-]{2,20}$/;
-
-        if (!re.test(name.value)) {
-            name.style.borderBottom = "3px solid rgb(150,50,50)";
-        } else {
-            name.style.borderBottom = "3px solid rgb(50,150,50)";
-        }
-    };
-
-    var validateEmail = function validateEmail() {
-        var email = document.querySelector("#email");
-        var re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-
-        if (!re.test(email.value)) {
-            email.style.borderBottom = "3px solid rgb(150,50,50)";
-        } else {
-            email.style.borderBottom = "3px solid rgb(50,150,50)";
-        }
-    };
-
-    firstName.addEventListener('keyup', validateFirstName);
-    lastName.addEventListener('keyup', validateLastName);
-    inputEmail.addEventListener('keyup', validateEmail);
-} else {}
+// const firstName = document.querySelector("#first_name");
+// const lastName = document.querySelector("#last_name");
+// const inputEmail = document.querySelector("#email");
+// if (firstName != null && lastName != null && inputEmail != null){
+//     firstName.addEventListener('keyup', validateFirstName);
+//     lastName.addEventListener('keyup', validateLastName);
+//     inputEmail.addEventListener('keyup', validateEmail);
+//     function validateFirstName(){
+//         const name = document.querySelector("#first_name");
+//         const re = /^[a-zA-Zа-яА-Я\ \-]{2,20}$/;
+//
+//         if (!re.test(name.value)) {
+//             name.style.borderBottom = "3px solid rgb(150,50,50)";
+//         } else{
+//             name.style.borderBottom = "3px solid rgb(50,150,50)";
+//         }
+//     }
+//     function validateLastName(){
+//         const name = document.querySelector("#last_name");
+//         const re = /^[a-zA-Zа-яА-Я\ \-]{2,20}$/;
+//
+//         if (!re.test(name.value)) {
+//             name.style.borderBottom = "3px solid rgb(150,50,50)";
+//         } else{
+//             name.style.borderBottom = "3px solid rgb(50,150,50)";
+//         }
+//     }
+//     function validateEmail() {
+//         const email = document.querySelector("#email");
+//         const re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+//
+//         if (!re.test(email.value)) {
+//             email.style.borderBottom = "3px solid rgb(150,50,50)";
+//         } else {
+//             email.style.borderBottom = "3px solid rgb(50,150,50)";
+//         }
+//     }
+// }else{
+//
+// }
 
 /***/ }),
 

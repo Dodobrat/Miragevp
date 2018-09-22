@@ -8,7 +8,9 @@ class NewsletterSubscribers extends AdminModel
 {
     protected $table = 'newsletter_subscriber';
 
+
+
     protected $fillable = [
-        'email','active',
+        'email','active','locale'
     ];
 }
