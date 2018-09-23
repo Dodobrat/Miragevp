@@ -1,8 +1,6 @@
 
 /**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
+ * MIRAGETOWER 2018 Copyright
  */
 
 window.Popper = require('popper.js');
@@ -19,8 +17,13 @@ function preloader(){
         setTimeout(() => {
             overlay.style.transition = '0.5s opacity linear';
             overlay.style.opacity = '0';
-            overlay.style.display = 'none';
-        }, 200);
+            main.style.opacity = '1';
+            sideNav.style.opacity = '1';
+            topNav.style.opacity = '1';
+            setTimeout(()=>{
+                overlay.style.display = 'none';
+            },500);
+        }, 300);
     });
 }
 preloader();
@@ -28,48 +31,68 @@ preloader();
 // ---------------------------------------------------
 //         SIDE MENU
 // ---------------------------------------------------
+let sideNav = document.querySelector('.side-nav');
+let sideNavLinks = document.getElementsByClassName('side-nav-link');
+let main = document.querySelector('#main');
+let topNav = document.querySelector('.top-nav');
 let horizontalWidth = window.matchMedia("(max-width: 768px)");
+let navToggler = document.querySelector('#toggler');
+let hamburger = document.querySelector('.hamburger');
+let btnClose = document.querySelector('#mobileCloser');
+let mobileCounter = 0;
+let counter = 1;
+sideNavLinks = Array.from(sideNavLinks);
+sideNavLinks.reverse();
 function sideNavMobile() {
     if (horizontalWidth.matches){
-        function openMobileSlideMenu(){
-            let opener = document.querySelector('#opener');
-            opener.addEventListener('click', function () {
-                document.querySelector('.side-nav').style.width = '100vw';
-                document.querySelector('#main').style.opacity = '0';
+        btnClose.style.display = 'block';
+        navToggler.addEventListener('click', function () {
+            mobileCounter += 1;
+            if( Math.abs(mobileCounter % 2) == 1) {
+                sideNavLinks.forEach(function (side) {
+                    side.style.marginLeft = '0';
+                });
+                sideNav.style.width = '100vw';
+                main.style.opacity = '0';
                 setTimeout(() => {
-                    document.querySelector('#main').style.display = 'none';
+                    main.style.display = 'none';
                 }, 500);
-            })
-        }
-        openMobileSlideMenu();
-        function closeMobileSlideMenu(){
-            let closer = document.querySelector('#closer');
-            closer.addEventListener('click', function () {
-                document.querySelector('.side-nav').style.width = '0';
-                document.querySelector('#main').style.opacity = '1';
-                document.querySelector('#main').style.display = 'block';
-            })
-        }
-        closeMobileSlideMenu();
+            }
+        })
+        btnClose.addEventListener('click',function () {
+            mobileCounter += 1;
+            if(mobileCounter % 2 == 0){
+                sideNav.style.width = '0';
+                sideNavLinks.forEach(function (side) {
+                    side.style.marginLeft = '-250px';
+                });
+                main.style.opacity = '1';
+                main.style.display = 'block';
+            }
+        })
     }else{
-        function openSlideMenu(){
-            let opener = document.querySelector('#opener');
-            opener.addEventListener('click', function () {
-                document.querySelector('.side-nav').style.width = '250px';
-                document.querySelector('#main').style.marginLeft = '250px';
-                document.querySelector('.top-nav').style.marginLeft = '250px';
-            })
-        }
-        openSlideMenu();
-        function closeSlideMenu(){
-            let closer = document.querySelector('#closer');
-            closer.addEventListener('click', function () {
-                document.querySelector('.side-nav').style.width = '0';
-                document.querySelector('#main').style.marginLeft = '0';
-                document.querySelector('.top-nav').style.marginLeft = '0';
-            })
-        }
-        closeSlideMenu();
+        navToggler.addEventListener('click', function () {
+            counter += 1;
+            if( Math.abs(counter % 2) == 1) {
+                hamburger.classList.add('is-active');
+                sideNav.style.width = '250px';
+                // sideNavLinks[].style.marginLeft = '0';
+                sideNavLinks.forEach(function (side) {
+                   side.style.marginLeft = '0';
+                   side.style.transition = 'margin-left 0.8s';
+                });
+                main.style.marginLeft = '250px';
+                topNav.style.marginLeft = '250px';
+            }else if(counter % 2 == 0){
+                hamburger.classList.remove('is-active');
+                sideNav.style.width = '0';
+                sideNavLinks.forEach(function (side) {
+                    side.style.marginLeft = '-250px';
+                });
+                main.style.marginLeft = '0';
+                topNav.style.marginLeft = '0';
+            }
+        })
     }
 }
 sideNavMobile(horizontalWidth);
@@ -78,11 +101,39 @@ sideNavMobile(horizontalWidth);
 //         SIDE MENU DROPDOWNS
 // ---------------------------------------------------
 
+let nameDrop = document.querySelector('#name-drop');
+let dropContent = document.querySelector('.side-nav-link-drop');
+let dropLink = document.querySelector('.link-drop');
+let drop = 0;
+if (document.body.contains(nameDrop) && document.body.contains(dropContent) && document.body.contains(dropLink)) {
+    function openDropDown(){
+        nameDrop.addEventListener('click',function () {
+            drop += 1;
+            if( Math.abs(drop % 2) == 1) {
+                nameDrop.classList.add('active');
+                setTimeout(() => {
+                    dropLink.style.opacity = '1';
+
+                }, 200);
+                dropContent.style.height = '44px';
+
+            }else if(drop % 2 == 0){
+                nameDrop.classList.remove('active');
+                setTimeout(() => {
+                    dropContent.style.height = '0px';
+                }, 200);
+                dropLink.style.opacity = '0';
+
+            }
+        })
+    }
+    openDropDown();
+}
 
 
 
 
-// Shrinking Navigation on Scroll
+// Change Navigation on Scroll
 // $(function(){
 //     $(window).scroll(function() {
 //         if($(window).scrollTop() >= 100) {
@@ -124,6 +175,22 @@ sideNavMobile(horizontalWidth);
 //         $(this).addClass('filled');
 //     }
 // })
+
+// ---------------------------------------------------
+//         FORM INPUTS
+// ---------------------------------------------------
+
+$(document).ready(function(){
+    $('.positioning input').val('');
+
+    $('.input-effect input').focusout(function(){
+        if($(this).val() != ''){
+            $(this).addClass('has-content');
+        }else{
+            $(this).removeClass('has-content');
+        }
+    })
+});
 
 // Form Dynamic Validation
 // const firstName = document.querySelector("#first_name");

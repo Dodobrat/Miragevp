@@ -32,46 +32,67 @@
 <div id="app"></div>
 
 <div class="top-nav">
-    <a href="#" id="opener" class="top-nav-toggler">OPEN</a>
-    <a href="#" class="top-nav-link">Login</a>
+    <a id="toggler" class="top-nav-toggler">
+        <div class="hamburger is-active" id="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+    </a>
+    <a class="top-nav-link-trans-right top-nav-link-trans" href="{{ LaravelLocalization::getLocalizedURL('en') }}">EN</a>
+    <a class="top-nav-link-trans-left top-nav-link-trans" href="{{ LaravelLocalization::getLocalizedURL('fr') }}">FR</a>
 </div>
 
 
-<div id="closer" class="side-nav">
-    <a href="#" class="btn-close">&times;</a>
+<div class="side-nav">
+    <a class="btn-close" id="mobileCloser">&times;</a>
     <a href="{{ url('/') }}" class="side-nav-link-head">{{ config('app.name', 'MirageTower') }}</a>
-    <a class="side-nav-link" href="#">Home</a>
-    <a class="side-nav-link" href="#">About</a>
+    @auth
+        <a class="side-nav-link" href="{{ route('home') }}">{{trans('front.dashboard')}}</a>
+        <a class="side-nav-link" href="#">{{trans('front.explore-nav')}}</a>
+        <a class="side-nav-link" href="#">{{trans('front.blog')}}</a>
+        <a class="side-nav-link" id="name-drop">
+            @if(isset( Auth::user()->first_name))
+                {{Auth::user()->first_name}}
+            @else
+                {{Auth::user()->name}}
+            @endif
+            <i></i>
+        </a>
+        <div class="side-nav-link-drop">
+            <a class="link-drop" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                {{trans('front.logout')}}
+            </a>
+
+        </div>
+
+
+
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        {{ csrf_field() }}
+        </form>
+
+
+    @endauth
+
+@guest
+
+<a class="side-nav-link" href="{{ route('login') }}">{{trans('front.login')}}</a>
+
+
+@endguest
+{{--<form action="{{ route('newsletter_subscriber.store') }}" method="post">--}}
+        {{--{{ csrf_field() }}--}}
+        {{--<input type="email" name="email">--}}
+        {{--<input type="submit">--}}
+    {{--</form>--}}
 </div>
 
-
-
-
-
-
-
-
-{{--<div class="wrapper">--}}
-
-    <!-- Sidebar Holder -->
-    {{--<nav id="sidebar">--}}
-        {{--<div class="sidebar-header">--}}
-            {{--<h3><a href="{{ url('/') }}">{{ config('app.name', 'MirageTower') }}</a></h3>--}}
-        {{--</div>--}}
 
         {{--@auth--}}
 
-            {{--<ul class="list-unstyled components">--}}
-                {{--<li>--}}
-                    {{--<a href="{{ route('home') }}">{{trans('front.dashboard')}}</a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                    {{--<a href="#">{{trans('front.explore-nav')}}</a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                    {{--<a href="#">{{trans('front.blog')}}</a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
+
                     {{--<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">--}}
                         {{--@if(isset( Auth::user()->first_name))--}}
                             {{--{{Auth::user()->first_name}}--}}
@@ -91,64 +112,19 @@
                             {{--{{ csrf_field() }}--}}
                             {{--</form>--}}
                         {{--</li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
-                {{--<li><a href="{{ LaravelLocalization::getLocalizedURL('en') }}">EN</a></li>--}}
-                {{--<li><a href="{{ LaravelLocalization::getLocalizedURL('fr') }}">FR</a></li>--}}
-            {{--</ul>--}}
+
 
 
 
             {{--@endauth--}}
 
-        {{--@guest--}}
-            {{--<ul class="list-unstyled components">--}}
-                {{--<li>--}}
-                    {{--<a href="{{ route('login') }}">{{trans('front.login')}}</a>--}}
-                {{--</li>--}}
-            {{--<li><a href="{{ LaravelLocalization::getLocalizedURL('en') }}">EN</a></li>--}}
-            {{--<li><a href="{{ LaravelLocalization::getLocalizedURL('fr') }}">FR</a></li>--}}
-            {{--</ul>--}}
-        {{--@endguest--}}
-
-    {{--</nav>--}}
 
 
-    {{--<!-- Page Content Holder -->--}}
-    {{--<div id="content">--}}
-
-        {{--<nav class="navbar navbar-light bg-light">--}}
-
-        {{--<button type="button" id="sidebarCollapse" class="navbar-btn">--}}
-            {{--<span></span>--}}
-            {{--<span></span>--}}
-            {{--<span></span>--}}
-        {{--</button>--}}
-
-            {{--<p>hi</p>--}}
-        {{--</nav>--}}
-
-    {{--</div>--}}
-{{--</div>--}}
-
-
-
-
-
-{{--<div class="cont-wrap">--}}
-
-
-        {{--<div style="height: 500px;"></div>--}}
-
-
-<form action="{{ route('newsletter_subscriber.store') }}" method="post">
-    {{ csrf_field() }}
-    <input type="email" name="email">
-    <input type="submit">
-</form>
 
 <div id="main">
+    <div style="margin-top: 100px;"></div>
     @yield('content')
+    <div style="margin-top: 1000px;"></div>
 </div>
 
 

@@ -1,6 +1,54 @@
 @extends('layouts.app')
 
 @section('content')
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-lg-7 col-md-8 col-sm-12 col-xs-12 form-wrapper">
+                <form class="form custom-form" method="POST" action="{{ route('login') }}">
+                    {{ csrf_field() }}
+
+                    <div class="positioning input-effect{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <input autocomplete="new-email" class="effect" id="email" type="email" name="email" placeholder="" required>
+                        <label>{{trans('front.email')}}</label>
+                        <span class="focus-border"></span>
+                        @if ($errors->has('email'))
+                            <p class="error">{{ $errors->first('email') }}</p>
+                        @endif
+                    </div>
+                    <div class="positioning input-effect{{ $errors->has('password') ? ' has-error' : '' }}">
+                        <input autocomplete="new-password" class="effect" id="password" type="password" name="password" placeholder="" required>
+                        <label>{{trans('front.password')}}</label>
+                        <span class="focus-border"></span>
+                        @if ($errors->has('password'))
+                            <p class="error">{{ $errors->first('password') }}</p>
+                        @endif
+                    </div>
+
+                    <button type="submit" class="btn submit-btn">{{trans('front.login')}}</button>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <button class="forms-adjustmentor">
+                                <a class="second-btn" href="{{ route('password.request') }}">
+                                    {{trans('front.forgot-password')}}
+                                </a>
+                            </button>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <button class="forms-adjustmentor">
+                            <a class="second-btn" href="{{ route('register') }}">
+                                {{trans('front.no-account')}}
+                            </a>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
 {{--<div class="container">--}}
     {{--<div class="row justify-content-md-center">--}}
         {{--<div class="col-lg-6 col-md-8 form-wrapper">--}}
