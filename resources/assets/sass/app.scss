@@ -81,7 +81,7 @@
     GENERAL STYLES
 ----------------------------------------------------- */
 body{
-  background-color: #fefefe;
+  background-color: #f1f1f1;
 }
 
 /* ---------------------------------------------------
@@ -129,7 +129,7 @@ body{
   cursor: pointer;
 }
 .hamburger .line{
-  width: 25px;
+  width: 20px;
   height: 1px;
   background-color: #333;
   display: block;
@@ -189,7 +189,7 @@ body{
   font-size:18px;
   color:#333;
   display:block;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.8s ease-in-out;
 }
 
 .side-nav-link:hover{
@@ -198,6 +198,9 @@ body{
   background-color: #F2F2F2;
   color:#555;
   transition: all 0.2s ease-in-out;
+  #name-drop-icon{
+    color: #95ACBF;
+  }
 }
 
 .side-nav-link-head:hover{
@@ -205,16 +208,23 @@ body{
   color:#555;
   transition: all 0.2s ease-in-out;
 }
-#name-drop i{
+#name-drop-icon{
   @extend %fa-icon;
   @extend .fas;
 
   &:after {
     content: fa-content($fa-var-caret-down);
   }
+  color: #333333;
   position: absolute;
   font-size: 16px;
-  margin: 7px 0px 0px 45px;
+  right: 20px;
+  margin-top: 6px;
+  transition: 0.5s;
+}
+.name-drop-icon-rotate{
+  transform: rotate(180deg);
+  transition: 0.5s;
 }
 #name-drop.active{
   background-color: #f2f2f2;
@@ -236,7 +246,7 @@ body{
   padding:10px 0px 10px 50px;
   text-decoration:none;
   color:#333;
-  display:block;
+  display:none;
   transition: all 0.2s ease-in-out;
 }
 .link-drop:hover{
@@ -281,6 +291,7 @@ body{
   }
   #main{
     margin-left: 0;
+    padding: 5px;
   }
   .top-nav{
     margin-left: 0;
@@ -294,20 +305,33 @@ body{
   #hamburger.is-active .line:nth-child(3){
     transform: none;
   }
+  .news-section{
+    opacity: 0;
+    margin-left: -100vw;
+  }
 }
 
 /* ---------------------------------------------------
     FORMS
 ----------------------------------------------------- */
 .custom-form{
-  padding: 20px 30px;
-  box-shadow: 0px 0px 20px 0px #999999;
+  background-color: rgba(255,255,255,0.3);
+  padding: 40px 30px 20px 30px;
+  border: 1px solid #869AA6;
+  box-shadow: 0px 7px 30px -5px rgba(0,0,0,0.3);
+}
+.form-title{
+  margin-top: -40px;
+  padding: 20px 0px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 200;
 }
 :focus{outline: none;}
 
 .positioning{
   position: relative;
-  margin: 25px 0px;
+  margin: 0px 0px 30px 0px;
 } /* necessary to give position: relative to parent. */
 input{
   width: 100%;
@@ -323,9 +347,13 @@ input:-webkit-autofill:active {
 }
 .effect{
   border: 0;
-  padding: 4px 0;
-  border-bottom: 1px solid #ccc;
-  background-color: transparent;
+  padding: 10px 10px;
+  background-color: rgba(199,210,217,0.5);
+  transition: background-color 0.2s;
+}
+.effect:focus{
+  background-color: rgba(255,255,255,0);
+  transition: background-color 0.2s;
 }
 .effect ~ .focus-border{
   position: absolute;
@@ -344,53 +372,188 @@ input:-webkit-autofill:active {
 }
 .effect ~ label{
   position: absolute;
-  left: 0;
+  left: 10px;
   width: 100%;
-  top: 9px;
-  color: #aaa;
+  top: 10px;
+  color: #000000;
   transition: 0.3s;
   z-index: -1;
   letter-spacing: 0.5px;
 }
 .effect:focus ~ label, .has-content.effect ~ label{
-  top: -16px;
+  top: -20px;
+  left: 0;
   font-size: 12px;
-  color: #869AA6;
+  color: rgba(84,104,116,1);
   transition: 0.3s;
 }
 .submit-btn{
   border-radius: 0;
   width: 100%;
   background-color: #95ACBF;
-  padding: 10px 0px;
+  padding: 15px 0px;
   border: none;
+  color: #ffffff;
+  font-size: 18px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: 600;
+  font-weight: 200;
   margin: 10px 0px;
+  transition: all 0.3s;
 }
 .submit-btn:hover{
   background-color: #869AA6;
   cursor: pointer;
+  transition: all 0.3s;
 }
-.forms-adjustmentor{
+.submit-btn:focus{
+  outline: 0;
+}
+.news-section{
+  opacity: 1;
+  position: absolute;
+  bottom: 30px;
+  padding: 0px 5px;
   width: 100%;
-  background-color: #95B3BF;
-  padding: 10px 10px;
-  margin: 10px 0px;
-  border: none;
 }
-.second-btn{
+.news-btn{
+  border-radius: 0;
+  width: 100%;
+  background-color: #95ACBF;
+  padding: 10px 0px;
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 200;
+  margin: 0px 0px;
+  transition: all 0.3s;
+}
+.news-btn:hover{
+  background-color: #869AA6;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.news-btn:focus{
+  outline: 0;
+}
+#news-field{
+  margin-bottom: 5px;
+}
+.custom-btn {
+  padding: 10px 5px;
+  background: transparent;
+  outline: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+.custom-btn a{
   color: #333333;
   text-decoration: none;
 }
-.second-btn:hover{
+.custom-btn a:hover{
+  color: #ffffff;
   text-decoration: none;
-  color: #000;
+}
+
+/**** BTN No. 12 ****/
+.btn-12 {
+  border: 2px solid rgba(149,179,191,1);
+  z-index: 0;
+  width: 100%;
+  margin: 15px 0px 5px 0px;
+}
+.btn-12:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: rgba(149,179,191,1);
+  transition: all 0.3s ease;
+}
+.btn-12:hover {
+  color: #fff;
+}
+.btn-12:hover:after {
+  top: 0;
+  height: 100%;
+}
+.btn-12:active {
+  top: 2px;
+}
+.or-divider{
+  padding: 10px 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  color: #95ACBF;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+.or-divider::before, .or-divider::after{
+  content: "";
+  background-color: #95ACBF;
+  height: 1px;
+  margin: 10px 10px 5px 10px;
+  flex: 1;
+}
+.social-media-login-button {
+  flex-grow: 1;
+  height: 60px;
+  margin: 0 0px 10px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 0px;
+  opacity: 0.85;
+  cursor: pointer;
+  transition: 0.2s;
+  color: white;
+}
+.login-social-button:hover{
+  text-decoration: none;
+}
+.social-media-login-button:hover {
+  opacity: 1;
+  transition: 0.1s;
+}
+
+.social-media-login-button svg {
+  padding-right: 18px;
+}
+
+
+.social-media-login-button .contents {
+  margin-bottom: 2px
+}
+
+.social-media-login-button .contents > * {
+  display: block;
+  line-height: 1;
+  color: inherit;
+}
+
+.social-media-login-button .contents .title {
+  font-weight: 600;
+  font-size: 16px;
 }
 .error{
-  color: rgb(150,50,50);
-  position: absolute;
-  padding: 10px 0px;
+  border-radius: 0;
+  transition: 0.3s;
+}
+.error-news{
+  border-radius: 0;
+  transition: 0.3s;
+  margin: 5px 0px 5px 0px !important;
+  padding: 5px 30px 5px 5px;
+}
+.close:focus{
+  outline: 0;
 }
 

@@ -11,9 +11,9 @@
 |
 */
 
-Route::group(['prefix' => 'blog'], function () {
-    Route::get('/', function () {
-        dd('This is the Blog module index page. Build something great!');
-    });
+Route::group(['prefix' => LaravelLocalization::setLocale()], function()
+{
+    /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+    Route::get('/blog', 'BlogController@index')->name('blog');
 });
 

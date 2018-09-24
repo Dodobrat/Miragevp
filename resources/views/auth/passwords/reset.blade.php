@@ -1,51 +1,61 @@
 @extends('layouts.app')
 
 @section('content')
-    {{--<div class="container">--}}
-        {{--<div class="row justify-content-md-center">--}}
-            {{--<div class="col-lg-6 col-md-8 form-wrapper">--}}
-                {{--<div class="panel panel-default">--}}
-                    {{--<h1 class="text-center form-title">{{trans('front.reset-password')}}</h1>--}}
 
 
-                    {{--@if (session('status'))--}}
-                        {{--<div class="alert alert-success">--}}
-                            {{--{{ session('status') }}--}}
-                        {{--</div>--}}
-                    {{--@endif--}}
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12 form-wrapper">
+                <form class="form custom-form" method="POST" action="{{ route('password.request') }}">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="token" value="{{ $token }}">
+                    <h3 class="text-center form-title">{{trans('front.reset-password')}}</h3>
+                    <div class="positioning input-effect{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <input autocomplete="new-email" class="effect" id="email" type="email" name="email" placeholder="" required>
+                        <label>{{trans('front.email')}}</label>
+                        <span class="focus-border"></span>
+                        @if ($errors->has('email'))
+                            <div class="mt-4 alert alert-danger alert-dismissible fade show error" role="alert">
+                                {{ $errors->first('email') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="positioning input-effect{{ $errors->has('password') ? ' has-error' : '' }}">
+                        <input autocomplete="new-password" class="effect" id="password" type="password" name="password" placeholder="" required>
+                        <label>{{trans('front.password')}}</label>
+                        <span class="focus-border"></span>
+                        @if ($errors->has('password'))
+                            <div class="mt-4 alert alert-danger alert-dismissible fade show error" role="alert">
+                                {{ $errors->first('password') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="positioning input-effect{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                        <input class="effect" id="password_confirm" type="password" name="password_confirmation" placeholder="" required>
+                        <label>{{trans('front.password-confirm')}}</label>
+                        <span class="focus-border"></span>
+                        @if ($errors->has('password_confirmation'))
+                            <div class="mt-4 alert alert-danger alert-dismissible fade show error" role="alert">
+                                {{ $errors->first('password_confirmation') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
+                    </div>
+                    <button type="submit" class="submit-btn">{{trans('front.reset-password')}}</button>
 
-                    {{--<form class="form form-inner-pad" method="POST" action="{{ route('password.request') }}">--}}
-                        {{--{{ csrf_field() }}--}}
-                        {{--<input type="hidden" name="token" value="{{ $token }}">--}}
-                        {{--<div class="form-group form-gr-cust{{ $errors->has('email') ? ' has-error' : '' }}">--}}
-                            {{--<label class="form-label" for="email">{{trans('front.email')}}</label>--}}
-                            {{--<input autocomplete="reset-email" id="email" type="email" class="form-control form-cont-cust" name="email" value="{{ $email or old('email') }}" required>--}}
-                            {{--@if ($errors->has('email'))--}}
-                                {{--<p class="error pl-2 pb-0">{{ $errors->first('email') }}</p>--}}
-                            {{--@endif--}}
-                        {{--</div>--}}
 
-                        {{--<div class="form-group form-gr-cust{{ $errors->has('password') ? ' has-error' : '' }}">--}}
-                            {{--<label class="form-label" for="password">{{trans('front.password')}}</label>--}}
-                            {{--<input autocomplete="reset-pass" id="password" type="password" class="form-control form-cont-cust" name="password" required>--}}
-                            {{--@if ($errors->has('password'))--}}
-                                {{--<p class="error pl-2 pb-0">{{ $errors->first('password') }}</p>--}}
-                            {{--@endif--}}
-                        {{--</div>--}}
+                </form>
+            </div>
+        </div>
 
-                        {{--<div class="form-group form-gr-cust{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">--}}
-                            {{--<label class="form-label" for="password-confirm">{{trans('front.password-confirm')}}</label>--}}
-                            {{--<input autocomplete="reset-pass-conf" id="password-confirm" type="password" class="form-control form-cont-cust" name="password_confirmation" required>--}}
-                            {{--@if ($errors->has('password_confirmation'))--}}
-                                {{--<p class="error pl-2 pb-0">{{ $errors->first('password_confirmation') }}</p>--}}
-                            {{--@endif--}}
-                        {{--</div>--}}
+    </div>
 
-                        {{--<button type="submit" class="btn submit-btn"><p>{{trans('front.reset-password')}}</p></button>--}}
-                    {{--</form>--}}
-
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
 @endsection

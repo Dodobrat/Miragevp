@@ -24,7 +24,7 @@ class StoreNewsletterSubscriberRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|unique:newsletter_subscriber|email',
+            'news_email' => 'required|unique:newsletter_subscriber,email|email',
         ];
     }
 }

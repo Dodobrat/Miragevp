@@ -49,15 +49,15 @@
     <a href="{{ url('/') }}" class="side-nav-link-head">{{ config('app.name', 'MirageTower') }}</a>
     @auth
         <a class="side-nav-link" href="{{ route('home') }}">{{trans('front.dashboard')}}</a>
-        <a class="side-nav-link" href="#">{{trans('front.explore-nav')}}</a>
-        <a class="side-nav-link" href="#">{{trans('front.blog')}}</a>
+        <a class="side-nav-link" href="{{ route('project') }}">{{trans('front.explore-nav')}}</a>
+        <a class="side-nav-link" href="{{ route('blog') }}">{{trans('front.blog')}}</a>
         <a class="side-nav-link" id="name-drop">
             @if(isset( Auth::user()->first_name))
                 {{Auth::user()->first_name}}
             @else
                 {{Auth::user()->name}}
             @endif
-            <i></i>
+            <i id="name-drop-icon"></i>
         </a>
         <div class="side-nav-link-drop">
             <a class="link-drop" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -82,44 +82,35 @@
 
 
 @endguest
-{{--<form action="{{ route('newsletter_subscriber.store') }}" method="post">--}}
-        {{--{{ csrf_field() }}--}}
-        {{--<input type="email" name="email">--}}
-        {{--<input type="submit">--}}
-    {{--</form>--}}
+
+    <div class="news-section">
+        <form method="POST" action="{{ route('newsletter_subscriber.store') }}">
+            {{ csrf_field() }}
+            <div class="positioning input-effect{{ $errors->has('news_email') ? ' has-error' : '' }}" id="news-field">
+                <input class="effect" id="news" type="email" name="news_email" placeholder="" required>
+                <label>{{trans('front.email')}}</label>
+                <span class="focus-border"></span>
+                @if ($errors->has('news_email'))
+                    <div class="mt-4 alert alert-danger alert-dismissible fade show error-news" role="alert">
+                        {{ $errors->first('news_email') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @elseif(session()->has('message'))
+                    <div class="mt-4 alert alert-success alert-dismissible fade show error-news" role="alert">
+                        {{ session()->get('message') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+            </div>
+            <button type="submit" class="news-btn">{{trans('newsletter::front.subscribe')}}</button>
+        </form>
+    </div>
+
 </div>
-
-
-        {{--@auth--}}
-
-
-                    {{--<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">--}}
-                        {{--@if(isset( Auth::user()->first_name))--}}
-                            {{--{{Auth::user()->first_name}}--}}
-                        {{--@else--}}
-                            {{--{{Auth::user()->name}}--}}
-                        {{--@endif</a>--}}
-                    {{--<ul class="collapse list-unstyled" id="pageSubmenu">--}}
-                        {{--<li>--}}
-                            {{--<a href="{{ route('home') }}">{{trans('front.dashboard')}}</a>--}}
-                        {{--</li>--}}
-                        {{--<li>--}}
-                            {{--<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">--}}
-                                {{--{{trans('front.logout')}}--}}
-                            {{--</a>--}}
-
-                            {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
-                            {{--{{ csrf_field() }}--}}
-                            {{--</form>--}}
-                        {{--</li>--}}
-
-
-
-
-            {{--@endauth--}}
-
-
-
 
 <div id="main">
     <div style="margin-top: 100px;"></div>

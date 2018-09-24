@@ -14,11 +14,12 @@ class NewsletterSubscribersController extends Controller
         $user = new NewsletterSubscribers();
 
 
-        $user->fill($request->validated());
+//        $user->fill($request->validated());
+        $user->email = $request->news_email;
         $user->locale = App::getLocale();
         $user->save();
 
 
-        return \Redirect::route('welcome');
+        return \Redirect::route('welcome')->with('message', 'You have been subscribed successfully!');
     }
 }
