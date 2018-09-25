@@ -15,29 +15,42 @@
 
 </head>
 <body>
-<div id="overlay">
+
+
+    @if (Request::path() == '/')
+        <div id="home-overlay">
+            <img class="home-preload-left-img" src="{{ \ProVision\Administration\Facades\Settings::getFile('index_logo_left') }}" alt="">
+            <img class="home-preload-right-img" src="{{ \ProVision\Administration\Facades\Settings::getFile('index_logo_right') }}" alt="">
+        </div>
+        @else
+        <div id="overlay">
+            <div class="bounce">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    @endif
     <!-- <div class="spinner"></div> -->
 
-    <div class="bounce">
-        <div class="bounce1"></div>
-        <div class="bounce2"></div>
-        <div class="bounce3"></div>
-    </div>
 
-    {{--<div class="preload-text">--}}
-    {{--<p>Mirage Visualisation</p>--}}
-    {{--</div>--}}
 
-</div>
+
+
+
 <div id="app"></div>
 
 <div class="top-nav">
     <a id="toggler" class="top-nav-toggler">
         <div class="hamburger is-active" id="hamburger">
             <span class="line"></span>
-            <span class="line"></span>
+            <span class="line" style="opacity: 0"></span>
             <span class="line"></span>
         </div>
+        <span id="menu">Menu</span>
+    </a>
+    <a href="{{ route('welcome') }}" class="top-nav-link-head">
+        <img class="top-nav-link-head-img" src="{{ \ProVision\Administration\Facades\Settings::getFile('index_logo')}}" alt="">
     </a>
     <a class="top-nav-link-trans-right top-nav-link-trans" href="{{ LaravelLocalization::getLocalizedURL('en') }}">EN</a>
     <a class="top-nav-link-trans-left top-nav-link-trans" href="{{ LaravelLocalization::getLocalizedURL('fr') }}">FR</a>
@@ -46,7 +59,7 @@
 
 <div class="side-nav">
     <a class="btn-close" id="mobileCloser">&times;</a>
-    <a href="{{ url('/') }}" class="side-nav-link-head">{{ config('app.name', 'MirageTower') }}</a>
+    <a href="{{ route('welcome') }}" class="side-nav-link">{{ trans('front.home') }}</a>
     @auth
         <a class="side-nav-link" href="{{ route('home') }}">{{trans('front.dashboard')}}</a>
         <a class="side-nav-link" href="{{ route('project') }}">{{trans('front.explore-nav')}}</a>
@@ -109,6 +122,8 @@
             <button type="submit" class="news-btn">{{trans('newsletter::front.subscribe')}}</button>
         </form>
     </div>
+
+    <p class="copy">MIRAGETOWER &copy;</p>
 
 </div>
 

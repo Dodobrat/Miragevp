@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'home' => 'Home',
     'explore-nav' => 'Explore',
     'blog' => 'Blog',
     'login' => 'Login',

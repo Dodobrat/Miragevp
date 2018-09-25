@@ -9,24 +9,54 @@ var $ =require('jquery');
 require('particles.js');
 
 // ---------------------------------------------------
-//         PRELOADER
+//         PRELOADERS
 // ---------------------------------------------------
-function preloader(){
-    let overlay = document.getElementById("overlay");
-    window.addEventListener('load', function(){
-        setTimeout(() => {
-            overlay.style.transition = '0.5s opacity linear';
-            overlay.style.opacity = '0';
-            main.style.opacity = '1';
-            sideNav.style.opacity = '1';
-            topNav.style.opacity = '1';
+if (document.body.contains(document.getElementById("home-overlay"))){
+    function homeLoader(){
+        let homeOverlay = document.getElementById("home-overlay");
+        let leftOverImg = document.querySelector('.home-preload-left-img');
+        let rightOverImg = document.querySelector('.home-preload-right-img');
+        window.addEventListener('load', function(){
+            leftOverImg.style.opacity = '1';
+            rightOverImg.style.opacity = '1';
+            leftOverImg.style.marginLeft = '-161.4375px';
+            rightOverImg.style.marginRight = '-161.4375px';
+            setTimeout(() => {
+                leftOverImg.style.opacity = '0';
+                rightOverImg.style.opacity = '0';
+                homeOverlay.style.transition = '0.2s opacity linear';
+                homeOverlay.style.opacity = '0';
+                main.style.opacity = '1';
+                sideNav.style.opacity = '1';
+                topNav.style.opacity = '1';
+            }, 1500);
+            setTimeout(()=>{
+                homeOverlay.style.display = 'none';
+            },1700);
+        });
+    }
+    homeLoader();
+}
+
+if (document.body.contains(document.getElementById("overlay"))){
+    function preloader(){
+        let overlay = document.getElementById("overlay");
+        window.addEventListener('load', function(){
+            setTimeout(() => {
+                overlay.style.transition = '0.5s opacity linear';
+                overlay.style.opacity = '0';
+                main.style.opacity = '1';
+                sideNav.style.opacity = '1';
+                topNav.style.opacity = '1';
+            }, 300);
             setTimeout(()=>{
                 overlay.style.display = 'none';
             },500);
-        }, 300);
-    });
+        });
+    }
+    preloader();
 }
-preloader();
+
 
 // ---------------------------------------------------
 //         SIDE MENU
@@ -40,6 +70,7 @@ let navToggler = document.querySelector('#toggler');
 let hamburger = document.querySelector('.hamburger');
 let btnClose = document.querySelector('#mobileCloser');
 let newsSection = document.querySelector('.news-section');
+let copy = document.querySelector('.copy');
 let mobileCounter = 0;
 let counter = 1;
 sideNavLinks = Array.from(sideNavLinks);
@@ -61,6 +92,9 @@ function sideNavMobile() {
                 setTimeout(() => {
                     main.style.display = 'none';
                 }, 500);
+                setTimeout(() => {
+                    copy.style.opacity = '1';
+                }, 500);
             }
         })
         btnClose.addEventListener('click',function () {
@@ -70,6 +104,7 @@ function sideNavMobile() {
                 newsSection.style.opacity = '0';
                 newsSection.style.marginLeft = '-100vw';
                 sideNav.style.width = '0';
+                copy.style.opacity = '0';
                 sideNavLinks.forEach(function (side) {
                     side.style.marginLeft = '-250px';
                 });
@@ -83,6 +118,7 @@ function sideNavMobile() {
             if( Math.abs(counter % 2) == 1) {
                 hamburger.classList.add('is-active');
                 sideNav.style.width = '250px';
+                copy.style.left = '75px';
                 newsSection.style.transition = '1s';
                 newsSection.style.opacity = '1';
                 newsSection.style.marginLeft = '0';
@@ -95,6 +131,7 @@ function sideNavMobile() {
             }else if(counter % 2 == 0){
                 hamburger.classList.remove('is-active');
                 sideNav.style.width = '0';
+                copy.style.left = '-300px';
                 newsSection.style.transition = '0.5s';
                 newsSection.style.opacity = '0';
                 newsSection.style.marginLeft = '-500px';

@@ -47,6 +47,14 @@ class Administration implements Module {
             'label' => trans($module['slug'].'::admin.logo'),
             'path' => '/uploads/settings/'.$module['slug'].'_logo'
         ]);
+        $form->add($module['slug'].'_logo_left', 'file', [
+            'label' => trans($module['slug'].'::admin.logo-left'),
+            'path' => '/uploads/settings/'.$module['slug'].'_logo_left'
+        ]);
+        $form->add($module['slug'].'_logo_right', 'file', [
+            'label' => trans($module['slug'].'::admin.logo-right'),
+            'path' => '/uploads/settings/'.$module['slug'].'_logo_right'
+        ]);
 
         $form->add($module['slug'].'_landing_image', 'file', [
             'label' => trans($module['slug'].'::admin.landing_image'),

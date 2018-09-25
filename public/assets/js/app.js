@@ -18519,24 +18519,55 @@ var $ = __webpack_require__("./node_modules/jquery/dist/jquery.js");
 __webpack_require__("./node_modules/particles.js/particles.js");
 
 // ---------------------------------------------------
-//         PRELOADER
+//         PRELOADERS
 // ---------------------------------------------------
-function preloader() {
-    var overlay = document.getElementById("overlay");
-    window.addEventListener('load', function () {
-        setTimeout(function () {
-            overlay.style.transition = '0.5s opacity linear';
-            overlay.style.opacity = '0';
-            main.style.opacity = '1';
-            sideNav.style.opacity = '1';
-            topNav.style.opacity = '1';
+if (document.body.contains(document.getElementById("home-overlay"))) {
+    var homeLoader = function homeLoader() {
+        var homeOverlay = document.getElementById("home-overlay");
+        var leftOverImg = document.querySelector('.home-preload-left-img');
+        var rightOverImg = document.querySelector('.home-preload-right-img');
+        window.addEventListener('load', function () {
+            leftOverImg.style.opacity = '1';
+            rightOverImg.style.opacity = '1';
+            leftOverImg.style.marginLeft = '-161.4375px';
+            rightOverImg.style.marginRight = '-161.4375px';
+            setTimeout(function () {
+                leftOverImg.style.opacity = '0';
+                rightOverImg.style.opacity = '0';
+                homeOverlay.style.transition = '0.2s opacity linear';
+                homeOverlay.style.opacity = '0';
+                main.style.opacity = '1';
+                sideNav.style.opacity = '1';
+                topNav.style.opacity = '1';
+            }, 1500);
+            setTimeout(function () {
+                homeOverlay.style.display = 'none';
+            }, 1700);
+        });
+    };
+
+    homeLoader();
+}
+
+if (document.body.contains(document.getElementById("overlay"))) {
+    var preloader = function preloader() {
+        var overlay = document.getElementById("overlay");
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                overlay.style.transition = '0.5s opacity linear';
+                overlay.style.opacity = '0';
+                main.style.opacity = '1';
+                sideNav.style.opacity = '1';
+                topNav.style.opacity = '1';
+            }, 300);
             setTimeout(function () {
                 overlay.style.display = 'none';
             }, 500);
-        }, 300);
-    });
+        });
+    };
+
+    preloader();
 }
-preloader();
 
 // ---------------------------------------------------
 //         SIDE MENU
@@ -18550,6 +18581,7 @@ var navToggler = document.querySelector('#toggler');
 var hamburger = document.querySelector('.hamburger');
 var btnClose = document.querySelector('#mobileCloser');
 var newsSection = document.querySelector('.news-section');
+var copy = document.querySelector('.copy');
 var mobileCounter = 0;
 var counter = 1;
 sideNavLinks = Array.from(sideNavLinks);
@@ -18571,6 +18603,9 @@ function sideNavMobile() {
                 setTimeout(function () {
                     main.style.display = 'none';
                 }, 500);
+                setTimeout(function () {
+                    copy.style.opacity = '1';
+                }, 500);
             }
         });
         btnClose.addEventListener('click', function () {
@@ -18580,6 +18615,7 @@ function sideNavMobile() {
                 newsSection.style.opacity = '0';
                 newsSection.style.marginLeft = '-100vw';
                 sideNav.style.width = '0';
+                copy.style.opacity = '0';
                 sideNavLinks.forEach(function (side) {
                     side.style.marginLeft = '-250px';
                 });
@@ -18593,6 +18629,7 @@ function sideNavMobile() {
             if (Math.abs(counter % 2) == 1) {
                 hamburger.classList.add('is-active');
                 sideNav.style.width = '250px';
+                copy.style.left = '75px';
                 newsSection.style.transition = '1s';
                 newsSection.style.opacity = '1';
                 newsSection.style.marginLeft = '0';
@@ -18605,6 +18642,7 @@ function sideNavMobile() {
             } else if (counter % 2 == 0) {
                 hamburger.classList.remove('is-active');
                 sideNav.style.width = '0';
+                copy.style.left = '-300px';
                 newsSection.style.transition = '0.5s';
                 newsSection.style.opacity = '0';
                 newsSection.style.marginLeft = '-500px';
