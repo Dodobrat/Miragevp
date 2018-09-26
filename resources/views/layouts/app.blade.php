@@ -17,10 +17,11 @@
 <body>
 
 
-    @if (Request::path() == '/')
+    @if (Request::route()->getName() == 'welcome')
         <div id="home-overlay">
             <img class="home-preload-left-img" src="{{ \ProVision\Administration\Facades\Settings::getFile('index_logo_left') }}" alt="">
             <img class="home-preload-right-img" src="{{ \ProVision\Administration\Facades\Settings::getFile('index_logo_right') }}" alt="">
+            <span class="line-draw"></span>
         </div>
         @else
         <div id="overlay">
@@ -60,10 +61,20 @@
 <div class="side-nav">
     <a class="btn-close" id="mobileCloser">&times;</a>
     <a href="{{ route('welcome') }}" class="side-nav-link">{{ trans('front.home') }}</a>
-    @auth
-        <a class="side-nav-link" href="{{ route('home') }}">{{trans('front.dashboard')}}</a>
-        <a class="side-nav-link" href="{{ route('project') }}">{{trans('front.explore-nav')}}</a>
-        <a class="side-nav-link" href="{{ route('blog') }}">{{trans('front.blog')}}</a>
+    <a class="side-nav-link" id="exp-drop">{{trans('front.residences')}}<i id="exp-drop-icon"></i></a>
+    <div class="exp-link-drop">
+        <a class="exp-link" href="{{ route('project') }}">{{trans('front.visual-selection')}}</a>
+        <a class="exp-link" href="{{ route('floors') }}">{{trans('front.floor-plan')}}</a>
+        <a class="exp-link" href="#">{{trans('front.showroom')}}</a>
+        {{--<a class="exp-link" href="{{ route('showroom') }}">{{trans('front.showroom')}}</a>--}}
+    </div>
+    <a class="side-nav-link" href="{{ route('blog') }}">{{trans('front.lifestyle')}}</a>
+    <a class="side-nav-link" href="#">{{trans('front.contact')}}</a>
+    {{--<a class="side-nav-link" href="{{ route('contact') }}">{{trans('front.contact')}}</a>--}}
+
+        {{--<a class="side-nav-link" href="{{ route('home') }}">{{trans('front.dashboard')}}</a>--}}
+
+@auth
         <a class="side-nav-link" id="name-drop">
             @if(isset( Auth::user()->first_name))
                 {{Auth::user()->first_name}}
@@ -73,24 +84,18 @@
             <i id="name-drop-icon"></i>
         </a>
         <div class="side-nav-link-drop">
+            {{--<a class="link-drop" href="{{ route('home') }}">{{trans('front.dashboard')}}</a>--}}
             <a class="link-drop" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 {{trans('front.logout')}}
             </a>
-
         </div>
-
-
-
-
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-        {{ csrf_field() }}
+            {{ csrf_field() }}
         </form>
-
-
     @endauth
 
-@guest
 
+@guest
 <a class="side-nav-link" href="{{ route('login') }}">{{trans('front.login')}}</a>
 
 

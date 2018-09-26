@@ -2,8 +2,12 @@
 
 return [
     'home' => 'Home',
-    'explore-nav' => 'Explore',
-    'blog' => 'Blog',
+    'residences' => 'Residences',
+    'visual-selection' => 'Visual Selection',
+    'floor-plan' => 'Floor Plans',
+    'showroom' => 'Showroom',
+    'lifestyle' => 'Lifestyle',
+    'contact' => 'Contact',
     'login' => 'Login',
     'email' => 'E-mail',
     'password' => 'Password',
