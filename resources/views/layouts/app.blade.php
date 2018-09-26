@@ -65,14 +65,10 @@
     <div class="exp-link-drop">
         <a class="exp-link" href="{{ route('project') }}">{{trans('front.visual-selection')}}</a>
         <a class="exp-link" href="{{ route('floors') }}">{{trans('front.floor-plan')}}</a>
-        <a class="exp-link" href="#">{{trans('front.showroom')}}</a>
-        {{--<a class="exp-link" href="{{ route('showroom') }}">{{trans('front.showroom')}}</a>--}}
+        <a class="exp-link" href="{{ route('showroom') }}">{{trans('front.showroom')}}</a>
     </div>
     <a class="side-nav-link" href="{{ route('blog') }}">{{trans('front.lifestyle')}}</a>
-    <a class="side-nav-link" href="#">{{trans('front.contact')}}</a>
-    {{--<a class="side-nav-link" href="{{ route('contact') }}">{{trans('front.contact')}}</a>--}}
-
-        {{--<a class="side-nav-link" href="{{ route('home') }}">{{trans('front.dashboard')}}</a>--}}
+    <a class="side-nav-link" href="{{ route('contact') }}">{{trans('front.contact')}}</a>
 
 @auth
         <a class="side-nav-link" id="name-drop">
@@ -84,7 +80,7 @@
             <i id="name-drop-icon"></i>
         </a>
         <div class="side-nav-link-drop">
-            {{--<a class="link-drop" href="{{ route('home') }}">{{trans('front.dashboard')}}</a>--}}
+            <a class="link-drop" href="{{ route('home') }}">{{trans('front.dashboard')}}</a>
             <a class="link-drop" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 {{trans('front.logout')}}
             </a>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-    <h1>EXPLORE FLOORS</h1>
+    <h1>FLOOR PLANS</h1>
 
 @endsection

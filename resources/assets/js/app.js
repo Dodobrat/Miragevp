@@ -93,11 +93,11 @@ function sideNavMobile() {
                         expLink.style.opacity = '1';
                     },400);
                 });
-                if(document.body.contains(dropLink)){
+                dropLinks.forEach(function (dropLink) {
                     setTimeout(()=>{
                         dropLink.style.opacity = '1';
                     },400);
-                }
+                });
                 newsSection.style.transition = '0.8s';
                 newsSection.style.opacity = '1';
                 newsSection.style.marginLeft = '0';
@@ -126,9 +126,9 @@ function sideNavMobile() {
                     expLink.style.transition = 'opacity 0.3s';
                     expLink.style.opacity = '0';
                 });
-                if(document.body.contains(dropLink)){
+                dropLinks.forEach(function (dropLink) {
                     dropLink.style.opacity = '0';
-                }
+                });
                 main.style.opacity = '1';
                 main.style.display = 'block';
             }
@@ -153,9 +153,9 @@ function sideNavMobile() {
                     },400);
                 });
                 setTimeout(()=>{
-                    if(document.body.contains(dropLink)){
+                    dropLinks.forEach(function (dropLink) {
                         dropLink.style.opacity = '1';
-                    }
+                    });
                 },400);
                 main.style.marginLeft = '250px';
                 topNav.style.marginLeft = '250px';
@@ -172,9 +172,9 @@ function sideNavMobile() {
                 expLinks.forEach(function (expLink) {
                     expLink.style.opacity = '0';
                 });
-                if(document.body.contains(dropLink)){
+                dropLinks.forEach(function (dropLink) {
                     dropLink.style.opacity = '0';
-                }
+                });
                 main.style.marginLeft = '0';
                 topNav.style.marginLeft = '0';
             }
@@ -257,29 +257,37 @@ if (document.body.contains(expDrop) && document.body.contains(expDropContent)){
 let nameDrop = document.querySelector('#name-drop');
 let nameDropIcon = document.querySelector('#name-drop-icon');
 let dropContent = document.querySelector('.side-nav-link-drop');
-let dropLink = document.querySelector('.link-drop');
+let dropLinks = document.getElementsByClassName('link-drop');
 let drop = 0;
-if (document.body.contains(nameDrop) && document.body.contains(dropContent) && document.body.contains(dropLink)) {
+dropLinks = Array.from(dropLinks);
+dropLinks.reverse();
+if (document.body.contains(nameDrop) && document.body.contains(dropContent)) {
     function openDropDown(){
         nameDrop.addEventListener('click',function () {
             drop += 1;
             if( Math.abs(drop % 2) == 1) {
-                dropLink.style.display = 'block';
+                dropLinks.forEach(function (dropLink) {
+                    dropLink.style.display = 'block';
+                    setTimeout(() => {
+                        dropLink.style.opacity = '1';
+                    }, 200);
+                });
                 nameDrop.classList.add('active');
-                setTimeout(() => {
-                    dropLink.style.opacity = '1';
-                }, 200);
                 nameDropIcon.classList.add('name-drop-icon-rotate');
-                dropContent.style.height = '44px';
+                dropContent.style.height = '88px';
 
             }else if(drop % 2 == 0){
+                dropLinks.forEach(function (dropLink) {
+                    setTimeout(() => {
+                        dropLink.style.display = 'none';
+                    }, 200);
+                    dropLink.style.opacity = '0';
+                });
                 nameDrop.classList.remove('active');
                 setTimeout(() => {
                     dropContent.style.height = '0px';
-                    dropLink.style.display = 'none';
                 }, 200);
                 nameDropIcon.classList.remove('name-drop-icon-rotate');
-                dropLink.style.opacity = '0';
 
             }
         })

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-<h1>VISUAL SELECTION</h1>
+    <h1>CONTACT</h1>
 
-    @endsection
+@endsection

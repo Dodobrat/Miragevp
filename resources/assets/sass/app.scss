@@ -663,3 +663,9 @@ input:-webkit-autofill:active {
     padding: 5px;
   }
 }
+
+@media (max-width: 666px) {
+  .news-section{
+    display: none;
+  }
+}

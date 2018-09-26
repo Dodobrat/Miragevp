@@ -16371,3 +16371,9 @@ input:-webkit-autofill:active {
   }
 }
 
+@media (max-width: 666px) {
+  .news-section {
+    display: none;
+  }
+}
+

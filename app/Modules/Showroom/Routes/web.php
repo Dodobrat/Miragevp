@@ -11,10 +11,8 @@
 |
 */
 
-
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
     /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
-    Route::get('/contact', 'ContactController@index')->name('contact');
+    Route::get('/showroom', 'ShowroomController@index')->name('showroom');
 });
-

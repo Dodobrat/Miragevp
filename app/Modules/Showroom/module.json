@@ -1,0 +1,7 @@
+{
+    "name": "Showroom",
+    "slug": "showroom",
+    "version": "1.0",
+    "description": "This is the description for the Showroom module.",
+    "order": 1008
+}
