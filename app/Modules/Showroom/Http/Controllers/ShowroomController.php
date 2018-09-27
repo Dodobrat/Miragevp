@@ -2,15 +2,15 @@
 
 namespace App\Modules\Showroom\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Modules\Showroom\Models\Showroom;
 
 use App\Http\Controllers\Controller;
 
 class ShowroomController extends Controller
 {
     public function index() {
-//        $apartments= Apartments::get();
-        return view('showroom::showroom');
+        $showrooms = Showroom::get();
+        return view('showroom::showroom', compact('showrooms'));
 
     }
 }

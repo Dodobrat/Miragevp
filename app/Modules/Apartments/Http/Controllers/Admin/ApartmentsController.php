@@ -9,7 +9,6 @@ use App\Modules\Apartments\Models\Apartments;
 use Form;
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Kris\LaravelFormBuilder\FormBuilder;
 use ProVision\Administration\Administration;
