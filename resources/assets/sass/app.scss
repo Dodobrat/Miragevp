@@ -216,6 +216,7 @@ body{
 }
 
 .side-nav-link:hover{
+  cursor: pointer;
   text-decoration: none;
   border-left: 5px solid #95ACBF;
   background-color: #F2F2F2;
@@ -315,6 +316,7 @@ body{
   transition: all 0.2s ease-in-out;
 }
 .exp-link:hover{
+  cursor: pointer;
   text-decoration: none;
   background-color: #F9F9F9;
   color:#555;
@@ -346,6 +348,39 @@ body{
   color: rgba(0,0,0,0.5);
   transition: left 0.8s;
 }
+.custom-modal{
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 100vw;
+  overflow: hidden;
+  background-color: rgba(134,154,166,0.95);
+  transition: all 0.5s;
+}
+.custom-modal-content{
+  width: 50%;
+  margin: 15% auto;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.closeBtn{
+  position: relative;
+  float: right;
+  margin-top: -75px;
+  font-size:60px;
+  font-weight: 100;
+  color:rgba(255,255,255,0.5);
+  transition: 0.3s;
+}
+
+.closeBtn:hover,.closeBtn:focus{
+  color:#ffffff;
+  text-decoration: none;
+  cursor:pointer;
+  transition: 0.3s;
+}
 
 /* ---------------------------------------------------
     CONTENT STYLE
@@ -353,8 +388,8 @@ body{
 #main{
   opacity: 0;
   margin-left: 250px;
-  padding:40px 0px;
-  overflow:hidden;
+  padding:7vh 10vw;
+  overflow-x:hidden;
   transition: all 0.5s ease-in-out;
 }
 
@@ -362,7 +397,7 @@ body{
     FORMS
 ----------------------------------------------------- */
 .custom-form{
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255,255,255,1);
   padding: 40px 30px 20px 30px;
   border: 1px solid #869AA6;
   box-shadow: 0px 7px 30px -5px rgba(0,0,0,0.3);
@@ -418,13 +453,13 @@ input:-webkit-autofill:active {
   left: 0;
 }
 .effect ~ label{
+  pointer-events: none;
   position: absolute;
   left: 10px;
   width: 100%;
   top: 10px;
-  color: #000000;
+  color: rgba(0,0,0,0.3);
   transition: 0.3s;
-  z-index: -1;
   letter-spacing: 0.5px;
 }
 .effect:focus ~ label, .has-content.effect ~ label{
@@ -489,6 +524,7 @@ input:-webkit-autofill:active {
   margin-bottom: 5px;
 }
 .custom-btn {
+  text-align: center;
   padding: 10px 5px;
   background: transparent;
   outline: none !important;
@@ -496,13 +532,10 @@ input:-webkit-autofill:active {
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-}
-.custom-btn a{
   color: #333333;
   text-decoration: none;
-}
-.custom-btn a:hover{
-  color: #ffffff;
+}.custom-btn:hover {
+   color: #ffffff;
   text-decoration: none;
 }
 
@@ -603,6 +636,9 @@ input:-webkit-autofill:active {
 .close:focus{
   outline: 0;
 }
+.modal-form-wrapper{
+  background-color: rgba(255,255,255,1);
+}
 
 /* ---------------------------------------------------
     MEDIAQUERIES
@@ -655,17 +691,23 @@ input:-webkit-autofill:active {
   .exp-link{
     transition: opacity 0.6s;
   }
+  .custom-modal-content{
+    width: 80%;
+  }
 /* ---------------------------------------------------
     CONTENT
 ----------------------------------------------------- */
   #main{
     margin-left: 0;
-    padding: 5px;
+    padding:10vh 2vw;
   }
 }
 
 @media (max-width: 666px) {
   .news-section{
     display: none;
+  }
+  .custom-modal-content{
+    width: 95%;
   }
 }

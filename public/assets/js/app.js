@@ -18693,7 +18693,42 @@ function sideNavMobile() {
     }
 }
 sideNavMobile(horizontalWidth);
+// ---------------------------------------------------
+//         SIDE MENU LOCKED LINKS
+// ---------------------------------------------------
+var customModal = document.querySelector('#modalForm');
+var customModalContent = document.querySelector('.custom-modal-content');
+var modalTriggers = document.getElementsByClassName('not-logged');
+var customModalClose = document.querySelector('.closeBtn');
+modalTriggers = Array.from(modalTriggers);
+modalTriggers.reverse();
 
+if (document.body.contains(customModalClose)) {
+    modalTriggers.forEach(function (modalTrigger) {
+        modalTrigger.addEventListener('click', function () {
+            customModal.style.height = '100vh';
+            setTimeout(function () {
+                customModalContent.style.opacity = '1';
+            }, 500);
+        });
+    });
+
+    customModalClose.addEventListener('click', function () {
+        customModalContent.style.opacity = '0';
+        setTimeout(function () {
+            customModal.style.height = '0';
+        }, 500);
+    });
+}
+
+window.addEventListener('click', function (e) {
+    if (e.target == customModal) {
+        customModalContent.style.opacity = '0';
+        setTimeout(function () {
+            customModal.style.height = '0';
+        }, 500);
+    }
+});
 // ---------------------------------------------------
 //         SIDE MENU DROPDOWNS
 // ---------------------------------------------------

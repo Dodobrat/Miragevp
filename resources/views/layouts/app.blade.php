@@ -63,8 +63,100 @@
     <a href="{{ route('welcome') }}" class="side-nav-link">{{ trans('front.home') }}</a>
     <a class="side-nav-link" id="exp-drop">{{trans('front.residences')}}<i id="exp-drop-icon"></i></a>
     <div class="exp-link-drop">
+        @if(Auth::check())
         <a class="exp-link" href="{{ route('project') }}">{{trans('front.visual-selection')}}</a>
-        <a class="exp-link" href="{{ route('floors') }}">{{trans('front.floor-plan')}}</a>
+        @else
+            <a class="exp-link not-logged">{{trans('front.visual-selection')}}</a>
+
+
+            <div id="modalForm" class="custom-modal">
+                <div class="custom-modal-content">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span class="closeBtn">&times;</span>
+                            <form class="form custom-form modal-form-wrapper" method="POST" action="{{ route('login') }}">
+                                {{ csrf_field() }}
+                                <h5 class="text-center form-title">This page is locked! If you want to see it you have to be a member!</h5>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                        <a class="custom-btn btn-12" href="{{ route('login') }}">{{trans('front.sign-in')}}</a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                        <a class="custom-btn btn-12" href="{{ route('register') }}">{{trans('front.sign-up')}}</a>
+                                    </div>
+                                </div>
+                                <h5 class="or-divider">{{trans('front.or')}}</h5>
+                                {{--<h2><span>or</span></h2>--}}
+                                <a class="login-social-button" href="{{url('auth/facebook')}}">
+                                    <div class="social-media-login-button" style="background: #3B5998;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 266.893 266.895">
+                                            <path id="background" fill="#FFFFFF" d="M248.082,262.307c7.854,0,14.223-6.369,14.223-14.225V18.812  c0-7.857-6.368-14.224-14.223-14.224H18.812c-7.857,0-14.224,6.367-14.224,14.224v229.27c0,7.855,6.366,14.225,14.224,14.225  H248.082z"/>
+                                            <path id="f" fill="#3B5998" d="M182.409,262.307v-99.803h33.499l5.016-38.895h-38.515V98.777c0-11.261,3.127-18.935,19.275-18.935  l20.596-0.009V45.045c-3.562-0.474-15.788-1.533-30.012-1.533c-29.695,0-50.025,18.126-50.025,51.413v28.684h-33.585v38.895h33.585  v99.803H182.409z"/>
+                                        </svg>
+                                        <div class="contents">
+                                            <span class="title">{{trans('front.facebook-auth')}}</span>
+                                        </div>
+                                    </div></a>
+                                <a class="login-social-button" href="{{url('auth/google')}}">
+                                    <div class="social-media-login-button" style="background: #FFFFFF; border: 1px solid #999; color: #424242;">
+                                        <img src="{{ asset('images/google-logo.png') }}" alt="" style="height: 22px; width: 22px; margin-right: 17px;">
+                                        <div class="contents">
+                                            <span class="title">{{trans('front.google-auth')}}</span>
+                                        </div>
+                                    </div></a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @endif
+        @if(Auth::check())
+                <a class="exp-link" href="{{ route('floors') }}">{{trans('front.floor-plan')}}</a>
+            @else
+                <a class="exp-link not-logged">{{trans('front.floor-plan')}}</a>
+
+                <div id="modalForm" class="custom-modal">
+                    <div class="custom-modal-content">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <span class="closeBtn">&times;</span>
+                                <form class="form custom-form modal-form-wrapper" method="POST" action="{{ route('login') }}">
+                                    {{ csrf_field() }}
+                                    <h5 class="text-center form-title">{{ trans('front.locked-page') }}</h5>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                            <a class="custom-btn btn-12" href="{{ route('login') }}">{{trans('front.sign-in')}}</a>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                            <a class="custom-btn btn-12" href="{{ route('register') }}">{{trans('front.sign-up')}}</a>
+                                        </div>
+                                    </div>
+                                    <h5 class="or-divider">{{trans('front.or')}}</h5>
+                                    {{--<h2><span>or</span></h2>--}}
+                                    <a class="login-social-button" href="{{url('auth/facebook')}}">
+                                        <div class="social-media-login-button" style="background: #3B5998;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 266.893 266.895">
+                                                <path id="background" fill="#FFFFFF" d="M248.082,262.307c7.854,0,14.223-6.369,14.223-14.225V18.812  c0-7.857-6.368-14.224-14.223-14.224H18.812c-7.857,0-14.224,6.367-14.224,14.224v229.27c0,7.855,6.366,14.225,14.224,14.225  H248.082z"/>
+                                                <path id="f" fill="#3B5998" d="M182.409,262.307v-99.803h33.499l5.016-38.895h-38.515V98.777c0-11.261,3.127-18.935,19.275-18.935  l20.596-0.009V45.045c-3.562-0.474-15.788-1.533-30.012-1.533c-29.695,0-50.025,18.126-50.025,51.413v28.684h-33.585v38.895h33.585  v99.803H182.409z"/>
+                                            </svg>
+                                            <div class="contents">
+                                                <span class="title">{{trans('front.facebook-auth')}}</span>
+                                            </div>
+                                        </div></a>
+                                    <a class="login-social-button" href="{{url('auth/google')}}">
+                                        <div class="social-media-login-button" style="background: #FFFFFF; border: 1px solid #999; color: #424242;">
+                                            <img src="{{ asset('images/google-logo.png') }}" alt="" style="height: 22px; width: 22px; margin-right: 17px;">
+                                            <div class="contents">
+                                                <span class="title">{{trans('front.google-auth')}}</span>
+                                            </div>
+                                        </div></a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
         <a class="exp-link" href="{{ route('showroom') }}">{{trans('front.showroom')}}</a>
     </div>
     <a class="side-nav-link" href="{{ route('blog') }}">{{trans('front.lifestyle')}}</a>
@@ -129,9 +221,9 @@
 </div>
 
 <div id="main">
-    <div style="margin-top: 100px;"></div>
+    {{--<div style="margin-top: 100px;"></div>--}}
     @yield('content')
-    <div style="margin-top: 1000px;"></div>
+    {{--<div style="margin-top: 1000px;"></div>--}}
 </div>
 
 
