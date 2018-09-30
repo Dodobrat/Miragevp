@@ -16,8 +16,9 @@
 </head>
 <body>
 
-
-    @if (Request::route()->getName() == 'welcome')
+{{--Route::currentRouteName() == 'pages.show'--}}
+    {{--@if (Request::route()->getName() == 'welcome')--}}
+    @if (Route::currentRouteName() == 'welcome')
         <div id="home-overlay">
             <img class="home-preload-left-img" src="{{ \ProVision\Administration\Facades\Settings::getFile('index_logo_left') }}" alt="">
             <img class="home-preload-right-img" src="{{ \ProVision\Administration\Facades\Settings::getFile('index_logo_right') }}" alt="">

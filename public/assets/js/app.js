@@ -18770,10 +18770,11 @@ if (document.body.contains(expDrop) && document.body.contains(expDropContent)) {
             } else {
                 if (Math.abs(exp % 2) == 1) {
                     expLinks.forEach(function (expLink) {
-                        expLink.style.display = 'block';
                         setTimeout(function () {
+                            expLink.style.display = 'block';
+                        }, 300);setTimeout(function () {
                             expLink.style.opacity = '1';
-                        }, 200);
+                        }, 400);
                     });
                     expDrop.classList.add('active');
                     expDropIcon.classList.add('exp-drop-icon-rotate');
@@ -18811,8 +18812,9 @@ if (document.body.contains(nameDrop) && document.body.contains(dropContent)) {
             drop += 1;
             if (Math.abs(drop % 2) == 1) {
                 dropLinks.forEach(function (dropLink) {
-                    dropLink.style.display = 'block';
                     setTimeout(function () {
+                        dropLink.style.display = 'block';
+                    }, 200);setTimeout(function () {
                         dropLink.style.opacity = '1';
                     }, 200);
                 });
@@ -18871,7 +18873,20 @@ $(document).ready(function () {
 
 
 // ---------------------------------------------------
-//         COMMENT
+//         CONTENT - PARALLAX
+// ---------------------------------------------------
+$(window).scroll(function () {
+    parallax();
+});
+
+function parallax() {
+    var wScroll = $(window).scrollTop();
+
+    $('.parallax-img').css('background-position', 'center ' + wScroll * 0.6 + 'px');
+}
+
+// ---------------------------------------------------
+//         CONTENT - FULL PAGE SCROLL
 // ---------------------------------------------------
 
 /***/ }),

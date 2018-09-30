@@ -105,7 +105,7 @@
     GENERAL STYLES
 ----------------------------------------------------- */
 body{
-  background-color: #f1f1f1;
+  background-color: #f9f9f9;
 }
 
 /* ---------------------------------------------------
@@ -388,10 +388,46 @@ body{
 #main{
   opacity: 0;
   margin-left: 250px;
-  padding:7vh 10vw;
+  padding-top:55px;
   overflow-x:hidden;
   transition: all 0.5s ease-in-out;
 }
+.landing-image-container{
+  height: calc(100vh - 55px);
+  width: 100%;
+  padding-top: 0;
+  .landing-image{
+    background-size: cover;
+    background-position: top;
+    height: 100%;
+    width: 100%;
+    padding: 20vh 0 0 0;
+    .motto{
+      background-image: linear-gradient(to right, rgba(255,255,255,1) ,rgba(255,255,255,1) ,rgba(255,255,255,0.8) , rgba(255,255,255,0));
+      padding: 25px 30px;
+      letter-spacing: 2px;
+      font-weight: 200;
+      text-transform: uppercase;
+      p{
+        margin: 5px 0;
+      }
+    }
+  }
+}
+
+.location-container{
+  overflow: hidden;
+  height: calc(100vh - 55px);
+  width: 100%;
+  padding: 20px 0;
+}
+.view-container{
+  height: calc(100vh - 55px);
+  width: 100%;
+  padding: 20px 0;
+  background-color: #eeeeee;
+}
+
 
 /* ---------------------------------------------------
     FORMS
@@ -699,7 +735,16 @@ input:-webkit-autofill:active {
 ----------------------------------------------------- */
   #main{
     margin-left: 0;
-    padding:10vh 2vw;
+    padding:0;
+  }
+  .landing-image-container{
+    height: 100vh;
+    .motto{
+      font-size: 20px;
+    }
+  }
+  .location-container{
+    height: 100vh;
   }
 }
 

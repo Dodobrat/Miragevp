@@ -26,11 +26,62 @@
         {{--TAKE IMAGE FROM MODULE--}}
 
         {{--<div class="land-img" style="height: 2000px;"></div>--}}
-<div class="container">
-        <h1>Responsive Side Menu</h1>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quos reprehenderit repudiandae saepe vel? Explicabo, odio, veritatis? Ad aliquid architecto debitis facilis illum iste laboriosam maxime, obcaecati quis quo sequi similique soluta tempora velit voluptate? Animi, dolorem et magnam officiis omnis vero voluptas voluptates. Asperiores debitis delectus, dolor illum labore minus, nesciunt numquam odit officiis optio quas quidem quo ratione, temporibus voluptate? Consequatur dignissimos dolorem eius eligendi ex molestias quos, sit tenetur veniam veritatis. Animi asperiores aut autem consequatur delectus dolorem doloremque doloribus, dolorum earum eos facere illum ipsum iste molestiae pariatur perspiciatis quidem sed sequi vero vitae. Accusamus asperiores culpa cumque doloribus ducimus eligendi esse, eum ex fuga labore, maxime molestiae molestias natus nobis non nulla numquam pariatur perferendis quis, quos reiciendis suscipit voluptate voluptatum. Asperiores corporis, facilis odio officia praesentium velit voluptate! Beatae doloremque id, inventore iste laudantium necessitatibus velit voluptate. Accusantium aut, dicta dolorum fuga laboriosam magni omnis quos! Accusamus ad aliquam, architecto asperiores commodi consequatur eveniet ipsam laborum minus nulla obcaecati odit optio pariatur qui, quis repellendus sapiente, similique velit vero voluptatum. A atque corporis eos excepturi minus veniam voluptates voluptatibus. Ad aliquid aspernatur, assumenda beatae, ducimus id minus neque omnis pariatur, quaerat qui recusandae suscipit voluptas. Aliquam amet dignissimos dolore ea et odit officiis similique! Amet commodi cumque ducimus eos expedita facere hic ipsa laudantium magnam molestias mollitia neque, nobis omnis perferendis, quae recusandae suscipit, tenetur? A aspernatur cumque eos explicabo ipsa iure saepe voluptatum. Dolore doloribus eligendi id ipsam iste nulla! Eos, eum placeat? Ab architecto autem culpa cupiditate dicta dignissimos, dolore enim et harum hic impedit incidunt nesciunt numquam provident qui recusandae sit velit veniam vero voluptates. Ad at dolore, dolores eaque incidunt iste minima nihil, odit officia saepe sequi veniam. Esse est fuga modi mollitia ratione repellendus sit voluptates! At deserunt enim error impedit iure, molestiae odit porro? Nemo quia, quo! Aperiam et ipsa odio officia quisquam ratione sint voluptatem! Aspernatur assumenda distinctio ea et expedita in ipsam itaque obcaecati, repellat reprehenderit tempora totam unde voluptatum. Accusantium alias aliquam aliquid beatae blanditiis cupiditate dignissimos error illo incidunt labore minus non obcaecati optio sed totam, ullam unde veniam veritatis voluptas voluptatem. Aspernatur assumenda consectetur fugiat impedit ipsam, maiores modi molestiae nesciunt nulla omnis quo reiciendis repellendus sapiente, sint temporibus totam voluptatum. Ab ad animi eligendi facilis fuga iste magnam magni nihil nobis nulla similique sunt, velit. Beatae corporis enim eum impedit in iusto magnam mollitia necessitatibus numquam provident, quia repellat vel voluptate! A ad adipisci aliquam aliquid amet autem culpa deserunt dignissimos esse et, expedita harum hic illum, in ipsum iure labore natus necessitatibus nostrum obcaecati odio pariatur provident quas quasi qui quisquam quod reprehenderit repudiandae sequi sint sit soluta sunt tempora veritatis vitae voluptatibus, voluptatum? Beatae commodi cumque dignissimos ducimus ipsam ipsum laborum laudantium molestiae non nostrum obcaecati pariatur placeat porro possimus quaerat saepe soluta ut vel velit veritatis vero voluptates, voluptatum. Excepturi quo similique sint? Architecto blanditiis ex id iure necessitatibus nulla praesentium sed sint sit vel. Animi aspernatur ea eveniet maxime minima sit sunt! Debitis deserunt dicta eveniet expedita iusto modi nesciunt quibusdam, repudiandae sed totam! Accusantium eaque eos incidunt ipsam, quam similique unde velit voluptates? Ad assumenda distinctio excepturi, laborum necessitatibus officia sint. Doloribus illum mollitia nihil nostrum odio ut velit, voluptate. Architecto aspernatur beatae, dolorem est ex hic ipsa iure, minus omnis placeat porro qui quibusdam repudiandae. Laborum, quis totam. Ab aliquam asperiores blanditiis commodi excepturi itaque magni officia repellat, sint voluptatibus? A accusantium alias aliquam animi autem delectus deserunt dolore doloribus eaque est eum ex facere, fugiat id illum laborum laudantium maiores molestiae nam natus nemo neque pariatur quaerat quam quis ratione rem suscipit unde vero voluptate. Ab at itaque magni possimus repellendus, totam. Adipisci architecto consectetur cumque, debitis deleniti eaque eligendi eos eveniet facere itaque minima minus molestias nemo nesciunt non quisquam velit, voluptatem voluptates. Aliquam animi beatae deleniti ducimus error facere fuga hic incidunt iusto libero, mollitia optio possimus quod quos, ratione recusandae, repellat saepe suscipit tempore veniam. Alias autem dolore dolorem doloremque esse ex facere fuga fugit, in iste magni modi quas quod velit voluptatibus? Aliquid amet, architecto aspernatur assumenda consectetur consequuntur cupiditate doloribus dolorum earum et expedita fugit illo itaque laboriosam modi molestias, nemo nobis, obcaecati officiis perferendis possimus praesentium quaerat qui quibusdam quos repudiandae rerum suscipit! Culpa expedita harum tempora! Consequuntur cupiditate et excepturi harum laudantium officiis porro repellendus sit! Eius illum magni pariatur quasi rem saepe sapiente tempore, voluptatum! Architecto eius excepturi facilis id obcaecati optio perspiciatis possimus sapiente velit voluptate. Corporis cupiditate expedita id minus, nemo porro quam reprehenderit sed similique sint sit voluptatum? Asperiores illo officiis similique tempora. Culpa eos est fuga magni necessitatibus, unde ut? Amet aperiam aspernatur at aut beatae consequuntur corporis cupiditate dignissimos dolor doloremque ducimus earum eligendi enim error eveniet exercitationem expedita fugit harum id in ipsa ipsam laborum laudantium nemo non odit porro praesentium quam recusandae rem repellat repudiandae rerum sed tempore, ut velit vero! Adipisci amet facere ipsum libero! Aperiam blanditiis cupiditate eius modi obcaecati possimus praesentium reprehenderit suscipit tempora, unde. Animi atque eos expedita explicabo, id obcaecati veniam? A accusantium autem consectetur consequatur facilis nobis porro quo recusandae voluptas. Ab amet, consectetur culpa distinctio ex fugiat impedit ipsam, laborum maiores nam, nihil optio quibusdam recusandae repellendus sapiente soluta veritatis? Accusantium aperiam architecto, assumenda consequatur cum delectus dignissimos doloremque est eveniet facere, illo incidunt laborum nesciunt officiis quidem, quis recusandae reiciendis rem vel.
 
-</div>
+        {{--<div class="landing-img"--}}
+            {{--@if(!empty(Settings::getFile('index_landing_image')))--}}
+            {{--style="background-image: url('{{ Settings::getFile('index_landing_image') }}')"--}}
+            {{--@else--}}
+            {{--style="background-image: url('{{ asset('images/google-logo.png') }}')"--}}
+                {{--@endif ></div>--}}
+
+
+<section class="landing-image-container">
+
+
+    <div class="landing-image parallax-img"
+         @if(!empty(Settings::getFile('index_landing_image')))
+         style="background-image: url('{{ Settings::getFile('index_landing_image') }}');"
+         @else
+         style="background-image: url('{{ asset('images/google-logo.png') }}');"
+            @endif >
+        <div class="container">
+            <h3 class="motto">{!! Administration::getStaticBlock('motto') !!}</h3>
+        </div>
+    </div>
+    {{--@if(!empty(Settings::getFile('index_landing_image')))--}}
+    {{--<div class="landing-image" style="background-image: url('{{ Settings::getFile('index_landing_image') }}')--}}
+
+    {{--@else--}}
+        {{--style="background-image: url('{{ asset('images/google-logo.png') }}')--}}
+    {{--@endif--}}
+</section>
+    <section class="location-container">
+
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="container-fluid">
+                    <h1 class="loc-title">{{trans('front.loc-title')}}</h1>
+                    <div class="map" style="width: 100%; height: 50vh; background-color: #2c3e50;"></div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="container-fluid">
+                    <div class="pic" style="width: 100%; height: 50vh; background-color: #2c3e50;"></div>
+                    <div class="row">
+                        <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium adipisci amet aspernatur beatae commodi cumque cupiditate distinctio error eum ex expedita, inventore iusto laboriosam libero maxime modi quia quod quos rerum sed similique sint tempore temporibus tenetur voluptas voluptatem. Accusamus amet animi commodi</div>
+                        <div class="col">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad at aut consectetur consequatur, debitis distinctio doloremque expedita harum, magni mollitia non rem sint sunt veniam voluptatem voluptatibus? Aperiam assumenda atque blanditiis deserunt expedita iste laboriosam magni mollitia necessitatibus nesciunt pariatur praesen</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section class="view-container">
+        <h1 class="text-center">{{trans('front.extra-view')}}</h1>
+    </section>
+
 
 
 
