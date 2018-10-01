@@ -42,10 +42,16 @@
          @if(!empty(Settings::getFile('index_landing_image')))
          style="background-image: url('{{ Settings::getFile('index_landing_image') }}');"
          @else
-         style="background-image: url('{{ asset('images/google-logo.png') }}');"
+         style="background-image: url('{{ asset('images/fallback/placeholder.png') }}');"
             @endif >
         <div class="container">
-            <h3 class="motto">{!! Administration::getStaticBlock('motto') !!}</h3>
+            <h3 class="motto">
+                @if(!empty(Administration::getStaticBlock('motto')))
+                    {!! Administration::getStaticBlock('motto') !!}
+                    @else
+                    {{ trans('front.static-block-motto') }}
+                @endif
+            </h3>
         </div>
     </div>
     {{--@if(!empty(Settings::getFile('index_landing_image')))--}}
@@ -80,6 +86,10 @@
 
     <section class="view-container">
         <h1 class="text-center">{{trans('front.extra-view')}}</h1>
+    </section>
+
+    <section class="showroom-preview-container">
+        <h1 class="text-center">{{trans('front.showroom')}}</h1>
     </section>
 
 

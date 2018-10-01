@@ -20,8 +20,18 @@
     {{--@if (Request::route()->getName() == 'welcome')--}}
     @if (Route::currentRouteName() == 'welcome')
         <div id="home-overlay">
-            <img class="home-preload-left-img" src="{{ \ProVision\Administration\Facades\Settings::getFile('index_logo_left') }}" alt="">
-            <img class="home-preload-right-img" src="{{ \ProVision\Administration\Facades\Settings::getFile('index_logo_right') }}" alt="">
+            <img class="home-preload-left-img" src="
+            @if(!empty(Settings::getFile('index_logo_left')))
+                {{ Settings::getFile('index_logo_left') }}
+            @else
+               {{ asset('images/fallback-logo/mirage.png') }}
+            @endif" alt="">
+            <img class="home-preload-right-img" src="
+            @if(!empty(Settings::getFile('index_logo_right')))
+                {{ Settings::getFile('index_logo_right') }}
+            @else
+                {{ asset('images/fallback-logo/tower.png') }}
+            @endif" alt="">
             <span class="line-draw"></span>
         </div>
         @else
@@ -52,7 +62,12 @@
         <span id="menu">Menu</span>
     </a>
     <a href="{{ route('welcome') }}" class="top-nav-link-head">
-        <img class="top-nav-link-head-img" src="{{ \ProVision\Administration\Facades\Settings::getFile('index_logo')}}" alt="">
+        <img class="top-nav-link-head-img" src="
+        @if(!empty(Settings::getFile('index_logo')))
+            {{ Settings::getFile('index_logo') }}
+        @else
+           {{ asset('images/fallback-logo/full.png') }}
+        @endif" alt="">
     </a>
     <a class="top-nav-link-trans-right top-nav-link-trans" href="{{ LaravelLocalization::getLocalizedURL('en') }}">EN</a>
     <a class="top-nav-link-trans-left top-nav-link-trans" href="{{ LaravelLocalization::getLocalizedURL('fr') }}">FR</a>
