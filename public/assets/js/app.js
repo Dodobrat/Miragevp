@@ -18512,7 +18512,7 @@ module.exports = g;
 /**
  * MIRAGETOWER 2018 Copyright
  */
-
+__webpack_require__("./resources/assets/js/showroom.js");
 window.Popper = __webpack_require__("./node_modules/popper.js/dist/esm/popper.js");
 __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
 var $ = __webpack_require__("./node_modules/jquery/dist/jquery.js");
@@ -18888,6 +18888,13 @@ function parallax() {
 // ---------------------------------------------------
 //         CONTENT - FULL PAGE SCROLL
 // ---------------------------------------------------
+
+/***/ }),
+
+/***/ "./resources/assets/js/showroom.js":
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 

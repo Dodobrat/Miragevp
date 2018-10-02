@@ -6,6 +6,7 @@
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
 
 
+
 /* ---------------------------------------------------
     MAIN SCSS
 ----------------------------------------------------- */
@@ -369,7 +370,6 @@ body{
 .closeBtn{
   position: relative;
   float: right;
-  margin-top: -75px;
   font-size:60px;
   font-weight: 100;
   color:rgba(255,255,255,0.5);
@@ -743,7 +743,7 @@ input:-webkit-autofill:active {
 ----------------------------------------------------- */
   #main{
     margin-left: 0;
-    padding:0;
+    padding: 55px 0 0 0;
   }
   .landing-image-container{
     height: 100vh;

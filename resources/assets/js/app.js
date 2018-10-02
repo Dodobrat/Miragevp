@@ -2,7 +2,7 @@
 /**
  * MIRAGETOWER 2018 Copyright
  */
-
+require('../../assets/js/showroom.js');
 window.Popper = require('popper.js');
 require('bootstrap/dist/js/bootstrap.js');
 var $ =require('jquery');
