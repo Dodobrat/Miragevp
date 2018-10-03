@@ -18892,9 +18892,9 @@ function parallax() {
 /***/ }),
 
 /***/ "./resources/assets/js/showroom.js":
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-
+var $ = __webpack_require__("./node_modules/jquery/dist/jquery.js");
 
 /***/ }),
 

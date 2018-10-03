@@ -10475,76 +10475,13 @@ a.text-dark:focus {
     THUMBNAIL SECTION
 ----------------------------------------------------- */
 
-.showroom-thumbnail-container {
-  margin: auto 5%;
-}
-
-.showroom-thumbnail-images-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  list-style-type: none;
-  padding: 0;
-}
-
-.showroom-thumbnail-images-list-item {
-  margin: 5px;
-  width: 30%;
-}
-
-.showroom-thumbnail-img {
-  width: 100%;
-  height: 60vh;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
 /* ---------------------------------------------------
     CONTENT SECTION
 ----------------------------------------------------- */
 
-.showroom-media-view-container {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.showroom-media-image-container {
-  margin: 0;
-  width: 200px;
-}
-
-.showroom-media-img {
-  width: 100%;
-  height: 200px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
 /* ---------------------------------------------------
     MEDIA QUERIES
 ----------------------------------------------------- */
-
-@media (max-width: 768px) {
-  .showroom-thumbnail-images-list-item {
-    width: 90%;
-  }
-
-  .showroom-thumbnail-img {
-    height: 25vh;
-  }
-}
 
 /*!
  * Font Awesome Free 5.3.1 by @fontawesome - https://fontawesome.com
