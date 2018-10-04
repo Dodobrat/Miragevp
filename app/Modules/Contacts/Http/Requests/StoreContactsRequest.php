@@ -23,11 +23,18 @@ class StoreContactsRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'mobile' => 'required|max:15|min:9',
-            'phone' => 'nullable|max:15|min:7',
-            'email' => 'required|unique:contacts|email',
-            'address' => 'required|max:100|min:6',
-        ];
+        $locales = config('translatable.locales');
+
+        $trans = [];
+
+        foreach ($locales as $locale) {
+            $trans[$locale . '.title'] = 'required|string';
+            $trans[$locale . '.description'] = 'nullable|string';
+            $trans[$locale . '.email'] = 'nullable|email';
+            $trans[$locale . '.address'] = 'nullable|string';
+            $trans[$locale . '.phone'] = 'nullable|string';
+        }
+
+        return $trans;
     }
 }

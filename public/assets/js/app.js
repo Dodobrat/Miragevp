@@ -18846,8 +18846,16 @@ if (document.body.contains(nameDrop) && document.body.contains(dropContent)) {
 
 $(document).ready(function () {
     $('.positioning input').val('');
+    $('.positioning textarea').val('');
 
     $('.input-effect input').focusout(function () {
+        if ($(this).val() != '') {
+            $(this).addClass('has-content');
+        } else {
+            $(this).removeClass('has-content');
+        }
+    });
+    $('.input-effect textarea').focusout(function () {
         if ($(this).val() != '') {
             $(this).addClass('has-content');
         } else {

@@ -16115,6 +16115,14 @@ input {
           box-sizing: border-box;
 }
 
+textarea {
+  width: 100%;
+  resize: none;
+  height: 175px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -16177,6 +16185,10 @@ input:-webkit-autofill:active {
   color: #546874;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+}
+
+#textarea {
+  bottom: 4px;
 }
 
 .submit-btn {

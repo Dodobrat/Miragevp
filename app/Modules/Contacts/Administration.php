@@ -4,6 +4,7 @@ namespace App\Modules\Contacts;
 
 use App\Modules\Contacts\Http\Controllers\Admin\ContactsController;
 use App\Modules\Contacts\Models\Contacts;
+use Kris\LaravelFormBuilder\Form;
 use ProVision\Administration\Contracts\Module;
 
 class Administration implements Module
@@ -72,8 +73,18 @@ class Administration implements Module
      * @param \Kris\LaravelFormBuilder\Form $form
      * @return mixed
      */
-    public function settings($module, \Kris\LaravelFormBuilder\Form $form)
+    public function settings($module, Form $form)
     {
-        // TODO: Implement settings() method.
+        $form->add($module['slug'] . '_title', 'text', [
+            'label' => trans($module['slug'] . '::admin.title'),
+            'translate' => true
+        ]);
+        $form->add($module['slug'] . '_lat', 'text', [
+            'label' => trans($module['slug'] . '::admin.lat'),
+        ]);
+        $form->add($module['slug'] . '_long', 'text', [
+            'label' => trans($module['slug'] . '::admin.long'),
+        ]);
+
     }
 }

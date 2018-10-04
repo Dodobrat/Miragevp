@@ -32,7 +32,7 @@ class ContactsController extends BaseAdministrationController
                 ->addColumn('action', function ($contact) {
                     $actions = '';
                     if (!empty($contact->deleted_at)) {
-                        $actions .= Form::adminRestoreButton(trans('administration::index.restore'), Administration::route('contacts.destroy', $contact->id));
+                        //
                     } else {
                         $actions .= Form::adminDeleteButton(trans('administration::index.delete'), Administration::route('contacts.destroy', $contact->id));
                     }
@@ -42,11 +42,11 @@ class ContactsController extends BaseAdministrationController
             return $datatables->make(true);
         }
 
-        Administration::setTitle(trans('contacts::contacts.module_contacts'));
+        Administration::setTitle(trans('contacts::admin.module_name'));
 
         \Breadcrumbs::register('admin_final', function ($breadcrumbs) {
             $breadcrumbs->parent('admin_home');
-            $breadcrumbs->push(trans('contacts::contacts.module_contacts'), Administration::route('contacts.index'));
+            $breadcrumbs->push(trans('contacts::admin.module_contacts'), Administration::route('contacts.index'));
         });
 
 
@@ -57,24 +57,19 @@ class ContactsController extends BaseAdministrationController
                 'title' => trans('administration::administrators.id'),
                 'orderable' => false,
             ])->addColumn([
-                'data' => 'mobile',
-                'name' => 'mobile',
-                'title' => trans('contacts::contacts.mobile'),
-                'orderable' => false,
-            ])->addColumn([
                 'data' => 'phone',
                 'name' => 'phone',
-                'title' => trans('contacts::contacts.phone'),
+                'title' => trans('contacts::admin.phone'),
                 'orderable' => false,
             ])->addColumn([
                 'data' => 'email',
                 'name' => 'email',
-                'title' => trans('contacts::contacts.email'),
+                'title' => trans('contacts::admin.email'),
                 'orderable' => false,
             ])->addColumn([
                 'data' => 'address',
                 'name' => 'address',
-                'title' => trans('contacts::contacts.address'),
+                'title' => trans('contacts::admin.address'),
                 'orderable' => false,
             ]);
 
@@ -100,8 +95,8 @@ class ContactsController extends BaseAdministrationController
 
         \Breadcrumbs::register('admin_final', function ($breadcrumbs) {
             $breadcrumbs->parent('admin_home');
-            $breadcrumbs->push(trans('contacts::contacts.module_contacts'), Administration::route('contacts.index'));
-            $breadcrumbs->push(trans('contacts::contacts.create'), Administration::route('contacts.create'));
+            $breadcrumbs->push(trans('contacts::admin.module_name'), Administration::route('contacts.index'));
+            $breadcrumbs->push(trans('contacts::admin.create'), Administration::route('contacts.create'));
         });
 
         return view('administration::empty-form', compact('form'));
@@ -147,7 +142,7 @@ class ContactsController extends BaseAdministrationController
 
         $contact = Contacts::where('id', $id)->first();
         if (empty($contact)) {
-            return redirect()->back()->withErrors(trans('contacts::contacts.not_found'));
+            return redirect()->back()->withErrors(trans('contacts::admin.not_found'));
         }
 
         $form = $formBuilder->create(ContactForm::class, [
@@ -159,11 +154,11 @@ class ContactsController extends BaseAdministrationController
             ]
         );
 
-        Administration::setTitle(trans('contacts::contacts.edit') . ' - ' . $contact->email);
+        Administration::setTitle(trans('contacts::admin.edit') . ' - ' . $contact->email);
 
         \Breadcrumbs::register('admin_final', function ($breadcrumbs) use ($contact) {
             $breadcrumbs->parent('admin_home');
-            $breadcrumbs->push(trans('contacts::contacts.module_contacts'), Administration::route('contacts.index'));
+            $breadcrumbs->push(trans('contacts::admin.module_name'), Administration::route('contacts.index'));
             $breadcrumbs->push($contact->email, Administration::route('contacts.edit', $contact->id));
         });
         return view('administration::empty-form', compact('form'));
@@ -172,11 +167,11 @@ class ContactsController extends BaseAdministrationController
     /**
      * Update the specified resource in storage.
      *
-     * @param EditContactsRequest $request
+     * @param StoreContactsRequest $request
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EditContactsRequest $request, $id)
+    public function update(StoreContactsRequest $request, $id)
     {
         $contact = Contacts::where('id', $id)->first();
         $contact->fill($request->validated());

@@ -8,20 +8,30 @@ class ContactForm extends AdminForm
 {
     public function buildForm()
     {
-        $this->add('mobile', 'text', [
-            'title' => 'Mobile',
+        $this->add('title', 'text', [
+            'label' => trans('contacts::admin.title'),
+            'translate' => true
         ]);
 
-        $this->add('phone', 'text', [
-            'title' => 'Phone',
+        $this->add('description', 'editor', [
+            'label' => trans('contacts::admin.description'),
+            'translate' => true
         ]);
 
-        $this->add('email', 'email', [
-            'title' => 'Email',
+        $this->add('email', 'text', [
+            'label' => trans('contacts::admin.email'),
+            'translate' => true
         ]);
 
         $this->add('address', 'text', [
-            'title' => 'address',
+            'label' => trans('contacts::admin.address'),
+            'translate' => true,
+        ]);
+
+
+        $this->add('phone', 'text', [
+            'label' => trans('contacts::admin.phone'),
+            'translate' => true,
         ]);
 
         $this->add('footer', 'admin_footer');
