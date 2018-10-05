@@ -20,7 +20,7 @@ class Administration implements Module
     public function dashboard($module)
     {
         $box = new \ProVision\Administration\Dashboard\RecentListBox();
-        $box->setTitle(trans('contacts::contacts.dash_contacts_linkbox_title'));
+        $box->setTitle(trans('contacts::admin.dash_contacts_linkbox_title'));
         $box->setBoxClass('col-lg-6 col-md-6 col-sm-6 col-xs-12'); //set boostrap column class
         $box->setIconBoxBackgroundClass('bg-white');
         $contacts = Contacts::take(5)->orderBy('id','desc')->get();
@@ -28,7 +28,7 @@ class Administration implements Module
         foreach ($contacts as $contact) {
             $box->addItem($contact->email, \Administration::route('contacts.edit', $contact->id), substr(strip_tags($contact->mobile), 0, 20), $contact->updated_at);
         }
-        $box->setFooterButton(trans('contacts::contacts.dash_contacts_linkbox'), \Administration::route('blog.index'));
+        $box->setFooterButton(trans('contacts::admin.dash_contacts_linkbox'), \Administration::route('blog.index'));
         \Dashboard::add($box);
     }
 
@@ -51,7 +51,7 @@ class Administration implements Module
      */
     public function menu($module)
     {
-        \AdministrationMenu::addModule(trans('contacts::contacts.module_contacts'), [
+        \AdministrationMenu::addModule(trans('contacts::admin.module_name'), [
             'icon' => 'envelope'
         ], function ($menu) {
             $menu->addItem('View all', [
@@ -79,11 +79,17 @@ class Administration implements Module
             'label' => trans($module['slug'] . '::admin.title'),
             'translate' => true
         ]);
-        $form->add($module['slug'] . '_lat', 'text', [
+        $form->add($module['slug'] . '_lat', 'number', [
             'label' => trans($module['slug'] . '::admin.lat'),
         ]);
-        $form->add($module['slug'] . '_long', 'text', [
+        $form->add($module['slug'] . '_long', 'number', [
             'label' => trans($module['slug'] . '::admin.long'),
+        ]);
+        $form->add($module['slug'] . '_zoom', 'number', [
+            'label' => trans($module['slug'] . '::admin.zoom'),
+        ]);
+        $form->add($module['slug'] . '_pin_icon', 'file', [
+            'label' => trans($module['slug'] . '::admin.pin-icon'),
         ]);
 
     }

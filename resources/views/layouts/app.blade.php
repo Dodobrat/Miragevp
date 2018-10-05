@@ -47,9 +47,6 @@
 
 
 
-
-
-
 <div id="app"></div>
 
 <div class="top-nav">

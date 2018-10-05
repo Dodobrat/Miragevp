@@ -46,7 +46,7 @@ class ContactsController extends BaseAdministrationController
 
         \Breadcrumbs::register('admin_final', function ($breadcrumbs) {
             $breadcrumbs->parent('admin_home');
-            $breadcrumbs->push(trans('contacts::admin.module_contacts'), Administration::route('contacts.index'));
+            $breadcrumbs->push(trans('contacts::admin.module_name'), Administration::route('contacts.index'));
         });
 
 

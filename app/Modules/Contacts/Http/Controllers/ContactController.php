@@ -7,6 +7,7 @@ use App\Modules\Contacts\Models\Contacts;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use ProVision\Administration\Facades\Administration;
 
 class ContactController extends Controller
@@ -38,6 +39,7 @@ class ContactController extends Controller
             $m->to($contactInfo->email, $contactInfo->title);
         });
 
-        return back()->with('status', trans('contacts::front.success_send'));
+        return back()->with('status', trans('contacts::front.email-success'));
+
     }
 }

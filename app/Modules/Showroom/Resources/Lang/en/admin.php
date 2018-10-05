@@ -7,5 +7,6 @@ return [
     'title' => 'Title',
     'edit' => 'Edit',
     'description' => 'Description',
-    'show_media' => 'Show Media'
+    'show_media' => 'Show Media',
+
 ];
