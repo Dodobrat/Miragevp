@@ -21,10 +21,23 @@
                 anchor: new google.maps.Point(17, 34),
                 scaledSize: new google.maps.Size(45, 45)
             };
+            let defaultMark = {
+                url: '{{asset('images/maps-marker/marker.png')}}',
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(45, 45)
+            };
             let marker = new google.maps.Marker({
                 position:{lat: parseFloat("{!! Settings::get('contacts_lat') !!}") , lng: parseFloat("{!! Settings::get('contacts_long') !!}")},
                 map:map,
-                icon: custMark,
+                icon: function setCustMarker(){
+                        if(custMark === null){
+                            defaultMark;
+                        }else{
+                            custMark;
+                        }
+                },
 
             });
             let styledMapType = new google.maps.StyledMapType(
