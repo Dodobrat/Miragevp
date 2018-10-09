@@ -79,6 +79,10 @@ class Administration implements Module
             'label' => trans($module['slug'] . '::admin.title'),
             'translate' => true
         ]);
+        $form->add($module['slug'] . '_page_title', 'text', [
+            'label' => trans($module['slug'] . '::admin.page_title'),
+            'translate' => true
+        ]);
         $form->add($module['slug'] . '_lat', 'number', [
             'label' => trans($module['slug'] . '::admin.lat'),
         ]);
@@ -90,6 +94,9 @@ class Administration implements Module
         ]);
         $form->add($module['slug'] . '_pin_icon', 'file', [
             'label' => trans($module['slug'] . '::admin.pin-icon'),
+        ]);
+        $form->add($module['slug'] . '_map_visible', 'checkbox', [
+            'label' => trans($module['slug'] . '::admin.visible'),
         ]);
 
     }

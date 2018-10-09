@@ -14,6 +14,7 @@ return [
     'lat' => 'Google Maps Latitude',
     'long' => 'Google Maps Longitude',
     'zoom' => 'Initial Zoom Level (recommended: 5 - 20 )',
-    'pin-icon' => 'Custom Pin Image (recommended: 25px X 25px)'
+    'pin-icon' => 'Custom Pin Image (recommended: 25px X 25px)',
+    'visible' => 'Map Visible',
 
 ];

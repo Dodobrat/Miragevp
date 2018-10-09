@@ -28,4 +28,10 @@ return [
     'pass-reset-link' => 'Send Password Reset Link',
     'dashboard' => 'Dashboard',
     'logout' => 'Logout',
+    'static-block-motto' => 'Static Block "motto"',
+    'static-block-loc-section' => 'Static Block "loc"',
+    'static-block-contact' => 'Static Block "contact-desc"',
+    'extra-view' => 'Extraordinary View',
+    'great-loc' => 'Great Location',
+
 ];

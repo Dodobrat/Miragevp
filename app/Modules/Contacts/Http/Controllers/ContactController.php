@@ -7,13 +7,17 @@ use App\Modules\Contacts\Models\Contacts;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
 use ProVision\Administration\Facades\Administration;
+use ProVision\Administration\Facades\Settings;
 
 class ContactController extends Controller
 {
     public function index(){
+
         $contacts = Contacts::withTranslation()->get();
+
         if (empty($contacts)) {
             return redirect()->back();
         }
