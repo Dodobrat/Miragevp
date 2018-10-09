@@ -10494,7 +10494,11 @@ a.text-dark:focus {
 #exp-drop-icon,
 .far,
 .fal,
-.fab {
+.fab,
+.foot span #fb,
+.foot span #tw,
+.foot span #g,
+.foot span #ig {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   display: inline-block;
@@ -10505,7 +10509,11 @@ a.text-dark:focus {
 }
 
 #name-drop-icon,
-#exp-drop-icon {
+#exp-drop-icon,
+.foot span #fb,
+.foot span #tw,
+.foot span #g,
+.foot span #ig {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -10613,7 +10621,11 @@ a.text-dark:focus {
 .fa-pull-left#exp-drop-icon,
 .far.fa-pull-left,
 .fal.fa-pull-left,
-.fab.fa-pull-left {
+.fab.fa-pull-left,
+.foot span .fa-pull-left#fb,
+.foot span .fa-pull-left#tw,
+.foot span .fa-pull-left#g,
+.foot span .fa-pull-left#ig {
   margin-right: .3em;
 }
 
@@ -10623,7 +10635,11 @@ a.text-dark:focus {
 .fa-pull-right#exp-drop-icon,
 .far.fa-pull-right,
 .fal.fa-pull-right,
-.fab.fa-pull-right {
+.fab.fa-pull-right,
+.foot span .fa-pull-right#fb,
+.foot span .fa-pull-right#tw,
+.foot span .fa-pull-right#g,
+.foot span .fa-pull-right#ig {
   margin-left: .3em;
 }
 
@@ -15544,6 +15560,27 @@ readers do not read off random characters that represent icons */
   font-weight: 900;
 }
 
+/*!
+ * Font Awesome Free 5.3.1 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+
+@font-face {
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal;
+  font-weight: normal;
+  src: url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.eot?9b6c8da3c489424e2b3e9c9fb6314b37);
+  src: url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.eot?9b6c8da3c489424e2b3e9c9fb6314b37) format("embedded-opentype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.woff2?48461ea4e797c9774dabb4a0440d2f56) format("woff2"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.woff?7b464e274bc331f9a765d765359635a5) format("woff"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.ttf?947b9537bc0fecc8130d48eb753495a1) format("truetype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.svg?b5472631dbace30d549357ec325b9c62) format("svg");
+}
+
+.fab,
+.foot span #fb,
+.foot span #tw,
+.foot span #g,
+.foot span #ig {
+  font-family: 'Font Awesome 5 Brands';
+}
+
 /* ---------------------------------------------------
     MAIN SCSS
 ----------------------------------------------------- */
@@ -15994,6 +16031,7 @@ body {
   left: 75px;
   right: 75px;
   text-align: center;
+  text-transform: uppercase;
   width: 100px;
   font-weight: 200;
   font-size: 12px;
@@ -16116,7 +16154,91 @@ body {
 ----------------------------------------------------- */
 
 .foot {
-  background-color: rgba(134, 154, 166, 0.5);
+  background-color: rgba(134, 154, 166, 0.3);
+  padding: 10px 0;
+}
+
+.foot p {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+}
+
+.foot span {
+  padding: 0 10px;
+  float: right;
+}
+
+.foot span #fb {
+  color: rgba(0, 0, 0, 0.5);
+  padding: 0 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.foot span #fb:before {
+  content: "\F39E";
+}
+
+.foot span #fb:hover {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.foot span #tw {
+  color: rgba(0, 0, 0, 0.5);
+  padding: 0 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.foot span #tw:before {
+  content: "\F099";
+}
+
+.foot span #tw:hover {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.foot span #g {
+  color: rgba(0, 0, 0, 0.5);
+  padding: 0 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.foot span #g:before {
+  content: "\F0D5";
+}
+
+.foot span #g:hover {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.foot span #ig {
+  color: rgba(0, 0, 0, 0.5);
+  padding: 0 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.foot span #ig:before {
+  content: "\F16D";
+}
+
+.foot span #ig:hover {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 /* ---------------------------------------------------
@@ -16454,7 +16576,7 @@ input:-webkit-autofill:active {
     MEDIAQUERIES
 ----------------------------------------------------- */
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   /* ---------------------------------------------------
     PRELOADERS
 ----------------------------------------------------- */
@@ -16555,6 +16677,18 @@ input:-webkit-autofill:active {
 
   .contacts-map-container {
     padding: 50px 15px;
+  }
+
+  /* ---------------------------------------------------
+    FOOTER
+----------------------------------------------------- */
+
+  .foot span {
+    float: none;
+  }
+
+  .foot span #fb {
+    padding: 20px 10px;
   }
 }
 

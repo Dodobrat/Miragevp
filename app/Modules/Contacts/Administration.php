@@ -83,21 +83,5 @@ class Administration implements Module
             'label' => trans($module['slug'] . '::admin.page_title'),
             'translate' => true
         ]);
-        $form->add($module['slug'] . '_lat', 'number', [
-            'label' => trans($module['slug'] . '::admin.lat'),
-        ]);
-        $form->add($module['slug'] . '_long', 'number', [
-            'label' => trans($module['slug'] . '::admin.long'),
-        ]);
-        $form->add($module['slug'] . '_zoom', 'number', [
-            'label' => trans($module['slug'] . '::admin.zoom'),
-        ]);
-        $form->add($module['slug'] . '_pin_icon', 'file', [
-            'label' => trans($module['slug'] . '::admin.pin-icon'),
-        ]);
-        $form->add($module['slug'] . '_map_visible', 'checkbox', [
-            'label' => trans($module['slug'] . '::admin.visible'),
-        ]);
-
     }
 }

@@ -4,14 +4,16 @@
 
     <h1 class="text-center page-title">{{Settings::getLocale('contacts_page_title', false)}}</h1>
 
-<p class="text-center page-desc">
-    @if(!empty(Administration::getStaticBlock('contact_page_desc')))
-        {!! Administration::getStaticBlock('contact_page_desc') !!}
-    @else
-        {{ trans('front.static-block-contact') }}
-    @endif</p>
 
-    @if(Settings::get('contacts_map_visible') == 1)
+    @foreach($contacts as $map)
+
+        <div class="text-center page-desc">
+            @if(!empty($map->description))
+                {!!  $map->description !!}
+            @endif
+        </div>
+
+        @if($map->show_map == 1)
         <div class="contacts-map-container">
             <div id="map" style="height: 500px; width: 100%;margin: auto;"></div>
         </div>
@@ -19,8 +21,8 @@
             function initMap(){
 
                 let map = new google.maps.Map(document.getElementById('map'),{
-                    zoom: Number("{!! Settings::get('contacts_zoom') !!}"),
-                    center: {lat: parseFloat("{!! Settings::get('contacts_lat') !!}") , lng: parseFloat("{!! Settings::get('contacts_long') !!}")},
+                    zoom: 13,
+                    center: {lat: parseFloat("{{ $map->lat }}") , lng: parseFloat("{{ $map->lng }}")},
                     styles: [
                         {"elementType": "geometry","stylers": [{"color": "#212121"}]},
                         {"elementType": "labels.icon","stylers": [{"visibility": "off"}]},
@@ -50,16 +52,14 @@
                 });
 
                 let custMark = {
-                    {{--url: '{{Settings::getFile('contacts_pin_icon')}}',--}}
-                            {{--url: '{{asset('images/maps-marker/marker.png')}}',--}}
-                    url: '{{Settings::getFile('contacts_pin_icon')}}',
+                    url: '{{asset('images/maps-marker/marker.png')}}',
                     size: new google.maps.Size(71, 71),
                     origin: new google.maps.Point(0, 0),
                     anchor: new google.maps.Point(17, 34),
                     scaledSize: new google.maps.Size(45, 45)
                 };
                 let marker = new google.maps.Marker({
-                    position:{lat: parseFloat("{!! Settings::get('contacts_lat') !!}") , lng: parseFloat("{!! Settings::get('contacts_long') !!}")},
+                    position:{lat: parseFloat("{{ $map->lat }}") , lng: parseFloat("{{ $map->lng }}")},
                     map:map,
                     icon: custMark,
                 });
@@ -91,11 +91,11 @@
 
 
         </script>
-        <script async defer src="{!! Settings::get('google_map_api_key') !!}" type="text/javascript"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ Settings::get('google_map_api_key') }}&callback=initMap" type="text/javascript"></script>
         @else
 
 @endif
-
+    @endforeach
     {{--<h1 class="text-center mb-3 mt-3 page-title">CONTACT</h1>--}}
     @foreach($contacts as $contact)
         <div class="container">
@@ -104,7 +104,6 @@
                     <form class="form custom-form" method="POST" action="{{ route('contact.store') }}">
                         {{ csrf_field() }}
                         <h3 class="text-center form-title">{!! $contact->title !!}</h3>
-                        <h5 class="text-center form-title">{!! $contact->description !!}</h5>
                         @if ($errors->any())
                             <div class="mt-0 mb-4 alert alert-danger alert-dismissible fade show error" role="alert">
                                 {{ $errors->first() }}

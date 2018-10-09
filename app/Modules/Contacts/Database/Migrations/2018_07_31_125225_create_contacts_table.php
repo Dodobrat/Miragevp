@@ -16,8 +16,9 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
-            $table->decimal('lat', 10, 8)->nullable()->default(NULL);
-            $table->decimal('long', 10, 8)->nullable()->default(NULL);
+            $table->string('lat')->nullable()->default(NULL);
+            $table->string('lng')->nullable()->default(NULL);
+            $table->boolean('show_map')->default(true);
             $table->softDeletes();
             $table->timestamps();
         });

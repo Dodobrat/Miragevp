@@ -30,10 +30,13 @@ class StoreContactsRequest extends FormRequest
         foreach ($locales as $locale) {
             $trans[$locale . '.title'] = 'required|string';
             $trans[$locale . '.description'] = 'nullable|string';
-            $trans[$locale . '.email'] = 'nullable|email';
-            $trans[$locale . '.address'] = 'nullable|string';
-            $trans[$locale . '.phone'] = 'nullable|string';
+            $trans[$locale . '.email'] = 'required|email';
+            $trans[$locale . '.address'] = 'required|string';
+            $trans[$locale . '.phone'] = 'required|string';
         }
+
+        $trans['map'] = 'nullable|array';
+        $trans['show_map'] = 'boolean';
 
         return $trans;
     }

@@ -37,6 +37,8 @@ class ContactsController extends BaseAdministrationController
                         $actions .= Form::adminDeleteButton(trans('administration::index.delete'), Administration::route('contacts.destroy', $contact->id));
                     }
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('contacts.edit', $contact->id)) . $actions;
+                })->addColumn('show_map', function ($contacts) {
+                    return Form::adminSwitchButton('show_map', $contacts);
                 });
 
             return $datatables->make(true);
@@ -71,6 +73,11 @@ class ContactsController extends BaseAdministrationController
                 'name' => 'address',
                 'title' => trans('contacts::admin.address'),
                 'orderable' => false,
+            ])->addColumn([
+                'data' => 'show_map',
+                'name' => 'show_map',
+                'title' => trans('contacts::admin.visible'),
+                'orderable' => false,
             ]);
 
         return view('administration::empty-listing', compact('table'));
@@ -91,7 +98,7 @@ class ContactsController extends BaseAdministrationController
             'id' => 'formID'
         ]);
 
-        Administration::setTitle(trans('contacts::contacts.create'));
+        Administration::setTitle(trans('contacts::admin.create'));
 
         \Breadcrumbs::register('admin_final', function ($breadcrumbs) {
             $breadcrumbs->parent('admin_home');
@@ -112,7 +119,8 @@ class ContactsController extends BaseAdministrationController
     function store(StoreContactsRequest $request)
     {
         $contact = new Contacts();
-
+        $contact->lat = $request->validated()['map']['lat'];
+        $contact->lng = $request->validated()['map']['lng'];
         $contact->fill($request->validated());
         $contact->save();
 
@@ -174,6 +182,8 @@ class ContactsController extends BaseAdministrationController
     public function update(StoreContactsRequest $request, $id)
     {
         $contact = Contacts::where('id', $id)->first();
+        $contact->lat = $request->validated()['map']['lat'];
+        $contact->lng = $request->validated()['map']['lng'];
         $contact->fill($request->validated());
         $contact->save();
 

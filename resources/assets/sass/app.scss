@@ -4,6 +4,7 @@
 @import "showroom.scss";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
 
 
 
@@ -366,6 +367,7 @@ body{
   left: 75px;
   right: 75px;
   text-align: center;
+  text-transform: uppercase;
   width: 100px;
   font-weight: 200;
   font-size: 12px;
@@ -466,8 +468,76 @@ body{
     FOOTER STYLE
 ----------------------------------------------------- */
 .foot{
-  background-color: rgba(134,154,166,0.5);
+  background-color: rgba(134,154,166,0.3);
+  padding: 10px 0;
+  p{
+    margin: 0;
+    color: rgba(0,0,0,0.5);
+    text-transform: uppercase;
+  }
+  span{
+    padding: 0 10px;
+    float: right;
+    #fb{
+      @extend %fa-icon;
+      @extend .fab;
+      &:before {
+        content: fa-content($fa-var-facebook-f);
+      }
+      &:hover{
+        text-decoration: none;
+        color: rgba(0,0,0,0.8);
+        transition: all 0.3s;
+      }
+      color: rgba(0,0,0,0.5);
+      padding: 0 5px;
+      transition: all 0.3s;
+    }#tw{
+      @extend %fa-icon;
+      @extend .fab;
+      &:before {
+        content: fa-content($fa-var-twitter);
+      }
+      &:hover{
+        text-decoration: none;
+        color: rgba(0,0,0,0.8);
+        transition: all 0.3s;
+      }
+       color: rgba(0,0,0,0.5);
+       padding: 0 5px;
+       transition: all 0.3s;
+    }#g{
+      @extend %fa-icon;
+      @extend .fab;
+      &:before {
+        content: fa-content($fa-var-google-plus-g);
+      }
+      &:hover{
+        text-decoration: none;
+        color: rgba(0,0,0,0.8);
+        transition: all 0.3s;
+      }
+        color: rgba(0,0,0,0.5);
+        padding: 0 5px;
+        transition: all 0.3s;
+    }#ig{
+      @extend %fa-icon;
+      @extend .fab;
+      &:before {
+        content: fa-content($fa-var-instagram);
+      }
+      &:hover{
+        text-decoration: none;
+        color: rgba(0,0,0,0.8);
+        transition: all 0.3s;
+      }
+       color: rgba(0,0,0,0.5);
+       padding: 0 5px;
+       transition: all 0.3s;
+    }
+  }
 }
+
 /* ---------------------------------------------------
     FORMS
 ----------------------------------------------------- */
@@ -728,7 +798,7 @@ input:-webkit-autofill:active {
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   /* ---------------------------------------------------
     PRELOADERS
 ----------------------------------------------------- */
@@ -803,6 +873,17 @@ input:-webkit-autofill:active {
   }
   .contacts-map-container{
     padding: 50px 15px;
+  }
+/* ---------------------------------------------------
+    FOOTER
+----------------------------------------------------- */
+  .foot{
+    span{
+      float: none;
+      #fb{
+        padding: 20px 10px;
+      }
+    }
   }
 }
 

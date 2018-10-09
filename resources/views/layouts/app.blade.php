@@ -16,8 +16,6 @@
 </head>
 <body>
 
-{{--Route::currentRouteName() == 'pages.show'--}}
-    {{--@if (Request::route()->getName() == 'welcome')--}}
     @if (Route::currentRouteName() == 'welcome')
         <div id="home-overlay">
             <img class="home-preload-left-img" src="
@@ -43,7 +41,6 @@
             </div>
         </div>
     @endif
-    <!-- <div class="spinner"></div> -->
 
 
 
@@ -229,7 +226,7 @@
         </form>
     </div>
 
-    <p class="copy">MIRAGETOWER &copy;</p>
+    <p class="copy">{{ config('app.name', 'MIRAGETOWER') }} &copy;</p>
 
 </div>
 

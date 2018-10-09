@@ -63,7 +63,7 @@
 </section>
     <section class="location-container">
         <h1 class="text-center">{{trans('front.great-loc')}}</h1>
-
+{{--{{dd(Settings::get('index_map.lat'))}}--}}
         <div class="row">
             {{--{{dd(Settings::get('index_map_visible'))}}--}}
             @if(Settings::get('index_map_visible') == 1)
@@ -71,8 +71,8 @@
                     function initMap(){
 
                         let map = new google.maps.Map(document.getElementById('map'),{
-                            zoom: Number("{!! Settings::get('index_zoom') !!}"),
-                            center: {lat: parseFloat("{!! Settings::get('index_lat') !!}") , lng: parseFloat("{!! Settings::get('index_long') !!}")},
+                            zoom: 13,
+                            center: {lat: parseFloat("{!! Settings::get('index_map.lat') !!}") , lng: parseFloat("{!! Settings::get('index_map.lng') !!}")},
                             styles: [
                                 {"elementType": "geometry","stylers": [{"color": "#212121"}]},
                                 {"elementType": "labels.icon","stylers": [{"visibility": "off"}]},
@@ -104,14 +104,14 @@
                         let custMark = {
                             {{--url: '{{Settings::getFile('contacts_pin_icon')}}',--}}
                                     {{--url: '{{asset('images/maps-marker/marker.png')}}',--}}
-                            url: '{{Settings::getFile('index_pin_icon')}}',
+                            url: '{{asset('images/maps-marker/marker.png')}}',
                             size: new google.maps.Size(71, 71),
                             origin: new google.maps.Point(0, 0),
                             anchor: new google.maps.Point(17, 34),
                             scaledSize: new google.maps.Size(45, 45)
                         };
                         let marker = new google.maps.Marker({
-                            position:{lat: parseFloat("{!! Settings::get('index_lat') !!}") , lng: parseFloat("{!! Settings::get('index_long') !!}")},
+                            position:{lat: parseFloat("{!! Settings::get('index_map.lat') !!}") , lng: parseFloat("{!! Settings::get('index_map.lng') !!}")},
                             map:map,
                             icon: custMark,
                         });
@@ -140,7 +140,7 @@
                         map.setMapTypeId('styled_map');
                     }
                 </script>
-                <script async defer src="{!! Settings::get('google_map_api_key') !!}" type="text/javascript"></script>
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ Settings::get('google_map_api_key') }}&callback=initMap" type="text/javascript"></script>
                 <div class="col-lg-5">
                     <div class="container-fluid">
                         <div id="map" style="height: 50vh; width: 100%;"></div>

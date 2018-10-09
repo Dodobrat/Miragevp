@@ -23,8 +23,12 @@ class Contacts extends AdminModel
     protected $fillable = [
         'lat',
         'long',
+        'show_map',
     ];
 
+    protected $casts = [
+        'show_map' => 'boolean'
+    ];
 
     protected $with = ['translations'];
 }
