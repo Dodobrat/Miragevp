@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <h1 class="text-center mb-3 mt-3 page-title">{{ trans('showroom::front.module_name') }}</h1>
+    <h1 class="text-center page-title">{{Settings::getLocale('showroom_page_title', false)}}</h1>
 
 <div class="container-fluid">
     <div class="card-deck flex-column flex-lg-row flex-wrap">
@@ -23,19 +23,25 @@
 
 
             <div class="modal fade bd-example-modal-lg show_{{$showroom->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <button class="close-modal-carousel">&times;</button>
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                         <div id="carousel_{{$showroom->id}}" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
+                                @if($showroom->show_media === true)
                                 @foreach($showroom->media as $media)
                                     <div class="carousel-item @if($loop->first) active @endif">
-                                        <img class="d-block w-100" src="{{ $media->getPublicPath() }}" alt="First slide">
+                                        <img class="d-block w-100" src="{{ $media->getPublicPath() }}" alt="MirageTower">
                                         <div class="carousel-caption d-none d-md-block">
-                                            <h5>{{ $media->title }}</h5>
-                                            <p>{!! $media->description !!}</p>
+                                            @if(!empty($media->title) or !empty($media->description))
+                                                <h5><span>{{ $media->title }}</span></h5>
+                                                <p><span>{!! $media->description !!}</span></p>
+                                                @endif
+
                                         </div>
                                     </div>
                                 @endforeach
+                                    @endif
                             </div>
                             <a class="carousel-control-prev" href="#carousel_{{$showroom->id}}" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -54,5 +60,7 @@
 
     </div>
 </div>
+
+    @include('layouts.footer')
 
 @endsection

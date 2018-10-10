@@ -19,17 +19,14 @@ class Administration implements Module
      */
     public function dashboard($module)
     {
-        $box = new \ProVision\Administration\Dashboard\RecentListBox();
-        $box->setTitle(trans('contacts::admin.dash_contacts_linkbox_title'));
-        $box->setBoxClass('col-lg-6 col-md-6 col-sm-6 col-xs-12'); //set boostrap column class
-        $box->setIconBoxBackgroundClass('bg-white');
-        $contacts = Contacts::take(5)->orderBy('id','desc')->get();
+//        $box = new \ProVision\Administration\Dashboard\InfoBox();
+//        $box->setTitle(trans('contacts::admin.dash_contacts_linkbox_title'));
+//        $box->setBoxClass('col-lg-12 col-md-12 col-sm-12 col-xs-12'); //set boostrap column class
+//        $box->setValue(Contacts::count());
+//        $box->setIconBoxBackgroundClass('bg-blue');
+//        $box->setIconClass('fa-envelope');
+//        \Dashboard::add($box);
 
-        foreach ($contacts as $contact) {
-            $box->addItem($contact->email, \Administration::route('contacts.edit', $contact->id), substr(strip_tags($contact->mobile), 0, 20), $contact->updated_at);
-        }
-        $box->setFooterButton(trans('contacts::admin.dash_contacts_linkbox'), \Administration::route('blog.index'));
-        \Dashboard::add($box);
     }
 
     /**

@@ -8,5 +8,7 @@ return [
     'edit' => 'Edit',
     'description' => 'Description',
     'show_media' => 'Show Media',
-
+    'page_title' => 'Page Title',
+    'dash_showrooms_linkbox_title' => 'Showrooms',
+    'dash_showroom_linkbox' => 'View Showrooms',
 ];

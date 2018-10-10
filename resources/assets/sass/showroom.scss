@@ -11,6 +11,7 @@
 .card{
   margin: 20px 0;
   height: 50vh;
+  min-height: 350px;
   border: none;
   border-radius: 0;
   overflow: hidden;
@@ -91,13 +92,60 @@
 /* ---------------------------------------------------
     CONTENT SECTION
 ----------------------------------------------------- */
+.modal{
+  background-color: rgba(0,0,0,0.7);
+}
 .modal-content{
   background-color: transparent;
   border: none;
   border-radius: 0;
+  .carousel-inner{
+    max-height: 90vh;
+    .carousel-item{
+      img{
+        height: 90vh;
+        object-fit: contain;
+      }
+      .carousel-caption{
+        h5 span{
+          padding: 10px 15px;
+          background-color: rgba(255,255,255,0.9);
+          color: #333333;
+          font-size: 24px;
+          font-weight: 200;
+        }
+        p {
+          margin-top: 30px;
+          span{
+            padding: 10px 15px;
+            color: #000000;
+            font-size: 20px;
+            font-weight: 400;
+            filter: invert(1) grayscale(1) contrast(9);
+          }
+        }
+      }
+    }
+  }
 }
-.carousel-inner{
-  max-height: 90vh;
+.close-modal-carousel{
+  z-index: 9999;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0 25px 0 0;
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 60px;
+  font-weight: 100;
+}
+.close-modal-carousel:hover{
+  cursor: pointer;
+}
+.close-modal-carousel:focus{
+  outline: none;
 }
 
 /* ---------------------------------------------------

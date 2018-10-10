@@ -60,8 +60,10 @@
     {{--@else--}}
         {{--style="background-image: url('{{ asset('images/google-logo.png') }}')--}}
     {{--@endif--}}
+
+    <a class="animate" href="#loc-cont"><span></span><span></span>{{trans('front.scroll')}}</a>
 </section>
-    <section class="location-container">
+    <section class="location-container" id="loc-cont">
         <h1 class="text-center">{{trans('front.great-loc')}}</h1>
 {{--{{dd(Settings::get('index_map.lat'))}}--}}
         <div class="row">
@@ -141,15 +143,11 @@
                     }
                 </script>
                 <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ Settings::get('google_map_api_key') }}&callback=initMap" type="text/javascript"></script>
-                <div class="col-lg-5">
-                    <div class="container-fluid">
+                <div class="col-lg-12 col-xl-5 pl-xl-4 pr-xl-2 px-lg-4 px-md-4 px-sm-5 px-xs-5">
                         <div id="map" style="height: 50vh; width: 100%;"></div>
-                    </div>
                 </div>
-                <div class="col-lg-7">
-                    <div class="container-fluid">
+                <div class="col-lg-12 col-xl-7 pr-xl-4 pl-xl-2 px-lg-4 px-md-4 px-sm-5 px-xs-5">
                         <div class="pic" style="width: 100%; height: 50vh; background-color: #2c3e50;"></div>
-                    </div>
 
                 </div>
         @else

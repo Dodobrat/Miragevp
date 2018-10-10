@@ -1,22 +1,28 @@
 var $ =require('jquery');
 
 // ---------------------------------------------------
-//         CONTENT - SMOOTH SCROLL
+//         CONTENT - DISABLING RIGHT CLICK ON IMAGES
 // ---------------------------------------------------
-// $(document).ready(function(){
-//     $(".class").on('click', function(event) {
-//         if (this.hash !== "") {
-//             event.preventDefault();
-//             var hash = this.hash;
-//             $('html, body').animate({
-//                 scrollTop: $(hash).offset().top
-//             }, 800, function(){
-//                 window.location.hash = hash;
-//             });
-//         }
-//     });
-// });
+
 
 $('img').bind('contextmenu', function(e) {
     return false;
+});
+
+// ---------------------------------------------------
+//         CONTENT - CLOSE BUTTON FOR MODAL
+// ---------------------------------------------------
+
+$('.close-modal-carousel').click(function (){
+    $('.modal').modal('hide');
+});
+
+// ---------------------------------------------------
+//         CONTENT - CAROUSEL IMAGE CHANGE INTERVAL
+// ---------------------------------------------------
+
+$(function(){
+    $('.carousel').carousel({
+        interval: 30000
+    });
 });

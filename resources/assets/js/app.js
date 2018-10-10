@@ -6,6 +6,7 @@ require('../../assets/js/showroom.js');
 window.Popper = require('popper.js');
 require('bootstrap/dist/js/bootstrap.js');
 var $ =require('jquery');
+require('jquery-smooth-scroll');
 require('particles.js');
 
 // ---------------------------------------------------
@@ -358,6 +359,11 @@ $(document).ready(function(){
 });
 
 // ---------------------------------------------------
+//         SMOOTH SCROLL
+// ---------------------------------------------------
+$('.animate').smoothScroll({offset: -55});
+
+// ---------------------------------------------------
 //         CHANGE NAVIGATION ON SCROLL
 // ---------------------------------------------------
 
@@ -386,4 +392,5 @@ function parallax() {
 
     $('.parallax-img').css('background-position', 'center '+(wScroll*0.6)+'px');
 }
+
 
