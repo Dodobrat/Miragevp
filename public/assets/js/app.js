@@ -18893,16 +18893,33 @@ function parallax() {
     $('.parallax-img').css('background-position', 'center ' + wScroll * 0.6 + 'px');
 }
 
-// ---------------------------------------------------
-//         CONTENT - FOOTER
-// ---------------------------------------------------
-
 /***/ }),
 
 /***/ "./resources/assets/js/showroom.js":
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__("./node_modules/jquery/dist/jquery.js");
+
+// ---------------------------------------------------
+//         CONTENT - SMOOTH SCROLL
+// ---------------------------------------------------
+// $(document).ready(function(){
+//     $(".class").on('click', function(event) {
+//         if (this.hash !== "") {
+//             event.preventDefault();
+//             var hash = this.hash;
+//             $('html, body').animate({
+//                 scrollTop: $(hash).offset().top
+//             }, 800, function(){
+//                 window.location.hash = hash;
+//             });
+//         }
+//     });
+// });
+
+$('img').bind('contextmenu', function (e) {
+    return false;
+});
 
 /***/ }),
 

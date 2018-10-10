@@ -231,16 +231,11 @@
 </div>
 
 <div id="main">
-    {{--<div style="margin-top: 100px;"></div>--}}
+
     @yield('content')
-    {{--<div style="margin-top: 1000px;"></div>--}}
+
 </div>
 
-
-
-    {{--<div style="height: 500px;"></div>--}}
-
-{{--</div>--}}
 
     <!-- Scripts -->
     <script src="{{ mix('assets/js/app.js') }}"></script>

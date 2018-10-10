@@ -10475,13 +10475,145 @@ a.text-dark:focus {
     THUMBNAIL SECTION
 ----------------------------------------------------- */
 
+.container-fluid {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.card-deck {
+  padding: 30px 0;
+}
+
+.card {
+  margin: 20px 0;
+  height: 50vh;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.card img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0;
+}
+
+.card .card-img-overlay {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.85);
+  height: 15vh;
+  color: #000000;
+  opacity: 0;
+  top: unset;
+}
+
+.card .card-img-overlay .card-title {
+  margin: 0;
+  display: none;
+  text-transform: uppercase;
+  font-size: 25px;
+  font-weight: 200;
+  text-align: center;
+}
+
+.card .card-img-overlay .card-text {
+  margin: 0;
+  display: none;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.card .card-img-overlay button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 0;
+  width: 100%;
+  background-color: #95ACBF;
+  padding: 20px 0px;
+  border: none;
+  color: #ffffff;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 200;
+  margin: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.card .card-img-overlay button:focus {
+  outline: 0;
+}
+
+.card:hover {
+  -webkit-box-shadow: 0px 5px 12px -3px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 5px 12px -3px rgba(0, 0, 0, 0.5);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.card:hover .card-img-overlay {
+  height: 100%;
+  opacity: 1;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover .card-img-overlay .card-title {
+  padding: 30px 0;
+  display: block;
+}
+
+.card:hover .card-img-overlay .card-text {
+  display: block;
+}
+
+.card:hover .card-img-overlay button:hover {
+  background-color: #869AA6;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
 /* ---------------------------------------------------
     CONTENT SECTION
 ----------------------------------------------------- */
 
+.modal-content {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.carousel-inner {
+  max-height: 90vh;
+}
+
 /* ---------------------------------------------------
     MEDIA QUERIES
 ----------------------------------------------------- */
+
+@media (min-width: 992px) {
+  .modal-lg {
+    max-width: 90%;
+    max-height: 90vh;
+  }
+}
+
+@media (min-width: 576px) {
+  .card-deck .card {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 31%;
+            flex: 1 0 31%;
+  }
+}
 
 /*!
  * Font Awesome Free 5.3.1 by @fontawesome - https://fontawesome.com
