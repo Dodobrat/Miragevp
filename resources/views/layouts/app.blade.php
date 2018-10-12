@@ -199,6 +199,13 @@
 
 @endguest
 
+    <div class="contact-section">
+        <h4 class="contact-section-head">Contact Info</h4>
+        <p class="contact-section-email">E-mail :<br><span></span> </p>
+        <p class="contact-section-phone">Phone: <br><span></span> </p>
+        <p class="contact-section-address">Address: <br><span></span> </p>
+    </div>
+
     <div class="news-section">
         <form method="POST" action="{{ route('newsletter_subscriber.store') }}">
             {{ csrf_field() }}

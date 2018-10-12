@@ -14,11 +14,13 @@ require('particles.js');
 // ---------------------------------------------------
 if (document.body.contains(document.getElementById("home-overlay"))){
     function homeLoader(){
+        let body = document.getElementsByTagName('body');
         let homeOverlay = document.getElementById("home-overlay");
         let leftOverImg = document.querySelector('.home-preload-left-img');
         let rightOverImg = document.querySelector('.home-preload-right-img');
         let lineDraw = document.querySelector('.line-draw');
         window.addEventListener('load', function(){
+            body[0].style.overflow = 'hidden';
             leftOverImg.style.opacity = '1';
             rightOverImg.style.opacity = '1';
             leftOverImg.style.marginLeft = '-161.4375px';
@@ -37,7 +39,9 @@ if (document.body.contains(document.getElementById("home-overlay"))){
             }, 2000);
             setTimeout(()=>{
                 homeOverlay.style.display = 'none';
+                body[0].style.overflow = 'unset';
             },2200);
+
         });
     }
     homeLoader();
@@ -111,7 +115,7 @@ function sideNavMobile() {
                     copy.style.opacity = '1';
                 }, 500);
             }
-        })
+        });
         btnClose.addEventListener('click',function () {
             mobileCounter += 1;
             if(mobileCounter % 2 == 0){
@@ -348,7 +352,7 @@ $(document).ready(function(){
         }else{
             $(this).removeClass('has-content');
         }
-    })
+    });
     $('.input-effect textarea').focusout(function(){
         if($(this).val() != ''){
             $(this).addClass('has-content');
@@ -373,15 +377,32 @@ $('#top').smoothScroll({
 // ---------------------------------------------------
 //         SHOW BACK TO TOP ON SCROLL
 // ---------------------------------------------------
+if (document.body.contains(document.getElementById("top"))) {
+    window.addEventListener("scroll", function () {
+        let target = document.getElementById('top');
+        if (window.pageYOffset > 500) {
+            target.style.display = "block";
+            setTimeout(() => {
+                target.style.opacity = '1';
+            }, 300);
+        }
+        else {
+            target.style.opacity = '0';
+            setTimeout(() => {
+                target.style.display = "none";
+            }, 300);
+        }
+    }, false);
+}
 
-$(document).scroll(function () {
-    var y = $(this).scrollTop();
-    if (y > 500) {
-        $('#top').fadeIn(300);
-    } else {
-        $('#top').fadeOut(200);
-    }
-});
+// $(document).scroll(function () {
+//     var y = $(this).scrollTop();
+//     if (y > 500) {
+//         $('#top').fadeIn(300);
+//     } else {
+//         $('#top').fadeOut(200);
+//     }
+// });
 
 
 
@@ -397,3 +418,5 @@ function parallax() {
 
     $('.parallax-img').css('background-position', 'center '+(wScroll*0.6)+'px');
 }
+
+

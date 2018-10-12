@@ -18892,11 +18892,13 @@ __webpack_require__("./node_modules/particles.js/particles.js");
 // ---------------------------------------------------
 if (document.body.contains(document.getElementById("home-overlay"))) {
     var homeLoader = function homeLoader() {
+        var body = document.getElementsByTagName('body');
         var homeOverlay = document.getElementById("home-overlay");
         var leftOverImg = document.querySelector('.home-preload-left-img');
         var rightOverImg = document.querySelector('.home-preload-right-img');
         var lineDraw = document.querySelector('.line-draw');
         window.addEventListener('load', function () {
+            body[0].style.overflow = 'hidden';
             leftOverImg.style.opacity = '1';
             rightOverImg.style.opacity = '1';
             leftOverImg.style.marginLeft = '-161.4375px';
@@ -18915,6 +18917,7 @@ if (document.body.contains(document.getElementById("home-overlay"))) {
             }, 2000);
             setTimeout(function () {
                 homeOverlay.style.display = 'none';
+                body[0].style.overflow = 'unset';
             }, 2200);
         });
     };
@@ -19248,15 +19251,32 @@ $('#top').smoothScroll({
 // ---------------------------------------------------
 //         SHOW BACK TO TOP ON SCROLL
 // ---------------------------------------------------
+if (document.body.contains(document.getElementById("top"))) {
+    window.addEventListener("scroll", function () {
+        var target = document.getElementById('top');
+        if (window.pageYOffset > 500) {
+            target.style.display = "block";
+            setTimeout(function () {
+                target.style.opacity = '1';
+            }, 300);
+        } else {
+            target.style.opacity = '0';
+            setTimeout(function () {
+                target.style.display = "none";
+            }, 300);
+        }
+    }, false);
+}
 
-$(document).scroll(function () {
-    var y = $(this).scrollTop();
-    if (y > 500) {
-        $('#top').fadeIn(300);
-    } else {
-        $('#top').fadeOut(200);
-    }
-});
+// $(document).scroll(function () {
+//     var y = $(this).scrollTop();
+//     if (y > 500) {
+//         $('#top').fadeIn(300);
+//     } else {
+//         $('#top').fadeOut(200);
+//     }
+// });
+
 
 // ---------------------------------------------------
 //         CONTENT - PARALLAX

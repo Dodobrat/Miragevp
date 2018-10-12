@@ -2,8 +2,7 @@
 
 namespace App\Modules\Index\Http\Controllers;
 
-use App\Modules\Apartments\Models\Apartments;
-use App\User;
+use App\Modules\Showroom\Models\Showroom;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
@@ -11,8 +10,8 @@ use App\Http\Controllers\Controller;
 class IndexController extends Controller
 {
     public function index() {
-//        $apartments= Apartments::get();
-        return view('welcome');
+        $showrooms= Showroom::get();
+        return view('welcome',compact('showrooms'));
 
     }
 }
