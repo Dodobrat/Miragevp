@@ -33,5 +33,5 @@ return [
     'static-block-contact' => 'Static Block "contact-desc"',
     'extra-view' => 'Extraordinary View',
     'great-loc' => 'Great Location',
-
+    'scroll' => 'Scroll',
 ];

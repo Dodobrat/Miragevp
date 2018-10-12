@@ -35,7 +35,7 @@
                 {{--@endif ></div>--}}
 
 
-<section class="landing-image-container">
+<section class="landing-image-container" id="land-img">
 
 
     <div class="landing-image parallax-img"
@@ -61,7 +61,7 @@
         {{--style="background-image: url('{{ asset('images/google-logo.png') }}')--}}
     {{--@endif--}}
 
-    <a class="animate" href="#loc-cont"><span></span><span></span>{{trans('front.scroll')}}</a>
+    <a class="animate" id="one" href="#loc-cont"><span></span><span></span></a>
 </section>
     <section class="location-container" id="loc-cont">
         <h1 class="text-center">{{trans('front.great-loc')}}</h1>
@@ -172,17 +172,20 @@
             </div>
         </div>
 
+
+        <a class="animate" id="two" href="#view-cont"><span></span><span></span></a>
     </section>
 
-    <section class="view-container">
+    <section class="view-container" id="view-cont">
         <h1 class="text-center">{{trans('front.extra-view')}}</h1>
+        <a class="animate" id="three" href="#show-cont"><span></span><span></span></a>
     </section>
 
-    <section class="showroom-preview-container">
+    <section class="showroom-preview-container" id="show-cont">
         <h1 class="text-center">{{trans('front.showroom')}}</h1>
     </section>
 
 
-
+        <a id="top" href="#land-img"><i></i></a>
 
     @endsection

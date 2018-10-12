@@ -19236,23 +19236,27 @@ $(document).ready(function () {
 // ---------------------------------------------------
 //         SMOOTH SCROLL
 // ---------------------------------------------------
-$('.animate').smoothScroll({ offset: -55 });
+$('.animate').smoothScroll({
+    offset: -55,
+    speed: 800
+});
+$('#top').smoothScroll({
+    offset: -55,
+    speed: 1000
+});
 
 // ---------------------------------------------------
-//         CHANGE NAVIGATION ON SCROLL
+//         SHOW BACK TO TOP ON SCROLL
 // ---------------------------------------------------
 
-// $(function(){
-//     $(window).scroll(function() {
-//         if($(window).scrollTop() >= 100) {
-//             $('nav').addClass('scrolled');
-//         }
-//         else {
-//             $('nav').removeClass('scrolled');
-//         }
-//     });
-// });
-
+$(document).scroll(function () {
+    var y = $(this).scrollTop();
+    if (y > 500) {
+        $('#top').fadeIn(300);
+    } else {
+        $('#top').fadeOut(200);
+    }
+});
 
 // ---------------------------------------------------
 //         CONTENT - PARALLAX
