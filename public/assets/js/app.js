@@ -18957,6 +18957,7 @@ var navToggler = document.querySelector('#toggler');
 var hamburger = document.querySelector('.hamburger');
 var btnClose = document.querySelector('#mobileCloser');
 var newsSection = document.querySelector('.news-section');
+var contactSection = document.querySelector('.contact-section');
 var copy = document.querySelector('.copy');
 var mobileCounter = 0;
 var counter = 1;
@@ -18984,6 +18985,9 @@ function sideNavMobile() {
                 newsSection.style.transition = '0.8s';
                 newsSection.style.opacity = '1';
                 newsSection.style.marginLeft = '0';
+                contactSection.style.transition = '0.8s';
+                contactSection.style.opacity = '1';
+                contactSection.style.marginLeft = '0';
                 sideNav.style.width = '100vw';
                 main.style.opacity = '0';
                 setTimeout(function () {
@@ -19000,6 +19004,9 @@ function sideNavMobile() {
                 newsSection.style.transition = '0.5s';
                 newsSection.style.opacity = '0';
                 newsSection.style.marginLeft = '-100vw';
+                contactSection.style.transition = '0.5s';
+                contactSection.style.opacity = '0';
+                contactSection.style.marginLeft = '-100vw';
                 sideNav.style.width = '0';
                 copy.style.opacity = '0';
                 sideNavLinks.forEach(function (side) {
@@ -19026,6 +19033,9 @@ function sideNavMobile() {
                 newsSection.style.transition = '1s';
                 newsSection.style.opacity = '1';
                 newsSection.style.marginLeft = '0';
+                contactSection.style.transition = '1s';
+                contactSection.style.opacity = '1';
+                contactSection.style.marginLeft = '0';
                 sideNavLinks.forEach(function (side) {
                     side.style.marginLeft = '0';
                     side.style.transition = 'margin-left 0.8s';
@@ -19049,6 +19059,9 @@ function sideNavMobile() {
                 newsSection.style.transition = '0.5s';
                 newsSection.style.opacity = '0';
                 newsSection.style.marginLeft = '-500px';
+                contactSection.style.transition = '0.5s';
+                contactSection.style.opacity = '0';
+                contactSection.style.marginLeft = '-500px';
                 sideNavLinks.forEach(function (side) {
                     side.style.marginLeft = '-250px';
                 });

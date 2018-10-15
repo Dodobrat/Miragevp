@@ -23,4 +23,5 @@ return [
     'not_found_items' => 'No media selected',
     'dash_blog_linkbox_title' => 'Blog Posts',
     'dash_blog_linkbox' => 'View Blog Posts',
+    'page_title' => 'Page Title',
 ];

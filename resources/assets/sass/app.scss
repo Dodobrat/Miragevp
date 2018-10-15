@@ -121,6 +121,11 @@ body{
   padding: 40px 0 20px 0;
   text-transform: uppercase;
 }
+.section-title{
+  font-weight: 200;
+  padding: 40px 0 40px 0;
+  text-transform: uppercase;
+}
 .page-desc{
   font-weight: 400;
   width: 80%;
@@ -499,43 +504,33 @@ body{
   transition: 0.3s;
 }
 .contact-section{
-  background-color: #eeeeee;
+  background-color: transparent;
   opacity: 1;
   position: absolute;
   bottom: 250px;
-  padding: 0px 20px;
+  padding: 0px 5px;
   width: 100%;
-  .contact-section-head{
-    text-align: center;
-    font-weight: 200;
-    letter-spacing: 2px;
-    font-size: 20px;
-    text-transform: uppercase;
-    padding: 10px 0px 20px 0px;
-  }
+  text-align: center;
   .contact-section-email{
     font-size: 15px;
-    font-weight: 400;
-    text-transform: lowercase;
+    font-weight: 200;
     opacity: 0.8;
     span{
-
+      font-weight: 600;
     }
   }.contact-section-phone{
     font-size: 15px;
-    font-weight: 400;
-    text-transform: lowercase;
+    font-weight: 200;
     opacity: 0.8;
     span{
-
+      font-weight: 600;
     }
   }.contact-section-address{
     font-size: 15px;
-    font-weight: 400;
-    text-transform: lowercase;
+    font-weight: 200;
     opacity: 0.8;
     span{
-
+      font-weight: 600;
     }
   }
 }
@@ -577,15 +572,18 @@ body{
   width: 100%;
   padding: 20px 0;
   #map{
-    margin: 15% auto auto auto;
+    height: 70vh;
+    width: 100%;
   }
   .pic{
-    margin: 10.5% auto auto auto;
+    width: 100%;
+    height: 50vh;
+    background-color: #2c3e50;
   }
   .loc-text{
     width: 100%;
-    margin: 50px auto 150px auto;
-    padding: 25px 10%;
+    margin: 50px 15px 150px 15px;
+    padding: 25px 5%;
     text-align: center;
     background-color: rgba(0,0,0,0.025);
     box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
@@ -609,7 +607,22 @@ body{
 .foot{
   margin-top: 0;
   background-color: rgba(134,154,166,0.3);
-  padding: 10px 0;
+  padding: 0 0 10px 0;
+  .add-line{
+    background-color: rgba(255,255,255,0.3);
+    .contact-panel{
+      padding: 10px 0 10px 0px;
+      p{
+        text-transform: none;
+        font-weight: 200;
+        span{
+          font-weight: 400;
+          float: none;
+        }
+      }
+    }
+  }
+
   p{
     margin: 0;
     color: rgba(0,0,0,0.5);
@@ -980,7 +993,8 @@ input:-webkit-autofill:active {
   .contact-section{
     opacity: 0;
     margin-left: -100vw;
-    bottom: 28px;
+    bottom: 180px;
+    text-align: left;
   }
   .copy{
     opacity: 0;
@@ -1035,6 +1049,9 @@ input:-webkit-autofill:active {
 }
 @media (max-width: 666px) {
   .news-section{
+    display: none;
+  }
+  .contact-section{
     display: none;
   }
   .custom-modal-content{

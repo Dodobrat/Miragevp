@@ -34,4 +34,7 @@ return [
     'extra-view' => 'Extraordinary View',
     'great-loc' => 'Great Location',
     'scroll' => 'Scroll',
+    'contacts_address' => 'Address: ',
+    'contacts_phone' => 'Phone: ',
+    'contacts_email' => 'E-mail: ',
 ];

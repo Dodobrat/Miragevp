@@ -64,7 +64,7 @@
     <a class="animate" id="one" href="#loc-cont"><span></span><span></span></a>
 </section>
     <section class="location-container" id="loc-cont">
-        <h1 class="text-center">{{trans('front.great-loc')}}</h1>
+        <h1 class="text-center section-title">{{trans('front.great-loc')}}</h1>
 {{--{{dd(Settings::get('index_map.lat'))}}--}}
         <div class="row">
             {{--{{dd(Settings::get('index_map_visible'))}}--}}
@@ -144,16 +144,36 @@
                 </script>
                 <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ Settings::get('google_map_api_key') }}&callback=initMap" type="text/javascript"></script>
                 <div class="col-lg-12 col-xl-5 pl-xl-4 pr-xl-2 px-lg-4 px-md-4 px-sm-5 px-xs-5">
-                        <div id="map" style="height: 50vh; width: 100%;"></div>
+                        <div id="map"></div>
                 </div>
                 <div class="col-lg-12 col-xl-7 pr-xl-4 pl-xl-2 px-lg-4 px-md-4 px-sm-5 px-xs-5">
-                        <div class="pic" style="width: 100%; height: 50vh; background-color: #2c3e50;"></div>
+                        <div class="pic"></div>
+                    <div class="row">
+                        <div class="col loc-text">
+                            <p>@if(!empty(Administration::getStaticBlock('loc')))
+                                    {!! Administration::getStaticBlock('loc') !!}
+                                @else
+                                    {{ trans('front.static-block-loc-section') }}
+                                @endif
+                            </p>
+                        </div>
+                    </div>
 
                 </div>
         @else
-                <div class="col-lg-12">
+                <div class="col-xl-12">
                     <div class="container-fluid">
-                        <div class="pic" style="width: 100%; height: 50vh; background-color: #2c3e50;"></div>
+                        <div class="pic"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col loc-text">
+                            <p>@if(!empty(Administration::getStaticBlock('loc')))
+                                    {!! Administration::getStaticBlock('loc') !!}
+                                @else
+                                    {{ trans('front.static-block-loc-section') }}
+                                @endif
+                            </p>
+                        </div>
                     </div>
 
                 </div>
@@ -161,28 +181,19 @@
 
         </div>
 
-        <div class="row">
-            <div class="col loc-text">
-                <p>@if(!empty(Administration::getStaticBlock('loc')))
-                        {!! Administration::getStaticBlock('loc') !!}
-                    @else
-                        {{ trans('front.static-block-loc-section') }}
-                    @endif
-                </p>
-            </div>
-        </div>
+
 
 
         <a class="animate" id="two" href="#view-cont"><span></span><span></span></a>
     </section>
 
     <section class="view-container" id="view-cont">
-        <h1 class="text-center">{{trans('front.extra-view')}}</h1>
+        <h1 class="text-center section-title">{{trans('front.extra-view')}}</h1>
         <a class="animate" id="three" href="#show-cont"><span></span><span></span></a>
     </section>
 
     <section class="showroom-preview-container" id="show-cont">
-        <h1 class="text-center page-title">{{Settings::getLocale('showroom_page_title', false)}}</h1>
+        <h1 class="text-center section-title">{{Settings::getLocale('showroom_page_title', false)}}</h1>
 
         <div class="container-fluid">
             <div class="card-deck flex-column flex-lg-row flex-wrap">

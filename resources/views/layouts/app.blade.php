@@ -199,12 +199,19 @@
 
 @endguest
 
-    <div class="contact-section">
-        <h4 class="contact-section-head">Contact Info</h4>
-        <p class="contact-section-email">E-mail :<br><span></span> </p>
-        <p class="contact-section-phone">Phone: <br><span></span> </p>
-        <p class="contact-section-address">Address: <br><span></span> </p>
-    </div>
+    @if( !empty($contacts_cache->first()->phone) || !empty($contacts_cache->first()->address) || !empty($contacts_cache->first()->email) )
+        <div class="contact-section">
+            @if(!empty($contacts_cache->first()->address))
+                <p class="contact-section-address">{{ trans('front.contacts_address') }} <span>{{ $contacts_cache->first()->address }}</span></p>
+            @endif
+            @if(!empty($contacts_cache->first()->phone))
+                <p class="contact-section-phone">{{ trans('front.contacts_phone') }} <span>{{ $contacts_cache->first()->phone }}</span></p>
+            @endif
+            @if(!empty($contacts_cache->first()->email))
+                <p class="contact-section-email">{{ trans('front.contacts_email') }} <span>{{ $contacts_cache->first()->email }}</span></p>
+            @endif
+        </div>
+    @endif
 
     <div class="news-section">
         <form method="POST" action="{{ route('newsletter_subscriber.store') }}">

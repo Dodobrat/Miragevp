@@ -1,6 +1,31 @@
 <div class="foot">
+    @if (Route::currentRouteName() == 'contact')
+<div class="container-fluid add-line">
+    <div class="row contact-panel">
+
+            @if( !empty($contacts_cache->first()->phone) || !empty($contacts_cache->first()->address) || !empty($contacts_cache->first()->email) )
+                @if(!empty($contacts_cache->first()->address))
+                    <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <p class="contact-panel-address">{{ trans('front.contacts_address') }}<span>{{ $contacts_cache->first()->address }}</span></p>
+                    </div>
+                @endif
+                @if(!empty($contacts_cache->first()->phone))
+                    <div class="col-xl-3 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                        <p class="contact-panel-phone">{{ trans('front.contacts_phone') }}<span>{{ $contacts_cache->first()->phone }}</span></p>
+                    </div>
+                @endif
+                @if(!empty($contacts_cache->first()->email))
+                    <div class="col-xl-4 col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                        <p class="contact-section-email">{{ trans('front.contacts_email') }}<span>{{ $contacts_cache->first()->email }}</span></p>
+                    </div>
+                @endif
+            @endif
+
+    </div>
+</div>
+    @endif
     <div class="container">
-        <div class="row">
+        <div class="row pt-2">
             <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                 <p>{{ config('app.name', 'MIRAGETOWER') }} &copy; | @php echo date("Y"); @endphp</p>
             </div>
