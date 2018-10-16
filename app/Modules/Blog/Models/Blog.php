@@ -33,7 +33,6 @@ class Blog extends AdminModel
     protected $fillable = [
         'visible',
         'show_media',
-        'category_id'
     ];
     /**
      * The attributes that should be casted to native types.
@@ -46,12 +45,6 @@ class Blog extends AdminModel
     ];
 
     protected $with = ['translations'];
-
-    public function category()
-    {
-        return $this->hasOne(BlogCategories::class, 'id', 'category_id');
-    }
-
 
     /**
      * Scope a query to only include active users.

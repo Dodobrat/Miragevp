@@ -2,7 +2,6 @@
 /**
  * MIRAGETOWER 2018 Copyright
  */
-require('../../assets/js/showroom.js');
 window.Popper = require('popper.js');
 require('bootstrap/dist/js/bootstrap.js');
 var $ =require('jquery');
@@ -107,9 +106,11 @@ function sideNavMobile() {
                 newsSection.style.transition = '0.8s';
                 newsSection.style.opacity = '1';
                 newsSection.style.marginLeft = '0';
-                contactSection.style.transition = '0.8s';
-                contactSection.style.opacity = '1';
-                contactSection.style.marginLeft = '0';
+                if (document.body.contains(contactSection)) {
+                    contactSection.style.transition = '0.8s';
+                    contactSection.style.opacity = '1';
+                    contactSection.style.marginLeft = '0';
+                }
                 sideNav.style.width = '100vw';
                 main.style.opacity = '0';
                 setTimeout(() => {
@@ -126,9 +127,11 @@ function sideNavMobile() {
                 newsSection.style.transition = '0.5s';
                 newsSection.style.opacity = '0';
                 newsSection.style.marginLeft = '-100vw';
-                contactSection.style.transition = '0.5s';
-                contactSection.style.opacity = '0';
-                contactSection.style.marginLeft = '-100vw';
+                if (document.body.contains(contactSection)) {
+                    contactSection.style.transition = '0.5s';
+                    contactSection.style.opacity = '0';
+                    contactSection.style.marginLeft = '-100vw';
+                }
                 sideNav.style.width = '0';
                 copy.style.opacity = '0';
                 sideNavLinks.forEach(function (side) {
@@ -155,9 +158,11 @@ function sideNavMobile() {
                 newsSection.style.transition = '1s';
                 newsSection.style.opacity = '1';
                 newsSection.style.marginLeft = '0';
-                contactSection.style.transition = '1s';
-                contactSection.style.opacity = '1';
-                contactSection.style.marginLeft = '0';
+                if (document.body.contains(contactSection)) {
+                    contactSection.style.transition = '1s';
+                    contactSection.style.opacity = '1';
+                    contactSection.style.marginLeft = '0';
+                }
                 sideNavLinks.forEach(function (side) {
                    side.style.marginLeft = '0';
                    side.style.transition = 'margin-left 0.8s';
@@ -181,9 +186,11 @@ function sideNavMobile() {
                 newsSection.style.transition = '0.5s';
                 newsSection.style.opacity = '0';
                 newsSection.style.marginLeft = '-500px';
-                contactSection.style.transition = '0.5s';
-                contactSection.style.opacity = '0';
-                contactSection.style.marginLeft = '-500px';
+                if (document.body.contains(contactSection)) {
+                    contactSection.style.transition = '0.5s';
+                    contactSection.style.opacity = '0';
+                    contactSection.style.marginLeft = '-500px';
+                }
                 sideNavLinks.forEach(function (side) {
                     side.style.marginLeft = '-250px';
                 });
@@ -408,16 +415,6 @@ if (document.body.contains(document.getElementById("top"))) {
     }, false);
 }
 
-// $(document).scroll(function () {
-//     var y = $(this).scrollTop();
-//     if (y > 500) {
-//         $('#top').fadeIn(300);
-//     } else {
-//         $('#top').fadeOut(200);
-//     }
-// });
-
-
 
 // ---------------------------------------------------
 //         CONTENT - PARALLAX
@@ -432,4 +429,29 @@ function parallax() {
     $('.parallax-img').css('background-position', 'center '+(wScroll*0.6)+'px');
 }
 
+// ---------------------------------------------------
+//         CONTENT - DISABLING RIGHT CLICK ON IMAGES
+// ---------------------------------------------------
 
+
+$('img').bind('contextmenu', function(e) {
+    return false;
+});
+
+// ---------------------------------------------------
+//         CONTENT - CLOSE BUTTON FOR MODAL
+// ---------------------------------------------------
+
+$('.close-modal-carousel').click(function (){
+    $('.modal').modal('hide');
+});
+
+// ---------------------------------------------------
+//         CONTENT - CAROUSEL IMAGE CHANGE INTERVAL
+// ---------------------------------------------------
+
+$(function(){
+    $('.carousel').carousel({
+        interval: 30000
+    });
+});

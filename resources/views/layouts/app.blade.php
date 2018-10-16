@@ -173,32 +173,29 @@
     <a class="side-nav-link" href="{{ route('contact') }}">{{trans('front.contact')}}</a>
 
 @auth
-        <a class="side-nav-link" id="name-drop">
-            @if(isset( Auth::user()->first_name))
-                {{Auth::user()->first_name}}
-            @else
-                {{Auth::user()->name}}
-            @endif
-            <i id="name-drop-icon"></i>
+    <a class="side-nav-link" id="name-drop">
+        @if(isset( Auth::user()->first_name))
+            {{Auth::user()->first_name}}
+        @else
+            {{Auth::user()->name}}
+        @endif
+        <i id="name-drop-icon"></i>
+    </a>
+    <div class="side-nav-link-drop">
+        <a class="link-drop" href="{{ route('home') }}">{{trans('front.dashboard')}}</a>
+        <a class="link-drop" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            {{trans('front.logout')}}
         </a>
-        <div class="side-nav-link-drop">
-            <a class="link-drop" href="{{ route('home') }}">{{trans('front.dashboard')}}</a>
-            <a class="link-drop" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                {{trans('front.logout')}}
-            </a>
-        </div>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            {{ csrf_field() }}
-        </form>
-    @endauth
-
-
+    </div>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        {{ csrf_field() }}
+    </form>
+@endauth
 @guest
-<a class="side-nav-link" href="{{ route('login') }}">{{trans('front.login')}}</a>
-
-
+    <a class="side-nav-link" href="{{ route('login') }}">{{trans('front.login')}}</a>
 @endguest
 
+@if(isset($contacts_cache) == true)
     @if( !empty($contacts_cache->first()->phone) || !empty($contacts_cache->first()->address) || !empty($contacts_cache->first()->email) )
         <div class="contact-section">
             @if(!empty($contacts_cache->first()->address))
@@ -212,7 +209,7 @@
             @endif
         </div>
     @endif
-
+@endif
     <div class="news-section">
         <form method="POST" action="{{ route('newsletter_subscriber.store') }}">
             {{ csrf_field() }}

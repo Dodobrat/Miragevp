@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class ShowroomController extends Controller
 {
     public function index() {
-        $showrooms = Showroom::get();
+        $showrooms = Showroom::reversed()->with('media')->get();
         return view('showroom::showroom', compact('showrooms'));
 
     }

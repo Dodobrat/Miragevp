@@ -47,7 +47,6 @@ class StoreBlogRequest extends FormRequest
         }
 
         $trans['visible'] = 'boolean';
-        $trans['category_id'] = 'required|integer';
         $trans['show_media'] = 'boolean';
 
         return $trans;

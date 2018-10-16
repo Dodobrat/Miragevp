@@ -24,4 +24,5 @@ return [
     'dash_blog_linkbox_title' => 'Blog Posts',
     'dash_blog_linkbox' => 'View Blog Posts',
     'page_title' => 'Page Title',
+    'filter_blog' => 'Search Blog Posts',
 ];

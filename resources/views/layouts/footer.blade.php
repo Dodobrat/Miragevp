@@ -1,7 +1,8 @@
 <div class="foot">
     @if (Route::currentRouteName() == 'contact')
-<div class="container-fluid add-line">
-    <div class="row contact-panel">
+<div class="add-line">
+    <div class="container-fluid">
+        <div class="row contact-panel">
 
             @if( !empty($contacts_cache->first()->phone) || !empty($contacts_cache->first()->address) || !empty($contacts_cache->first()->email) )
                 @if(!empty($contacts_cache->first()->address))
@@ -21,13 +22,18 @@
                 @endif
             @endif
 
+        </div>
     </div>
+
 </div>
     @endif
-    <div class="container">
+    <div class="container-fluid">
         <div class="row pt-2">
-            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                <p>{{ config('app.name', 'MIRAGETOWER') }} &copy; | @php echo date("Y"); @endphp</p>
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <a class="foot-legal" href="#">Terms of Service | </a><a class="foot-legal" href="#">Privacy Policy </a>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <p class="text-center">{{ config('app.name', 'MIRAGETOWER') }} &copy; | @php echo date("Y"); @endphp</p>
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                 @if(Settings::get(LaravelLocalization::getCurrentLocale().'.instagram_link'))

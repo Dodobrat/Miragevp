@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Kalnoy\Nestedset\NestedSet;
 
@@ -16,12 +17,9 @@ class CreateBlogTable extends Migration {
             $table->increments('id');
             $table->boolean('visible')->default(true);
             $table->boolean('show_media')->default(true)->comment('Show media'); //show media
-            $table->integer('category_id')->unsigned()->nullable();
             NestedSet::columns($table);
             $table->softDeletes();
             $table->timestamps();
-
-            $table->foreign('category_id')->references('id')->on('blog_categories')->onDelete('set null');
         });
 
         Schema::create('blog_translations', function (Blueprint $table) {

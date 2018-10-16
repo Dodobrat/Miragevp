@@ -26,26 +26,17 @@ class BlogForm extends AdminForm
 
         $this->addSeoFields();
 
-        $categories = BlogCategories::reversed()->get()->pluck('title', 'id')->toArray();
-
-        $this->add('category_id', 'select', [
-            'label' => trans('blog::admin.category'),
-            'choices' => $categories,
-            'selected' => @$this->model->category_id,
-        ]);
-
-
         $this->add('visible', 'checkbox', [
             'label' => trans('blog::admin.visible'),
             'value' => 1,
             'checked' => @$this->model->visible,
         ]);
 
-//        $this->add('show_media', 'checkbox', [
-//            'label' => trans('blog::admin.show_media'),
-//            'value' => 1,
-//            'checked' => @$this->model->show_media,
-//        ]);
+        $this->add('show_media', 'checkbox', [
+            'label' => trans('blog::admin.show_media'),
+            'value' => 1,
+            'checked' => @$this->model->show_media,
+        ]);
 
 
         $this->add('footer', 'admin_footer');

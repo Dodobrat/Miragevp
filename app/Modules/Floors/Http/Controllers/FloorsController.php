@@ -2,6 +2,7 @@
 
 namespace App\Modules\Floors\Http\Controllers;
 
+use App\Modules\Floors\Models\Floors;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
@@ -9,6 +10,7 @@ use App\Http\Controllers\Controller;
 class FloorsController extends Controller
 {
     public function index(){
-        return view('floors::floors');
+        $floors = Floors::reversed()->get();
+        return view('floors::floors',compact('floors'));
     }
 }

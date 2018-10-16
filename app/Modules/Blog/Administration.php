@@ -2,7 +2,6 @@
 
 namespace App\Modules\Blog;
 
-use App\Modules\Blog\Http\Controllers\Admin\BlogCategoriesController;
 use App\Modules\Blog\Http\Controllers\Admin\BlogController;
 use App\Modules\Blog\Models\Blog;
 use Kris\LaravelFormBuilder\Form;
@@ -12,7 +11,6 @@ class Administration implements Module {
 
     public function routes($module) {
         \Route::resource('blog', BlogController::class);
-        \Route::resource('blog_categories', BlogCategoriesController::class);
     }
 
     public function menu($module) {
@@ -20,19 +18,6 @@ class Administration implements Module {
         \AdministrationMenu::addModule(trans('blog::admin.module_name'), [
             'icon' => 'rss'
         ], function ($menu) {
-            $menu->addItem(trans('blog::admin.blog_categories'), [
-                'icon' => 'arrow-right'
-            ], function ($submenu)
-            {
-                $submenu->addItem(trans('blog::admin.add'), [
-                    'url' => \Administration::route('blog_categories.create'),
-                    'icon' => 'plus'
-                ]);
-                $submenu->addItem(trans('blog::admin.list'), [
-                    'url' => \Administration::route('blog_categories.index'),
-                    'icon' => 'list'
-                ]);
-            });
             $menu->addItem(trans('blog::admin.add'), [
                 'url' => \Administration::route('blog.create'),
                 'icon' => 'plus'
@@ -63,7 +48,7 @@ class Administration implements Module {
         $articles = Blog::take(5)->orderBy('id','desc')->get();
 
         foreach ($articles as $article) {
-            $box->addItem($article->title . ' | '. $article->category->title, \Administration::route('blog.edit', $article->id), substr(strip_tags($article->description), 0, 100), $article->updated_at);
+            $box->addItem($article->title . ' | '. $article->author, \Administration::route('blog.edit', $article->id), substr(strip_tags($article->description), 0, 100), $article->updated_at);
         }
         $box->setFooterButton(trans('blog::admin.dash_blog_linkbox'), \Administration::route('blog.index'));
         \Dashboard::add($box);

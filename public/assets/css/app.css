@@ -10472,7 +10472,7 @@ a.text-dark:focus {
 }
 
 /* ---------------------------------------------------
-    THUMBNAIL SECTION
+    SHOWROOM THUMBNAIL SECTION
 ----------------------------------------------------- */
 
 .container-fluid {
@@ -10584,7 +10584,7 @@ a.text-dark:focus {
 }
 
 /* ---------------------------------------------------
-    CONTENT SECTION
+    SHOWROOM CONTENT SECTION
 ----------------------------------------------------- */
 
 .modal {
@@ -16529,6 +16529,16 @@ body {
 .foot .add-line .contact-panel p span {
   font-weight: 400;
   float: none;
+}
+
+.foot .foot-legal {
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+
+.foot .foot-legal:hover {
+  text-decoration: none;
+  color: #333333;
 }
 
 .foot p {

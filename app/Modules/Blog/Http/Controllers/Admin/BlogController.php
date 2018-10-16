@@ -2,6 +2,7 @@
 
 namespace App\Modules\Blog\Http\Controllers\Admin;
 
+use App\Modules\Blog\Forms\BlogFilterForm;
 use App\Modules\Blog\Forms\BlogForm;
 use App\Modules\Blog\Http\Requests\StoreBlogRequest;
 use App\Modules\Blog\Models\Blog;
@@ -24,7 +25,7 @@ class BlogController extends BaseAdministrationController
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $blogs = Blog::with(['category'])->reversed();
+            $blogs = Blog::reversed();
             $datatables = Datatables::of($blogs)
                 ->addColumn('action', function ($blog) {
                     $actions = '';
@@ -33,7 +34,6 @@ class BlogController extends BaseAdministrationController
                     } else {
                         $actions .= Form::adminDeleteButton(trans('administration::index.delete'), Administration::route('blog.destroy', $blog->id));
                     }
-                    $actions .= Form::mediaManager($blog);
                     $actions .= ' ' . Form::mediaManager($blog,
                             [
                                 'filters' => [
@@ -63,15 +63,27 @@ class BlogController extends BaseAdministrationController
                 })
                 ->addColumn('visible', function ($blog) {
                     return Form::adminSwitchButton('visible', $blog);
+                })->addColumn('show_media', function ($blog) {
+                    return Form::adminSwitchButton('show_media', $blog);
                 })
-                ->addColumn('category', function ($blog) {
-                    if (!empty($blog->category->title)) {
-                        return $blog->category->title;
+                ->addColumn('author', function ($blog) {
+                    if (!empty($blog->author)) {
+                        return $blog->author;
                     }
                     return '';
+                })->filter(function ($query) use ($request){
+                    if ($request->has('filter_blog') && !empty($request->get('filter_blog'))){
+                        $query->whereTranslationLike('title','%' . $request->get('filter_blog') . '%');
+                    }
                 });
             return $datatables->make(true);
         }
+
+        $filterForm = $this->form(BlogFilterForm::class, [
+                'method' => 'POST',
+                'url' => Administration::route('blog.index')
+            ]
+        );
 
         Administration::setTitle(trans('blog::admin.module_name'));
         \Breadcrumbs::register('admin_final', function ($breadcrumbs) {
@@ -89,9 +101,9 @@ class BlogController extends BaseAdministrationController
                 'title' => trans('administration::administrators.name'),
                 'orderable' => false,
             ])->addColumn([
-                'data' => 'category',
-                'name' => 'category',
-                'title' => trans('blog::admin.category'),
+                'data' => 'author',
+                'name' => 'author',
+                'title' => trans('blog::admin.author'),
                 'orderable' => false,
             ])->addColumn([
                 'data' => 'visible',
@@ -99,12 +111,17 @@ class BlogController extends BaseAdministrationController
                 'title' => trans('blog::admin.visible'),
                 'orderable' => false,
             ])->addColumn([
+                'data' => 'show_media',
+                'name' => 'show_media',
+                'title' => trans('blog::admin.show_media'),
+                'orderable' => false,
+            ])->addColumn([
                 'data' => 'created_at',
                 'name' => 'created_at',
                 'title' => trans('blog::admin.date'),
                 'orderable' => false,
             ]);
-        return view('administration::empty-listing', compact('table'));
+        return view('administration::empty-listing', compact('table','filterForm'));
     }
 
     /**
