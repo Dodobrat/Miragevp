@@ -19,14 +19,13 @@ class Administration implements Module {
         \AdministrationMenu::addModule(trans('projects::admin.module_categories_name'), [
             'icon' => 'file-o'
         ], function ($menu) {
-            $menu->addItem('View all', [
-                'url'=> \Administration::route('projects.index'),
-                'icon' => 'list'
-            ]);
-
             $menu->addItem('Add', [
                 'url'=> \Administration::route('projects.create'),
                 'icon' => 'plus'
+            ]);
+            $menu->addItem('View all', [
+                'url'=> \Administration::route('projects.index'),
+                'icon' => 'list'
             ]);
         });
     }

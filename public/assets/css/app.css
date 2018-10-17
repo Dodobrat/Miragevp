@@ -10651,6 +10651,97 @@ a.text-dark:focus {
 }
 
 /* ---------------------------------------------------
+    BLOG THUMBNAIL SECTION
+----------------------------------------------------- */
+
+.post {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  margin: 20px 0 80px 0;
+  height: 250px;
+}
+
+.post .post-link {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.post .post-link .post-img {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0;
+}
+
+.post .post-link .post-title {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  font-weight: 200;
+  font-size: 20px;
+  color: #333333;
+  padding: 0 10px;
+}
+
+.post .post-link .post-author {
+  margin-left: 10px;
+  border: 1px solid #869AA6;
+  -webkit-box-shadow: 0px 2px 10px -1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 2px 10px -1px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 0;
+  font-weight: 200;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.post .post-link .post-author span {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  font-size: 16px;
+  font-weight: 200;
+  color: #333333;
+}
+
+.post-link:hover {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.post-link:hover .post-img {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-box-shadow: 0px 3px 10px -1px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 3px 10px -1px rgba(0, 0, 0, 0.5);
+}
+
+.post-link:hover .post-title {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+.post-link:hover .post-author {
+  margin-left: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #869AA6;
+  color: #dddddd;
+}
+
+.post-link:hover .post-author span {
+  color: #ffffff;
+}
+
+/* ---------------------------------------------------
     MEDIA QUERIES
 ----------------------------------------------------- */
 

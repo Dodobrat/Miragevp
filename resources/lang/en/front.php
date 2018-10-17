@@ -37,4 +37,5 @@ return [
     'contacts_address' => 'Address: ',
     'contacts_phone' => 'Phone: ',
     'contacts_email' => 'E-mail: ',
+    'by' => 'by'
 ];

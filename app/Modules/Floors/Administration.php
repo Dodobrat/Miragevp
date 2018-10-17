@@ -19,14 +19,13 @@ class Administration implements Module {
         \AdministrationMenu::addModule(trans('floors::admin.module_name'), [
             'icon' => 'building'
         ], function ($menu) {
-            $menu->addItem('View all', [
-                'url'=> \Administration::route('floors.index'),
-                'icon' => 'list'
-            ]);
-
             $menu->addItem('Add', [
                 'url'=> \Administration::route('floors.create'),
                 'icon' => 'plus'
+            ]);
+            $menu->addItem('View all', [
+                'url'=> \Administration::route('floors.index'),
+                'icon' => 'list'
             ]);
         });
     }

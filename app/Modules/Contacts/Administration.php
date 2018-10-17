@@ -51,14 +51,13 @@ class Administration implements Module
         \AdministrationMenu::addModule(trans('contacts::admin.module_name'), [
             'icon' => 'envelope'
         ], function ($menu) {
-            $menu->addItem('View all', [
-                'url' => \Administration::route('contacts.index'),
-                'icon' => 'list'
-            ]);
-
             $menu->addItem('Add', [
                 'url' => \Administration::route('contacts.create'),
                 'icon' => 'plus'
+            ]);
+            $menu->addItem('View all', [
+                'url' => \Administration::route('contacts.index'),
+                'icon' => 'list'
             ]);
         });
 
