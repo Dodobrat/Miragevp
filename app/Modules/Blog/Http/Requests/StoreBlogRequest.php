@@ -34,7 +34,7 @@ class StoreBlogRequest extends FormRequest
             $trans[$locale . '.meta_title'] = 'nullable|string';
             $trans[$locale . '.meta_description'] = 'nullable|string';
             $trans[$locale . '.meta_keywords'] = 'nullable|string';
-            $trans[$locale . '.description'] = 'nullable|string';
+            $trans[$locale . '.description'] = 'required|string';
 
             if ($this->method() == 'PATCH' || $this->method() == 'PUT') {
                 $locale_alb = BlogTranslation::where('blog_id', $this->route('blog'))->where('locale', $locale)->first();
@@ -46,6 +46,7 @@ class StoreBlogRequest extends FormRequest
             }
         }
 
+        $trans['date_made'] = 'nullable|string';
         $trans['visible'] = 'boolean';
         $trans['show_media'] = 'boolean';
 

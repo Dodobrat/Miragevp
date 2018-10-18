@@ -538,6 +538,7 @@ body{
     CONTENT STYLE
 ----------------------------------------------------- */
 #main{
+  min-height: 100vh;
   opacity: 0;
   margin-left: 250px;
   padding-top:55px;
@@ -605,6 +606,10 @@ body{
     FOOTER STYLE
 ----------------------------------------------------- */
 .foot{
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
   margin-top: 0;
   background-color: rgba(134,154,166,0.3);
   padding: 0 0 10px 0;

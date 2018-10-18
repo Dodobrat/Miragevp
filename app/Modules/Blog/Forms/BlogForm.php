@@ -26,6 +26,10 @@ class BlogForm extends AdminForm
 
         $this->addSeoFields();
 
+        $this->add('date_made','date',[
+            'label' => trans('blog::admin.date_made'),
+        ]);
+
         $this->add('visible', 'checkbox', [
             'label' => trans('blog::admin.visible'),
             'value' => 1,

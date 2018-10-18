@@ -15,6 +15,7 @@ class CreateBlogTable extends Migration {
     public function up() {
         Schema::create('blog', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('date_made')->nullable()->default(null);
             $table->boolean('visible')->default(true);
             $table->boolean('show_media')->default(true)->comment('Show media'); //show media
             NestedSet::columns($table);

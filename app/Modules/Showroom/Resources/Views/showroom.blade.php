@@ -25,7 +25,7 @@
             <div class="modal fade bd-example-modal-lg show_{{$showroom->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <button class="close-modal-carousel">&times;</button>
                 <div class="modal-dialog modal-lg modal-dialog-centered">
-                    <div class="modal-content">
+                    <div class="modal-content showroom-content">
                         <div id="carousel_{{$showroom->id}}" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 @if($showroom->show_media === true)

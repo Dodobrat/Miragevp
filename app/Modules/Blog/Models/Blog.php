@@ -33,6 +33,7 @@ class Blog extends AdminModel
     protected $fillable = [
         'visible',
         'show_media',
+        'date_made',
     ];
     /**
      * The attributes that should be casted to native types.

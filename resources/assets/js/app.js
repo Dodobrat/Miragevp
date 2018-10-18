@@ -2,6 +2,7 @@
 /**
  * MIRAGETOWER 2018 Copyright
  */
+require('../../assets/js/content.js');
 window.Popper = require('popper.js');
 require('bootstrap/dist/js/bootstrap.js');
 var $ =require('jquery');
@@ -84,6 +85,10 @@ let mobileCounter = 0;
 let counter = 1;
 sideNavLinks = Array.from(sideNavLinks);
 sideNavLinks.reverse();
+if (window.innerWidth >= 767 && window.innerWidth <= 1050){
+    window.onresize = function(){ location.reload(); }
+}
+
 function sideNavMobile() {
     if (horizontalWidth.matches){
         btnClose.style.display = 'block';
@@ -416,42 +421,3 @@ if (document.body.contains(document.getElementById("top"))) {
 }
 
 
-// ---------------------------------------------------
-//         CONTENT - PARALLAX
-// ---------------------------------------------------
-$(window).scroll(function () {
-    parallax();
-});
-
-function parallax() {
-    let wScroll = $(window).scrollTop();
-
-    $('.parallax-img').css('background-position', 'center '+(wScroll*0.6)+'px');
-}
-
-// ---------------------------------------------------
-//         CONTENT - DISABLING RIGHT CLICK ON IMAGES
-// ---------------------------------------------------
-
-
-$('img').bind('contextmenu', function(e) {
-    return false;
-});
-
-// ---------------------------------------------------
-//         CONTENT - CLOSE BUTTON FOR MODAL
-// ---------------------------------------------------
-
-$('.close-modal-carousel').click(function (){
-    $('.modal').modal('hide');
-});
-
-// ---------------------------------------------------
-//         CONTENT - CAROUSEL IMAGE CHANGE INTERVAL
-// ---------------------------------------------------
-
-$(function(){
-    $('.carousel').carousel({
-        interval: 30000
-    });
-});
