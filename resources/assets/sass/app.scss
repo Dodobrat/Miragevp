@@ -484,13 +484,15 @@ body{
 }
 .custom-modal-content{
   width: 50%;
-  margin: 15% auto;
+  margin: auto auto;
   opacity: 0;
   transition: all 0.5s;
 }
 .closeBtn{
-  position: relative;
-  float: right;
+  position: absolute;
+  right: 20px;
+  top: 0;
+  z-index: 2;
   font-size:60px;
   font-weight: 100;
   color:rgba(255,255,255,0.5);
@@ -1049,6 +1051,9 @@ input:-webkit-autofill:active {
   }
 }
 @media (max-height: 800px) {
+  .custom-modal{
+    overflow: scroll;
+  }
   .news-section{
     display: none;
   }

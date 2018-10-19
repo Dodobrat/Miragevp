@@ -81,9 +81,10 @@
 
             <div id="modalForm" class="custom-modal">
                 <div class="custom-modal-content">
-                    <div class="row justify-content-center">
+                    <span class="closeBtn">&times;</span>
+                    <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <span class="closeBtn">&times;</span>
+
                             <form class="form custom-form modal-form-wrapper" method="POST" action="{{ route('login') }}">
                                 {{ csrf_field() }}
                                 <h5 class="text-center form-title">This page is locked! If you want to see it you have to be a member!</h5>

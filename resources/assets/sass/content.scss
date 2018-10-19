@@ -271,6 +271,40 @@
   outline: none;
 }
 /* ---------------------------------------------------
+    VISUAL SELECTION
+----------------------------------------------------- */
+
+.project-container{
+  height: calc(100vh - 55px);
+  width: 100%;
+  padding-top: 0;
+  .project-img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: fixed center;
+    height: 100%;
+    width: 100%;
+    transition: 0.3s ease-in-out;
+  }
+  .floor-select{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    height: 250px;
+    background: center;
+    transition: 0.3s ease-in-out;
+  }
+}
+.floor-select:hover{
+  box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.5);
+  transform: scale(1.1,1.1);
+}
+
+
+/* ---------------------------------------------------
     MEDIA QUERIES
 ----------------------------------------------------- */
 @media (max-width: 769px) {
