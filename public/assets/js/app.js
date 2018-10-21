@@ -19270,6 +19270,7 @@ $('.animate').smoothScroll({
     offset: -55,
     speed: 800
 });
+
 $('#top').smoothScroll({
     offset: -55,
     speed: 1000
@@ -19314,6 +19315,7 @@ function parallax() {
 
     $('.parallax-img').css('background-position', 'center ' + wScroll * 0.6 + 'px');
     $('.project-parallax-img').css('background-position', 'center ' + wScroll * 0.5 + 'px');
+    $('.project-parallax-img-2').css('background-position', 'center ' + wScroll * 0.5 + 'px');
 }
 
 // ---------------------------------------------------

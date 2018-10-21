@@ -394,6 +394,7 @@ $('.animate').smoothScroll({
     offset: -55,
     speed: 800,
 });
+
 $('#top').smoothScroll({
     offset: -55,
     speed: 1000,

@@ -10917,6 +10917,21 @@ a.text-dark:focus {
   width: 100%;
 }
 
+.project-parallax-img-container .project-parallax-img .project-overview {
+  padding: 50px 0 0 0;
+}
+
+.project-parallax-img-container .project-parallax-img .project-overview h1 {
+  font-size: 50px;
+  font-weight: 200;
+  text-transform: uppercase;
+  padding: 20px 0;
+}
+
+.project-parallax-img-container .project-parallax-img .project-overview p {
+  font-weight: 400;
+}
+
 #floor-select {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
@@ -10944,7 +10959,28 @@ a.text-dark:focus {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   width: 100%;
-  height: 100px;
+  height: 125px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#floor-select .card .card-header p {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  opacity: 0;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  font-weight: 100;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+#floor-select .card .collapse .card-body .accordion-floor-img {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -10972,6 +11008,11 @@ a.text-dark:focus {
   transition: 0.3s ease-in-out;
 }
 
+#floor-select .card .card-header:focus p {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
 #floor-select {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
@@ -10993,6 +11034,10 @@ a.text-dark:focus {
   transition: 0.3s ease-in-out;
   -webkit-transform: scale(1.025);
           transform: scale(1.025);
+}
+
+#floor-select .card .card-header:hover p {
+  opacity: 1;
 }
 
 /* ---------------------------------------------------

@@ -7,6 +7,7 @@ return [
     'date' => 'Date',
     'create' => 'Create',
     'title' => 'Title',
+    'floor_num' => 'Floor Number',
     'edit' => 'Edit',
     'description' => 'Description',
     'project' => 'Project',

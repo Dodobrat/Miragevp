@@ -15,7 +15,7 @@
 
 
 
-            <div class=" text-center project-overview">
+            <div class="text-center project-overview">
                 <div class="container">
                     <h1>{{$project->title}}</h1>
                     <p>{!! $project->description !!}</p>
@@ -35,11 +35,28 @@
                                 @else
                                     <img src="{{asset('images/fallback/placeholder.png')}}" alt="">
                                 @endif
+                            <p>{{$floor->floor_num}}</p>
                         </button>
                         <div id="collapse_{{$floor->id}}" class="collapse" aria-labelledby="heading_{{$floor->id}}" data-parent="#floor-select">
                             <div class="card-body">
-                                <h1>{{$floor->title}}</h1>
-                                <div>{!! $floor->description !!}</div>
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                        <h1 class="accordion-floor-title">{{$floor->title}}</h1>
+                                        <div class="accordion-floor-description">{!! $floor->description !!}</div>
+                                        @if(!empty($floor->media()->first()) && $floor->show_media == true)
+                                            <img class="accordion-floor-img" src="{{$floor->media()->first()->getPublicPath()}}" alt="" style="width: 100%">
+                                        @else
+                                            <img class="accordion-floor-img" src="{{asset('images/fallback/placeholder.png')}}" alt="" style="width: 100%">
+                                        @endif
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                        @if(!empty($floor->plan_media()->first()) && $floor->show_media == true)
+                                            <img class="accordion-floor-img" src="{{$floor->plan_media()->first()->getPublicPath()}}" alt="" style="width: 100%; height: 100%;">
+                                        @else
+                                            <img class="accordion-floor-img" src="{{asset('images/fallback/placeholder.png')}}" alt="" style="width: 100%; height: 100%;">
+                                        @endif
+                                    </div>
+                                </div>
                                 {{--@if(!empty($floor->media()->first()) && $floor->show_media == true)--}}
                                     {{--<img src="{{$floor->media()->first()->getPublicPath()}}" alt="">--}}
                                 {{--@else--}}
@@ -52,6 +69,13 @@
             </div>
 
                 </div>
+                {{--<div class="project-parallax-img-2"--}}
+                     {{--@if(!empty($project->media()->find(2)) && $project->show_media == true)--}}
+                     {{--style="background-image: url('{{$project->media()->find(2)->getPublicPath()}}');"--}}
+                     {{--@else--}}
+                     {{--style="background-image: url('{{ asset('images/fallback/placeholder.png') }}');"--}}
+                        {{--@endif--}}
+                {{--></div>--}}
             </div>
         @endif
     @endforeach

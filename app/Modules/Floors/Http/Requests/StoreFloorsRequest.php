@@ -44,6 +44,7 @@ class StoreFloorsRequest extends FormRequest
         }
 
         $trans['project_id'] = 'required|integer';
+        $trans['floor_num'] = 'required|integer';
         $trans['show_media'] = 'boolean';
 
         return $trans;

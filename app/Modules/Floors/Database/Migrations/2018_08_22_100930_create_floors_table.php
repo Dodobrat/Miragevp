@@ -17,6 +17,7 @@ class CreateFloorsTable extends Migration
     {
         Schema::create('floors', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('floor_num')->unsigned();
             $table->boolean('show_media')->default(true)->comment('Show media'); //show media
             $table->integer('project_id')->unsigned()->nullable();
             NestedSet::columns($table);

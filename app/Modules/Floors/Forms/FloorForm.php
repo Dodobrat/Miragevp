@@ -10,13 +10,17 @@ class FloorForm extends AdminForm
     public function buildForm()
     {
         $this->add('title', 'text', [
-            'label' => trans('blog::admin.title'),
+            'label' => trans('floors::admin.title'),
             'translate' => true,
         ]);
 
         $this->add('description', 'editor', [
-            'label' => trans('blog::admin.description'),
+            'label' => trans('floors::admin.description'),
             'translate' => true,
+        ]);
+
+        $this->add('floor_num', 'number', [
+            'label' => trans('floors::admin.floor_num'),
         ]);
 
         $projects = Projects::reversed()->get()->pluck('title', 'id')->toArray();

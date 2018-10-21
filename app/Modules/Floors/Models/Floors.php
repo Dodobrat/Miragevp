@@ -30,7 +30,8 @@ class Floors extends AdminModel
      */
     protected $fillable = [
         'show_media',
-        'project_id'
+        'project_id',
+        'floor_num',
     ];
     /**
      * The attributes that should be casted to native types.
@@ -65,5 +66,9 @@ class Floors extends AdminModel
     public function thumbnail_media()
     {
         return $this->media('thumbnails');
+    }
+    public function plan_media()
+    {
+        return $this->media('plans');
     }
 }

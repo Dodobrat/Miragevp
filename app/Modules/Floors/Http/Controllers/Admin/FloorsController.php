@@ -46,6 +46,18 @@ class FloorsController extends BaseAdministrationController
                                 ]
                             ]
                         );
+                    $actions .= ' ' . Form::mediaManager($floors,
+                            [
+                                'filters' => [
+                                    'mediaable_sub_type' => 'plans'
+                                ],
+                                'button' => [
+                                    'title' => 'Plans',
+                                    'class' => 'media-manager btn btn-sm btn-success',
+                                    'icon' => 'picture-o'
+                                ]
+                            ]
+                        );
                     $actions .= Form::mediaManager($floors);
                     $actions .= Form::adminOrderButton($floors);
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('floors.edit', $floors->id)).$actions;
@@ -83,6 +95,11 @@ class FloorsController extends BaseAdministrationController
                 'data' => 'id',
                 'name' => 'id',
                 'title' => trans('administration::administrators.id'),
+                'orderable' => false,
+            ])->addColumn([
+                'data' => 'floor_num',
+                'name' => 'floor_num',
+                'title' => trans('floors::admin.floor_num'),
                 'orderable' => false,
             ])->addColumn([
                 'data' => 'title',
