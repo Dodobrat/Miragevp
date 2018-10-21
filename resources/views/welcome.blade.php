@@ -64,7 +64,7 @@
     <a class="animate" id="one" href="#loc-cont"><span></span><span></span></a>
 </section>
     <section class="location-container" id="loc-cont">
-        <h1 class="text-center section-title">{{trans('front.great-loc')}}</h1>
+
 {{--{{dd(Settings::get('index_map.lat'))}}--}}
         <div class="row">
             {{--{{dd(Settings::get('index_map_visible'))}}--}}
@@ -144,6 +144,7 @@
                 </script>
                 <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ Settings::get('google_map_api_key') }}&callback=initMap" type="text/javascript"></script>
                 <div class="col-lg-12 col-xl-5 pl-xl-4 pr-xl-2 px-lg-4 px-md-4 px-sm-5 px-xs-5">
+                    <h1 class="section-title">{{trans('front.great-loc')}}</h1>
                         <div id="map"></div>
                 </div>
                 <div class="col-lg-12 col-xl-7 pr-xl-4 pl-xl-2 px-lg-4 px-md-4 px-sm-5 px-xs-5">
@@ -163,6 +164,7 @@
         @else
                 <div class="col-xl-12">
                     <div class="container-fluid">
+                        <h1 class="text-center section-title">{{trans('front.great-loc')}}</h1>
                         <div class="pic"></div>
                     </div>
                     <div class="row">
@@ -196,7 +198,7 @@
         <h1 class="text-center section-title">{{Settings::getLocale('showroom_page_title', false)}}</h1>
 
         <div class="container-fluid">
-            <div class="card-deck flex-column flex-lg-row flex-wrap">
+            <div class="card-deck flex-column flex-lg-row flex-wrap" id="show-deck">
                 @foreach($showrooms->take(3) as $showroom)
 
 
@@ -217,7 +219,7 @@
                     <div class="modal fade bd-example-modal-lg show_{{$showroom->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <button class="close-modal-carousel">&times;</button>
                         <div class="modal-dialog modal-lg modal-dialog-centered">
-                            <div class="modal-content">
+                            <div class="modal-content showroom-content">
                                 <div id="carousel_{{$showroom->id}}" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
                                         @if($showroom->show_media === true)

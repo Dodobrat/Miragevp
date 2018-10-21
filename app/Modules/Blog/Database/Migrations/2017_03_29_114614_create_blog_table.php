@@ -27,6 +27,7 @@ class CreateBlogTable extends Migration {
             $table->increments('id');
             $table->integer('blog_id')->unsigned();
             $table->string('title');
+            $table->string('sub_title');
             $table->string('author')->nullable()->default(null);
             $table->string('meta_title')->nullable()->default(null);
             $table->string('meta_description')->nullable()->default(null);

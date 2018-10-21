@@ -19313,6 +19313,7 @@ function parallax() {
     var wScroll = $(window).scrollTop();
 
     $('.parallax-img').css('background-position', 'center ' + wScroll * 0.6 + 'px');
+    $('.project-parallax-img').css('background-position', 'center ' + wScroll * 0.5 + 'px');
 }
 
 // ---------------------------------------------------
@@ -19345,7 +19346,50 @@ $(function () {
     });
 });
 // ---------------------------------------------------
-//         CONTENT - LOAD POST CONTENT ON CLICK
+//         CONTENT - ADDED CUSTOM TOUCH SUPPORT FOR CAROUSEL
+// ---------------------------------------------------
+var pageWidth = window.innerWidth || document.body.clientWidth;
+var treshold = Math.max(1, Math.floor(0.01 * pageWidth));
+var touchstartX = 0;
+var touchstartY = 0;
+var touchendX = 0;
+var touchendY = 0;
+
+var limit = Math.tan(45 * 1.5 / 180 * Math.PI);
+var gestureZone = document.getElementsByTagName('body');
+
+gestureZone[0].addEventListener('touchstart', function (event) {
+    touchstartX = event.changedTouches[0].screenX;
+    touchstartY = event.changedTouches[0].screenY;
+}, false);
+
+gestureZone[0].addEventListener('touchend', function (event) {
+    touchendX = event.changedTouches[0].screenX;
+    touchendY = event.changedTouches[0].screenY;
+    handleGesture(event);
+}, false);
+
+function handleGesture(e) {
+    var x = touchendX - touchstartX;
+    var y = touchendY - touchstartY;
+    var yx = Math.abs(y / x);
+    if (Math.abs(x) > treshold || Math.abs(y) > treshold) {
+        if (yx <= limit) {
+            if (x < 0) {
+                $(function () {
+                    $('.carousel').carousel('next');
+                });
+            } else {
+                $(function () {
+                    $('.carousel').carousel('prev');
+                });
+            }
+        }
+    }
+}
+
+// ---------------------------------------------------
+//         CONTENT - TRIGGER ACCORDION ON HOVER
 // ---------------------------------------------------
 
 /***/ }),

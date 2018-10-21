@@ -4,7 +4,7 @@
     <h1 class="text-center page-title">{{Settings::getLocale('showroom_page_title', false)}}</h1>
 
 <div class="container-fluid">
-    <div class="card-deck flex-column flex-lg-row flex-wrap">
+    <div class="card-deck flex-column flex-lg-row flex-wrap" id="show-deck">
 
         @foreach($showrooms as $showroom)
 

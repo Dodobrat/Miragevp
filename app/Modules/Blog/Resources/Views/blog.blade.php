@@ -3,7 +3,7 @@
 
     <h1 class="text-center page-title">{{Settings::getLocale('blog_page_title', false)}}</h1>
 
-<div class="container-fluid">
+<div class="container-fluid blog-container">
     <div class="row">
         @foreach($blog as $post)
             @if($post->visible == true)
@@ -15,7 +15,23 @@
                             @else
                                 <img class="post-img" src="{{asset('images/fallback/placeholder.png')}}">
                             @endif
-                            <p class="post-title"><span>{{ $post->title }}</span></p>
+                            <p class="post-title">
+                                <span>
+                                    @if(strlen($post->title) >= 50)
+                                        {{substr($post->title,0,50)." ..."}}
+                                    @else
+                                        {{$post->title}}
+                                    @endif
+                                </span>
+                            </p>
+                                <p class="post-author">{{trans('front.by')}} <span>{{$post->author}}</span></p>
+                                <p class="post-date text-left">
+                                    @if(empty($post->date_made))
+                                        {{$post->created_at->format('Y-m-d')}}
+                                    @else
+                                        {{$post->date_made}}
+                                    @endif
+                                </p>
                         </button>
                     </div>
                 </div>
@@ -27,6 +43,7 @@
                             <button class="close-blog-modal">&times;</button>
                             <div class="container post-container">
                                 <h1 class="modal-post-title">{{$post->title}}</h1>
+                                <h5 class="modal-post-sub-title">{{$post->sub_title}}</h5>
                                 <span class="modal-post-author">{{trans('front.by')}} <span>{{ $post->author }}</span></span>
                                 <span class="modal-post-date">
                                     @if(empty($post->date_made))
@@ -52,6 +69,8 @@
         @endforeach
     </div>
 </div>
+
+{{$blog->links()}}
 
 @include('layouts.footer')
 @endsection

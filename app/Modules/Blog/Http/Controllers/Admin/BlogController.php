@@ -98,7 +98,7 @@ class BlogController extends BaseAdministrationController
             ])->addColumn([
                 'data' => 'title',
                 'name' => 'title',
-                'title' => trans('administration::administrators.name'),
+                'title' => trans('blog::admin.title'),
                 'orderable' => false,
             ])->addColumn([
                 'data' => 'author',

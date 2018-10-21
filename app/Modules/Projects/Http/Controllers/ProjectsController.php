@@ -12,7 +12,7 @@ class ProjectsController extends Controller
 {
     public function index() {
         $projects = Projects::with('media')->get();
-        $floors = Floors::get();
+        $floors = Floors::reversed()->with(['thumbnail_media','media'])->get();
         return view('projects::project',compact('projects','floors'));
     }
 }

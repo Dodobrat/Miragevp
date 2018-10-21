@@ -19,6 +19,7 @@ class Blog extends AdminModel
      */
     public $translatedAttributes = [
         'title',
+        'sub_title',
         'author',
         'description',
         'meta_title',

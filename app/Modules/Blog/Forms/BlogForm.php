@@ -14,6 +14,11 @@ class BlogForm extends AdminForm
             'translate' => true,
         ]);
 
+        $this->add('sub_title', 'text', [
+            'label' => trans('blog::admin.sub_title'),
+            'translate' => true,
+        ]);
+
         $this->add('author', 'text', [
             'label' => trans('blog::admin.author'),
             'translate' => true,

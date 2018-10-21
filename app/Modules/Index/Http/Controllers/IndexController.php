@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class IndexController extends Controller
 {
     public function index() {
-        $showrooms= Showroom::get();
+        $showrooms= Showroom::reversed()->get();
         return view('welcome',compact('showrooms'));
 
     }

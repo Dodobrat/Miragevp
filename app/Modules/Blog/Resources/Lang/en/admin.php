@@ -4,6 +4,7 @@ return [
     'module_categories_name' => 'Blog Category',
     'module_name' => 'Blog',
     'title' => 'Title',
+    'sub_title' => 'Secondary Title',
     'add' => 'Add',
     'list' => 'View all',
     'date' => 'Date',

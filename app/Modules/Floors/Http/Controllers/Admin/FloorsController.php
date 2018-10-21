@@ -34,7 +34,18 @@ class FloorsController extends BaseAdministrationController
                 ->addColumn('action', function ($floors) {
                     $actions = '';
                     $actions .= Form::adminDeleteButton(trans('administration::index.delete'),Administration::route('floors.destroy', $floors->id));
-
+                    $actions .= ' ' . Form::mediaManager($floors,
+                            [
+                                'filters' => [
+                                    'mediaable_sub_type' => 'thumbnails'
+                                ],
+                                'button' => [
+                                    'title' => 'Thumbnails',
+                                    'class' => 'media-manager btn btn-sm btn-primary',
+                                    'icon' => 'picture-o'
+                                ]
+                            ]
+                        );
                     $actions .= Form::mediaManager($floors);
                     $actions .= Form::adminOrderButton($floors);
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('floors.edit', $floors->id)).$actions;

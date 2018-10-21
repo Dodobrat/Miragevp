@@ -15,6 +15,7 @@ class BlogTranslation extends AdminModelTranslations
     public $timestamps = false;
     protected $fillable = [
         'title',
+        'sub_title',
         'description',
         'author',
         'meta_title',

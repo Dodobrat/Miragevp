@@ -62,8 +62,8 @@ class Floors extends AdminModel
         return $query->where('floors.visible', 1);
     }
 
-    public function header_media()
+    public function thumbnail_media()
     {
-        return $this->media('header');
+        return $this->media('thumbnails');
     }
 }
