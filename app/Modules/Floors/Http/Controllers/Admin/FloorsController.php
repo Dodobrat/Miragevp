@@ -75,6 +75,9 @@ class FloorsController extends BaseAdministrationController
                     if ($request->has('filter_floors') && !empty($request->get('filter_floors'))) {
                         $query->whereTranslationLike('title', '%' . $request->get('filter_floors') . '%');
                     }
+                    if ($request->has('filter_floor_num') && !empty($request->get('filter_floor_num'))) {
+                        $query->where('floor_num', $request->get('filter_floor_num'));
+                    }
                 });
             return $datatables->make(true);
         }

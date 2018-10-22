@@ -3,6 +3,7 @@
 return [
     'module_name' => 'Floors',
     'filter_floors' => 'Search Floors',
+    'filter_floor_num' => 'Search Floor Numbers',
     'visible' => 'Visible',
     'date' => 'Date',
     'create' => 'Create',

@@ -384,34 +384,32 @@
 #floor-select{
   transition: 0.3s ease-in-out;
   margin: 10vh auto auto auto;
-  max-width: 70vh;
   padding: 10px 5px;
+  width: 95%;
   .card{
+    background-color: transparent;
     transition: 0.3s ease-in-out;
     border-radius: 0;
     border: none;
-    .card-header{
-      transition: 0.3s ease-in-out;
-      border: none;
-      border-radius: 0;
-      padding: 0;
-      img{
+    .floor-row{
+      margin: 0;
+      .card-header{
         transition: 0.3s ease-in-out;
-        width: 100%;
-        height: 125px;
-        object-fit: cover;
-      }
-      p{
-        transition: 0.3s ease-in-out;
-        opacity: 0;
-        position: absolute;
-        top: 40px;
-        left: 0;
-        right: 0;
-        margin: auto;
-        font-weight: 100;
-        font-size: 30px;
-        text-transform: uppercase;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        img{
+          transition: 0.3s ease-in-out;
+          width: 100%;
+          height: 175px;
+          object-fit: cover;
+        }
+        .row{
+          position: absolute;
+          top: 40%;
+          left: 0;
+          right: 0;
+        }
       }
     }
     .collapse{
@@ -442,9 +440,6 @@
         transform: scale(1);
         transition: 0.3s ease-in-out;
       }
-      p{
-        transition: 0.3s ease-in-out;
-      }
     }
   }
 }
@@ -459,9 +454,6 @@
       img{
         transition: 0.3s ease-in-out;
         transform: scale(1.025);
-      }
-      p{
-        opacity: 1;
       }
     }
   }

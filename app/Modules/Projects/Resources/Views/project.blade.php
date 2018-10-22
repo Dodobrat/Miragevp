@@ -28,25 +28,55 @@
 
             <div class="accordion" id="floor-select">
                 @foreach($floors as $floor)
-                    <div class="card">
-                        <button class="card-header collapsed" id="heading_{{$floor->id}}" type="button" data-toggle="collapse" data-target="#collapse_{{$floor->id}}" aria-expanded="false" aria-controls="collapseOne">
-                                @if(!empty($floor->thumbnail_media()->first()) && $floor->show_media == true)
-                                    <img src="{{$floor->thumbnail_media()->first()->getPublicPath()}}" alt="">
-                                @else
-                                    <img src="{{asset('images/fallback/placeholder.png')}}" alt="">
-                                @endif
-                            <p>{{$floor->floor_num}}</p>
-                        </button>
+
+                    <div class="card floor-card">
+                        <div class="row floor-row">
+                            <div class="col-xl-2 col-lg-1 col-md-12 col-sm-12 col-xs-12 d-none d-xl-block">
+                            </div>
+                            <div class="col-xl-8 col-lg-10 col-md-12 col-sm-12 col-xs-12">
+
+                                <button class="card-header collapsed" id="heading_{{$floor->id}}" type="button" data-toggle="collapse" data-target="#collapse_{{$floor->id}}" aria-expanded="false" aria-controls="collapse_{{$floor->id}}">
+                                    @if(!empty($floor->thumbnail_media()->first()) && $floor->show_media == true)
+                                        <img src="{{$floor->thumbnail_media()->first()->getPublicPath()}}" alt="">
+                                    @else
+                                        <img src="{{asset('images/fallback/placeholder.png')}}" alt="">
+                                    @endif
+                                    <div class="row text-center">
+                                        <div class="col">
+                                            <p class="available-ap">{{trans('projects::front.available-aps')}} : {{$floor->apartments->count()}}</p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="floor-num">{{$floor->floor_num}}</p>
+                                        </div>
+                                        <div class="col">
+                                            @if(!empty($floor->apartments->first()))
+                                            <p class="ap-price">
+
+                                               {{trans('projects::front.from')}} : € {{$floor->apartments->first()->price}}
+
+                                            </p>
+                                            @endif
+                                        </div>
+                                    </div>
+
+
+                                </button>
+
+                            </div>
+                            <div class="col-xl-2 col-lg-1 col-md-12 col-sm-12 col-xs-12 d-none d-xl-block"></div>
+                        </div>
+
+
                         <div id="collapse_{{$floor->id}}" class="collapse" aria-labelledby="heading_{{$floor->id}}" data-parent="#floor-select">
-                            <div class="card-body">
+                            <div class="card-body" style="background-color: rgba(255,255,255,1);">
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                         <h1 class="accordion-floor-title">{{$floor->title}}</h1>
                                         <div class="accordion-floor-description">{!! $floor->description !!}</div>
                                         @if(!empty($floor->media()->first()) && $floor->show_media == true)
-                                            <img class="accordion-floor-img" src="{{$floor->media()->first()->getPublicPath()}}" alt="" style="width: 100%">
+                                            <img class="accordion-floor-img" src="{{$floor->media()->first()->getPublicPath()}}" alt="" style="width: 50%">
                                         @else
-                                            <img class="accordion-floor-img" src="{{asset('images/fallback/placeholder.png')}}" alt="" style="width: 100%">
+                                            <img class="accordion-floor-img" src="{{asset('images/fallback/placeholder.png')}}" alt="" style="width: 50%">
                                         @endif
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">

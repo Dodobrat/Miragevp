@@ -19266,6 +19266,23 @@ $(document).ready(function () {
 // ---------------------------------------------------
 //         SMOOTH SCROLL
 // ---------------------------------------------------
+//
+// $('.collapse').on('shown.bs.collapse', function(e) {
+//     var $card = $(this).closest('.card');
+//     $('html,body').animate({
+//         scrollTop: $card.offset().top -50
+//     }, 500);
+// });
+
+$('.collapse').on('shown.bs.collapse', function () {
+
+    var $panel = $(this).closest('.card');
+
+    $('html, body').animate({
+        scrollTop: $panel.offset().top - 54
+    }, 500);
+});
+
 $('.animate').smoothScroll({
     offset: -55,
     speed: 800

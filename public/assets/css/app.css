@@ -10936,18 +10936,23 @@ a.text-dark:focus {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   margin: 10vh auto auto auto;
-  max-width: 70vh;
   padding: 10px 5px;
+  width: 95%;
 }
 
 #floor-select .card {
+  background-color: transparent;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   border-radius: 0;
   border: none;
 }
 
-#floor-select .card .card-header {
+#floor-select .card .floor-row {
+  margin: 0;
+}
+
+#floor-select .card .floor-row .card-header {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   border: none;
@@ -10955,27 +10960,20 @@ a.text-dark:focus {
   padding: 0;
 }
 
-#floor-select .card .card-header img {
+#floor-select .card .floor-row .card-header img {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   width: 100%;
-  height: 125px;
+  height: 175px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-#floor-select .card .card-header p {
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-  opacity: 0;
+#floor-select .card .floor-row .card-header .row {
   position: absolute;
-  top: 40px;
+  top: 40%;
   left: 0;
   right: 0;
-  margin: auto;
-  font-weight: 100;
-  font-size: 30px;
-  text-transform: uppercase;
 }
 
 #floor-select .card .collapse .card-body .accordion-floor-img {
@@ -11008,11 +11006,6 @@ a.text-dark:focus {
   transition: 0.3s ease-in-out;
 }
 
-#floor-select .card .card-header:focus p {
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-}
-
 #floor-select {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
@@ -11034,10 +11027,6 @@ a.text-dark:focus {
   transition: 0.3s ease-in-out;
   -webkit-transform: scale(1.025);
           transform: scale(1.025);
-}
-
-#floor-select .card .card-header:hover p {
-  opacity: 1;
 }
 
 /* ---------------------------------------------------

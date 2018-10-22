@@ -12,7 +12,9 @@ class ProjectsController extends Controller
 {
     public function index() {
         $projects = Projects::with('media')->get();
-        $floors = Floors::reversed()->with(['thumbnail_media','media'])->get();
+        $floors = Floors::reversed()->with(['thumbnail_media','media','plan_media','apartments' => function($q) {
+            return $q->where('user_id',null)->orderBy('price', 'asc');
+        }])->get();
         return view('projects::project',compact('projects','floors'));
     }
 }
