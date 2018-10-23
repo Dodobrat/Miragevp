@@ -16,9 +16,9 @@
 
 
             <div class="text-center project-overview">
-                <div class="container">
+                <div class="container overview-box">
                     <h1>{{$project->title}}</h1>
-                    <p>{!! $project->description !!}</p>
+                    {!! $project->description !!}
                 </div>
 
             </div>
@@ -30,40 +30,24 @@
                 @foreach($floors as $floor)
 
                     <div class="card floor-card">
-                        <div class="row floor-row">
-                            <div class="col-xl-2 col-lg-1 col-md-12 col-sm-12 col-xs-12 d-none d-xl-block">
-                            </div>
-                            <div class="col-xl-8 col-lg-10 col-md-12 col-sm-12 col-xs-12">
 
+                        <div class="row floor-row">
+
+                            <div class="container">
                                 <button class="card-header collapsed" id="heading_{{$floor->id}}" type="button" data-toggle="collapse" data-target="#collapse_{{$floor->id}}" aria-expanded="false" aria-controls="collapse_{{$floor->id}}">
                                     @if(!empty($floor->thumbnail_media()->first()) && $floor->show_media == true)
                                         <img src="{{$floor->thumbnail_media()->first()->getPublicPath()}}" alt="">
                                     @else
                                         <img src="{{asset('images/fallback/placeholder.png')}}" alt="">
                                     @endif
-                                    <div class="row text-center">
-                                        <div class="col">
-                                            <p class="available-ap">{{trans('projects::front.available-aps')}} : {{$floor->apartments->count()}}</p>
-                                        </div>
-                                        <div class="col">
+                                    <div class="row floor-head-details">
+                                        <div class="col text-center">
                                             <p class="floor-num">{{$floor->floor_num}}</p>
                                         </div>
-                                        <div class="col">
-                                            @if(!empty($floor->apartments->first()))
-                                            <p class="ap-price">
-
-                                               {{trans('projects::front.from')}} : € {{$floor->apartments->first()->price}}
-
-                                            </p>
-                                            @endif
-                                        </div>
                                     </div>
-
-
                                 </button>
-
                             </div>
-                            <div class="col-xl-2 col-lg-1 col-md-12 col-sm-12 col-xs-12 d-none d-xl-block"></div>
+
                         </div>
 
 
@@ -71,27 +55,40 @@
                             <div class="card-body" style="background-color: rgba(255,255,255,1);">
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                                        <h1 class="accordion-floor-title">{{$floor->title}}</h1>
-                                        <div class="accordion-floor-description">{!! $floor->description !!}</div>
+                                        <h1 class="accordion-floor-title" style="font-weight: 200; color:  #869AA6; padding: 20px;">{{$floor->title}}</h1>
+                                        <div class="accordion-floor-description" style="padding: 0 20px 20px 20px; font-size: 18px;">{!! $floor->description !!}</div>
+                                        <p class="floor-details" style="padding: 0 20px 20px 20px; font-size: 20px; font-weight: 200;">
+                                            {{trans('projects::front.available-aps')}} :
+                                            <span style="font-size: 30px; font-weight: 400; color: #869AA6;">
+                                                {{$floor->apartments->count()}}
+                                            </span>
+                                            <br>
+                                            @if(!empty($floor->apartments->first()))
+                                                {{trans('projects::front.from')}} : <span style="font-size: 30px; font-weight: 400; color: #869AA6;">€ {{$floor->apartments->first()->price}}</span>
+                                            @endif
+                                        </p>
+
                                         @if(!empty($floor->media()->first()) && $floor->show_media == true)
-                                            <img class="accordion-floor-img" src="{{$floor->media()->first()->getPublicPath()}}" alt="" style="width: 50%">
+                                            <img class="accordion-floor-img" src="{{$floor->media()->first()->getPublicPath()}}" alt="" style="width: 30%;object-fit: contain; margin: 20px;">
                                         @else
-                                            <img class="accordion-floor-img" src="{{asset('images/fallback/placeholder.png')}}" alt="" style="width: 50%">
+                                            <img class="accordion-floor-img" src="{{asset('images/fallback/placeholder.png')}}" alt="" style="width: 30%;object-fit: contain; margin: 20px;">
                                         @endif
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                                        @if(!empty($floor->plan_media()->first()) && $floor->show_media == true)
-                                            <img class="accordion-floor-img" src="{{$floor->plan_media()->first()->getPublicPath()}}" alt="" style="width: 100%; height: 100%;">
-                                        @else
-                                            <img class="accordion-floor-img" src="{{asset('images/fallback/placeholder.png')}}" alt="" style="width: 100%; height: 100%;">
-                                        @endif
+
+                                        <a class="" href="#">
+
+                                            @if(!empty($floor->plan_media()->first()) && $floor->show_media == true)
+                                                <img class="accordion-plan-img" src="{{$floor->plan_media()->first()->getPublicPath()}}" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+                                            @else
+                                                <img class="accordion-plan-img" src="{{asset('images/fallback/placeholder.png')}}" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+                                            @endif
+
+                                        </a>
+
                                     </div>
                                 </div>
-                                {{--@if(!empty($floor->media()->first()) && $floor->show_media == true)--}}
-                                    {{--<img src="{{$floor->media()->first()->getPublicPath()}}" alt="">--}}
-                                {{--@else--}}
-                                    {{--<img src="{{asset('images/fallback/placeholder.png')}}" alt="">--}}
-                                {{--@endif--}}
+
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'available-aps' => 'Available',
+    'available-aps' => 'Availability',
     'from' => 'From',
 
 ];
