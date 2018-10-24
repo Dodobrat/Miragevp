@@ -32,19 +32,51 @@ class ProjectsController extends BaseAdministrationController
             $datatables = Datatables::of($projects)
                 ->addColumn('action', function ($projects) {
                     $actions = '';
-                    $actions .= Form::adminDeleteButton(trans('administration::index.delete'),Administration::route('projects.destroy', $projects->id));
 
-                    $actions .= Form::mediaManager($projects);
+
+//                    $actions .= Form::mediaManager($projects);
+                    $actions .= ' ' . Form::mediaManager($projects,
+                            [
+                                'filters' => [
+                                    'mediaable_sub_type' => 'layer_one'
+                                ],
+                                'button' => [
+                                    'title' => 'Layer 1',
+                                    'class' => 'media-manager btn btn-sm btn-info',
+                                    'icon' => 'picture-o'
+                                ]
+                            ]
+                        );
+                    $actions .= ' ' . Form::mediaManager($projects,
+                            [
+                                'filters' => [
+                                    'mediaable_sub_type' => 'layer_two'
+                                ],
+                                'button' => [
+                                    'title' => 'Layer 2',
+                                    'class' => 'media-manager btn btn-sm btn-success',
+                                    'icon' => 'picture-o'
+                                ]
+                            ]
+                        );
+                    $actions .= ' ' . Form::mediaManager($projects,
+                            [
+                                'filters' => [
+                                    'mediaable_sub_type' => 'layer_three'
+                                ],
+                                'button' => [
+                                    'title' => 'Layer 3',
+                                    'class' => 'media-manager btn btn-sm btn-warning',
+                                    'icon' => 'picture-o'
+                                ]
+                            ]
+                        );
 //                    $actions .= Form::adminOrderButton($projects);
+                    $actions .= Form::adminDeleteButton(trans('administration::index.delete'),Administration::route('projects.destroy', $projects->id));
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('projects.edit', $projects->id)).$actions;
-                })
-                ->editColumn('description', function ($project) {
-                    return strip_tags(substr($project->description,0,30));
-                })
-                ->addColumn('visible', function ($projects) {
+                })->addColumn('visible', function ($projects) {
                     return Form::adminSwitchButton('visible', $projects);
-                })
-            ->addColumn('show_media', function ($projects) {
+                })->addColumn('show_media', function ($projects) {
                 return Form::adminSwitchButton('show_media', $projects);
             });
             return $datatables->make(true);
@@ -65,11 +97,6 @@ class ProjectsController extends BaseAdministrationController
                 'data' => 'title',
                 'name' => 'title',
                 'title' => trans('projects::admin.title'),
-                'orderable' => false,
-            ])->addColumn([
-                'data' => 'description',
-                'name' => 'description',
-                'title' => trans('projects::admin.description'),
                 'orderable' => false,
             ])->addColumn([
                 'data' => 'visible',

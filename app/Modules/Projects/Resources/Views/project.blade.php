@@ -5,20 +5,51 @@
     @foreach($projects as $project)
         @if($project->visible == true)
             <div class="project-parallax-img-container">
-                <div class="project-parallax-img"
-                @if(!empty($project->media()->first()) && $project->show_media == true)
-                     style="background-image: url('{{$project->media()->first()->getPublicPath()}}');"
+                <div class="project-parallax-img-layer-one"
+                @if(!empty($project->layer_one_media()->first()) && $project->show_media == true)
+                     style="background-image: url('{{$project->layer_one_media()->first()->getPublicPath()}}');"
                 @else
-                     style="background-image: url('{{ asset('images/fallback/placeholder.png') }}');"
+                     style="background-image: url('{{ asset('images/visual-selection/1-b.png') }}');"
+                @endif
+                >
+                    <div class="project-parallax-img-layer-two"
+                @if(!empty($project->layer_two_media()->first()) && $project->show_media == true)
+                     style="background-image: url('{{$project->layer_two_media()->first()->getPublicPath()}}');"
+                @else
+                     style="background-image: url('{{ asset('images/visual-selection/2-b-trans-trans.png') }}');"
+                @endif
+                >
+                        <div class="project-parallax-img-layer-three"
+                @if(!empty($project->layer_three_media()->first()) && $project->show_media == true)
+                     style="background-image: url('{{$project->layer_three_media()->first()->getPublicPath()}}');"
+                @else
+                     style="background-image: url('{{ asset('images/visual-selection/3-b-trans-copy.png') }}');"
                 @endif
                 >
 
 
 
             <div class="text-center project-overview">
+                <h1>{{$project->title}}</h1>
                 <div class="container overview-box">
-                    <h1>{{$project->title}}</h1>
-                    {!! $project->description !!}
+                    <div class="row project-instructions">
+                        <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12 vis-select text-center pt-4">
+                            <i></i>
+                            <h1>{{trans('projects::front.vis-selection')}}</h1>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 how-to text-center">
+                            <p>{{trans('projects::front.scroll-down')}}</p>
+                            <div class="arrow-1"></div>
+                            <p>{{trans('projects::front.choose-floor')}}</p>
+                            <div class="arrow-1"></div>
+                            <p>{{trans('projects::front.view-floor-plans')}}</p>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 project-info">
+                            <h1><span>{{$floors->count()}}</span><br>{{trans('projects::front.floors')}}</h1>
+                            <p><span>{{$apartments->where('type','apartment')->count()}}</span> {{trans('projects::front.apartments')}}</p>
+                            <p><span>{{$apartments->where('type','office')->count()}}</span> {{trans('projects::front.office-spaces')}}</p>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -68,8 +99,8 @@
                                             @endif
                                         </p>
 
-                                        @if(!empty($floor->media()->first()) && $floor->show_media == true)
-                                            <img class="accordion-floor-img" src="{{$floor->media()->first()->getPublicPath()}}" alt="" style="width: 30%;object-fit: contain; margin: 20px;">
+                                        @if(!empty($floor->compass_media()->first()) && $floor->show_media == true)
+                                            <img class="accordion-floor-img" src="{{$floor->compass_media()->first()->getPublicPath()}}" alt="" style="width: 30%;object-fit: contain; margin: 20px;">
                                         @else
                                             <img class="accordion-floor-img" src="{{asset('images/fallback/placeholder.png')}}" alt="" style="width: 30%;object-fit: contain; margin: 20px;">
                                         @endif
@@ -96,48 +127,13 @@
             </div>
 
                 </div>
-                {{--<div class="project-parallax-img-2"--}}
-                     {{--@if(!empty($project->media()->find(2)) && $project->show_media == true)--}}
-                     {{--style="background-image: url('{{$project->media()->find(2)->getPublicPath()}}');"--}}
-                     {{--@else--}}
-                     {{--style="background-image: url('{{ asset('images/fallback/placeholder.png') }}');"--}}
-                        {{--@endif--}}
-                {{--></div>--}}
+                </div>
+                </div>
             </div>
         @endif
     @endforeach
 
-{{--@foreach($projects as $project)--}}
-    {{--@if($project->visible == true)--}}
-        {{--<section class="project-container">--}}
-            {{--<div class="project-img"--}}
-                {{--@if($project->show_media == true)--}}
-                     {{--@if(!empty($project->media()->first()))--}}
-                     {{--style="background-image: url('{{ $project->media()->first()->getPublicPath() }}');"--}}
-                     {{--@else--}}
-                     {{--style="background-image: url('{{ asset('images/fallback/placeholder.png') }}');"--}}
-                     {{--@endif--}}
-                {{--@endif>--}}
-            {{--</div>--}}
-            {{--@foreach($floors as $floor)--}}
-                {{--<div class="floor-select"--}}
-                     {{--@if($floor->show_media == true)--}}
-                     {{--@if(!empty($floor->media()->first()))--}}
-                     {{--style="background-image: url('{{ $floor->media()->first()->getPublicPath() }}');"--}}
-                     {{--@else--}}
-                     {{--style="background-image: url('{{ asset('images/fallback/placeholder.png') }}');"--}}
-                        {{--@endif--}}
-                        {{--@endif>--}}
-
-                {{--</div>--}}
-            {{--@endforeach--}}
-        {{--</section>--}}
-
-
-    {{--@endif--}}
-{{--@endforeach--}}
-
-
+    @include('layouts.footer')
 
 
 @endsection

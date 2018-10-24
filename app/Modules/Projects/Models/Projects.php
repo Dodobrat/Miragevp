@@ -67,4 +67,19 @@ class Projects extends AdminModel
     {
         return $query->where('projects.visible', 1);
     }
+
+    public function layer_one_media()
+    {
+        return $this->media('layer_one');
+    }
+
+    public function layer_two_media()
+    {
+        return $this->media('layer_two');
+    }
+
+    public function layer_three_media()
+    {
+        return $this->media('layer_three');
+    }
 }

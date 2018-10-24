@@ -32,7 +32,6 @@ class CreateProjectsTable extends Migration
             $table->string('meta_description')->nullable()->default(null);
             $table->string('meta_keywords')->nullable()->default(null);
             $table->string('slug');
-            $table->longText('description')->nullable()->default(null);
             $table->string('locale')->index();
             $table->unique([
                 'projects_id',

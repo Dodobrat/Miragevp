@@ -58,7 +58,19 @@ class FloorsController extends BaseAdministrationController
                                 ]
                             ]
                         );
-                    $actions .= Form::mediaManager($floors);
+                    $actions .= ' ' . Form::mediaManager($floors,
+                            [
+                                'filters' => [
+                                    'mediaable_sub_type' => 'compass'
+                                ],
+                                'button' => [
+                                    'title' => 'Compass',
+                                    'class' => 'media-manager btn btn-sm btn-warning',
+                                    'icon' => 'picture-o'
+                                ]
+                            ]
+                        );
+//                    $actions .= Form::mediaManager($floors);
                     $actions .= Form::adminOrderButton($floors);
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('floors.edit', $floors->id)).$actions;
                 })->editColumn('description', function ($floor) {

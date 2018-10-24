@@ -13,11 +13,6 @@ class ProjectForm extends AdminForm
             'translate' => true,
         ]);
 
-        $this->add('description', 'editor', [
-            'label' => trans('blog::admin.description'),
-            'translate' => true,
-        ]);
-
         $this->addSeoFields();
 
         $this->add('visible', 'checkbox', [

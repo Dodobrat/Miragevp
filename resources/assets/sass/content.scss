@@ -1,3 +1,6 @@
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+
 /* ---------------------------------------------------
     SHOWROOM THUMBNAIL SECTION
 ----------------------------------------------------- */
@@ -359,31 +362,92 @@
 ----------------------------------------------------- */
 
 .project-parallax-img-container{
-  .project-parallax-img{
+  .project-parallax-img-layer-one{
     background-size: cover;
     background-position: top;
     height: 100%;
     width: 100%;
     .project-overview{
-      padding: 100px 0 0 0;
+      padding: 150px 10px 100px 10px;
+      h1{
+        padding: 35px 0;
+        font-weight: 400;
+        font-size: 40px;
+        color: #ffffff;
+      }
       .overview-box{
-        padding: 20px;
-        background-color: rgba(255,255,255,0.5);
-        h1{
-          margin: 0;
-          font-size: 50px;
-          font-weight: 200;
-          text-transform: uppercase;
-          padding: 20px 0;
-        }
-        p{
-          margin: 0;
-          padding: 20px;
-          font-weight: 400;
+        padding: 25px 25px;
+        border: 1px solid rgba(255,255,255,1);
+        background-color: rgba(255,255,255,0.05);
+        .project-instructions{
+          color: #ffffff;
+          .vis-select{
+            text-align: left;
+            i{
+              @extend %fa-icon;
+              @extend .far;
+              &:before {
+                content: fa-content($fa-var-eye);
+                font-size: 85px;
+                color: #ffffff;
+              }
+            }
+            h1{
+              color: #72DDB6;
+              font-weight: 600;
+              text-transform: uppercase;
+            }
+          }
+          .how-to{
+            p{
+              font-size: 20px;
+              padding: 25px 0 0 0;
+            }
+            .arrow-1 {
+              position: relative;
+              margin: auto;
+              height: 25px; width: 25px;
+              border: 1px solid rgba(255,255,255,1);
+              border-width: 2px 2px 0 0;
+              transform: rotate(135deg);
+            }
+          }
+          .project-info{
+            h1{
+              padding: 20px 0;
+              margin: 0;
+              color: #72DDB6;
+              font-weight: 600;
+              span{
+                color: #72DDB6;
+                font-size: 60px;
+                font-weight: 800;
+              }
+            }
+            p{
+              color: #133860;
+              font-size: 20px;
+              span{
+                font-weight: 600;
+              }
+            }
+          }
         }
       }
 
     }
+  }
+  .project-parallax-img-layer-two{
+    background-size: cover;
+    background-position: top;
+    height: 100%;
+    width: 100%;
+  }
+  .project-parallax-img-layer-three{
+    background-size: cover;
+    background-position: top;
+    height: 100%;
+    width: 100%;
   }
 }
 
@@ -452,12 +516,12 @@
   .card{
     transition: 0.3s ease-in-out;
     .card-header:hover{
-      transition: 0.3s ease-in-out;
       cursor: pointer;
-      filter: grayscale(100%);
+      transition: 0.3s ease-in-out;
       img{
         transition: 0.3s ease-in-out;
         transform: scale(1.0125);
+        filter: grayscale(100%);
       }
       .floor-num:hover{
         transition: 0.3s ease-in-out;
@@ -489,7 +553,6 @@
     }
   }
 }
-
 
 @media (min-width: 992px){
   .modal-lg{

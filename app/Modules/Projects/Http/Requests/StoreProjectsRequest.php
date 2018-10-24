@@ -34,7 +34,6 @@ class StoreProjectsRequest extends FormRequest
             $trans[$locale . '.meta_title'] = 'nullable|string';
             $trans[$locale . '.meta_description'] = 'nullable|string';
             $trans[$locale . '.meta_keywords'] = 'nullable|string';
-            $trans[$locale . '.description'] = 'nullable|string';
 
             if ($this->method() == 'PATCH' || $this->method() == 'PUT') {
                 $locale_alb = ProjectsTranslation::where('projects_id', $this->route('projects'))->where('locale', $locale)->first();
