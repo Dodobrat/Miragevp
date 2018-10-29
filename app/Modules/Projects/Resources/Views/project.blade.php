@@ -9,21 +9,21 @@
                 @if(!empty($project->layer_one_media()->first()) && $project->show_media == true)
                      style="background-image: url('{{$project->layer_one_media()->first()->getPublicPath()}}');"
                 @else
-                     style="background-image: url('{{ asset('images/visual-selection/1-b.png') }}');"
+                     style="background-image: url('{{ asset('images/visual-selection/bg.png') }}');"
                 @endif
                 >
                     <div class="project-parallax-img-layer-two"
                 @if(!empty($project->layer_two_media()->first()) && $project->show_media == true)
                      style="background-image: url('{{$project->layer_two_media()->first()->getPublicPath()}}');"
                 @else
-                     style="background-image: url('{{ asset('images/visual-selection/2-b-trans-trans.png') }}');"
+                     style="background-image: url('{{ asset('images/visual-selection/upper_cloud.png') }}');"
                 @endif
                 >
-                        <div class="project-parallax-img-layer-three"
+                        <div class="project-layer-three"
                 @if(!empty($project->layer_three_media()->first()) && $project->show_media == true)
                      style="background-image: url('{{$project->layer_three_media()->first()->getPublicPath()}}');"
                 @else
-                     style="background-image: url('{{ asset('images/visual-selection/3-b-trans-copy.png') }}');"
+                     {{--style="background-image: url('{{ asset('images/visual-selection/3-b-trans-copy.png') }}');"--}}
                 @endif
                 >
 
@@ -55,8 +55,6 @@
             </div>
 
 
-
-
             <div class="accordion" id="floor-select">
                 @foreach($floors as $floor)
 
@@ -64,12 +62,12 @@
 
                         <div class="row floor-row">
 
-                            <div class="container">
-                                <button class="card-header collapsed" id="heading_{{$floor->id}}" type="button" data-toggle="collapse" data-target="#collapse_{{$floor->id}}" aria-expanded="false" aria-controls="collapse_{{$floor->id}}">
+                            <div class="container-fluid" id="building">
+                                <button class="col card-header collapsed" id="heading_{{$floor->id}}" type="button" data-toggle="collapse" data-target="#collapse_{{$floor->id}}" aria-expanded="false" aria-controls="collapse_{{$floor->id}}">
                                     @if(!empty($floor->thumbnail_media()->first()) && $floor->show_media == true)
                                         <img src="{{$floor->thumbnail_media()->first()->getPublicPath()}}" alt="">
                                     @else
-                                        <img src="{{asset('images/fallback/placeholder.png')}}" alt="">
+                                        <img src="{{asset('images/fallback/placeholder.png')}}" alt="" style="opacity: 0.5">
                                     @endif
                                     <div class="row floor-head-details">
                                         <div class="col text-center">
@@ -83,7 +81,7 @@
 
 
                         <div id="collapse_{{$floor->id}}" class="collapse" aria-labelledby="heading_{{$floor->id}}" data-parent="#floor-select">
-                            <div class="card-body" style="background-color: rgba(255,255,255,1);">
+                            <div class="card-body" style="background-color: rgba(255,255,255,1); margin: 0 5%;">
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                         <h1 class="accordion-floor-title" style="font-weight: 200; color:  #869AA6; padding: 20px;">{{$floor->title}}</h1>
@@ -125,7 +123,6 @@
                     </div>
                 @endforeach
             </div>
-
                 </div>
                 </div>
                 </div>
@@ -133,7 +130,7 @@
         @endif
     @endforeach
 
-    @include('layouts.footer')
+    {{--@include('layouts.footer')--}}
 
 
 @endsection

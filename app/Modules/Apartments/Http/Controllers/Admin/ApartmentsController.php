@@ -32,9 +32,8 @@ class ApartmentsController extends BaseAdministrationController
             $datatables = Datatables::of($apartments)
                 ->addColumn('action', function ($apartments) {
                     $actions = '';
-                    $actions .= Form::adminDeleteButton(trans('administration::index.delete'),Administration::route('apartments.destroy', $apartments->id));
-
                     $actions .= Form::mediaManager($apartments);
+                    $actions .= Form::adminDeleteButton(trans('administration::index.delete'),Administration::route('apartments.destroy', $apartments->id));
                     $actions .= Form::adminOrderButton($apartments);
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('apartments.edit', $apartments->id)).$actions;
                 })->addColumn('show_media', function ($apartment) {

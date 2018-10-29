@@ -31,9 +31,8 @@ class ShowroomController extends BaseAdministrationController
             $datatables = Datatables::of($showrooms)
                 ->addColumn('action', function ($showroom) {
                     $actions = '';
-                    $actions .= Form::adminDeleteButton(trans('administration::index.delete'),Administration::route('showroom.destroy', $showroom->id));
-
                     $actions .= Form::mediaManager($showroom);
+                    $actions .= Form::adminDeleteButton(trans('administration::index.delete'),Administration::route('showroom.destroy', $showroom->id));
                     $actions .= Form::adminOrderButton($showroom);
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('showroom.edit', $showroom->id)).$actions;
                 })->addColumn('show_media', function ($showroom) {

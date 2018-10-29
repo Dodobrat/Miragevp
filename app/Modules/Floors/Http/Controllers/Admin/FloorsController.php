@@ -33,7 +33,6 @@ class FloorsController extends BaseAdministrationController
             $datatables = Datatables::of($floors)
                 ->addColumn('action', function ($floors) {
                     $actions = '';
-                    $actions .= Form::adminDeleteButton(trans('administration::index.delete'),Administration::route('floors.destroy', $floors->id));
                     $actions .= ' ' . Form::mediaManager($floors,
                             [
                                 'filters' => [
@@ -41,7 +40,7 @@ class FloorsController extends BaseAdministrationController
                                 ],
                                 'button' => [
                                     'title' => 'Thumbnails',
-                                    'class' => 'media-manager btn btn-sm btn-primary',
+                                    'class' => 'media-manager btn btn-sm btn-info',
                                     'icon' => 'picture-o'
                                 ]
                             ]
@@ -71,7 +70,9 @@ class FloorsController extends BaseAdministrationController
                             ]
                         );
 //                    $actions .= Form::mediaManager($floors);
+                    $actions .= Form::adminDeleteButton(trans('administration::index.delete'),Administration::route('floors.destroy', $floors->id));
                     $actions .= Form::adminOrderButton($floors);
+
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('floors.edit', $floors->id)).$actions;
                 })->editColumn('description', function ($floor) {
                     return strip_tags(substr($floor->description,0,20));

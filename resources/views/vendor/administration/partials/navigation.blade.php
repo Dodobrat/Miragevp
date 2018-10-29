@@ -1,7 +1,11 @@
 @foreach($items as $item)
 
     @if($item->header)
-        <li class="header">{{$item->title}}</li>
+        @if($item->title == "Modules")
+
+        @else
+            <li class="header">{{$item->title}}</li>
+        @endif
     @else
         <li @if($item->hasChildren())class="treeview"@endif >
             @if($item->link)

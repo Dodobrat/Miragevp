@@ -15563,6 +15563,10 @@ readers do not read off random characters that represent icons */
   padding-right: 5%;
 }
 
+#building {
+  padding: 0 25%;
+}
+
 #show-deck {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -16077,28 +16081,28 @@ readers do not read off random characters that represent icons */
 
 .project-parallax-img-container .project-parallax-img-layer-two {
   background-size: cover;
-  background-position: top;
+  background-position: bottom;
   height: 100%;
   width: 100%;
 }
 
-.project-parallax-img-container .project-parallax-img-layer-three {
+.project-parallax-img-container .project-layer-three {
   background-size: cover;
   background-position: top;
   height: 100%;
-  width: 100%;
+  min-width: 100%;
 }
 
 #floor-select {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   margin: 10vh auto auto auto;
-  padding: 10px 5px;
-  width: 95%;
+  padding: 0 0 785px 0;
+  width: 100%;
 }
 
 #floor-select .card {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   border-radius: 0;
@@ -16121,7 +16125,7 @@ readers do not read off random characters that represent icons */
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   width: 100%;
-  height: 175px;
+  height: auto;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -16186,10 +16190,8 @@ readers do not read off random characters that represent icons */
 #floor-select .card .card-header:hover img {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  -webkit-transform: scale(1.0125);
-          transform: scale(1.0125);
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 #floor-select .card .card-header:hover .floor-num:hover {

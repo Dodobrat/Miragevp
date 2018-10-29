@@ -29,11 +29,6 @@ class BlogController extends BaseAdministrationController
             $datatables = Datatables::of($blogs)
                 ->addColumn('action', function ($blog) {
                     $actions = '';
-                    if (!empty($blog->deleted_at)) {
-                        //restore button
-                    } else {
-                        $actions .= Form::adminDeleteButton(trans('administration::index.delete'), Administration::route('blog.destroy', $blog->id));
-                    }
                     $actions .= ' ' . Form::mediaManager($blog,
                             [
                                 'filters' => [
@@ -41,7 +36,7 @@ class BlogController extends BaseAdministrationController
                                 ],
                                 'button' => [
                                     'title' => 'Thumbnails',
-                                    'class' => 'media-manager btn btn-sm btn-primary',
+                                    'class' => 'media-manager btn btn-sm btn-warning',
                                     'icon' => 'picture-o'
                                 ]
                             ]
@@ -53,11 +48,12 @@ class BlogController extends BaseAdministrationController
                                 ],
                                 'button' => [
                                     'title' => 'Header',
-                                    'class' => 'media-manager btn btn-sm btn-default',
+                                    'class' => 'media-manager btn btn-sm btn-info',
                                     'icon' => 'header'
                                 ]
                             ]
                         );
+                    $actions .= Form::adminDeleteButton(trans('administration::index.delete'), Administration::route('blog.destroy', $blog->id));
                     $actions .= Form::adminOrderButton($blog);
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('blog.edit', $blog->id)) . $actions;
                 })
