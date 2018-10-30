@@ -16087,7 +16087,7 @@ readers do not read off random characters that represent icons */
 
 .project-parallax-img-container .project-parallax-img-layer-two {
   background-size: cover;
-  background-position: bottom;
+  background-position: top;
   height: 100%;
   width: 100%;
 }
@@ -16151,22 +16151,35 @@ readers do not read off random characters that represent icons */
      object-fit: cover;
 }
 
-#floor-select .card .floor-row .card-header .floor-head-details {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-#floor-select .card .floor-row .card-header .floor-head-details .floor-num {
-  padding: 30px 0;
-  margin: 0;
+#floor-select .card .floor-row .card-header .floor-number {
+  opacity: 0;
+  pointer-events: none;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
+  position: absolute;
+  top: -20px;
+  bottom: 0;
+  right: 0;
+  font-size: 100px;
+  font-weight: 900;
+  color: #133860;
+  text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+  mix-blend-mode: difference;
+}
+
+#floor-select .card .floor-row .card-header .floor-ap-stats {
+  text-align: right;
   opacity: 0;
-  letter-spacing: 5px;
-  font-size: 70px;
-  font-weight: 100;
+  pointer-events: none;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 20px;
+  font-weight: 200;
+  color: #133860;
+  text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 #floor-select {
@@ -16215,11 +16228,18 @@ readers do not read off random characters that represent icons */
           transform: scale(1.05);
 }
 
-#floor-select .card .card-header:hover .floor-num:hover {
+#floor-select .card .card-header:hover .floor-number {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
+  margin-right: -200px;
   opacity: 1;
-  text-shadow: 0px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+#floor-select .card .card-header:hover .floor-ap-stats {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  margin-left: -250px;
+  opacity: 1;
 }
 
 /* ---------------------------------------------------

@@ -446,7 +446,7 @@
   }
   .project-parallax-img-layer-two{
     background-size: cover;
-    background-position: bottom;
+    background-position: top;
     height: 100%;
     width: 100%;
   }
@@ -496,20 +496,32 @@
           height: auto;
           object-fit: cover;
         }
-        .floor-head-details{
+        .floor-number{
+          opacity: 0;
+          pointer-events: none;
+          transition: 0.3s ease-in-out;
           position: absolute;
-          top: 0;
-          left: 0;
+          top: -20px;
+          bottom: 0;
           right: 0;
-          .floor-num{
-            padding: 30px 0;
-            margin: 0;
-            transition: 0.3s ease-in-out;
-            opacity: 0;
-            letter-spacing: 5px;
-            font-size: 70px;
-            font-weight: 100;
-          }
+          font-size: 100px;
+          font-weight: 900;
+          color: #133860;
+          text-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+          mix-blend-mode: difference;
+        }
+        .floor-ap-stats{
+          text-align: right;
+          opacity: 0;
+          pointer-events: none;
+          transition: 0.3s ease-in-out;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          font-size: 20px;
+          font-weight: 200;
+          color: #133860;
+          text-shadow: 0px 2px 10px rgba(0,0,0,0.5);
         }
       }
     }
@@ -542,10 +554,14 @@
         transition: 0.3s ease-in-out;
         transform: scale(1.05);
       }
-      .floor-num:hover{
+      .floor-number{
         transition: 0.3s ease-in-out;
+        margin-right: -200px;
         opacity: 1;
-        text-shadow: 0px 1px 10px rgba(0,0,0,0.5);
+      }.floor-ap-stats{
+        transition: 0.3s ease-in-out;
+        margin-left: -250px;
+        opacity: 1;
       }
     }
   }

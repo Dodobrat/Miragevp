@@ -3,6 +3,7 @@
 return [
     'available-aps' => 'Availability',
     'from' => 'From',
+    'starting-from' => 'Starting From',
     'vis-selection' => 'Visual Selection',
     'floors' => 'Floors',
     'office-spaces' => 'Office spaces',

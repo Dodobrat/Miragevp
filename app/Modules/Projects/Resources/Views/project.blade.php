@@ -83,11 +83,17 @@
                                     @else
                                         <img src="{{asset('images/fallback/placeholder.png')}}" alt="" style="opacity: 0.5">
                                     @endif
-                                    <div class="row floor-head-details">
-                                        <div class="col text-center">
-                                            <p class="floor-num">{{$floor->floor_num}}</p>
-                                        </div>
-                                    </div>
+                                    <p class="floor-number">
+                                        {{ $floor->floor_num }}
+                                    </p>
+                                    <p class="floor-ap-stats">
+                                        {{trans('projects::front.available-aps')}} : {{$floor->apartments->count()}} / {{ $apartments->where('floor_id', $floor->id)->count() }}
+                                        <br><span>
+                                            @if(!empty($floor->apartments->first()))
+                                                {{trans('projects::front.from')}} : € {{$floor->apartments->first()->price}}
+                                            @endif
+                                        </span>
+                                    </p>
                                 </button>
                             </div>
 

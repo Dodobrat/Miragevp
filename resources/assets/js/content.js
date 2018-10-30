@@ -88,7 +88,7 @@ function handleGesture(e) {
 
 
 // ---------------------------------------------------
-//         CONTENT - TRIGGER ACCORDION ON HOVER
+//         CONTENT - CLOSE ACCORDION ON CLICK AWAY
 // ---------------------------------------------------
 
 
