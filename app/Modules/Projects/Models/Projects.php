@@ -82,4 +82,9 @@ class Projects extends AdminModel
     {
         return $this->media('layer_three');
     }
+
+    public function base_media()
+    {
+        return $this->media('base');
+    }
 }

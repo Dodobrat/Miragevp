@@ -9,13 +9,9 @@ $(window).scroll(function () {
 
 function parallax() {
     let wScroll = $(window).scrollTop();
-
     $('.parallax-img').css('background-position', 'center '+(wScroll*0.6)+'px');
-    $('.project-parallax-img-layer-one').css('background-position', 'center '+(wScroll*0.2)+'px');
+    $('.project-parallax-img-layer-one').css('background-position', 'center '+(wScroll*0.35)+'px');
     $('.project-parallax-img-layer-two').css('background-position', 'center '+(wScroll*0.5)+'px');
-    // $('.project-parallax-img-layer-one').css('background-position', 'center '+(wScroll*0)+'px');
-    // $('.project-parallax-img-layer-two').css('background-position', 'center '+(wScroll*0)+'px');
-    // $('.project-parallax-img-layer-three').css('background-position', 'center '+(wScroll*0)+'px');
 }
 
 // ---------------------------------------------------

@@ -5,32 +5,46 @@
     @foreach($projects as $project)
         @if($project->visible == true)
             <div class="project-parallax-img-container">
-                <div class="project-parallax-img-layer-one"
-                @if(!empty($project->layer_one_media()->first()) && $project->show_media == true)
-                     style="background-image: url('{{$project->layer_one_media()->first()->getPublicPath()}}');"
-                @else
-                     style="background-image: url('{{ asset('images/visual-selection/bg.png') }}');"
-                @endif
-                >
+                @if($agent->isDesktop())
+                    <div class="project-parallax-img-layer-one"
+                        @if(!empty($project->layer_one_media()->first()) && $project->show_media == true)
+                             style="background-image: url('{{$project->layer_one_media()->first()->getPublicPath()}}');"
+                        @else
+                             style="background-image: url('{{ asset('images/visual-selection/bg-1.png') }}');"
+                        @endif
+                    >@endif
+                        @if($agent->isDesktop())
                     <div class="project-parallax-img-layer-two"
-                @if(!empty($project->layer_two_media()->first()) && $project->show_media == true)
-                     style="background-image: url('{{$project->layer_two_media()->first()->getPublicPath()}}');"
-                @else
-                     style="background-image: url('{{ asset('images/visual-selection/upper_cloud.png') }}');"
+                        @if(!empty($project->layer_two_media()->first()) && $project->show_media == true)
+                             style="background-image: url('{{$project->layer_two_media()->first()->getPublicPath()}}');"
+                        @else
+                             style="background-image: url('{{ asset('images/visual-selection/upper_cloud.png') }}');"
+                        @endif
+                    >@endif
+                        @if($agent->isDesktop())
+                    <div class="project-layer-three"
+                        @if(!empty($project->layer_three_media()->first()) && $project->show_media == true)
+                            style="background-image: url('{{$project->layer_three_media()->first()->getPublicPath()}}');"
+                        @else
+                            style="background-image: url('{{ asset('images/visual-selection/bg-street.png') }}');"
+                        @endif
+                    >
                 @endif
-                >
-                        <div class="project-layer-three"
-                @if(!empty($project->layer_three_media()->first()) && $project->show_media == true)
-                     style="background-image: url('{{$project->layer_three_media()->first()->getPublicPath()}}');"
-                @else
-                     {{--style="background-image: url('{{ asset('images/visual-selection/3-b-trans-copy.png') }}');"--}}
+                        @if($agent->isMobile())
+                    <div class="project-static-bg"
+                        @if(!empty($project->layer_one_media()->first()) && $project->show_media == true)
+                            style="background-image: url('{{$project->layer_one_media()->first()->getPublicPath()}}');"
+                        @else
+                            style="background-image: url('{{ asset('images/visual-selection/bg-1.png') }}');"
+                        @endif
+                    >
                 @endif
-                >
+
 
 
 
             <div class="text-center project-overview">
-                <h1>{{$project->title}}</h1>
+                <h1 id="project-title">{{$project->title}}</h1>
                 <div class="container overview-box">
                     <div class="row project-instructions">
                         <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12 vis-select text-center pt-4">
@@ -83,7 +97,7 @@
                         <div id="collapse_{{$floor->id}}" class="collapse" aria-labelledby="heading_{{$floor->id}}" data-parent="#floor-select">
                             <div class="card-body" style="background-color: rgba(255,255,255,1); margin: 0 5%;">
                                 <div class="row">
-                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <h1 class="accordion-floor-title" style="font-weight: 200; color:  #869AA6; padding: 20px;">{{$floor->title}}</h1>
                                         <div class="accordion-floor-description" style="padding: 0 20px 20px 20px; font-size: 18px;">{!! $floor->description !!}</div>
                                         <p class="floor-details" style="padding: 0 20px 20px 20px; font-size: 20px; font-weight: 200;">
@@ -96,14 +110,8 @@
                                                 {{trans('projects::front.from')}} : <span style="font-size: 30px; font-weight: 400; color: #869AA6;">€ {{$floor->apartments->first()->price}}</span>
                                             @endif
                                         </p>
-
-                                        @if(!empty($floor->compass_media()->first()) && $floor->show_media == true)
-                                            <img class="accordion-floor-img" src="{{$floor->compass_media()->first()->getPublicPath()}}" alt="" style="width: 30%;object-fit: contain; margin: 20px;">
-                                        @else
-                                            <img class="accordion-floor-img" src="{{asset('images/fallback/placeholder.png')}}" alt="" style="width: 30%;object-fit: contain; margin: 20px;">
-                                        @endif
                                     </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                                         <a class="" href="#">
 
@@ -120,13 +128,26 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div><!-- FLOOR -->
                 @endforeach
-            </div>
+            </div><!-- ACCORDION -->
+                @if($agent->isDesktop())
+                </div><!-- PARALLAX IMG LAYER 3 -->
+                </div><!-- PARALLAX IMG LAYER 2 -->
+                </div><!-- PARALLAX IMG LAYER 1 -->
+                @elseif($agent->isMobile())
+                </div><!-- STATIC IMG BG -->
+                @endif
+
+                <div class="visual-footer">
+                    @if(!empty($project->base_media()->first()) && $project->show_media == true)
+                        <img src="{{$project->base_media()->first()->getPublicPath()}}" alt="">
+                    @else
+                        <img src="{{ asset('images/visual-selection/base.png') }}" alt="">
+                    @endif
                 </div>
-                </div>
-                </div>
-            </div>
+
+            </div><!-- PARALLAX IMG CONTAINER -->
         @endif
     @endforeach
 

@@ -10482,7 +10482,7 @@ a.text-dark:focus {
 #name-drop-icon,
 #exp-drop-icon,
 .far,
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .vis-select i,
+.project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i,
 .fal,
 .fab,
 .foot span #fb,
@@ -10498,7 +10498,7 @@ a.text-dark:focus {
   line-height: 1;
 }
 
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .vis-select i,
+.project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i,
 #top i,
 #name-drop-icon,
 #exp-drop-icon,
@@ -10613,7 +10613,7 @@ a.text-dark:focus {
 .fa-pull-left#name-drop-icon,
 .fa-pull-left#exp-drop-icon,
 .far.fa-pull-left,
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .vis-select i.fa-pull-left,
+.project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i.fa-pull-left,
 .fal.fa-pull-left,
 .fab.fa-pull-left,
 .foot span .fa-pull-left#fb,
@@ -10629,7 +10629,7 @@ a.text-dark:focus {
 .fa-pull-right#name-drop-icon,
 .fa-pull-right#exp-drop-icon,
 .far.fa-pull-right,
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .vis-select i.fa-pull-right,
+.project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i.fa-pull-right,
 .fal.fa-pull-right,
 .fab.fa-pull-right,
 .foot span .fa-pull-right#fb,
@@ -15549,7 +15549,7 @@ readers do not read off random characters that represent icons */
 }
 
 .far,
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .vis-select i {
+.project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i {
   font-family: 'Font Awesome 5 Free';
   font-weight: 400;
 }
@@ -15997,56 +15997,55 @@ readers do not read off random characters that represent icons */
     VISUAL SELECTION
 ----------------------------------------------------- */
 
-.project-parallax-img-container .project-parallax-img-layer-one {
-  background-size: cover;
-  background-position: top;
-  height: 100%;
-  width: 100%;
-}
-
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview {
+.project-parallax-img-container .project-overview {
   padding: 150px 10px 100px 10px;
 }
 
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview h1 {
+.project-parallax-img-container .project-overview h1 {
   padding: 35px 0;
   font-weight: 400;
   font-size: 40px;
   color: #ffffff;
 }
 
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box {
-  padding: 25px 25px;
-  border: 1px solid white;
-  background-color: rgba(255, 255, 255, 0.05);
+.project-parallax-img-container .project-overview #project-title {
+  font-size: 80px;
+  margin: 0 auto 50px auto;
 }
 
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions {
+.project-parallax-img-container .project-overview .overview-box {
+  padding: 25px 25px;
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.project-parallax-img-container .project-overview .overview-box .project-instructions {
   color: #ffffff;
 }
 
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .vis-select {
+.project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select {
   text-align: left;
 }
 
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .vis-select i:before {
+.project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i:before {
   content: "\F06E";
   font-size: 85px;
   color: #ffffff;
 }
 
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .vis-select h1 {
+.project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select h1 {
   color: #72DDB6;
   font-weight: 600;
   text-transform: uppercase;
 }
 
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .how-to p {
+.project-parallax-img-container .project-overview .overview-box .project-instructions .how-to p {
+  text-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
   font-size: 20px;
   padding: 25px 0 0 0;
 }
 
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .how-to .arrow-1 {
+.project-parallax-img-container .project-overview .overview-box .project-instructions .how-to .arrow-1 {
   position: relative;
   margin: auto;
   height: 25px;
@@ -16057,26 +16056,33 @@ readers do not read off random characters that represent icons */
           transform: rotate(135deg);
 }
 
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .project-info h1 {
+.project-parallax-img-container .project-overview .overview-box .project-instructions .project-info h1 {
   padding: 20px 0;
   margin: 0;
   color: #72DDB6;
   font-weight: 600;
 }
 
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .project-info h1 span {
+.project-parallax-img-container .project-overview .overview-box .project-instructions .project-info h1 span {
   color: #72DDB6;
   font-size: 60px;
   font-weight: 800;
 }
 
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .project-info p {
+.project-parallax-img-container .project-overview .overview-box .project-instructions .project-info p {
   color: #133860;
   font-size: 20px;
 }
 
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .project-info p span {
+.project-parallax-img-container .project-overview .overview-box .project-instructions .project-info p span {
   font-weight: 600;
+}
+
+.project-parallax-img-container .project-parallax-img-layer-one {
+  background-size: cover;
+  background-position: top;
+  height: 100%;
+  width: 100%;
 }
 
 .project-parallax-img-container .project-parallax-img-layer-two {
@@ -16088,16 +16094,30 @@ readers do not read off random characters that represent icons */
 
 .project-parallax-img-container .project-layer-three {
   background-size: cover;
-  background-position: top;
+  background-position: bottom;
   height: 100%;
-  min-width: 100%;
+  width: 100%;
+}
+
+.project-parallax-img-container .project-static-bg {
+  background-size: cover;
+  background-position: bottom;
+  height: 100%;
+  width: 100%;
+}
+
+.project-parallax-img-container .visual-footer img {
+  height: 400px;
+  width: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #floor-select {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  margin: 10vh auto auto auto;
-  padding: 0 0 785px 0;
+  margin: 10vh auto -1px auto;
+  padding: 0;
   width: 100%;
 }
 
@@ -16114,6 +16134,7 @@ readers do not read off random characters that represent icons */
 }
 
 #floor-select .card .floor-row .card-header {
+  background-color: rgba(0, 0, 0, 0);
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   border: none;
@@ -16205,24 +16226,6 @@ readers do not read off random characters that represent icons */
     MEDIA QUERIES
 ----------------------------------------------------- */
 
-@media (max-width: 769px) {
-  .post-content .close-blog-modal {
-    top: -10px;
-    right: 10px;
-    padding: 0;
-    font-size: 40px;
-  }
-
-  .post-content .post-container {
-    margin-top: 75px;
-  }
-
-  .post-content .post-container .modal-post-title {
-    margin-top: 0;
-    font-size: 30px;
-  }
-}
-
 @media (min-width: 992px) {
   .modal-lg {
     max-width: 90%;
@@ -16251,6 +16254,102 @@ readers do not read off random characters that represent icons */
   }
 }
 
+@media (max-width: 1025px) {
+  #floor-select .card .card-header:hover img {
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+
+  .project-parallax-img-container .project-overview {
+    padding: 0 10px;
+  }
+
+  .project-parallax-img-container .project-overview #project-title {
+    font-size: 65px;
+    margin: auto auto 20px auto;
+  }
+
+  .project-parallax-img-container .project-overview .overview-box {
+    padding: 0 0 15px 0;
+  }
+
+  .project-parallax-img-container #building {
+    padding: 0 10%;
+  }
+}
+
+@media (max-width: 769px) {
+  .post-content .close-blog-modal {
+    top: -10px;
+    right: 10px;
+    padding: 0;
+    font-size: 40px;
+  }
+
+  .post-content .post-container {
+    margin-top: 75px;
+  }
+
+  .post-content .post-container .modal-post-title {
+    margin-top: 0;
+    font-size: 30px;
+  }
+
+  #floor-select .card .card-header:hover img {
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+
+  .project-parallax-img-container #building {
+    padding: 0 3%;
+  }
+
+  .project-parallax-img-container .project-overview #project-title {
+    font-size: 40px;
+  }
+
+  .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i::before {
+    font-size: 45px;
+  }
+
+  .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select h1 {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 30px;
+  }
+
+  .project-parallax-img-container .project-overview .overview-box .project-instructions .how-to p {
+    font-size: 16px;
+    padding: 15px 0 0 0;
+  }
+
+  .project-parallax-img-container .project-overview .overview-box .project-instructions .how-to .arrow-1 {
+    height: 20px;
+    width: 20px;
+  }
+
+  .project-parallax-img-container .project-overview .overview-box .project-instructions .project-info h1 {
+    padding: 0 0 10px 0;
+    font-size: 30px;
+  }
+
+  .project-parallax-img-container .project-overview .overview-box .project-instructions .project-info h1 span {
+    font-size: 45px;
+  }
+
+  .project-parallax-img-container .project-overview .overview-box .project-instructions .project-info p {
+    font-size: 16px;
+  }
+
+  .project-parallax-img-container .visual-footer img {
+    height: 200px;
+  }
+}
+
 /*!
  * Font Awesome Free 5.3.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -16262,7 +16361,7 @@ readers do not read off random characters that represent icons */
 #name-drop-icon,
 #exp-drop-icon,
 .far,
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .vis-select i,
+.project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i,
 .fal,
 .fab,
 .foot span #fb,
@@ -16278,7 +16377,7 @@ readers do not read off random characters that represent icons */
   line-height: 1;
 }
 
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .vis-select i,
+.project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i,
 #top i,
 #name-drop-icon,
 #exp-drop-icon,
@@ -16393,7 +16492,7 @@ readers do not read off random characters that represent icons */
 .fa-pull-left#name-drop-icon,
 .fa-pull-left#exp-drop-icon,
 .far.fa-pull-left,
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .vis-select i.fa-pull-left,
+.project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i.fa-pull-left,
 .fal.fa-pull-left,
 .fab.fa-pull-left,
 .foot span .fa-pull-left#fb,
@@ -16409,7 +16508,7 @@ readers do not read off random characters that represent icons */
 .fa-pull-right#name-drop-icon,
 .fa-pull-right#exp-drop-icon,
 .far.fa-pull-right,
-.project-parallax-img-container .project-parallax-img-layer-one .project-overview .overview-box .project-instructions .vis-select i.fa-pull-right,
+.project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i.fa-pull-right,
 .fal.fa-pull-right,
 .fab.fa-pull-right,
 .foot span .fa-pull-right#fb,

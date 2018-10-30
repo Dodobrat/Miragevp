@@ -365,11 +365,6 @@
 ----------------------------------------------------- */
 
 .project-parallax-img-container{
-  .project-parallax-img-layer-one{
-    background-size: cover;
-    background-position: top;
-    height: 100%;
-    width: 100%;
     .project-overview{
       padding: 150px 10px 100px 10px;
       h1{
@@ -378,10 +373,14 @@
         font-size: 40px;
         color: #ffffff;
       }
+      #project-title{
+        font-size: 80px;
+        margin: 0 auto 50px auto;
+      }
       .overview-box{
         padding: 25px 25px;
         border: 1px solid rgba(255,255,255,1);
-        background-color: rgba(255,255,255,0.05);
+        background-color: rgba(255,255,255,0.1);
         .project-instructions{
           color: #ffffff;
           .vis-select{
@@ -403,6 +402,7 @@
           }
           .how-to{
             p{
+              text-shadow: 0px 1px 10px rgba(0,0,0,0.3);
               font-size: 20px;
               padding: 25px 0 0 0;
             }
@@ -437,8 +437,12 @@
           }
         }
       }
-
-    }
+  }
+  .project-parallax-img-layer-one{
+    background-size: cover;
+    background-position: top;
+    height: 100%;
+    width: 100%;
   }
   .project-parallax-img-layer-two{
     background-size: cover;
@@ -448,16 +452,29 @@
   }
   .project-layer-three{
     background-size: cover;
-    background-position: top;
+    background-position: bottom;
     height: 100%;
-    min-width: 100%;
+    width: 100%;
+  }
+  .project-static-bg{
+    background-size: cover;
+    background-position: bottom;
+    height: 100%;
+    width: 100%;
+  }
+  .visual-footer{
+    img{
+      height: 400px;
+      width: auto;
+      object-fit: cover;
+    }
   }
 }
 
 #floor-select{
   transition: 0.3s ease-in-out;
-  margin: 10vh auto auto auto;
-  padding: 0 0 785px 0;
+  margin: 10vh auto -1px auto;
+  padding: 0;
   width: 100%;
   .card{
     background-color: rgba(0,0,0,0);
@@ -467,6 +484,7 @@
     .floor-row{
       margin: 0;
       .card-header{
+        background-color: rgba(0,0,0,0);
         transition: 0.3s ease-in-out;
         border: none;
         border-radius: 0;
@@ -537,23 +555,6 @@
 /* ---------------------------------------------------
     MEDIA QUERIES
 ----------------------------------------------------- */
-@media (max-width: 769px) {
-  .post-content{
-    .close-blog-modal{
-      top: -10px;
-      right: 10px;
-      padding: 0;
-      font-size: 40px;
-    }
-    .post-container{
-      margin-top: 75px;
-      .modal-post-title{
-        margin-top: 0;
-        font-size: 30px;
-      }
-    }
-  }
-}
 
 @media (min-width: 992px){
   .modal-lg{
@@ -579,4 +580,112 @@
       flex:1 0 31%;
     }
   }
+}
+
+@media (max-width: 1025px){
+  #floor-select{
+    .card{
+      .card-header:hover{
+        img{
+          transition: 0.3s ease-in-out;
+          transform: scale(1);
+        }
+      }
+    }
+  }
+  .project-parallax-img-container{
+      .project-overview{
+        padding: 0 10px;
+        #project-title{
+          font-size: 65px;
+          margin: auto auto 20px auto;
+        }
+        .overview-box{
+          padding: 0 0 15px 0;
+        }
+      }
+    #building{
+      padding: 0 10%;
+    }
+    }
+}
+
+@media (max-width: 769px) {
+  .post-content{
+    .close-blog-modal{
+      top: -10px;
+      right: 10px;
+      padding: 0;
+      font-size: 40px;
+    }
+    .post-container{
+      margin-top: 75px;
+      .modal-post-title{
+        margin-top: 0;
+        font-size: 30px;
+      }
+    }
+  }
+  #floor-select{
+    .card{
+      .card-header:hover{
+        img{
+          transition: 0.3s ease-in-out;
+          transform: scale(1);
+        }
+      }
+    }
+  }
+  .project-parallax-img-container{
+    #building{
+      padding: 0 3%;
+    }
+    .project-overview{
+      #project-title{
+        font-size: 40px;
+      }
+      .overview-box{
+        .project-instructions{
+          .vis-select{
+            i::before{
+              font-size: 45px;
+            }
+            h1{
+              margin: 0;
+              padding: 10px 0;
+              font-size: 30px;
+            }
+          }
+          .how-to{
+            p{
+              font-size: 16px;
+              padding: 15px 0 0 0;
+            }
+            .arrow-1{
+              height: 20px;
+              width: 20px;
+            }
+          }
+          .project-info{
+            h1{
+              padding: 0 0 10px 0;
+              font-size: 30px;
+              span{
+                font-size: 45px;
+              }
+            }
+            p{
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+    .visual-footer{
+      img{
+        height: 200px;
+      }
+    }
+  }
+
 }

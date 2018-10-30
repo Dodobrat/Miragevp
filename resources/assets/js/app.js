@@ -85,7 +85,7 @@ let mobileCounter = 0;
 let counter = 1;
 sideNavLinks = Array.from(sideNavLinks);
 sideNavLinks.reverse();
-if (window.innerWidth >= 767 && window.innerWidth <= 1050){
+if (window.innerWidth > 767 && window.innerWidth < 1350){
     window.onresize = function(){ location.reload(); }
 }
 

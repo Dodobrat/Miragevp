@@ -18963,7 +18963,7 @@ var mobileCounter = 0;
 var counter = 1;
 sideNavLinks = Array.from(sideNavLinks);
 sideNavLinks.reverse();
-if (window.innerWidth >= 767 && window.innerWidth <= 1050) {
+if (window.innerWidth > 767 && window.innerWidth < 1350) {
     window.onresize = function () {
         location.reload();
     };
@@ -19329,13 +19329,9 @@ $(window).scroll(function () {
 
 function parallax() {
     var wScroll = $(window).scrollTop();
-
     $('.parallax-img').css('background-position', 'center ' + wScroll * 0.6 + 'px');
-    $('.project-parallax-img-layer-one').css('background-position', 'center ' + wScroll * 0.2 + 'px');
+    $('.project-parallax-img-layer-one').css('background-position', 'center ' + wScroll * 0.35 + 'px');
     $('.project-parallax-img-layer-two').css('background-position', 'center ' + wScroll * 0.5 + 'px');
-    // $('.project-parallax-img-layer-one').css('background-position', 'center '+(wScroll*0)+'px');
-    // $('.project-parallax-img-layer-two').css('background-position', 'center '+(wScroll*0)+'px');
-    // $('.project-parallax-img-layer-three').css('background-position', 'center '+(wScroll*0)+'px');
 }
 
 // ---------------------------------------------------
