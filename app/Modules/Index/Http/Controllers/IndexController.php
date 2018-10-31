@@ -6,12 +6,14 @@ use App\Modules\Showroom\Models\Showroom;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
+use Jenssegers\Agent\Agent;
 
 class IndexController extends Controller
 {
     public function index() {
-        $showrooms= Showroom::reversed()->get();
-        return view('welcome',compact('showrooms'));
+        $agent = new Agent();
+        $showrooms= Showroom::reversed()->with('media')->get();
+        return view('welcome',compact('showrooms','agent'));
 
     }
 }

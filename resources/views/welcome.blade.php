@@ -37,7 +37,7 @@
 
 <section class="landing-image-container" id="land-img">
 
-
+@if($agent->isDesktop() && $agent->is('Chrome'))
     <div class="landing-image parallax-img"
          @if(!empty(Settings::getFile('index_landing_image')))
          style="background-image: url('{{ Settings::getFile('index_landing_image') }}');"
@@ -54,6 +54,24 @@
             </h3>
         </div>
     </div>
+    @else
+    <div class="landing-image static-img"
+         @if(!empty(Settings::getFile('index_landing_image')))
+         style="background-image: url('{{ Settings::getFile('index_landing_image') }}');"
+         @else
+         style="background-image: url('{{ asset('images/fallback/placeholder.png') }}');"
+            @endif >
+        <div class="container">
+            <h3 class="motto">
+                @if(!empty(Administration::getStaticBlock('motto')))
+                    {!! Administration::getStaticBlock('motto') !!}
+                    @else
+                    {{ trans('front.static-block-motto') }}
+                @endif
+            </h3>
+        </div>
+    </div>
+    @endif
     {{--@if(!empty(Settings::getFile('index_landing_image')))--}}
     {{--<div class="landing-image" style="background-image: url('{{ Settings::getFile('index_landing_image') }}')--}}
 
