@@ -1,27 +1,27 @@
 @extends('layouts.app')
 @section('content')
 
-
+{{--{{dd($agent->isDesktop() && $agent->is('Chrome'))}}--}}
     @foreach($projects as $project)
         @if($project->visible == true)
             <div class="project-parallax-img-container">
-                @if($agent->isDesktop())
+                @if($agent->isDesktop() && $agent->is('Chrome'))
                     <div class="project-parallax-img-layer-one"
                         @if(!empty($project->layer_one_media()->first()) && $project->show_media == true)
                              style="background-image: url('{{$project->layer_one_media()->first()->getPublicPath()}}');"
                         @else
                              style="background-image: url('{{ asset('images/visual-selection/bg-1.png') }}');"
                         @endif
-                    >@endif
-                        @if($agent->isDesktop())
+                    >@endif<!--endif Desktop-->
+                        @if($agent->isDesktop() && $agent->is('Chrome'))
                     <div class="project-parallax-img-layer-two"
                         @if(!empty($project->layer_two_media()->first()) && $project->show_media == true)
                              style="background-image: url('{{$project->layer_two_media()->first()->getPublicPath()}}');"
                         @else
                              style="background-image: url('{{ asset('images/visual-selection/upper_cloud.png') }}');"
                         @endif
-                    >@endif
-                        @if($agent->isDesktop())
+                    >@endif<!--endif Desktop-->
+                        @if($agent->isDesktop() && $agent->is('Chrome'))
                     <div class="project-layer-three"
                         @if(!empty($project->layer_three_media()->first()) && $project->show_media == true)
                             style="background-image: url('{{$project->layer_three_media()->first()->getPublicPath()}}');"
@@ -29,8 +29,8 @@
                             style="background-image: url('{{ asset('images/visual-selection/bg-street.png') }}');"
                         @endif
                     >
-                @endif
-                        @if($agent->isMobile())
+                    @endif<!--endif Desktop-->
+                        @if($agent->isMobile() || $agent->is('Firefox'))
                     <div class="project-static-bg"
                         @if(!empty($project->layer_one_media()->first()) && $project->show_media == true)
                             style="background-image: url('{{$project->layer_one_media()->first()->getPublicPath()}}');"
@@ -38,7 +38,16 @@
                             style="background-image: url('{{ asset('images/visual-selection/bg-1.png') }}');"
                         @endif
                     >
-                @endif
+                @endif<!--endif Mobile / Firefox-->
+                        @if($agent->is('Firefox'))
+                            <div class="project-layer-three"
+                                 @if(!empty($project->layer_three_media()->first()) && $project->show_media == true)
+                                 style="background-image: url('{{$project->layer_three_media()->first()->getPublicPath()}}');"
+                                 @else
+                                 style="background-image: url('{{ asset('images/visual-selection/bg-street.png') }}');"
+                                    @endif
+                            >
+                            @endif<!--endif Firefox-->
 
 
 
@@ -83,6 +92,7 @@
                                     @else
                                         <img src="{{asset('images/fallback/placeholder.png')}}" alt="" style="opacity: 0.5">
                                     @endif
+                                    @if($agent->isDesktop())
                                     <p class="floor-number">
                                         {{ $floor->floor_num }}
                                     </p>
@@ -94,6 +104,11 @@
                                             @endif
                                         </span>
                                     </p>
+                                    @elseif($agent->isMobile() || $agent->is('Firefox'))
+                                    <p class="floor-mobile-num">
+                                        {{ $floor->floor_num }}
+                                    </p>
+                                    @endif<!--endif Desktop & Mobile-->
                                 </button>
                             </div>
 
@@ -135,15 +150,17 @@
                             </div>
                         </div>
                     </div><!-- FLOOR -->
-                @endforeach
+                @endforeach<!--endforeach Floor-->
             </div><!-- ACCORDION -->
-                @if($agent->isDesktop())
+                @if($agent->isDesktop() && $agent->is('Chrome'))
                 </div><!-- PARALLAX IMG LAYER 3 -->
                 </div><!-- PARALLAX IMG LAYER 2 -->
                 </div><!-- PARALLAX IMG LAYER 1 -->
+                @elseif($agent->is('Firefox'))
+                </div>
                 @elseif($agent->isMobile())
                 </div><!-- STATIC IMG BG -->
-                @endif
+                @endif<!--endif Desktop / Firefox / Mobile-->
 
                 <div class="visual-footer">
                     @if(!empty($project->base_media()->first()) && $project->show_media == true)
@@ -151,13 +168,38 @@
                     @else
                         <img src="{{ asset('images/visual-selection/base.png') }}" alt="">
                     @endif
+                    <div class="visual-sales">
+                        <div class="row enquiries">
+                            <div class="col">{{ trans('projects::front.sales-enquiries') }}</div>
+                        </div>
+                        @if(isset($contacts_cache) == true)
+                            @if( !empty($contacts_cache->first()->phone) || !empty($contacts_cache->first()->address) || !empty($contacts_cache->first()->email) )
+                                <div class="row query-info">
+                                    @if(!empty($contacts_cache->first()->address))
+                                        <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12 q-i">
+                                            {{ $contacts_cache->first()->address }}
+                                        </div>
+                                    @endif
+                                    @if(!empty($contacts_cache->first()->email))
+                                        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12 q-i">
+                                            {{ $contacts_cache->first()->email }}
+                                        </div>
+                                    @endif
+                                    @if(!empty($contacts_cache->first()->phone))
+                                        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12 q-i">
+                                            {{ $contacts_cache->first()->phone }}
+                                        </div>
+                                    @endif
+                                </div>
+                            @endif
+                        @endif<!--endif CONTACTS CACHE-->
+                    </div>
+
                 </div>
 
             </div><!-- PARALLAX IMG CONTAINER -->
         @endif
-    @endforeach
-
-    {{--@include('layouts.footer')--}}
+    @endforeach <!--foreach PROJECT-->
 
 
 @endsection

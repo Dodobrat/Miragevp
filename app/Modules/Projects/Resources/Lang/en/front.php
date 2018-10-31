@@ -11,5 +11,6 @@ return [
     'scroll-down' => 'Scroll down',
     'choose-floor' => 'Choose a floor',
     'view-floor-plans' => 'View floor plans',
+    'sales-enquiries' => 'Sales Enquiries',
 
 ];

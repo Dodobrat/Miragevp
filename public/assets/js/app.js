@@ -19409,6 +19409,11 @@ function handleGesture(e) {
 // ---------------------------------------------------
 //         CONTENT - CLOSE ACCORDION ON CLICK AWAY
 // ---------------------------------------------------
+$(document).click(function (e) {
+    if (!$(e.target).is('.card-body')) {
+        $('.collapse').collapse('hide');
+    }
+});
 
 /***/ }),
 
