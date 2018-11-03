@@ -49,12 +49,12 @@ class Projects extends AdminModel
 
     public function floors()
     {
-        $this->hasMany(Floors::class, 'project_id', 'id');
+        return $this->hasMany(Floors::class, 'project_id', 'id');
     }
 
     public function apartments()
     {
-        $this->hasMany(Apartments::class, 'project_id', 'id');
+        return $this->hasMany(Apartments::class, 'project_id', 'id');
     }
 
     /**

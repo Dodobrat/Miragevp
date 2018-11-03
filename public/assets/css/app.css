@@ -15578,6 +15578,25 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Brands';
 }
 
+/*!
+ * Font Awesome Free 5.3.1 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.eot?7422060ca379ee9939d3b687d072acad);
+  src: url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.eot?7422060ca379ee9939d3b687d072acad) format("embedded-opentype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.woff2?949a2b066ec37f5a384712fc7beaf2f1) format("woff2"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.woff?381af09a1366b6c2ae65eac5dd6f0588) format("woff"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.ttf?73fe7f1effbf382f499831a0a9f18626) format("truetype"), url(/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.svg?b5a61b229c9c92a6ac21f5b0e3c6e9f1) format("svg");
+}
+
+.far,
+.project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400;
+}
+
 /* ---------------------------------------------------
     SHOWROOM THUMBNAIL SECTION
 ----------------------------------------------------- */

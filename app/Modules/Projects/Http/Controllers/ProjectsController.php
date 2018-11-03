@@ -13,10 +13,22 @@ class ProjectsController extends Controller
 {
     public function index() {
         $agent = new Agent();
-        $projects = Projects::with(['layer_one_media','layer_two_media','layer_three_media','base_media'])->get();
-        $floors = Floors::reversed()->with(['thumbnail_media','plan_media','apartments' => function($q) {
-            return $q->where('user_id',null)->orderBy('price', 'asc');
-        }])->get();
+        $projects = Projects::with(
+            [
+                'layer_one_media',
+                'layer_two_media',
+                'layer_three_media',
+                'base_media',
+                'floors' => function($q) {
+                return $q->reversed();
+                },
+                'floors.plan_media',
+                'floors.thumbnail_media',
+                'floors.apartments' => function($q) {
+                    return $q->where('user_id',null)->orderBy('price', 'asc');
+                },
+
+            ])->get();
         $apartments = Apartments::get();
         return view('projects::project',compact('projects','floors','apartments','agent'));
     }

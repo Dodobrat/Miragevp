@@ -4,11 +4,12 @@
 {{--{{dd($agent->isDesktop() && $agent->is('Chrome'))}}--}}
     @foreach($projects as $project)
         @if($project->visible == true)
+            {{--{{dd($project->floors->apartments)}}--}}
             <div class="project-parallax-img-container">
                 @if($agent->isDesktop() && $agent->is('Chrome'))
                     <div class="project-parallax-img-layer-one"
                         @if(!empty($project->layer_one_media()->first()) && $project->show_media == true)
-                             style="background-image: url('{{$project->layer_one_media()->first()->getPublicPath()}}');"
+                             style="background-image: url('{{$project->layer_one_media->first()->getPublicPath()}}');"
                         @else
                              style="background-image: url('{{ asset('images/visual-selection/bg-1.png') }}');"
                         @endif
@@ -16,7 +17,7 @@
                         @if($agent->isDesktop() && $agent->is('Chrome'))
                     <div class="project-parallax-img-layer-two"
                         @if(!empty($project->layer_two_media()->first()) && $project->show_media == true)
-                             style="background-image: url('{{$project->layer_two_media()->first()->getPublicPath()}}');"
+                             style="background-image: url('{{$project->layer_two_media->first()->getPublicPath()}}');"
                         @else
                              style="background-image: url('{{ asset('images/visual-selection/upper_cloud.png') }}');"
                         @endif
@@ -24,16 +25,16 @@
                         @if($agent->isDesktop() && $agent->is('Chrome'))
                     <div class="project-layer-three"
                         @if(!empty($project->layer_three_media()->first()) && $project->show_media == true)
-                            style="background-image: url('{{$project->layer_three_media()->first()->getPublicPath()}}');"
+                            style="background-image: url('{{$project->layer_three_media->first()->getPublicPath()}}');"
                         @else
                             style="background-image: url('{{ asset('images/visual-selection/bg-street.png') }}');"
                         @endif
                     >
                     @endif<!--endif Desktop-->
-                        @if($agent->isMobile() || $agent->is('Firefox'))
+                        @if($agent->isMobile())
                     <div class="project-static-bg"
                         @if(!empty($project->layer_one_media()->first()) && $project->show_media == true)
-                            style="background-image: url('{{$project->layer_one_media()->first()->getPublicPath()}}');"
+                            style="background-image: url('{{$project->layer_one_media->first()->getPublicPath()}}');"
                         @else
                             style="background-image: url('{{ asset('images/visual-selection/bg-1.png') }}');"
                         @endif
@@ -42,7 +43,7 @@
                         @if($agent->is('Firefox'))
                             <div class="project-layer-three"
                                  @if(!empty($project->layer_three_media()->first()) && $project->show_media == true)
-                                 style="background-image: url('{{$project->layer_three_media()->first()->getPublicPath()}}');"
+                                 style="background-image: url('{{$project->layer_three_media->first()->getPublicPath()}}');"
                                  @else
                                  style="background-image: url('{{ asset('images/visual-selection/bg-street.png') }}');"
                                     @endif
@@ -68,7 +69,7 @@
                             <p>{{trans('projects::front.view-floor-plans')}}</p>
                         </div>
                         <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 project-info">
-                            <h1><span>{{$floors->count()}}</span><br>{{trans('projects::front.floors')}}</h1>
+                            <h1><span>{{$project->floors->count()}}</span><br>{{trans('projects::front.floors')}}</h1>
                             <p><span>{{$apartments->where('type','apartment')->count()}}</span> {{trans('projects::front.apartments')}}</p>
                             <p><span>{{$apartments->where('type','office')->count()}}</span> {{trans('projects::front.office-spaces')}}</p>
                         </div>
@@ -79,7 +80,7 @@
 
 
             <div class="accordion" id="floor-select">
-                @foreach($floors as $floor)
+                @foreach($project->floors as $floor)
 
                     <div class="card floor-card">
 
@@ -87,8 +88,8 @@
 
                             <div class="container-fluid" id="building">
                                 <button class="col card-header collapsed" id="heading_{{$floor->id}}" type="button" data-toggle="collapse" data-target="#collapse_{{$floor->id}}" aria-expanded="false" aria-controls="collapse_{{$floor->id}}">
-                                    @if(!empty($floor->thumbnail_media()->first()) && $floor->show_media == true)
-                                        <img src="{{$floor->thumbnail_media()->first()->getPublicPath()}}" alt="">
+                                    @if(!empty($floor->thumbnail_media->first()) && $floor->show_media == true)
+                                        <img src="{{$floor->thumbnail_media->first()->getPublicPath()}}" alt="">
                                     @else
                                         <img src="{{asset('images/fallback/placeholder.png')}}" alt="" style="opacity: 0.5">
                                     @endif
@@ -136,8 +137,8 @@
 
                                         <a class="" href="#">
 
-                                            @if(!empty($floor->plan_media()->first()) && $floor->show_media == true)
-                                                <img class="accordion-plan-img" src="{{$floor->plan_media()->first()->getPublicPath()}}" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+                                            @if(!empty($floor->plan_media->first()) && $floor->show_media == true)
+                                                <img class="accordion-plan-img" src="{{$floor->plan_media->first()->getPublicPath()}}" alt="" style="width: 100%; height: 100%; object-fit: contain;">
                                             @else
                                                 <img class="accordion-plan-img" src="{{asset('images/fallback/placeholder.png')}}" alt="" style="width: 100%; height: 100%; object-fit: contain;">
                                             @endif
@@ -163,8 +164,8 @@
                 @endif<!--endif Desktop / Firefox / Mobile-->
 
                 <div class="visual-footer">
-                    @if(!empty($project->base_media()->first()) && $project->show_media == true)
-                        <img src="{{$project->base_media()->first()->getPublicPath()}}" alt="">
+                    @if(!empty($project->base_media->first()) && $project->show_media == true)
+                        <img src="{{$project->base_media->first()->getPublicPath()}}" alt="">
                     @else
                         <img src="{{ asset('images/visual-selection/base.png') }}" alt="">
                     @endif
