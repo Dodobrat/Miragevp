@@ -11,9 +11,8 @@ use Jenssegers\Agent\Agent;
 class IndexController extends Controller
 {
     public function index() {
-        $agent = new Agent();
         $showrooms= Showroom::reversed()->with('media')->get();
-        return view('welcome',compact('showrooms','agent'));
+        return view('welcome',compact('showrooms'));
 
     }
 }

@@ -13,4 +13,8 @@ class FloorsController extends Controller
         $floors = Floors::reversed()->get();
         return view('floors::floors',compact('floors'));
     }
+
+//    public function view($slug){
+//        return view('floors::view');
+//    }
 }

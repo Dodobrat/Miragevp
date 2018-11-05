@@ -48,12 +48,20 @@
 
 <div class="top-nav">
     <a id="toggler" class="top-nav-toggler">
+        @if($agent->isDesktop())
         <div class="hamburger is-active" id="hamburger">
             <span class="line"></span>
-            <span class="line" style="opacity: 0"></span>
+            <span class="line" style="opacity: 0;"></span>
             <span class="line"></span>
         </div>
         <span id="menu">Menu</span>
+        @elseif($agent->isMobile())
+        <div class="hamburger" id="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+        @endif
     </a>
     <a href="{{ route('welcome') }}" class="top-nav-link-head">
         <img class="top-nav-link-head-img" src="
@@ -67,8 +75,13 @@
     <a class="top-nav-link-trans-left top-nav-link-trans" href="{{ LaravelLocalization::getLocalizedURL('fr') }}">FR</a>
 </div>
 
+@if($agent->isDesktop())
+    <div class="side-nav-desktop">
+@elseif($agent->isMobile())
+    <div class="side-nav-mobile deactivated">
+@endif
+    <div class="side-nav-inside visible">
 
-<div class="side-nav">
     <a class="btn-close" id="mobileCloser">&times;</a>
     <a href="{{ route('welcome') }}" class="side-nav-link">{{ trans('front.home') }}</a>
     <a class="side-nav-link" id="exp-drop">{{trans('front.residences')}}<i id="exp-drop-icon"></i></a>
@@ -82,8 +95,8 @@
             <div id="modalForm" class="custom-modal">
                 <div class="custom-modal-content">
                     <span class="closeBtn">&times;</span>
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-8 col-lg-10 col-md-12 col-sm-12 col-xs-12">
 
                             <form class="form custom-form modal-form-wrapper" method="POST" action="{{ route('login') }}">
                                 {{ csrf_field() }}
@@ -130,7 +143,7 @@
                 <div id="modalForm" class="custom-modal">
                     <div class="custom-modal-content">
                         <div class="row justify-content-center">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-xl-8 col-lg-10 col-md-12 col-sm-12 col-xs-12">
                                 <span class="closeBtn">&times;</span>
                                 <form class="form custom-form modal-form-wrapper" method="POST" action="{{ route('login') }}">
                                     {{ csrf_field() }}
@@ -195,10 +208,10 @@
 @guest
     <a class="side-nav-link" href="{{ route('login') }}">{{trans('front.login')}}</a>
 @endguest
-
+    </div>
 @if(isset($contacts_cache) == true)
     @if( !empty($contacts_cache->first()->phone) || !empty($contacts_cache->first()->address) || !empty($contacts_cache->first()->email) )
-        <div class="contact-section">
+        <div class="contact-section visible">
             @if(!empty($contacts_cache->first()->address))
                 <p class="contact-section-address">{{ trans('front.contacts_address') }} <span>{{ $contacts_cache->first()->address }}</span></p>
             @endif
@@ -211,7 +224,7 @@
         </div>
     @endif
 @endif
-    <div class="news-section">
+    <div class="news-section visible">
         <form method="POST" action="{{ route('newsletter_subscriber.store') }}">
             {{ csrf_field() }}
             <div class="positioning input-effect{{ $errors->has('news_email') ? ' has-error' : '' }}" id="news-field">
@@ -238,9 +251,10 @@
         </form>
     </div>
 
-    <p class="copy">{{ config('app.name', 'MIRAGETOWER') }} &copy;</p>
+    <p class="copy visible">{{ config('app.name', 'MIRAGETOWER') }} &copy;</p>
 
-</div>
+</div><!--end Mobile side nav-->
+    </div><!--end Desktop side nav-->
 
 <div id="main">
 

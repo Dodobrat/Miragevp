@@ -1,0 +1,1 @@
+HELLO {{$floor->id , $floor->title}}

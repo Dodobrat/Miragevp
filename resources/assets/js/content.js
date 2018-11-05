@@ -90,11 +90,28 @@ function handleGesture(e) {
 // ---------------------------------------------------
 //         CONTENT - CLOSE ACCORDION ON CLICK AWAY
 // ---------------------------------------------------
-$(document).click(function(e) {
-    if (!$(e.target).is('.card-body')) {
-        $('.collapse').collapse('hide');
+document.addEventListener('click', function (event) {
+    if (event.target.closest('.card-body')) return;
+    $('.collapse').collapse('hide');
+
+}, false);
+
+if (!Element.prototype.closest) {
+    if (!Element.prototype.matches) {
+        Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
     }
-});
+    Element.prototype.closest = function (s) {
+        var el = this;
+        var ancestor = this;
+        if (!document.documentElement.contains(el)) return null;
+        do {
+            if (ancestor.matches(s)) return ancestor;
+            ancestor = ancestor.parentElement;
+        } while (ancestor !== null);
+        return null;
+    };
+}
+
 
 
 

@@ -3,7 +3,12 @@
 namespace App\Modules\Index\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Contacts\Models\Contacts;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\View;
+use Jenssegers\Agent\Agent;
+use ProVision\Administration\Facades\Administration;
 
 class HomeController extends Controller
 {
@@ -15,6 +20,15 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $contacts_cache = Cache::remember('contacts_cache' . Administration::getLanguage(), env('CACHE_DEFAULT', 360), function () {
+            return Contacts::get();
+        });
+
+        View::share('contacts_cache', $contacts_cache);
+
+
+        $agent = new Agent();
+        View::share('agent', $agent);
     }
 
     /**

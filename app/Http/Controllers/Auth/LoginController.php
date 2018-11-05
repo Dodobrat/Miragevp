@@ -3,10 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Contacts\Models\Contacts;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\View;
+use Jenssegers\Agent\Agent;
 use Laravel\Socialite\Facades\Socialite;
+use ProVision\Administration\Facades\Administration;
 
 class LoginController extends Controller
 {
@@ -38,6 +43,15 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $contacts_cache = Cache::remember('contacts_cache' . Administration::getLanguage(), env('CACHE_DEFAULT', 360), function () {
+            return Contacts::get();
+        });
+
+        View::share('contacts_cache', $contacts_cache);
+
+
+        $agent = new Agent();
+        View::share('agent', $agent);
     }
 
     /**

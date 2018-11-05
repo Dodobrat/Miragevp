@@ -9,6 +9,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\View;
+use Jenssegers\Agent\Agent;
 use ProVision\Administration\Facades\Administration;
 
 class Controller extends BaseController
@@ -22,5 +23,11 @@ class Controller extends BaseController
         });
 
         View::share('contacts_cache', $contacts_cache);
+
+
+        $agent = new Agent();
+        View::share('agent', $agent);
+
+
     }
 }

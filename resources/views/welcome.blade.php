@@ -276,6 +276,12 @@
     </section>
         @include('layouts.footer')
 
-        <a id="top" href="#land-img"><i></i></a>
+        {{--<a id="top" href="#land-img"><i></i></a>--}}
+
+        <a href="#land-img" class="arrow-up">
+            <span class="left-arm"></span>
+            <span class="right-arm"></span>
+            <span class="arrow-slide"></span>
+        </a>
 
     @endsection
