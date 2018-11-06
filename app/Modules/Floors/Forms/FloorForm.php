@@ -9,6 +9,12 @@ class FloorForm extends AdminForm
 {
     public function buildForm()
     {
+
+        $this->add('floor_num', 'text', [
+            'label' => trans('floors::admin.floor_num'),
+            'translate' => true,
+        ]);
+
         $this->add('title', 'text', [
             'label' => trans('floors::admin.title'),
             'translate' => true,
@@ -19,9 +25,7 @@ class FloorForm extends AdminForm
             'translate' => true,
         ]);
 
-        $this->add('floor_num', 'number', [
-            'label' => trans('floors::admin.floor_num'),
-        ]);
+        $this->addSeoFields();
 
         $projects = Projects::reversed()->get()->pluck('title', 'id')->toArray();
 

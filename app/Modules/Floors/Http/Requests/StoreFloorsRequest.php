@@ -30,6 +30,7 @@ class StoreFloorsRequest extends FormRequest
         $trans = [];
 
         foreach ($locales as $locale) {
+            $trans[$locale . '.floor_num'] = 'required|string';
             $trans[$locale . '.title'] = 'required|string';
             $trans[$locale . '.description'] = 'nullable|string';
 
@@ -44,7 +45,6 @@ class StoreFloorsRequest extends FormRequest
         }
 
         $trans['project_id'] = 'required|integer';
-        $trans['floor_num'] = 'required|integer';
         $trans['show_media'] = 'boolean';
 
         return $trans;

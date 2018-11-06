@@ -22193,7 +22193,7 @@ body {
 }
 
 .side-nav-mobile .side-nav-inside .custom-modal .custom-modal-content {
-  width: 50%;
+  width: 95%;
   margin: auto auto;
   opacity: 0;
   -webkit-transition: all 0.5s;
@@ -23150,7 +23150,7 @@ input:-webkit-autofill:active {
   }
 
   .custom-modal-content {
-    width: 80%;
+    width: 100%;
   }
 
   /* ---------------------------------------------------

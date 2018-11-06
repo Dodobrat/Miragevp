@@ -17,8 +17,7 @@ class CreateFloorsTable extends Migration
     {
         Schema::create('floors', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('floor_num')->unsigned();
-            $table->boolean('show_media')->default(true)->comment('Show media'); //show media
+            $table->boolean('show_media')->default(true);
             $table->integer('project_id')->unsigned()->nullable();
             NestedSet::columns($table);
             $table->timestamps();
@@ -28,6 +27,7 @@ class CreateFloorsTable extends Migration
         Schema::create('floors_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('floor_id')->unsigned();
+            $table->string('floor_num');
             $table->string('title');
             $table->string('slug');
             $table->longText('description')->nullable()->default(null);

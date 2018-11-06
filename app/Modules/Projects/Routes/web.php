@@ -14,7 +14,7 @@
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
     /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
-    Route::get('/project', 'ProjectsController@index')->name('project')->middleware('auth');
+    Route::get('/visual-selection', 'ProjectsController@index')->name('visual-selection')->middleware('auth');
 });
 
 

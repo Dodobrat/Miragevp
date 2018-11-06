@@ -20,6 +20,7 @@ class Floors extends AdminModel
      * @var array
      */
     public $translatedAttributes = [
+        'floor_num',
         'title',
         'description',
         'slug',
@@ -31,7 +32,6 @@ class Floors extends AdminModel
     protected $fillable = [
         'show_media',
         'project_id',
-        'floor_num',
     ];
     /**
      * The attributes that should be casted to native types.

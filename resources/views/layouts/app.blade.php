@@ -87,7 +87,7 @@
     <a class="side-nav-link" id="exp-drop">{{trans('front.residences')}}<i id="exp-drop-icon"></i></a>
     <div class="exp-link-drop">
         @if(Auth::check())
-        <a class="exp-link" href="{{ route('project') }}">{{trans('front.visual-selection')}}</a>
+        <a class="exp-link" href="{{ route('visual-selection') }}">{{trans('front.visual-selection')}}</a>
         @else
             <a class="exp-link not-logged">{{trans('front.visual-selection')}}</a>
 

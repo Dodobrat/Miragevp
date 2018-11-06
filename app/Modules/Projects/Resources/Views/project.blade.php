@@ -134,8 +134,8 @@
                                         </p>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-                                        <a class="" href="#">
+{{--{{dd($floor->slug)}}--}}
+                                        <a class="" href="{{ route('floor', ['slug' => $floor->slug]) }}">
 
                                             @if(!empty($floor->plan_media->first()) && $floor->show_media == true)
                                                 <img class="accordion-plan-img" src="{{$floor->plan_media->first()->getPublicPath()}}" alt="" style="width: 100%; height: 100%; object-fit: contain;">
