@@ -71,4 +71,8 @@ class Floors extends AdminModel
     {
         return $this->media('plans');
     }
+    public function compass_media()
+    {
+        return $this->media('compass');
+    }
 }

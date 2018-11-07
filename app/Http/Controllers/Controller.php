@@ -28,6 +28,11 @@ class Controller extends BaseController
         $agent = new Agent();
         View::share('agent', $agent);
 
+        if (!\App::runningInConsole()) {
+            \Breadcrumbs::register('floors_home', function ($breadcrumbs) {
+                $breadcrumbs->push(trans('projects::front.vis-selection'), route('visual-selection'));
+            });
+        }
 
     }
 }

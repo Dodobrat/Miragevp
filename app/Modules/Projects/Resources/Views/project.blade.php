@@ -31,7 +31,7 @@
                         @endif
                     >
                     @endif<!--endif Desktop-->
-                        @if($agent->isMobile())
+                        @if($agent->isMobile() || $agent->is('Firefox'))
                     <div class="project-static-bg"
                         @if(!empty($project->layer_one_media()->first()) && $project->show_media == true)
                             style="background-image: url('{{$project->layer_one_media->first()->getPublicPath()}}');"

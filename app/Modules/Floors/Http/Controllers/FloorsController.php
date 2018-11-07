@@ -4,9 +4,11 @@ namespace App\Modules\Floors\Http\Controllers;
 
 use App\Modules\Floors\Models\Floors;
 use App\Modules\Floors\Models\FloorsTranslation;
+use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
+use ProVision\Administration\Facades\Settings;
 
 class FloorsController extends Controller
 {
@@ -16,6 +18,8 @@ class FloorsController extends Controller
     }
 
     public function show($slug){
+
+        $floors = Floors::with('apartments')->get();
 
         $current_floor =  Floors::whereHas('translations',
             function ($query) use ($slug) {
@@ -32,6 +36,15 @@ class FloorsController extends Controller
                 abort(404);
             }
         }
-        return view('floors::show', compact('current_floor'));
+
+        Breadcrumbs::register('index', function ($breadcrumbs) use ($current_floor) {
+            $breadcrumbs->parent('floors_home');
+            $breadcrumbs->push(trans('floors::front.floor-plans'), route('floors'));
+            $breadcrumbs->push($current_floor->floor_num, route('floor', ['slug' => $current_floor->slug]));
+        });
+
+//        $apartment = Apartments::get();
+
+        return view('floors::show', compact('current_floor','floors'));
     }
 }
