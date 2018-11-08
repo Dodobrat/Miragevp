@@ -111,6 +111,7 @@ input:required {
     GENERAL STYLES
 ----------------------------------------------------- */
 body{
+  font-family: $primary-font;
   background-color: #f9f9f9;
 }
 
@@ -303,7 +304,7 @@ body{
   overflow: hidden;
   background-color: #ffffff;
   transition: all 0.5s ease-in-out;
-  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+  //box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
   z-index: 1;
   .hamburger{
     display: inline-block;
@@ -572,7 +573,7 @@ body{
   overflow-x:hidden;
   padding-top: 55px;
   transition: all 0.5s ease-in-out;
-  box-shadow: 0px 45px 20px 0px rgba(0,0,0,0.09);
+  //box-shadow: 0px 45px 20px 0px rgba(0,0,0,0.09);
   .side-nav-inside{
     transition: opacity 0.3s ease-in-out;
     opacity: 0;
@@ -793,7 +794,7 @@ body{
   text-transform: uppercase;
   width: 100px;
   font-weight: 200;
-  font-size: 12px;
+  font-size: 10px;
   color: rgba(0,0,0,0.5);
 }
 .visible{
@@ -1100,7 +1101,7 @@ input:-webkit-autofill:active {
     padding: 10px 0px;
     border: none;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 200;

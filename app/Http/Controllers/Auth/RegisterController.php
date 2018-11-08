@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Modules\Contacts\Models\Contacts;
+use App\Modules\Floors\Models\Floors;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
@@ -48,6 +49,8 @@ class RegisterController extends Controller
 
         View::share('contacts_cache', $contacts_cache);
 
+        $floor_plan = Floors::get();
+        View::share('floor_plan', $floor_plan);
 
         $agent = new Agent();
         View::share('agent', $agent);

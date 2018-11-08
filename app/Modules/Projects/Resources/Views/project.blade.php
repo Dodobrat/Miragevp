@@ -98,14 +98,15 @@
                                         {{ $floor->floor_num }}
                                     </p>
                                     <p class="floor-ap-stats">
-                                        {{trans('projects::front.available-aps')}} : {{$floor->apartments->count()}} / {{ $apartments->where('floor_id', $floor->id)->count() }}
+                                        {{$floor->apartments->count()}}/{{ $apartments->where('floor_id', $floor->id)->count() }}
                                         <br><span>
-                                            @if(!empty($floor->apartments->first()))
-                                                {{trans('projects::front.from')}} : € {{$floor->apartments->first()->price}}
-                                            @endif
+                                            {{trans('projects::front.available-aps')}}
+                                            {{--@if(!empty($floor->apartments->first()))--}}
+                                                {{--{{trans('projects::front.from')}} : € {{$floor->apartments->first()->price}}--}}
+                                            {{--@endif--}}
                                         </span>
                                     </p>
-                                    @elseif($agent->isMobile() || $agent->is('Firefox'))
+                                    @elseif($agent->isMobile())
                                     <p class="floor-mobile-num">
                                         {{ $floor->floor_num }}
                                     </p>
@@ -117,30 +118,45 @@
 
 
                         <div id="collapse_{{$floor->id}}" class="collapse" aria-labelledby="heading_{{$floor->id}}" data-parent="#floor-select">
-                            <div class="card-body" style="background-color: rgba(255,255,255,1); margin: 0 5%;">
+                            <style>
+                                .card-body{
+                                    background-color: rgba(255,255,255,1);
+                                    margin: 0 10%;
+                                    padding: 20px 20px 20px 40px;
+                                }
+                                @media (max-width: 769px) {
+                                    .card-body{
+                                        margin: 0 3%;
+                                        padding: 10px;
+                                    }
+                                }
+                            </style>
+                            <div class="card-body">
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <h1 class="accordion-floor-title" style="font-weight: 200; color:  #869AA6; padding: 20px;">{{$floor->title}}</h1>
-                                        <div class="accordion-floor-description" style="padding: 0 20px 20px 20px; font-size: 18px;">{!! $floor->description !!}</div>
-                                        <p class="floor-details" style="padding: 0 20px 20px 20px; font-size: 20px; font-weight: 200;">
-                                            {{trans('projects::front.available-aps')}} :
-                                            <span style="font-size: 30px; font-weight: 400; color: #869AA6;">
+                                        <h1 class="accordion-floor-title" style="font-weight: 500; color: #616E7D; margin: 30px; padding-bottom: 20px; border-bottom: 1px solid #616E7D;">{{$floor->title}}</h1>
+                                        <div class="accordion-floor-description" style="margin: 30px; font-size: 18px;">{!! $floor->description !!}</div>
+                                        <br>
+                                        <p class="floor-details" style="margin: 30px; font-size: 20px; font-weight: 400; text-transform: lowercase; color: #9AB7BE;">
+                                            {{trans('projects::front.available-aps')}}
+                                            <span style="font-size: 30px; font-weight: 600; color: #9AB7BE;">
                                                 {{$floor->apartments->count()}}
                                             </span>
                                             <br>
+                                            <br>
                                             @if(!empty($floor->apartments->first()))
-                                                {{trans('projects::front.from')}} : <span style="font-size: 30px; font-weight: 400; color: #869AA6;">€ {{$floor->apartments->first()->price}}</span>
+                                                {{trans('projects::front.from')}}  <span style="font-size: 30px; font-weight: 600; color: #9AB7BE;">€ {{$floor->apartments->first()->price}}</span>
                                             @endif
                                         </p>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-{{--{{dd($floor->slug)}}--}}
+
                                         <a class="" href="{{ route('floor', ['slug' => $floor->slug]) }}">
 
                                             @if(!empty($floor->plan_media->first()) && $floor->show_media == true)
-                                                <img class="accordion-plan-img" src="{{$floor->plan_media->first()->getPublicPath()}}" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+                                                <img class="accordion-plan-img" src="{{$floor->plan_media->first()->getPublicPath()}}" alt="" style="width: 100%; max-height: 70vh; object-fit: contain;">
                                             @else
-                                                <img class="accordion-plan-img" src="{{asset('images/fallback/placeholder.png')}}" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+                                                <img class="accordion-plan-img" src="{{asset('images/fallback/placeholder.png')}}" alt="" style="width: 100%; max-height: 70vh; object-fit: contain;">
                                             @endif
 
                                         </a>

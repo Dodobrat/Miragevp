@@ -15,7 +15,6 @@ Route::group([
     'prefix' => LaravelLocalization::setLocale()
 ], function()
 {
-    Route::get('/floors', 'FloorsController@index')->name('floors')->middleware('auth');
     Route::get('/floor/{slug}', 'FloorsController@show')->name('floor')->middleware('auth');
 });
 

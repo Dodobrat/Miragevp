@@ -15990,7 +15990,7 @@ readers do not read off random characters that represent icons */
   padding: 35px 0;
   font-weight: 400;
   font-size: 40px;
-  color: #ffffff;
+  color: #D7F3F4;
 }
 
 .project-parallax-img-container .project-overview #project-title {
@@ -16001,11 +16001,11 @@ readers do not read off random characters that represent icons */
 .project-parallax-img-container .project-overview .overview-box {
   padding: 25px 25px;
   border: 1px solid white;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .project-parallax-img-container .project-overview .overview-box .project-instructions {
-  color: #ffffff;
+  color: #D7F3F4;
 }
 
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select {
@@ -16015,11 +16015,11 @@ readers do not read off random characters that represent icons */
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i:before {
   content: "\F06E";
   font-size: 85px;
-  color: #ffffff;
+  color: #D7F3F4;
 }
 
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select h1 {
-  color: #72DDB6;
+  color: #D7F3F4;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -16044,18 +16044,18 @@ readers do not read off random characters that represent icons */
 .project-parallax-img-container .project-overview .overview-box .project-instructions .project-info h1 {
   padding: 20px 0;
   margin: 0;
-  color: #72DDB6;
+  color: #D7F3F4;
   font-weight: 600;
 }
 
 .project-parallax-img-container .project-overview .overview-box .project-instructions .project-info h1 span {
-  color: #72DDB6;
+  color: #D7F3F4;
   font-size: 60px;
   font-weight: 800;
 }
 
 .project-parallax-img-container .project-overview .overview-box .project-instructions .project-info p {
-  color: #133860;
+  color: #D7F3F4;
   font-size: 20px;
 }
 
@@ -16173,18 +16173,16 @@ readers do not read off random characters that represent icons */
 }
 
 #floor-select .card .floor-row .card-header .floor-number {
-  opacity: 0;
-  pointer-events: none;
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
   position: absolute;
-  bottom: 0;
+  top: 33%;
+  bottom: 50%;
   right: 0;
-  font-size: 100px;
-  font-weight: 900;
-  -webkit-text-fill-color: rgba(255, 218, 154, 0.9);
-  -webkit-text-stroke: 1px rgba(19, 56, 96, 0.9);
-  text-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+  font-size: 55px;
+  font-weight: 100;
+  color: #D7F3F4;
+  margin-right: -100px;
 }
 
 #floor-select .card .floor-row .card-header .floor-ap-stats {
@@ -16194,24 +16192,27 @@ readers do not read off random characters that represent icons */
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   position: absolute;
-  top: 40%;
-  bottom: 50%;
+  top: 10%;
+  bottom: 0;
   left: 0;
+  font-size: 50px;
+  font-weight: 400;
+  color: #D7F3F4;
+}
+
+#floor-select .card .floor-row .card-header .floor-ap-stats span {
   font-size: 20px;
-  font-weight: 200;
-  color: #133860;
-  text-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+  font-weight: 100;
 }
 
 #floor-select .card .floor-row .card-header .floor-mobile-num {
   position: absolute;
   bottom: 50%;
-  margin-bottom: -22.5px;
-  left: 0;
-  right: 0;
+  right: -15%;
+  margin-bottom: -30px;
   font-size: 35px;
-  font-weight: 900;
-  color: #133860;
+  font-weight: 100;
+  color: #D7F3F4;
 }
 
 #floor-select {
@@ -16231,8 +16232,6 @@ readers do not read off random characters that represent icons */
 }
 
 #floor-select .card .card-header:focus img {
-  -webkit-transform: scale(1);
-          transform: scale(1);
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
@@ -16256,21 +16255,20 @@ readers do not read off random characters that represent icons */
 #floor-select .card .card-header:hover img {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+  filter: brightness(0.9);
+  -webkit-filter: brightness(0.9);
 }
 
 #floor-select .card .card-header:hover .floor-number {
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-  margin-right: -150px;
-  opacity: 1;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  font-weight: 400;
 }
 
 #floor-select .card .card-header:hover .floor-ap-stats {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  margin-left: -200px;
+  margin-left: -150px;
   opacity: 1;
 }
 
@@ -16278,15 +16276,30 @@ readers do not read off random characters that represent icons */
     FLOOR VIEW PAGE
 ----------------------------------------------------- */
 
+.floor-view {
+  width: 100%;
+  height: calc(100vh - 55px);
+  overflow-y: scroll;
+  background-color: #616E7D;
+}
+
 .breadcrumb {
   background-color: rgba(0, 0, 0, 0);
   text-align: center;
-  max-width: 300px;
+  max-width: 375px;
   margin: 30px auto 0 auto;
 }
 
-.breadcrumb a {
-  color: #333333;
+.breadcrumb .breadcrumb-item a {
+  color: #D7F3F4;
+}
+
+.breadcrumb .breadcrumb-item::before {
+  color: #D7F3F4;
+}
+
+.breadcrumb .breadcrumb-item.active {
+  color: #D7F3F4;
 }
 
 .floor-selection-section {
@@ -16295,9 +16308,10 @@ readers do not read off random characters that represent icons */
 }
 
 .floor-selection-section .floor-indicator {
+  color: #BDCCD4;
   font-size: 24px;
   text-transform: uppercase;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #D7F3F4;
   padding: 3px 15px;
   margin: 0 auto;
 }
@@ -16317,7 +16331,7 @@ readers do not read off random characters that represent icons */
 .floor-selection-section .floor-numbers a {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  color: #333333;
+  color: #FDD396;
   text-decoration: none;
   font-size: 25px;
   font-weight: 100;
@@ -16347,17 +16361,18 @@ readers do not read off random characters that represent icons */
 }
 
 .current-floor-ap-info {
+  color: #D7F3F4;
   padding: 50px 0;
 }
 
 .current-floor-ap-info .current-floor-compass {
-  width: 200px;
+  width: 175px;
 }
 
 .current-floor-ap-info .floor-ap-title {
   padding: 30px 0 15px 20px;
   font-weight: 100;
-  border-bottom: 1px solid #333333;
+  border-bottom: 1px solid #FDD496;
 }
 
 .current-floor-ap-info .floor-ap-info {
@@ -16383,7 +16398,7 @@ readers do not read off random characters that represent icons */
 .current-floor-ap-info .go-to-ap a {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  color: rgba(0, 0, 0, 0.3);
+  color: #BDCCD4;
   text-decoration: none;
 }
 
@@ -16391,7 +16406,7 @@ readers do not read off random characters that represent icons */
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.6);
+  color: #FDD496;
 }
 
 /* Custom Scrollbar */
@@ -16496,7 +16511,7 @@ readers do not read off random characters that represent icons */
   }
 
   .project-parallax-img-container #building {
-    padding: 0 3%;
+    padding: 0 13%;
   }
 
   .project-parallax-img-container .project-overview #project-title {
@@ -21816,6 +21831,7 @@ input:required {
 ----------------------------------------------------- */
 
 body {
+  font-family: "Montserrat", sans-serif;
   background-color: #f9f9f9;
 }
 
@@ -22044,8 +22060,6 @@ body {
   background-color: #ffffff;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
 
@@ -22380,8 +22394,6 @@ body {
   padding-top: 55px;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  -webkit-box-shadow: 0px 45px 20px 0px rgba(0, 0, 0, 0.09);
-          box-shadow: 0px 45px 20px 0px rgba(0, 0, 0, 0.09);
 }
 
 .side-nav-desktop .side-nav-inside {
@@ -22659,7 +22671,7 @@ body {
   text-transform: uppercase;
   width: 100px;
   font-weight: 200;
-  font-size: 12px;
+  font-size: 10px;
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -23036,7 +23048,7 @@ input:-webkit-autofill:active {
   padding: 10px 0px;
   border: none;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 200;

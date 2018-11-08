@@ -12,10 +12,10 @@ use ProVision\Administration\Facades\Settings;
 
 class FloorsController extends Controller
 {
-    public function index(){
-        $floors = Floors::reversed()->get();
-        return view('floors::floors',compact('floors'));
-    }
+//    public function index(){
+//        $floors = Floors::reversed()->get();
+//        return view('floors::floors',compact('floors'));
+//    }
 
     public function show($slug){
 
@@ -39,8 +39,8 @@ class FloorsController extends Controller
 
         Breadcrumbs::register('index', function ($breadcrumbs) use ($current_floor) {
             $breadcrumbs->parent('floors_home');
-            $breadcrumbs->push(trans('floors::front.floor-plans'), route('floors'));
-            $breadcrumbs->push($current_floor->floor_num, route('floor', ['slug' => $current_floor->slug]));
+            $breadcrumbs->push(trans('floors::front.floor-plans'), route('floor', ['slug' => $current_floor->first()->slug]));
+            $breadcrumbs->push(trans('floors::front.floor-indicator') . ' ' . $current_floor->floor_num, route('floor', ['slug' => $current_floor->slug]));
         });
 
 //        $apartment = Apartments::get();
