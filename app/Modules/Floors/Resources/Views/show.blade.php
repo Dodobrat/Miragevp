@@ -18,6 +18,8 @@
                     <span class="floor-indicator">
                         {{ trans('floors::front.floor-indicator') }}
                     </span>
+                    <div class="floor-numbers-bars"></div>
+
                     <ul class="floor-numbers">
                         @foreach($floors as $floor)
                             <a href="{{ route('floor', ['slug' => $floor->slug]) }}" @if ($floor->slug == $current_floor->slug) class="floor-activated" @endif>
@@ -27,32 +29,32 @@
                             </a>
                         @endforeach
                     </ul>
+
+                    <div class="floor-numbers-bars"></div>
                 </div>
 
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="row">
-                            <div class="col-xl-6">
+                            <div class="col-xl-6 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
                                 <div class="selected">
                                     <img src="{{ asset('images/visual-selection/legend/selected.png') }}" alt="">
                                     <p>{{ trans('floors::front.legend-selected') }}</p>
                                 </div>
                             </div>
-                            <div class="col-xl-6">
+                            <div class="col-xl-6 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
                                 <div class="booked">
                                     <img src="{{ asset('images/visual-selection/legend/booked.png') }}" alt="">
                                     <p>{{ trans('floors::front.legend-booked') }}</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-6">
+                            <div class="col-xl-6 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
                                 <div class="available">
                                     <img src="{{ asset('images/visual-selection/legend/available.png') }}" alt="">
                                     <p>{{ trans('floors::front.legend-available') }}</p>
                                 </div>
                             </div>
-                            <div class="col-xl-6">
+                            <div class="col-xl-6 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
                                 <div class="multi-level">
                                     <img src="{{ asset('images/visual-selection/legend/multi-level.png') }}" alt="">
                                     <p>{{ trans('floors::front.legend-multi-level') }}</p>

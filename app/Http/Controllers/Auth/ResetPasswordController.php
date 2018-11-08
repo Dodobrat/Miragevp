@@ -47,7 +47,7 @@ class ResetPasswordController extends Controller
 
         View::share('contacts_cache', $contacts_cache);
 
-        $floor_plan = Floors::get();
+        $floor_plan = Floors::reversed()->get();
         View::share('floor_plan', $floor_plan);
 
         $agent = new Agent();

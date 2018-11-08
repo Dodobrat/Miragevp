@@ -16,9 +16,9 @@
                     @endif
                 <div class="card-img-overlay">
                     <h5 class="card-title">{{ $showroom->title }}</h5>
-                    <p class="card-text">{!! $showroom->description !!}</p>
-                    <button type="button" data-toggle="modal" data-target=".show_{{$showroom->id}}">{{trans('showroom::front.thumb_show')}}</button>
+                    <div class="card-text">{!! $showroom->description !!}</div>
                 </div>
+                    <button class="card-button" type="button" data-toggle="modal" data-target=".show_{{$showroom->id}}">{{trans('showroom::front.thumb_show')}}</button>
             </div>
 
 

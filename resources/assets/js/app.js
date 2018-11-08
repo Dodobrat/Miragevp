@@ -400,6 +400,16 @@ $('.collapse').on('shown.bs.collapse', function () {
 
 });
 
+// $('.floor-numbers').on('shown.bs.collapse', function () {
+//
+//     var $panel = $(this).closest('.card');
+//
+//     $('html, body').animate({
+//         scrollTop: $panel.offset().top -54
+//     }, 500);
+//
+// });
+
 $('.animate').smoothScroll({
     offset: -55,
     speed: 800,

@@ -4,6 +4,7 @@ namespace App\Modules\Index\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Contacts\Models\Contacts;
+use App\Modules\Floors\Models\Floors;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\View;
@@ -25,6 +26,9 @@ class HomeController extends Controller
         });
 
         View::share('contacts_cache', $contacts_cache);
+
+        $floor_plan = Floors::reversed()->get();
+        View::share('floor_plan', $floor_plan);
 
 
         $agent = new Agent();

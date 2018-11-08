@@ -34,6 +34,7 @@
       color: #000000;
       opacity: 0;
       top: unset;
+      overflow-y: scroll;
       .card-title{
         margin: 0;
         display: none;
@@ -49,27 +50,6 @@
         font-weight: 400;
         text-align: center;
       }
-      button{
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        border-radius: 0;
-        width: 100%;
-        background-color: #95ACBF;
-        padding: 20px 0px;
-        border: none;
-        color: #ffffff;
-        font-size: 18px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-weight: 200;
-        margin: 0;
-        transition: all 0.3s;
-      }
-      button:focus{
-        outline: 0;
-      }
     }
   }
 }
@@ -80,6 +60,7 @@
     transition: 0.3s ease-in-out;
     .card-img-overlay{
       height: 100%;
+      padding-bottom: 60px;
       opacity: 1;
       transition: all 0.3s ease-in-out;
       .card-title{
@@ -89,15 +70,41 @@
       .card-text{
         display: block;
       }
-      button:hover{
-        background-color: #869AA6;
-        cursor: pointer;
-        transition: all 0.3s;
-      }
+    }
+    .card-button{
+      opacity: 1;
+      transition: 0.3s ease-in-out;
     }
   }
 }
 
+.card-button{
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 0;
+  width: 100%;
+  background-color: #95ACBF;
+  padding: 20px 0px;
+  border: none;
+  color: #ffffff;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 200;
+  margin: 0;
+  transition: all 0.3s;
+}
+.card-button:focus{
+  outline: 0;
+}
+.card-button:hover{
+  background-color: #869AA6;
+  cursor: pointer;
+  transition: all 0.3s;
+}
 
 /* ---------------------------------------------------
     SHOWROOM CONTENT SECTION
@@ -612,6 +619,7 @@
   width: 100%;
   height: calc(100vh - 55px);
   overflow-y: scroll;
+  overflow-x: hidden;
   background-color: #616E7D;
 }
 
@@ -629,7 +637,7 @@
     color: #D7F3F4;
   }
   .breadcrumb-item.active{
-    color: #D7F3F4;
+    color: #A4C0C1;
   }
 }
 
@@ -642,11 +650,21 @@
     color: #BDCCD4;
     font-size: 24px;
     text-transform: uppercase;
-    border-bottom: 1px solid #D7F3F4;
+    //border-bottom: 1px solid #D7F3F4;
     padding: 3px 15px;
     margin: 0 auto;
   }
+  .floor-numbers-bars{
+    margin: 0 auto;
+    min-width: 50px;
+    max-width: 120px;
+    height: 1px;
+    background-color: #D7F3F4;
+  }
   .floor-numbers{
+    margin: unset;
+    max-height: 50vh;
+    overflow-y: scroll;
     list-style-type: none;
     padding: 12px 0;
     .floor-activated{
@@ -661,7 +679,7 @@
       font-size: 25px;
       font-weight: 100;
       .floor-number{
-        padding: 10px 0;
+        padding: 20px 0;
       }
     }
     a:hover{
@@ -672,7 +690,26 @@
   }
 }
 
-
+.selected{
+  p{
+    padding-top: 10px;
+  }
+}
+.booked{
+  p{
+    padding-top: 10px;
+  }
+}
+.available{
+  p{
+    padding-top: 10px;
+  }
+}
+.multi-level{
+  p{
+    padding-top: 10px;
+  }
+}
 
 .current-floor-info{
   padding: 50px 0;
@@ -685,6 +722,7 @@
 }
 
 .current-floor-ap-info{
+  margin: auto;
   color: #D7F3F4;
   padding: 50px 0;
   .current-floor-compass{

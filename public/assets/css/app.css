@@ -15586,6 +15586,7 @@ readers do not read off random characters that represent icons */
   color: #000000;
   opacity: 0;
   top: unset;
+  overflow-y: scroll;
 }
 
 #show-deck .card .card-img-overlay .card-title {
@@ -15605,7 +15606,38 @@ readers do not read off random characters that represent icons */
   text-align: center;
 }
 
-#show-deck .card .card-img-overlay button {
+#show-deck .card:hover {
+  -webkit-box-shadow: 0px 5px 12px -3px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 5px 12px -3px rgba(0, 0, 0, 0.5);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+#show-deck .card:hover .card-img-overlay {
+  height: 100%;
+  padding-bottom: 60px;
+  opacity: 1;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#show-deck .card:hover .card-img-overlay .card-title {
+  padding: 30px 0;
+  display: block;
+}
+
+#show-deck .card:hover .card-img-overlay .card-text {
+  display: block;
+}
+
+#show-deck .card:hover .card-button {
+  opacity: 1;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.card-button {
+  opacity: 0;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -15625,34 +15657,11 @@ readers do not read off random characters that represent icons */
   transition: all 0.3s;
 }
 
-#show-deck .card .card-img-overlay button:focus {
+.card-button:focus {
   outline: 0;
 }
 
-#show-deck .card:hover {
-  -webkit-box-shadow: 0px 5px 12px -3px rgba(0, 0, 0, 0.5);
-          box-shadow: 0px 5px 12px -3px rgba(0, 0, 0, 0.5);
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-}
-
-#show-deck .card:hover .card-img-overlay {
-  height: 100%;
-  opacity: 1;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-#show-deck .card:hover .card-img-overlay .card-title {
-  padding: 30px 0;
-  display: block;
-}
-
-#show-deck .card:hover .card-img-overlay .card-text {
-  display: block;
-}
-
-#show-deck .card:hover .card-img-overlay button:hover {
+.card-button:hover {
   background-color: #869AA6;
   cursor: pointer;
   -webkit-transition: all 0.3s;
@@ -16280,6 +16289,7 @@ readers do not read off random characters that represent icons */
   width: 100%;
   height: calc(100vh - 55px);
   overflow-y: scroll;
+  overflow-x: hidden;
   background-color: #616E7D;
 }
 
@@ -16299,7 +16309,7 @@ readers do not read off random characters that represent icons */
 }
 
 .breadcrumb .breadcrumb-item.active {
-  color: #D7F3F4;
+  color: #A4C0C1;
 }
 
 .floor-selection-section {
@@ -16311,12 +16321,22 @@ readers do not read off random characters that represent icons */
   color: #BDCCD4;
   font-size: 24px;
   text-transform: uppercase;
-  border-bottom: 1px solid #D7F3F4;
   padding: 3px 15px;
   margin: 0 auto;
 }
 
+.floor-selection-section .floor-numbers-bars {
+  margin: 0 auto;
+  min-width: 50px;
+  max-width: 120px;
+  height: 1px;
+  background-color: #D7F3F4;
+}
+
 .floor-selection-section .floor-numbers {
+  margin: unset;
+  max-height: 50vh;
+  overflow-y: scroll;
   list-style-type: none;
   padding: 12px 0;
 }
@@ -16338,7 +16358,7 @@ readers do not read off random characters that represent icons */
 }
 
 .floor-selection-section .floor-numbers a .floor-number {
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
 .floor-selection-section .floor-numbers a:hover {
@@ -16346,6 +16366,22 @@ readers do not read off random characters that represent icons */
   transition: 0.3s ease-in-out;
   text-decoration: none;
   font-weight: 600;
+}
+
+.selected p {
+  padding-top: 10px;
+}
+
+.booked p {
+  padding-top: 10px;
+}
+
+.available p {
+  padding-top: 10px;
+}
+
+.multi-level p {
+  padding-top: 10px;
 }
 
 .current-floor-info {
@@ -16361,6 +16397,7 @@ readers do not read off random characters that represent icons */
 }
 
 .current-floor-ap-info {
+  margin: auto;
   color: #D7F3F4;
   padding: 50px 0;
 }
@@ -22665,14 +22702,16 @@ body {
   opacity: 0;
   position: absolute;
   bottom: 0px;
-  left: 75px;
-  right: 75px;
+  left: 50%;
+  right: 50%;
+  margin-left: -75px;
+  margin-right: -75px;
   text-align: center;
   text-transform: uppercase;
-  width: 100px;
-  font-weight: 200;
-  font-size: 10px;
-  color: rgba(0, 0, 0, 0.5);
+  width: 150px;
+  font-weight: 300;
+  font-size: 12px;
+  color: #333333;
 }
 
 .visible {
@@ -23289,7 +23328,6 @@ input:-webkit-autofill:active {
 
   .copy {
     opacity: 0;
-    margin: auto;
     bottom: 5px;
     -webkit-transition: opacity 0.3s;
     transition: opacity 0.3s;
