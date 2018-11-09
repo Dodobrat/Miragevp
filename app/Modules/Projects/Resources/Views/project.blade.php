@@ -11,7 +11,7 @@
                         @if(!empty($project->layer_one_media()->first()) && $project->show_media == true)
                              style="background-image: url('{{$project->layer_one_media->first()->getPublicPath()}}');"
                         @else
-                             style="background-image: url('{{ asset('images/visual-selection/bg-1.png') }}');"
+                             style="background-image: url('{{ asset('images/visual-selection/Asset 3.png') }}');"
                         @endif
                     >@endif<!--endif Desktop-->
                         @if($agent->isDesktop() && $agent->is('Chrome'))
@@ -19,7 +19,7 @@
                         @if(!empty($project->layer_two_media()->first()) && $project->show_media == true)
                              style="background-image: url('{{$project->layer_two_media->first()->getPublicPath()}}');"
                         @else
-                             style="background-image: url('{{ asset('images/visual-selection/upper_cloud.png') }}');"
+                             style="background-image: url('{{ asset('images/visual-selection/Asset 7.png') }}');"
                         @endif
                     >@endif<!--endif Desktop-->
                         @if($agent->isDesktop() && $agent->is('Chrome'))
@@ -27,7 +27,7 @@
                         @if(!empty($project->layer_three_media()->first()) && $project->show_media == true)
                             style="background-image: url('{{$project->layer_three_media->first()->getPublicPath()}}');"
                         @else
-                            style="background-image: url('{{ asset('images/visual-selection/bg-street.png') }}');"
+                            style="background-image: url('{{ asset('images/visual-selection/final-bg-no-tree.png') }}');"
                         @endif
                     >
                     @endif<!--endif Desktop-->
@@ -36,7 +36,7 @@
                         @if(!empty($project->layer_one_media()->first()) && $project->show_media == true)
                             style="background-image: url('{{$project->layer_one_media->first()->getPublicPath()}}');"
                         @else
-                            style="background-image: url('{{ asset('images/visual-selection/bg-1.png') }}');"
+                            style="background-image: url('{{ asset('images/visual-selection/Asset 3.png') }}');"
                         @endif
                     >
                 @endif<!--endif Mobile / Firefox-->
@@ -45,7 +45,7 @@
                                  @if(!empty($project->layer_three_media()->first()) && $project->show_media == true)
                                  style="background-image: url('{{$project->layer_three_media->first()->getPublicPath()}}');"
                                  @else
-                                 style="background-image: url('{{ asset('images/visual-selection/bg-street.png') }}');"
+                                 style="background-image: url('{{ asset('images/visual-selection/final-bg-no-tree.png') }}');"
                                     @endif
                             >
                             @endif<!--endif Firefox-->

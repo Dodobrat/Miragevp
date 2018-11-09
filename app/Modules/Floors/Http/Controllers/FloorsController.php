@@ -43,8 +43,6 @@ class FloorsController extends Controller
             $breadcrumbs->push(trans('floors::front.floor-indicator') . ' ' . $current_floor->floor_num, route('floor', ['slug' => $current_floor->slug]));
         });
 
-//        $apartment = Apartments::get();
-
         return view('floors::show', compact('current_floor','floors'));
     }
 }

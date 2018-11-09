@@ -33,6 +33,9 @@ $('.close-modal-carousel').click(function (){
 $('.close-blog-modal').click(function (){
     $('.modal').modal('hide');
 });
+$('.floor-head').click(function (){
+    $('.modal').modal('hide');
+});
 
 // ---------------------------------------------------
 //         CONTENT - CAROUSEL IMAGE CHANGE INTERVAL
@@ -112,6 +115,10 @@ if (!Element.prototype.closest) {
     };
 }
 
+$('.ap-link').on('click', function (e) {
+    e.preventDefault();
+    $(this).tab('show')
+});
 
 
 

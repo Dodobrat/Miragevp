@@ -5,5 +5,6 @@ return[
     'legend-selected' => 'Selected',
     'legend-booked' => 'Booked',
     'legend-available' => 'Available',
-    'legend-multi-level' => 'Multi-Level',
+    'legend-multi-level' => '2-Levels',
+    'choose-floor' => 'Choose a floor',
 ];
