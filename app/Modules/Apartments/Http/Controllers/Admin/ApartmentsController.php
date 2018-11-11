@@ -40,6 +40,8 @@ class ApartmentsController extends BaseAdministrationController
                     return Form::adminSwitchButton('show_media', $apartment);
                 })->addColumn('type', function ($apartment) {
                     return $apartment->type;
+                })->addColumn('position', function ($apartment) {
+                    return $apartment->position;
                 })->addColumn('price', function ($apartment) {
                     return '€ '.$apartment->price;
                 })->addColumn('project', function ($apartment) {
@@ -104,6 +106,11 @@ class ApartmentsController extends BaseAdministrationController
                 'data' => 'type',
                 'name' => 'type',
                 'title' => trans('apartments::admin.type'),
+                'orderable' => false,
+            ])->addColumn([
+                'data' => 'position',
+                'name' => 'position',
+                'title' => trans('apartments::admin.position'),
                 'orderable' => false,
             ])->addColumn([
                 'data' => 'price',

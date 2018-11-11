@@ -19436,6 +19436,11 @@ if (!Element.prototype.closest) {
 // ---------------------------------------------------
 //         CONTENT - SHOW APARTMENT INFO ON CLICK
 // ---------------------------------------------------
+$('.ap-link').click(function (e) {
+    $('.ap-link').removeClass('active');
+    e.preventDefault();
+    $(this).tab('show');
+});
 
 /***/ }),
 

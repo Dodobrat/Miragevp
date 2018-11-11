@@ -864,6 +864,28 @@
 
 }
 
+.path {
+  fill: transparent;
+  transition: 0.3s ease-in-out;
+  stroke: #FDD496;
+  stroke-width: 3px;
+  opacity: 0.5;
+}
+
+.path:hover{
+  transition: 0.3s ease-in-out;
+  stroke-width: 5px;
+  opacity: 1;
+}
+
+.booked{
+  fill: #ff0000;
+  transition: 0.3s ease-in-out;
+  stroke: transparent;
+  //stroke-width: 3px;
+  opacity: 0.5;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 5px;

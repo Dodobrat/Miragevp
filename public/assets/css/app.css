@@ -16554,6 +16554,30 @@ readers do not read off random characters that represent icons */
   color: #FDD496;
 }
 
+.path {
+  fill: transparent;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  stroke: #FDD496;
+  stroke-width: 3px;
+  opacity: 0.5;
+}
+
+.path:hover {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  stroke-width: 5px;
+  opacity: 1;
+}
+
+.booked {
+  fill: #ff0000;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  stroke: transparent;
+  opacity: 0.5;
+}
+
 /* Custom Scrollbar */
 
 ::-webkit-scrollbar {

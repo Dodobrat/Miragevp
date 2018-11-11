@@ -22,6 +22,7 @@ class CreateApartmentsTable extends Migration
             $table->integer('floor_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->default(null)->nullable();
             $table->string('type');
+            $table->string('position');
             $table->float('price',8,2);
             NestedSet::columns($table);
             $table->timestamps();

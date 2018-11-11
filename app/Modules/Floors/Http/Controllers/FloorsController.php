@@ -19,7 +19,9 @@ class FloorsController extends Controller
 
     public function show($slug){
 
-        $floors = Floors::with('apartments')->reversed()->get();
+        $floors = Floors::with(
+            'apartments'
+        )->reversed()->get();
 
         $current_floor =  Floors::whereHas('translations',
             function ($query) use ($slug) {

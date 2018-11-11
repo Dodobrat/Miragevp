@@ -38,6 +38,7 @@ class Apartments extends AdminModel
         'floor_id',
         'user_id',
         'type',
+        'position',
         'price'
     ];
     /**

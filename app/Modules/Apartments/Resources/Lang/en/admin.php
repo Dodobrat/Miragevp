@@ -6,6 +6,7 @@ return [
     'reservation_status' => 'Only Reserved',
     'visible' => 'Visible',
     'type' => 'Type',
+    'position' => 'Position',
     'filter_apartments_type_office' => 'Only Offices',
     'filter_apartments_type_apartment' => 'Only Apartments',
     'price' => 'Price',

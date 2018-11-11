@@ -63,6 +63,16 @@ class ApartmentForm extends AdminForm
             'empty_value' => ' '
         ]);
 
+        $positions = ['a' => 'A', 'b' => 'B', 'c' => 'C'];
+
+
+        $this->add('position', 'select', [
+            'label' => trans('apartments::admin.position'),
+            'choices' => $positions,
+            'selected' => @$this->model->position,
+            'empty_value' => ' '
+        ]);
+
         $this->add('price', 'text', [
             'label' => trans('apartments::admin.price_euro'),
         ]);
