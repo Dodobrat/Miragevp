@@ -60,20 +60,42 @@
             <div class="col-xl-10 col-lg-12 col-md-12 col-sm-12 col-xs-12 current-floor-info">
                 <div class="row">
                     <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        @if(!empty($current_floor->plan_media->first()))
-                            <img class="current-floor-plan" src="{{$current_floor->plan_media->first()->getPublicPath()}}" alt="{{$current_floor->slug}}">
-                        @else
-                            <img class="current-floor-plan" src="{{asset('images/fallback/placeholder.png')}}" alt="{{$current_floor->slug}}">
-                        @endif
 
-                        {{--LINKS TO APARTMENTS--}}
+                        <div class="nav" role="tablist">
+                            <svg viewBox="0 0 1785 2136" height="100%" width="100%" id="smth">
+                                @if(!empty($current_floor->plan_media->first()))
+                                    <image
+                                            width="100%"
+                                            height="100%"
+                                            preserveAspectRatio="none"
+                                            xlink:href="{{$current_floor->plan_media->first()->getPublicPath()}}"
+                                            id=""
+                                    />
+                                @else
+                                    <image
+                                            width="100%"
+                                            height="100%"
+                                            preserveAspectRatio="none"
+                                            xlink:href="{{asset('images/fallback/placeholder.png')}}"
+                                            id=""
+                                    />
+                                @endif
 
-                            @foreach($current_floor->apartments as $apartment)
-                                <a class="ap-link" href="{{ route('apartment', ['slug' => $apartment->slug]) }}">{{ $apartment->title }}</a>
-                            @endforeach
+                                    @foreach($current_floor->apartments as $apartment)
+                                        <a class="ap-link" id="nav-{{ $apartment->slug }}-tab" data-toggle="tab" href="#nav-{{ $apartment->slug }}" role="tab" aria-controls="nav-{{ $apartment->slug }}" aria-selected="false">
+                                            <path class="a" d="M994.362,95.935v542h123.245v537.1h396.344V1108.5h32.212V949.546h-32.212V829.1h32.212V670.844h-32.212V549h32.212V390.742h-32.212V285h32.212V126.046h-32.212V95.935h-16.806V66.524H1338.887V95.935H1219.144V66.524H1060.186V95.935Z"/></a>
 
-                        {{-----------------------}}
 
+
+                                           <path class="a" d="M962,636V96H941V66H779V96H659V66H500.251V96H406.863V66H313.633V96h-19.6v31.653H273.473V285.489h20.558V391.6H217.079V830.224h76.952v122.44H272.645v155.667h21.386v66.454H843.424V636Z"/>
+
+
+                                            <path class="a" d="M293.333,1206.667h1220v25.784H1545.7v156.391h-32.365v123.712H1545.7v154.99h-32.365v208.209h-16.186v20.074H1337.955v-20.074H1217.978v20.074H1058.787v-20.074H937.876v20.074H780.552v-20.074H658.707v20.074H500.916v-20.074H410.35v20.074H315.115v-20.074H293.641v-22.875H272.633v-93.834h21.008v-91.033H272.633V1509.751h21.008l-.307-121.844h-20.7V1230.583h20.7Z"/>
+
+                                    @endforeach
+
+                            </svg>
+                        </div>
                     </div>
                     <div class="d-xl-none col-lg-12 col-md-12 col-sm-12 col-12 small-floor">
                         <div class="row">
@@ -95,26 +117,29 @@
                         @else
                             <img class="current-floor-compass d-none d-xl-block" src="{{asset('images/fallback/placeholder.png')}}" alt="{{$current_floor->slug}}">
                         @endif
-                        <div class="ap-info">
-                            <h1 class="floor-ap-title">
-                                14A
-                            </h1>
-                            <div class="floor-ap-info">
-                                Details :
-                                <br>
-                                high ceilings
-                                <br>
-                                cool
-                                <br>
-                                extra very mega ultra cool
+
+                            <div class="ap-info tab-content" id="nav-tabContent">
+
+                                @foreach($current_floor->apartments as $apartment)
+                                    <div class="tab-pane fade" id="nav-{{ $apartment->slug }}" role="tabpanel" aria-labelledby="nav-{{ $apartment->slug }}-tab">
+                                        <h1 class="floor-ap-title">
+                                            {{ $apartment->title }}
+                                        </h1>
+                                        <div class="floor-ap-info">
+                                            {!! $apartment->description !!}
+                                        </div>
+                                        <div class="floor-ap-price">
+                                            {{  $apartment->price }}
+                                        </div>
+                                        <div class="go-to-ap">
+                                            <a href="{{ route('apartment', ['slug' => $apartment->slug]) }}">view apartment</a>
+                                        </div>
+                                    </div>
+
+                                @endforeach
+
                             </div>
-                            <div class="floor-ap-price">
-                                $ 123 899
-                            </div>
-                            <div class="go-to-ap">
-                                <a href="#">view apartment</a>
-                            </div>
-                        </div>
+
 
 
                     </div>

@@ -826,39 +826,42 @@
   .current-floor-compass {
     width: 175px;
   }
-  .floor-ap-title{
-    //color: #D7F3F4;
-    padding: 30px 0 15px 20px;
-    font-weight: 100;
-    border-bottom: 1px solid #FDD496;
-  }
-  .floor-ap-info{
-    padding: 10px 0 0 20px;
-    font-size: 20px;
-    font-weight: 200;
-  }
-  .floor-ap-price{
-    font-size: 40px;
-    font-weight: 400;
-    margin: 50px 0;
-    padding: 0 0 0 20px;
-  }
-  .go-to-ap{
-    padding: 0 0 0 20px;
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: 400;
-    a{
+  .ap-info{
+    .floor-ap-title{
+      //color: #D7F3F4;
+      padding: 30px 0 15px 20px;
+      font-weight: 100;
+      border-bottom: 1px solid #FDD496;
+    }
+    .floor-ap-info{
+      padding: 10px 0 0 20px;
+      font-size: 20px;
+      font-weight: 200;
+    }
+    .floor-ap-price{
+      font-size: 40px;
+      font-weight: 400;
+      margin: 50px 0;
+      padding: 0 0 0 20px;
+    }
+    .go-to-ap{
+      padding: 0 0 0 20px;
+      text-transform: uppercase;
+      font-size: 20px;
+      font-weight: 400;
+      a{
+        transition: 0.3s ease-in-out;
+        color: #BDCCD4;
+        text-decoration: none;
+      }
+    }
+    .go-to-ap a:hover{
       transition: 0.3s ease-in-out;
-      color: #BDCCD4;
       text-decoration: none;
+      color: #FDD496;
     }
   }
-  .go-to-ap a:hover{
-    transition: 0.3s ease-in-out;
-    text-decoration: none;
-    color: #FDD496;
-  }
+
 }
 
 /* Custom Scrollbar */

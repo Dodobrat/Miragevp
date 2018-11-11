@@ -115,11 +115,7 @@ if (!Element.prototype.closest) {
     };
 }
 
-$('.ap-link').on('click', function (e) {
-    e.preventDefault();
-    $(this).tab('show')
-});
-
-
-
+// ---------------------------------------------------
+//         CONTENT - SHOW APARTMENT INFO ON CLICK
+// ---------------------------------------------------
 

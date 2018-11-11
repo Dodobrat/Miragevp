@@ -73,10 +73,10 @@ if (document.body.contains(document.getElementById("overlay"))){
                     main.classList.add('mobile');
                 }
                 topNav.style.opacity = '1';
-            }, 300);
+            }, 1);
             setTimeout(()=>{
                 overlay.style.display = 'none';
-            },500);
+            },2);
         });
     }
     preloader();

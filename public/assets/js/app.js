@@ -18951,10 +18951,10 @@ if (document.body.contains(document.getElementById("overlay"))) {
                     main.classList.add('mobile');
                 }
                 topNav.style.opacity = '1';
-            }, 300);
+            }, 1);
             setTimeout(function () {
                 overlay.style.display = 'none';
-            }, 500);
+            }, 2);
         });
     };
 
@@ -19433,10 +19433,9 @@ if (!Element.prototype.closest) {
     };
 }
 
-$('.ap-link').on('click', function (e) {
-    e.preventDefault();
-    $(this).tab('show');
-});
+// ---------------------------------------------------
+//         CONTENT - SHOW APARTMENT INFO ON CLICK
+// ---------------------------------------------------
 
 /***/ }),
 
