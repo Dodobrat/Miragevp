@@ -72,6 +72,15 @@ input:required {
   top: 0;
   z-index: 9999;
 }
+#overlay-floor {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+}
 .bounce {
   content: "";
   box-sizing: border-box;

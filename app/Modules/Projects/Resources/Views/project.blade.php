@@ -122,7 +122,7 @@
                                 .card-body{
                                     background-color: rgba(255,255,255,1);
                                     margin: 0 10%;
-                                    padding: 20px 20px 20px 40px;
+                                    padding: 0 15px 0 15px;
                                 }
                                 @media (max-width: 769px) {
                                     .card-body{
@@ -133,9 +133,9 @@
                             </style>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <h1 class="accordion-floor-title" style="font-weight: 500; color: #616E7D; margin: 30px; padding-bottom: 20px; border-bottom: 1px solid #616E7D;">{{$floor->title}}</h1>
-                                        <div class="accordion-floor-description" style="margin: 30px; font-size: 18px;">{!! $floor->description !!}</div>
+                                    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 20px;">
+                                        <h1 class="accordion-floor-title" style="font-weight: 500; color: #616E7D; border-bottom: 1px solid #616E7D;">{{$floor->title}}</h1>
+                                        <div class="accordion-floor-description" style="font-size: 18px;">{!! $floor->description !!}</div>
                                         <br>
                                         <p class="floor-details" style="margin: 30px; font-size: 20px; font-weight: 400; text-transform: lowercase; color: #9AB7BE;">
                                             {{trans('projects::front.available-aps')}}
@@ -149,14 +149,14 @@
                                             @endif
                                         </p>
                                     </div>
-                                    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background-color: #616E7D; padding: 20px;">
 
                                         <a class="" href="{{ route('floor', ['slug' => $floor->slug]) }}">
 
                                             @if(!empty($floor->plan_media->first()) && $floor->show_media == true)
-                                                <img class="accordion-plan-img" src="{{$floor->plan_media->first()->getPublicPath()}}" alt="" style="width: 100%; max-height: 70vh; object-fit: contain;">
+                                                <img class="accordion-plan-img" src="{{$floor->plan_media->first()->getPublicPath()}}" alt="" style="width: 100%; height: 100%; object-fit: contain;">
                                             @else
-                                                <img class="accordion-plan-img" src="{{asset('images/fallback/placeholder.png')}}" alt="" style="width: 100%; max-height: 70vh; object-fit: contain;">
+                                                <img class="accordion-plan-img" src="{{asset('images/fallback/placeholder.png')}}" alt="" style="width: 100%; height: 100%; object-fit: contain;">
                                             @endif
 
                                         </a>

@@ -63,7 +63,7 @@ class ApartmentForm extends AdminForm
             'empty_value' => ' '
         ]);
 
-        $positions = ['a' => 'A', 'b' => 'B', 'c' => 'C'];
+        $positions = ['a' => 'A', 'b' => 'B', 'c' => 'C', 'd' => 'D'];
 
 
         $this->add('position', 'select', [

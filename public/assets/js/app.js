@@ -18951,14 +18951,42 @@ if (document.body.contains(document.getElementById("overlay"))) {
                     main.classList.add('mobile');
                 }
                 topNav.style.opacity = '1';
-            }, 1);
+            }, 300);
             setTimeout(function () {
                 overlay.style.display = 'none';
-            }, 2);
+            }, 500);
         });
     };
 
     preloader();
+}
+
+if (document.body.contains(document.getElementById("overlay-floor"))) {
+    var preloadFloor = function preloadFloor() {
+        var overlayFl = document.getElementById("overlay-floor");
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                overlayFl.style.transition = '0.5s opacity linear';
+                overlayFl.style.opacity = '0';
+                main.style.opacity = '1';
+                if (document.body.contains(sideNav)) {
+                    sideNav.style.opacity = '1';
+                    topNav.classList.remove('mobile');
+                    main.classList.remove('mobile');
+                }if (document.body.contains(sideNavM)) {
+                    sideNavM.style.opacity = '1';
+                    topNav.classList.add('mobile');
+                    main.classList.add('mobile');
+                }
+                topNav.style.opacity = '1';
+            }, 1);
+            setTimeout(function () {
+                overlayFl.style.display = 'none';
+            }, 2);
+        });
+    };
+
+    preloadFloor();
 }
 
 // ---------------------------------------------------
@@ -19272,16 +19300,6 @@ $('.collapse').on('shown.bs.collapse', function () {
         scrollTop: $panel.offset().top - 54
     }, 500);
 });
-
-// $('.floor-numbers').on('shown.bs.collapse', function () {
-//
-//     var $panel = $(this).closest('.card');
-//
-//     $('html, body').animate({
-//         scrollTop: $panel.offset().top -54
-//     }, 500);
-//
-// });
 
 $('.animate').smoothScroll({
     offset: -55,

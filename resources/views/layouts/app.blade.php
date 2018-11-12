@@ -32,6 +32,9 @@
             @endif" alt="">
             <span class="line-draw"></span>
         </div>
+        @elseif(Request::is('floor/*'))
+        <div id="overlay-floor">
+        </div>
         @else
         <div id="overlay">
             <div class="bounce">

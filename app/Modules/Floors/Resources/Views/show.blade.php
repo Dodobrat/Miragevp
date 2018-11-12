@@ -62,7 +62,7 @@
                     <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                         <div class="nav" role="tablist">
-                            <svg viewBox="0 0 1785 2136" height="100%" width="100%" id="smth">
+                            <svg viewBox="0 0 1903 1600" height="100%" width="100%" id="smth">
                                 @if(!empty($current_floor->plan_media->first()))
                                     <image
                                             width="100%"
@@ -86,69 +86,184 @@
                                         @if($apartment->type == 'apartment')
                                             @if($apartment->position == 'a')
                                                 @if($apartment->user_id == null)
-                                                <a class="ap-link" id="nav-{{ $apartment->slug }}-tab" data-toggle="tab" href="#nav-{{ $apartment->slug }}" role="tab" aria-controls="nav-{{ $apartment->slug }}" aria-selected="false">
-                                                    <path class="path" d="M994.362,95.935v542h123.245v537.1h396.344V1108.5h32.212V949.546h-32.212V829.1h32.212V670.844h-32.212V549h32.212V390.742h-32.212V285h32.212V126.046h-32.212V95.935h-16.806V66.524H1338.887V95.935H1219.144V66.524H1060.186V95.935Z"/>
-                                                </a>
+                                                    <a class="ap-link"
+                                                       id="nav-{{ $apartment->slug }}-tab"
+                                                       data-toggle="tab"
+                                                       href="#nav-{{ $apartment->slug }}"
+                                                       role="tab"
+                                                       aria-controls="nav-{{ $apartment->slug }}"
+                                                       aria-selected="false">
+                                                        <path class="path"
+                                                              d="M491.715,905.324h914.792v18.343h63.905v117.751h-63.905v91.716h63.905v118.343h-63.905V1407.1h-12.426v52.663h-117.16V1407.1h-92.9v52.663h-117.16V1407.1H975.147v52.663H856.8V1407.1H765.088v52.663H646.745V1407.1H579.289v52.663H508.283V1407.1H491.715v-18.343H437.278v-69.822h54.438v-67.456H437.278V1133.135h54.438v-91.716H437.278V923.668h54.438Z"/>
+                                                        <text class="ap-path-title" transform="translate(952 1170)">
+                                                            <tspan x="-30" y="0" font-size="60">{{$apartment->title}}</tspan>
+                                                        </text>
+                                                    </a>
                                                 @else
-                                                    <path class="booked" d="M994.362,95.935v542h123.245v537.1h396.344V1108.5h32.212V949.546h-32.212V829.1h32.212V670.844h-32.212V549h32.212V390.742h-32.212V285h32.212V126.046h-32.212V95.935h-16.806V66.524H1338.887V95.935H1219.144V66.524H1060.186V95.935Z"/>
+                                                    <path class="booked-ap"
+                                                          d="M491.715,905.324h914.792v18.343h63.905v117.751h-63.905v91.716h63.905v118.343h-63.905V1407.1h-12.426v52.663h-117.16V1407.1h-92.9v52.663h-117.16V1407.1H975.147v52.663H856.8V1407.1H765.088v52.663H646.745V1407.1H579.289v52.663H508.283V1407.1H491.715v-18.343H437.278v-69.822h54.438v-67.456H437.278V1133.135h54.438v-91.716H437.278V923.668h54.438Z"/>
+                                                    <text class="ap-booked-title" transform="translate(952 1170)">
+                                                        <tspan x="-30" y="0" font-size="60">{{$apartment->title}}</tspan>
+                                                    </text>
                                                 @endif
                                             @elseif($apartment->position == 'b')
                                                 @if($apartment->user_id == null)
-                                                <a class="ap-link" id="nav-{{ $apartment->slug }}-tab" data-toggle="tab" href="#nav-{{ $apartment->slug }}" role="tab" aria-controls="nav-{{ $apartment->slug }}" aria-selected="false">
-                                                    <path class="path" d="M962,636V96H941V66H779V96H659V66H500.251V96H406.863V66H313.633V96h-19.6v31.653H273.473V285.489h20.558V391.6H217.079V830.224h76.952v122.44H272.645v155.667h21.386v66.454H843.424V636Z"/>
-                                                </a>
-                                                    @else
-                                                    <path class="booked" d="M962,636V96H941V66H779V96H659V66H500.251V96H406.863V66H313.633V96h-19.6v31.653H273.473V285.489h20.558V391.6H217.079V830.224h76.952v122.44H272.645v155.667h21.386v66.454H843.424V636Z"/>
-                                                    @endif
+                                                    <a class="ap-link"
+                                                       id="nav-{{ $apartment->slug }}-tab"
+                                                       data-toggle="tab"
+                                                       href="#nav-{{ $apartment->slug }}"
+                                                       role="tab"
+                                                       aria-controls="nav-{{ $apartment->slug }}"
+                                                       aria-selected="false">
+                                                        <path class="path"
+                                                              d="M901.532,879.381H491.578v-48.25H437.413v-118.8h54.165V620.845H437.413V293.581h54.165V212.562H437.413V95.585h54.165V71.461H506.6V9.558h70.551v61.9h69.64V9.558h118.8v61.9h91.488V9.558H974.963v61.9H991.8V477.013H901.532Z"/>
+                                                        <text class="ap-path-title" transform="translate(758 320)">
+                                                            <tspan x="-30" y="0" font-size="60">{{$apartment->title}}</tspan>
+                                                        </text>
+                                                    </a>
+                                                @else
+                                                    <path class="booked-ap"
+                                                          d="M901.532,879.381H491.578v-48.25H437.413v-118.8h54.165V620.845H437.413V293.581h54.165V212.562H437.413V95.585h54.165V71.461H506.6V9.558h70.551v61.9h69.64V9.558h118.8v61.9h91.488V9.558H974.963v61.9H991.8V477.013H901.532Z"/>
+                                                    <text class="ap-booked-title" transform="translate(758 320)">
+                                                        <tspan x="-30" y="0" font-size="60">{{$apartment->title}}</tspan>
+                                                    </text>
+                                                @endif
                                             @elseif($apartment->position == 'c')
                                                 @if($apartment->user_id == null)
-                                                <a class="ap-link" id="nav-{{ $apartment->slug }}-tab" data-toggle="tab" href="#nav-{{ $apartment->slug }}" role="tab" aria-controls="nav-{{ $apartment->slug }}" aria-selected="false">
-                                                    <path class="path" d="M293.333,1206.667h1220v25.784H1545.7v156.391h-32.365v123.712H1545.7v154.99h-32.365v208.209h-16.186v20.074H1337.955v-20.074H1217.978v20.074H1058.787v-20.074H937.876v20.074H780.552v-20.074H658.707v20.074H500.916v-20.074H410.35v20.074H315.115v-20.074H293.641v-22.875H272.633v-93.834h21.008v-91.033H272.633V1509.751h21.008l-.307-121.844h-20.7V1230.583h20.7Z"/>
+                                                    <a class="ap-link"
+                                                       id="nav-{{ $apartment->slug }}-tab"
+                                                       data-toggle="tab"
+                                                       href="#nav-{{ $apartment->slug }}"
+                                                       role="tab"
+                                                       aria-controls="nav-{{ $apartment->slug }}"
+                                                       aria-selected="false">
+                                                        <path class="path"
+                                                              d="M1110,879.381h297V831h63V713h-63V621h63V503.5h-63V411h63V294h-63V212.5h63V95.5h-63v-24h-13V9H1276.5V71.5H1184V9H1066.5V71.5h-49v406H1110Z"/>
+                                                        <text class="ap-path-title" transform="translate(1201 320)">
+                                                            <tspan x="-30" y="0" font-size="60">{{$apartment->title}}</tspan>
+                                                        </text>
+                                                    </a>
+                                                @else
+                                                    <path class="booked-ap"
+                                                          d="M1110,879.381h297V831h63V713h-63V621h63V503.5h-63V411h63V294h-63V212.5h63V95.5h-63v-24h-13V9H1276.5V71.5H1184V9H1066.5V71.5h-49v406H1110Z"/>
+                                                    <text class="ap-booked-title" transform="translate(1201 320)">
+                                                        <tspan x="-30" y="0" font-size="60">{{$apartment->title}}</tspan>
+                                                    </text>
+                                                @endif
+                                            @elseif($apartment->position == 'd')
+                                                @if($apartment->user_id == null)
+                                                    <a class="ap-link"
+                                                       id="nav-{{ $apartment->slug }}-tab"
+                                                       data-toggle="tab"
+                                                       href="#nav-{{ $apartment->slug }}"
+                                                       role="tab"
+                                                       aria-controls="nav-{{ $apartment->slug }}"
+                                                       aria-selected="false">
 
-                                                </a>
-                                                    @else
-                                                    <path class="booked" d="M293.333,1206.667h1220v25.784H1545.7v156.391h-32.365v123.712H1545.7v154.99h-32.365v208.209h-16.186v20.074H1337.955v-20.074H1217.978v20.074H1058.787v-20.074H937.876v20.074H780.552v-20.074H658.707v20.074H500.916v-20.074H410.35v20.074H315.115v-20.074H293.641v-22.875H272.633v-93.834h21.008v-91.033H272.633V1509.751h21.008l-.307-121.844h-20.7V1230.583h20.7Z"/>
+                                                        <path class="path"
+                                                              d="M506.5,9.5H577V72h70.5V9.5H765V72h92.5V9.5H975V72h92V9.5h117.5V72h92V9.5h118V72h13V95.5h63v118h-63V294h63V411h-63v92.5h63v118h-63V713h63V831.5h-63V923h63v118h-63v92h63v118h-63v155h-14v54H1276v-54h-92v54H1066.5v-54H975v54H856v-54H764v54H647v-54H578.5v54h-71v-54h-16v-17H438v-69.5h53.5v-69H438v-118h53.5V1041H438V922.5h53.5V831H438V713h53.5V621h-54V293.5h54V213h-54V95h54V72H507Z"/>
 
-                                                    @endif
+
+                                                        <text class="ap-path-title" transform="translate(952 717)">
+                                                            <tspan x="-30" y="70" font-size="60">{{$apartment->title}}</tspan>
+                                                        </text>
+                                                    </a>
+                                                @else
+                                                    <path class="booked-ap"
+                                                          d="M506.5,9.5H577V72h70.5V9.5H765V72h92.5V9.5H975V72h92V9.5h117.5V72h92V9.5h118V72h13V95.5h63v118h-63V294h63V411h-63v92.5h63v118h-63V713h63V831.5h-63V923h63v118h-63v92h63v118h-63v155h-14v54H1276v-54h-92v54H1066.5v-54H975v54H856v-54H764v54H647v-54H578.5v54h-71v-54h-16v-17H438v-69.5h53.5v-69H438v-118h53.5V1041H438V922.5h53.5V831H438V713h53.5V621h-54V293.5h54V213h-54V95h54V72H507Z"/>
+                                                    <text class="ap-booked-title" transform="translate(952 717)">
+                                                        <tspan x="-30" y="70" font-size="60">{{$apartment->title}}</tspan>
+                                                    </text>
+                                                @endif
                                             @endif
                                         @elseif($apartment->type == 'office')
                                             @if($apartment->position == 'a')
                                                 @if($apartment->user_id == null)
-                                                    <a class="ap-link" id="nav-{{ $apartment->slug }}-tab" data-toggle="tab" href="#nav-{{ $apartment->slug }}" role="tab" aria-controls="nav-{{ $apartment->slug }}" aria-selected="false">
-                                                        <path class="path" d="M994.362,95.935v542h123.245v537.1h396.344V1108.5h32.212V949.546h-32.212V829.1h32.212V670.844h-32.212V549h32.212V390.742h-32.212V285h32.212V126.046h-32.212V95.935h-16.806V66.524H1338.887V95.935H1219.144V66.524H1060.186V95.935Z"/>
+                                                    <a class="ap-link"
+                                                       id="nav-{{ $apartment->slug }}-tab"
+                                                       data-toggle="tab"
+                                                       href="#nav-{{ $apartment->slug }}"
+                                                       role="tab"
+                                                       aria-controls="nav-{{ $apartment->slug }}"
+                                                       aria-selected="false">
+                                                        <path class="path"
+                                                              d="M491.715,905.324h914.792v18.343h63.905v117.751h-63.905v91.716h63.905v118.343h-63.905V1407.1h-12.426v52.663h-117.16V1407.1h-92.9v52.663h-117.16V1407.1H975.147v52.663H856.8V1407.1H765.088v52.663H646.745V1407.1H579.289v52.663H508.283V1407.1H491.715v-18.343H437.278v-69.822h54.438v-67.456H437.278V1133.135h54.438v-91.716H437.278V923.668h54.438Z"/>
                                                     </a>
+                                                    <text class="ap-path-title" transform="translate(952 1170)">
+                                                        <tspan x="-30" y="0" font-size="60">{{$apartment->title}}</tspan>
+                                                    </text>
                                                 @else
-                                                    <path class="booked" d="M994.362,95.935v542h123.245v537.1h396.344V1108.5h32.212V949.546h-32.212V829.1h32.212V670.844h-32.212V549h32.212V390.742h-32.212V285h32.212V126.046h-32.212V95.935h-16.806V66.524H1338.887V95.935H1219.144V66.524H1060.186V95.935Z"/>
+                                                    <path class="booked-ap"
+                                                          d="M491.715,905.324h914.792v18.343h63.905v117.751h-63.905v91.716h63.905v118.343h-63.905V1407.1h-12.426v52.663h-117.16V1407.1h-92.9v52.663h-117.16V1407.1H975.147v52.663H856.8V1407.1H765.088v52.663H646.745V1407.1H579.289v52.663H508.283V1407.1H491.715v-18.343H437.278v-69.822h54.438v-67.456H437.278V1133.135h54.438v-91.716H437.278V923.668h54.438Z"/>
                                                 @endif
                                             @elseif($apartment->position == 'b')
                                                 @if($apartment->user_id == null)
-                                                    <a class="ap-link" id="nav-{{ $apartment->slug }}-tab" data-toggle="tab" href="#nav-{{ $apartment->slug }}" role="tab" aria-controls="nav-{{ $apartment->slug }}" aria-selected="false">
-                                                        <path class="path" d="M962,636V96H941V66H779V96H659V66H500.251V96H406.863V66H313.633V96h-19.6v31.653H273.473V285.489h20.558V391.6H217.079V830.224h76.952v122.44H272.645v155.667h21.386v66.454H843.424V636Z"/>
+                                                    <a class="ap-link"
+                                                       id="nav-{{ $apartment->slug }}-tab"
+                                                       data-toggle="tab"
+                                                       href="#nav-{{ $apartment->slug }}"
+                                                       role="tab"
+                                                       aria-controls="nav-{{ $apartment->slug }}"
+                                                       aria-selected="false">
+                                                        <path class="path"
+                                                              d="M901.532,879.381H491.578v-48.25H437.413v-118.8h54.165V620.845H437.413V293.581h54.165V212.562H437.413V95.585h54.165V71.461H506.6V9.558h70.551v61.9h69.64V9.558h118.8v61.9h91.488V9.558H974.963v61.9H991.8V477.013H901.532Z"/>
                                                     </a>
                                                 @else
-                                                    <path class="booked" d="M962,636V96H941V66H779V96H659V66H500.251V96H406.863V66H313.633V96h-19.6v31.653H273.473V285.489h20.558V391.6H217.079V830.224h76.952v122.44H272.645v155.667h21.386v66.454H843.424V636Z"/>
+                                                    <path class="booked-ap"
+                                                          d="M901.532,879.381H491.578v-48.25H437.413v-118.8h54.165V620.845H437.413V293.581h54.165V212.562H437.413V95.585h54.165V71.461H506.6V9.558h70.551v61.9h69.64V9.558h118.8v61.9h91.488V9.558H974.963v61.9H991.8V477.013H901.532Z"/>
                                                 @endif
                                             @elseif($apartment->position == 'c')
                                                 @if($apartment->user_id == null)
-                                                    <a class="ap-link" id="nav-{{ $apartment->slug }}-tab" data-toggle="tab" href="#nav-{{ $apartment->slug }}" role="tab" aria-controls="nav-{{ $apartment->slug }}" aria-selected="false">
-                                                        <path class="path" d="M293.333,1206.667h1220v25.784H1545.7v156.391h-32.365v123.712H1545.7v154.99h-32.365v208.209h-16.186v20.074H1337.955v-20.074H1217.978v20.074H1058.787v-20.074H937.876v20.074H780.552v-20.074H658.707v20.074H500.916v-20.074H410.35v20.074H315.115v-20.074H293.641v-22.875H272.633v-93.834h21.008v-91.033H272.633V1509.751h21.008l-.307-121.844h-20.7V1230.583h20.7Z"/>
-
+                                                    <a class="ap-link"
+                                                       id="nav-{{ $apartment->slug }}-tab"
+                                                       data-toggle="tab"
+                                                       href="#nav-{{ $apartment->slug }}"
+                                                       role="tab"
+                                                       aria-controls="nav-{{ $apartment->slug }}"
+                                                       aria-selected="false">
+                                                        <path class="path"
+                                                              d="M1110,879.381h297V831h63V713h-63V621h63V503.5h-63V411h63V294h-63V212.5h63V95.5h-63v-24h-13V9H1276.5V71.5H1184V9H1066.5V71.5h-49v406H1110Z"/>
                                                     </a>
                                                 @else
-                                                    <path class="booked" d="M293.333,1206.667h1220v25.784H1545.7v156.391h-32.365v123.712H1545.7v154.99h-32.365v208.209h-16.186v20.074H1337.955v-20.074H1217.978v20.074H1058.787v-20.074H937.876v20.074H780.552v-20.074H658.707v20.074H500.916v-20.074H410.35v20.074H315.115v-20.074H293.641v-22.875H272.633v-93.834h21.008v-91.033H272.633V1509.751h21.008l-.307-121.844h-20.7V1230.583h20.7Z"/>
+                                                    <path class="booked-ap"
+                                                          d="M1110,879.381h297V831h63V713h-63V621h63V503.5h-63V411h63V294h-63V212.5h63V95.5h-63v-24h-13V9H1276.5V71.5H1184V9H1066.5V71.5h-49v406H1110Z"/>
 
                                                 @endif
+                                            @elseif($apartment->position == 'd')
+                                                @if($apartment->user_id == null)
+                                                    <a class="ap-link"
+                                                       id="nav-{{ $apartment->slug }}-tab"
+                                                       data-toggle="tab"
+                                                       href="#nav-{{ $apartment->slug }}"
+                                                       role="tab"
+                                                       aria-controls="nav-{{ $apartment->slug }}"
+                                                       aria-selected="false">
+
+                                                        <path class="path"
+                                                              d="M506.5,9.5H577V72h70.5V9.5H765V72h92.5V9.5H975V72h92V9.5h117.5V72h92V9.5h118V72h13V95.5h63v118h-63V294h63V411h-63v92.5h63v118h-63V713h63V831.5h-63V923h63v118h-63v92h63v118h-63v155h-14v54H1276v-54h-92v54H1066.5v-54H975v54H856v-54H764v54H647v-54H578.5v54h-71v-54h-16v-17H438v-69.5h53.5v-69H438v-118h53.5V1041H438V922.5h53.5V831H438V713h53.5V621h-54V293.5h54V213h-54V95h54V72H507Z"/>
+
+
+                                                        <text class="ap-path-title" transform="translate(952 717)">
+                                                            <tspan x="-30" y="70" font-size="60">{{$apartment->title}}</tspan>
+                                                        </text>
+                                                    </a>
+                                                @else
+                                                    <path class="booked-ap"
+                                                          d="M506.5,9.5H577V72h70.5V9.5H765V72h92.5V9.5H975V72h92V9.5h117.5V72h92V9.5h118V72h13V95.5h63v118h-63V294h63V411h-63v92.5h63v118h-63V713h63V831.5h-63V923h63v118h-63v92h63v118h-63v155h-14v54H1276v-54h-92v54H1066.5v-54H975v54H856v-54H764v54H647v-54H578.5v54h-71v-54h-16v-17H438v-69.5h53.5v-69H438v-118h53.5V1041H438V922.5h53.5V831H438V713h53.5V621h-54V293.5h54V213h-54V95h54V72H507Z"/>
+                                                    <text class="ap-booked-title" transform="translate(952 717)">
+                                                        <tspan x="-30" y="70" font-size="60">{{$apartment->title}}</tspan>
+                                                    </text>
+                                                @endif
                                             @endif
-                                        @endif
 
-
+@endif
 
                                     @endforeach
 
                             </svg>
                         </div>
                     </div>
-                    <div class="d-xl-none col-lg-12 col-md-12 col-sm-12 col-12 small-floor">
+                    <div class="d-xl-none col-lg-12 col-md-12 col-sm-12 col-12 small-floor pt-5">
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-3">
                                 @if(!empty($current_floor->compass_media->first()))
@@ -180,7 +295,7 @@
                                             {!! $apartment->description !!}
                                         </div>
                                         <div class="floor-ap-price">
-                                            {{  $apartment->price }}
+                                            € @php echo sprintf("%.2f", $apartment->price); @endphp
                                         </div>
                                         <div class="go-to-ap">
                                             <a href="{{ route('apartment', ['slug' => $apartment->slug]) }}">view apartment</a>
@@ -198,7 +313,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-12 d-none d-xl-block">
+            <div class="col-xl-12 d-none d-xl-block pt-5">
                 <div class="row">
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
                         <div class="selected">

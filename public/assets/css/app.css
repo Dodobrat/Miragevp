@@ -16221,7 +16221,7 @@ readers do not read off random characters that represent icons */
 #floor-select .card .floor-row .card-header .floor-mobile-num {
   position: absolute;
   bottom: 50%;
-  right: -15%;
+  right: -12%;
   margin-bottom: -30px;
   font-size: 35px;
   font-weight: 100;
@@ -16554,28 +16554,53 @@ readers do not read off random characters that represent icons */
   color: #FDD496;
 }
 
-.path {
+.fade {
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.ap-link .path {
   fill: transparent;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  stroke: #FDD496;
-  stroke-width: 3px;
-  opacity: 0.5;
+  stroke: #424C56;
+  stroke-width: 9px;
 }
 
-.path:hover {
+.ap-link .ap-path-title {
+  pointer-events: none;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  stroke-width: 5px;
-  opacity: 1;
+  fill: #D7F3F4;
 }
 
-.booked {
-  fill: #ff0000;
+.ap-link:hover {
+  text-decoration: none;
+}
+
+.ap-link:hover .path:hover {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  stroke: #FDD496;
+}
+
+.ap-link:hover .ap-path-title {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  fill: #FDD496;
+}
+
+.booked-ap {
+  fill: #4B5159;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   stroke: transparent;
-  opacity: 0.5;
+  opacity: 0.9;
+}
+
+.ap-booked-title {
+  pointer-events: none;
+  fill: #D7F3F4;
 }
 
 /* Custom Scrollbar */
@@ -21956,6 +21981,16 @@ input:required {
   height: 100%;
   width: 100%;
   background: #eee;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+}
+
+#overlay-floor {
+  height: 100%;
+  width: 100%;
+  background: transparent;
   position: fixed;
   left: 0;
   top: 0;
