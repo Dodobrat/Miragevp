@@ -7,7 +7,7 @@
     <div class="row">
         @foreach($blog as $post)
             @if($post->visible == true)
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="post">
                         <button class="post-link" type="button" data-toggle="modal" data-target=".read_{{ $post->id }}">
                             @if(!empty($post->thumbnail_media()->first()) && $post->show_media == true)

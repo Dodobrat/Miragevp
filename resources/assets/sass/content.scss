@@ -372,7 +372,7 @@
 
 .project-parallax-img-container{
     .project-overview{
-      padding: 150px 10px 100px 10px;
+      padding: 120px 10px 50px 10px;
       h1{
         padding: 35px 0;
         font-weight: 400;
@@ -380,7 +380,8 @@
         color: #D7F3F4;
       }
       #project-title{
-        font-size: 80px;
+        font-weight: 600;
+        font-size: 40px;
         margin: 0 auto 50px auto;
       }
       .overview-box{
@@ -396,11 +397,29 @@
               @extend .far;
               &:before {
                 content: fa-content($fa-var-eye);
-                font-size: 85px;
+                font-size: 115px;
                 color: #D7F3F4;
               }
             }
             h1{
+              margin: 0;
+              padding-bottom: 0;
+              color: #D7F3F4;
+              font-weight: 600;
+              text-transform: uppercase;
+            }
+            .mob-i{
+              @extend %fa-icon;
+              @extend .far;
+              &:before {
+                content: fa-content($fa-var-eye);
+                font-size: 140px;
+                color: #D7F3F4;
+              }
+            }
+            .mob-p{
+              padding: 0 15% 50px 15%;
+              font-size: 60px;
               color: #D7F3F4;
               font-weight: 600;
               text-transform: uppercase;
@@ -408,9 +427,10 @@
           }
           .how-to{
             p{
-              text-shadow: 0px 1px 10px rgba(0,0,0,0.3);
-              font-size: 20px;
-              padding: 25px 0 0 0;
+              font-size: 25px;
+              font-weight: 400;
+              padding: 20px 0 11px 0;
+              margin: 0;
             }
             .arrow-1 {
               position: relative;
@@ -423,22 +443,29 @@
           }
           .project-info{
             h1{
+              font-size: 40px;
+              line-height: 40px;
               padding: 20px 0;
               margin: 0;
               color: #D7F3F4;
               font-weight: 600;
+              letter-spacing: 2px;
               span{
                 color: #D7F3F4;
-                font-size: 60px;
-                font-weight: 800;
+                font-size: 90px;
+                font-weight: 600;
               }
             }
             p{
+              line-height: 10px;
               color: #D7F3F4;
               font-size: 20px;
               span{
                 font-weight: 600;
               }
+            }
+            .mob-ap{
+              padding-top: 40px;
             }
           }
         }
@@ -471,11 +498,12 @@
   .visual-footer{
     position: relative;
     img{
-      height: 400px;
-      width: auto;
+      height: 250px;
+      width: 100%;
       object-fit: cover;
     }
     .visual-sales{
+      background-color: #D6E1E5;
       position: absolute;
       bottom:0;
       left: 0;
@@ -484,22 +512,25 @@
       padding: 20px 5%;
       text-align: center;
       .enquiries{
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        padding: 20px;
-        margin: 30px 0;
-        font-size: 45px;
-        font-weight: 200;
-        color: #ffffff;
-        border-bottom: 2px solid #ffffff;
+        padding: 20px 20px 10px 20px;
+        margin: 10px 0 0 0;
+        font-size: 40px;
+        font-weight: 600;
+        color: #616E7D;
+        .enquiries-border{
+          height: 3px;
+          background-color: #ffffff;
+          margin: 10px 15% 0 15%;
+          width: 100%;
+        }
       }
       .query-info{
-        color: #ffffff;
+        color: #616E7D;
         font-size: 24px;
-        font-weight: 200;
-        padding: 20px 0;
+        font-weight: 300;
+        padding: 5px 1.5% 20px 5%;
         .q-i{
-          padding: 15px 0;
+          padding:0;
         }
       }
     }
@@ -543,12 +574,13 @@
           margin-right: -100px;
         }
         .floor-ap-stats{
-          text-align: right;
+          line-height: 25px;
+          text-align: left;
           opacity: 0;
           pointer-events: none;
           transition: 0.3s ease-in-out;
           position: absolute;
-          top: 10%;
+          top: 40%;
           bottom: 0;
           left: 0;
           font-size: 50px;
@@ -560,9 +592,10 @@
           }
         }
         .floor-mobile-num{
+          text-align: left;
           position: absolute;
           bottom: 50%;
-          right: -12%;
+          left: -10%;
           margin-bottom: -30px;
           font-size: 35px;
           font-weight: 100;
@@ -687,6 +720,10 @@
       text-decoration: none;
       font-weight: 600;
     }
+  }
+  .small-compass-desk{
+    margin: 10vh 0 0 0;
+    width: 100%;
   }
 }
 
@@ -824,7 +861,8 @@
   color: #D7F3F4;
   padding: 50px 0;
   .current-floor-compass {
-    width: 175px;
+    width: 100px;
+    padding-bottom: 50px;
   }
   .ap-info{
     .floor-ap-title{
@@ -989,13 +1027,13 @@
   }
   .project-parallax-img-container{
       .project-overview{
-        padding: 0 10px;
+        padding: 0 10%;
         #project-title{
           font-size: 65px;
           margin: auto auto 20px auto;
         }
         .overview-box{
-          padding: 0 0 15px 0;
+          padding: 10% 0 10% 0;
         }
       }
     #building{
@@ -1003,7 +1041,27 @@
     }
     }
 }
-
+@media (max-width: 1000px) {
+  .project-parallax-img-container{
+    .visual-footer{
+      .visual-sales{
+        padding: 0 5%;
+        .enquiries{
+          padding: 5px;
+          margin: 10px 0;
+          font-size: 30px;
+        }
+        .query-info{
+          font-size: 16px;
+          padding: 8px 0;
+          .q-i{
+            padding: 8px 0;
+          }
+        }
+      }
+    }
+  }
+}
 @media (max-width: 769px) {
   .post-content{
     .close-blog-modal{
@@ -1025,7 +1083,6 @@
       .card-header:hover{
         img{
           transition: 0.3s ease-in-out;
-          transform: scale(1);
         }
       }
     }
@@ -1036,7 +1093,9 @@
     }
     .project-overview{
       #project-title{
-        font-size: 40px;
+        margin: 0;
+        padding-top: 45px;
+        font-size: 30px;
       }
       .overview-box{
         .project-instructions{
@@ -1062,7 +1121,8 @@
           }
           .project-info{
             h1{
-              padding: 0 0 10px 0;
+              margin-top: -10px;
+              padding: 0;
               font-size: 30px;
               span{
                 font-size: 45px;
@@ -1071,18 +1131,20 @@
             p{
               font-size: 16px;
             }
+            .mob-ap{
+              padding-top: 10px;
+            }
           }
         }
       }
     }
     .visual-footer{
       img{
-        height: 200px;
+        height: 250px;
       }
       .visual-sales{
         padding: 0 5%;
         .enquiries{
-          letter-spacing: 2px;
           padding: 5px;
           margin: 10px 0;
           font-size: 25px;
@@ -1098,4 +1160,120 @@
     }
   }
 
+}
+@media (max-width: 650px) {
+  .project-parallax-img-container{
+    .visual-footer{
+      img{
+        height: 250px;
+      }
+      .visual-sales{
+        padding: 0 5%;
+        .enquiries{
+          padding: 5px;
+          margin: 10px 0 0 0;
+          font-size: 20px;
+        }
+        .query-info{
+          font-size: 16px;
+          padding: 8px 0;
+          .q-i{
+            padding: 8px 0;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 600px){
+  .project-parallax-img-container{
+    #building{
+      padding: 0 13%;
+    }
+    .project-overview{
+      #project-title{
+        margin: 0;
+        padding-top: 45px;
+        font-size: 20px;
+      }
+      .overview-box{
+        .project-instructions{
+          .vis-select{
+            .mob-i::before{
+              font-size: 90px;
+            }
+            .mob-p{
+              margin: 0;
+              padding: 10px 0;
+              font-size: 35px;
+            }
+          }
+          .how-to{
+            p{
+              font-size: 16px;
+              padding: 15px 0 0 0;
+            }
+            .arrow-1{
+              height: 20px;
+              width: 20px;
+            }
+          }
+          .project-info{
+            h1{
+              line-height: 25px;
+              margin-top: 10px;
+              padding: 0;
+              font-size: 30px;
+              span{
+                font-size: 45px;
+              }
+            }
+            p{
+              font-size: 16px;
+            }
+            .mob-ap{
+              padding-top: 20px;
+            }
+          }
+        }
+      }
+    }
+    #floor-select{
+      .card{
+        .floor-row{
+          .card-header{
+            .floor-mobile-num{
+              bottom: 70%;
+              left: -10%;
+              font-size: 25px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 460px) {
+  .project-parallax-img-container{
+    .visual-footer{
+      img{
+        height: 200px;
+      }
+      .visual-sales{
+        padding: 0 5%;
+        .enquiries{
+          padding: 5px;
+          margin: 10px 0 0 0;
+          font-size: 15px;
+        }
+        .query-info{
+          font-size: 12px;
+          padding: 8px 0;
+          .q-i{
+            padding: 8px 0;
+          }
+        }
+      }
+    }
+  }
 }

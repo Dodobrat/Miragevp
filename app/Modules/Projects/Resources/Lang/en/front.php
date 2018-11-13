@@ -12,5 +12,7 @@ return [
     'choose-floor' => 'Choose a floor',
     'view-floor-plans' => 'View floor plans',
     'sales-enquiries' => 'Sales Enquiries',
+    'floor' => 'Floor',
+    'ideal-place' => 'Your ideal place in the heart of Sofia',
 
 ];

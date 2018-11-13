@@ -55,11 +55,12 @@
                     </div>
 
                     <div class="floor-numbers-bars"></div>
+                    <img src="{{asset('images/visual-selection/legend/legend_2.png')}}" alt="" class="small-compass-desk d-none d-xl-block">
                 </div>
             </div>
             <div class="col-xl-10 col-lg-12 col-md-12 col-sm-12 col-xs-12 current-floor-info">
                 <div class="row">
-                    <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                         <div class="nav" role="tablist">
                             <svg viewBox="0 0 1903 1600" height="100%" width="100%" id="smth">
@@ -263,21 +264,27 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="d-xl-none col-lg-12 col-md-12 col-sm-12 col-12 small-floor pt-5">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-3">
-                                @if(!empty($current_floor->compass_media->first()))
-                                    <img class="small-floor-compass" src="{{$current_floor->compass_media->first()->getPublicPath()}}" alt="{{$current_floor->slug}}">
-                                @else
-                                    <img class="small-floor-compass" src="{{asset('images/fallback/placeholder.png')}}" alt="{{$current_floor->slug}}">
-                                @endif
+
+                        <div class="d-xl-none col-lg-12 col-md-12 col-sm-12 col-12 small-floor pt-5">
+                            <div class="container px-5 mx-auto py-5">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                                    @if(!empty($current_floor->compass_media->first()))
+                                        <img class="small-floor-compass" src="{{$current_floor->compass_media->first()->getPublicPath()}}" alt="{{$current_floor->slug}}">
+                                    @else
+                                        <img class="small-floor-compass" src="{{asset('images/fallback/placeholder.png')}}" alt="{{$current_floor->slug}}">
+                                    @endif
+                                </div>
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                                    <img src="{{asset('images/visual-selection/legend/legend_2.png')}}" alt="" class="small-compass">
+                                </div>
                             </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9 col-9">
-                                <img src="{{asset('images/visual-selection/legend/legend_2.png')}}" alt="" class="small-compass">
-                            </div>
+                                </div>
                         </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12 px-4 current-floor-ap-info">
+
+
+
+                    <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12 col-xs-12 px-4 current-floor-ap-info">
                         @if(!empty($current_floor->compass_media->first()))
                             <img class="current-floor-compass d-none d-xl-block" src="{{$current_floor->compass_media->first()->getPublicPath()}}" alt="{{$current_floor->slug}}">
                         @else
@@ -295,7 +302,7 @@
                                             {!! $apartment->description !!}
                                         </div>
                                         <div class="floor-ap-price">
-                                            € @php echo sprintf("%.2f", $apartment->price); @endphp
+                                            €  {{$apartment->price}}
                                         </div>
                                         <div class="go-to-ap">
                                             <a href="{{ route('apartment', ['slug' => $apartment->slug]) }}">view apartment</a>
@@ -312,36 +319,36 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xl-12 d-none d-xl-block pt-5">
-                <div class="row">
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
-                        <div class="selected">
-                            <img src="{{ asset('images/visual-selection/legend/selected.png') }}" alt="">
-                            <p>{{ trans('floors::front.legend-selected') }}</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
-                        <div class="booked">
-                            <img src="{{ asset('images/visual-selection/legend/booked.png') }}" alt="">
-                            <p>{{ trans('floors::front.legend-booked') }}</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
-                        <div class="available">
-                            <img src="{{ asset('images/visual-selection/legend/available.png') }}" alt="">
-                            <p>{{ trans('floors::front.legend-available') }}</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
-                        <div class="multi-level">
-                            <img src="{{ asset('images/visual-selection/legend/multi-level.png') }}" alt="">
-                            <p>{{ trans('floors::front.legend-multi-level') }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {{--<div class="row">--}}
+            {{--<div class="col-xl-12 d-none d-xl-block pt-5">--}}
+                {{--<div class="row">--}}
+                    {{--<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">--}}
+                        {{--<div class="selected">--}}
+                            {{--<img src="{{ asset('images/visual-selection/legend/selected.png') }}" alt="">--}}
+                            {{--<p>{{ trans('floors::front.legend-selected') }}</p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">--}}
+                        {{--<div class="booked">--}}
+                            {{--<img src="{{ asset('images/visual-selection/legend/booked.png') }}" alt="">--}}
+                            {{--<p>{{ trans('floors::front.legend-booked') }}</p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">--}}
+                        {{--<div class="available">--}}
+                            {{--<img src="{{ asset('images/visual-selection/legend/available.png') }}" alt="">--}}
+                            {{--<p>{{ trans('floors::front.legend-available') }}</p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">--}}
+                        {{--<div class="multi-level">--}}
+                            {{--<img src="{{ asset('images/visual-selection/legend/multi-level.png') }}" alt="">--}}
+                            {{--<p>{{ trans('floors::front.legend-multi-level') }}</p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
     </div>
 
 
