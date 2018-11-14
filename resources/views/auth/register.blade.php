@@ -33,6 +33,14 @@
                             </button>
                         </div>
                     @endif
+                    @if ($errors->has('mobile'))
+                        <div class="mt-0 mb-4 alert alert-danger alert-dismissible fade show error" role="alert">
+                            {{ $errors->first('mobile') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                     @if ($errors->has('password'))
                         <div class="mt-0 mb-4 alert alert-danger alert-dismissible fade show error" role="alert">
                             {{ $errors->first('password') }}
@@ -61,6 +69,12 @@
                     <div class="positioning input-effect{{ $errors->has('email') ? ' has-error' : '' }}">
                         <input class="effect" id="email" type="email" name="email" placeholder="" required>
                         <label>{{trans('front.email')}}</label>
+                        <span class="focus-border"></span>
+                    </div>
+
+                    <div class="positioning input-effect{{ $errors->has('mobile') ? ' has-error' : '' }}">
+                        <input class="effect" id="mobile" type="text" name="mobile" placeholder="" required>
+                        <label>{{trans('front.mobile')}} <small><em>({{trans('front.optional')}})</em></small></label>
                         <span class="focus-border"></span>
                     </div>
 

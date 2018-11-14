@@ -15999,6 +15999,70 @@ readers do not read off random characters that represent icons */
     VISUAL SELECTION
 ----------------------------------------------------- */
 
+.card-body {
+  background-color: white;
+  margin: 0 20%;
+  padding: 0 15px 0 15px;
+}
+
+.floor-acc-info {
+  padding: 100px 50px 100px 100px;
+}
+
+.accordion-floor-title {
+  font-weight: 600;
+  color: #616E7D;
+  padding: 0 0 16px 0;
+}
+
+.accordion-floor-border {
+  height: 2px;
+  width: 50%;
+  background-color: #616E7D;
+}
+
+.accordion-floor-description {
+  font-size: 16px;
+  padding: 22px 50px 0 0;
+}
+
+.floor-details {
+  font-size: 2rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #9AB7BE;
+}
+
+.floor-details span {
+  font-size: 30px;
+  font-weight: 600;
+  color: #9AB7BE;
+}
+
+.floor-details-2 {
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #9AB7BE;
+}
+
+.floor-details span {
+  font-weight: 500;
+  color: #9AB7BE;
+}
+
+.plan-image-container {
+  padding: 50px;
+}
+
+.accordion-plan-img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin: 0 auto;
+}
+
 .project-parallax-img-container .project-overview {
   padding: 120px 10px 50px 10px;
 }
@@ -16665,13 +16729,48 @@ readers do not read off random characters that represent icons */
   background: rgba(0, 0, 0, 0.4);
 }
 
-/* ---------------------------------------------------
-    MEDIA QUERIES
------------------------------------------------------ */
+@media (max-height: 800px) {
+  .custom-modal {
+    overflow: scroll;
+  }
+
+  .news-section {
+    display: none;
+  }
+
+  .contact-section {
+    display: none;
+  }
+
+  .copy {
+    display: none;
+  }
+}
+
+.mobile {
+  margin-left: unset !important;
+  width: 100%;
+}
 
 @media (max-width: 1200px) {
   .current-floor-info .current-floor-plan {
     margin: -50px 0 0 0;
+  }
+
+  .location-container {
+    height: auto;
+  }
+
+  .location-container .section-title {
+    text-align: center;
+  }
+
+  .location-container #map {
+    margin: 25px auto;
+  }
+
+  .location-container .pic {
+    margin: 0 auto 30px auto;
   }
 }
 
@@ -16763,7 +16862,122 @@ readers do not read off random characters that represent icons */
   }
 }
 
+@media (max-width: 800px) {
+  /* ---------------------------------------------------
+    PRELOADERS
+----------------------------------------------------- */
+
+  .line-draw {
+    top: 58%;
+  }
+
+  /* ---------------------------------------------------
+      TOP-NAV
+  ----------------------------------------------------- */
+
+  .top-nav {
+    margin-left: 0;
+  }
+
+  #hamburger.is-active .line:nth-child(2) {
+    opacity: 1;
+  }
+
+  #hamburger.is-active .line:nth-child(1) {
+    -webkit-transform: none;
+            transform: none;
+  }
+
+  #hamburger.is-active .line:nth-child(3) {
+    -webkit-transform: none;
+            transform: none;
+  }
+
+  .top-nav-link-head-img {
+    height: 38px;
+  }
+
+  #menu {
+    display: none;
+  }
+
+  /* ---------------------------------------------------
+      SIDE-NAV
+  ----------------------------------------------------- */
+
+  .side-nav {
+    width: 0;
+  }
+
+  .news-section {
+    opacity: 0;
+    margin-left: -100vw;
+    bottom: 28px;
+  }
+
+  .contact-section {
+    opacity: 0;
+    margin-left: -100vw;
+    bottom: 180px;
+    text-align: left;
+  }
+
+  .copy {
+    opacity: 0;
+    bottom: 5px;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+  }
+
+  .exp-link {
+    -webkit-transition: opacity 0.6s;
+    transition: opacity 0.6s;
+  }
+
+  .custom-modal-content {
+    width: 100%;
+  }
+
+  /* ---------------------------------------------------
+      CONTENT
+  ----------------------------------------------------- */
+
+  #main {
+    margin-left: 0;
+    padding: 55px 0 0 0;
+  }
+
+  .landing-image-container {
+    height: calc(100vh - 55px);
+  }
+
+  .landing-image-container .motto {
+    font-size: 20px;
+  }
+
+  .contacts-map-container {
+    padding: 50px 15px;
+  }
+
+  /* ---------------------------------------------------
+      FOOTER
+  ----------------------------------------------------- */
+
+  .foot span {
+    float: none;
+  }
+
+  .foot span #fb {
+    padding: 20px 10px;
+  }
+}
+
 @media (max-width: 769px) {
+  .card-body {
+    margin: 0 3%;
+    padding: 10px 15px 0 15px;
+  }
+
   .post-content .close-blog-modal {
     top: -10px;
     right: 10px;
@@ -16854,6 +17068,20 @@ readers do not read off random characters that represent icons */
 
   .project-parallax-img-container .visual-footer .visual-sales .query-info .q-i {
     padding: 8px 0;
+  }
+}
+
+@media (max-width: 666px) {
+  .news-section {
+    display: none;
+  }
+
+  .contact-section {
+    display: none;
+  }
+
+  .custom-modal-content {
+    width: 95%;
   }
 }
 
@@ -16961,6 +17189,58 @@ readers do not read off random characters that represent icons */
 
   .project-parallax-img-container .visual-footer .visual-sales .query-info .q-i {
     padding: 8px 0;
+  }
+}
+
+@media (max-width: 1500px) {
+  .card-body {
+    margin: 0 10%;
+    padding: 10px 15px 0 15px;
+  }
+
+  .floor-acc-info {
+    padding: 70px 50px 100px 100px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .accordion-plan-img {
+    width: 70%;
+    margin: 0 15%;
+  }
+
+  .floor-acc-info {
+    padding: 70px 50px 0 100px;
+  }
+}
+
+@media (max-width: 850px) {
+  .accordion-plan-img {
+    width: 90%;
+    margin: 0 5%;
+  }
+
+  .floor-acc-info {
+    padding: 70px 20px 0 70px;
+  }
+}
+
+@media (max-width: 400px) {
+  .floor-details {
+    font-size: 1.5rem;
+  }
+
+  .floor-details span {
+    font-size: 25px;
+  }
+
+  .accordion-plan-img {
+    width: 100%;
+    margin: 0;
+  }
+
+  .floor-acc-info {
+    padding: 50px 10px 0 50px;
   }
 }
 
@@ -23636,169 +23916,4 @@ input:-webkit-autofill:active {
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
-
-@media (max-width: 800px) {
-  /* ---------------------------------------------------
-    PRELOADERS
------------------------------------------------------ */
-
-  .line-draw {
-    top: 55%;
-  }
-
-  /* ---------------------------------------------------
-    TOP-NAV
------------------------------------------------------ */
-
-  .top-nav {
-    margin-left: 0;
-  }
-
-  #hamburger.is-active .line:nth-child(2) {
-    opacity: 1;
-  }
-
-  #hamburger.is-active .line:nth-child(1) {
-    -webkit-transform: none;
-            transform: none;
-  }
-
-  #hamburger.is-active .line:nth-child(3) {
-    -webkit-transform: none;
-            transform: none;
-  }
-
-  .top-nav-link-head-img {
-    height: 38px;
-  }
-
-  #menu {
-    display: none;
-  }
-
-  /* ---------------------------------------------------
-    SIDE-NAV
------------------------------------------------------ */
-
-  .side-nav {
-    width: 0;
-  }
-
-  .news-section {
-    opacity: 0;
-    margin-left: -100vw;
-    bottom: 28px;
-  }
-
-  .contact-section {
-    opacity: 0;
-    margin-left: -100vw;
-    bottom: 180px;
-    text-align: left;
-  }
-
-  .copy {
-    opacity: 0;
-    bottom: 5px;
-    -webkit-transition: opacity 0.3s;
-    transition: opacity 0.3s;
-  }
-
-  .exp-link {
-    -webkit-transition: opacity 0.6s;
-    transition: opacity 0.6s;
-  }
-
-  .custom-modal-content {
-    width: 100%;
-  }
-
-  /* ---------------------------------------------------
-    CONTENT
------------------------------------------------------ */
-
-  #main {
-    margin-left: 0;
-    padding: 55px 0 0 0;
-  }
-
-  .landing-image-container {
-    height: calc(100vh - 55px);
-  }
-
-  .landing-image-container .motto {
-    font-size: 20px;
-  }
-
-  .contacts-map-container {
-    padding: 50px 15px;
-  }
-
-  /* ---------------------------------------------------
-    FOOTER
------------------------------------------------------ */
-
-  .foot span {
-    float: none;
-  }
-
-  .foot span #fb {
-    padding: 20px 10px;
-  }
-}
-
-@media (max-height: 800px) {
-  .custom-modal {
-    overflow: scroll;
-  }
-
-  .news-section {
-    display: none;
-  }
-
-  .contact-section {
-    display: none;
-  }
-
-  .copy {
-    display: none;
-  }
-}
-
-@media (max-width: 666px) {
-  .news-section {
-    display: none;
-  }
-
-  .contact-section {
-    display: none;
-  }
-
-  .custom-modal-content {
-    width: 95%;
-  }
-}
-
-@media (max-width: 1200px) {
-  .location-container {
-    height: auto;
-  }
-
-  .location-container .section-title {
-    text-align: center;
-  }
-
-  .location-container #map {
-    margin: 25px auto;
-  }
-
-  .location-container .pic {
-    margin: 0 auto 30px auto;
-  }
-}
-
-.mobile {
-  margin-left: unset !important;
-  width: 100%;
-}
 

@@ -28,6 +28,7 @@ class EditUserRequest extends FormRequest
             'first_name' => 'required|max:50|min:2',
             'last_name' => 'required|max:50|min:2',
             'email' => 'required|unique:users,email,' . request()->route('user') . '|email',
+            'mobile' => 'nullable|unique:users',
             'password' => 'nullable|confirmed',
         ];
     }

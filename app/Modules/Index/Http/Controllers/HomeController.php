@@ -3,9 +3,12 @@
 namespace App\Modules\Index\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Apartments\Models\Apartments;
 use App\Modules\Contacts\Models\Contacts;
 use App\Modules\Floors\Models\Floors;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\View;
 use Jenssegers\Agent\Agent;
@@ -42,6 +45,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $current_user = Auth::user();
+        $user_apartments = Apartments::where('user_id', '=', $current_user->id)->get();
+
+        return view('home',compact('current_user','user_apartments'));
     }
 }

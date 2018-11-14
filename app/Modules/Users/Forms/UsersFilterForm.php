@@ -10,7 +10,12 @@ class UsersFilterForm extends AdminForm {
 
         $this->add('filter_names', 'text', [
             'label' => trans('users::admin.filter_names'),
-            'wrapper' => ['class' => 'col-lg-5']
+            'wrapper' => ['class' => 'col-lg-3']
+        ]);
+
+        $this->add('filter_mobile', 'text', [
+            'label' => trans('users::admin.filter_mobile'),
+            'wrapper' => ['class' => 'col-lg-3']
         ]);
 
 
@@ -18,7 +23,7 @@ class UsersFilterForm extends AdminForm {
             'label' => trans('users::admin.filter_status'),
             'value' => 0,
             'checked' => 0,
-            'wrapper' => ['class' => 'col-lg-7']
+            'wrapper' => ['class' => 'col-lg-6']
         ]);
 
     }

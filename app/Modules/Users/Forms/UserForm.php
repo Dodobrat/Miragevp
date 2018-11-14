@@ -20,6 +20,10 @@ class UserForm extends AdminForm {
             'title' => 'Email',
         ]);
 
+        $this->add('mobile', 'text', [
+            'title' => 'Mobile Phone',
+        ]);
+
         $this->add('password', 'password', [
             'title' => 'Password',
             'value' => ''

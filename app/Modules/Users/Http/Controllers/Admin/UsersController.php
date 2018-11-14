@@ -56,6 +56,8 @@ class UsersController extends BaseAdministrationController
                     }
                 })->addColumn('login_counter', function ($user) {
                         return $user->login_counter;
+                })->addColumn('mobile', function ($user) {
+                        return $user->mobile;
                 })->addColumn('last_sign_in_at', function ($user) {
                     return $user->last_sign_in_at;
                 })->addColumn('provider', function ($user) {
@@ -63,6 +65,9 @@ class UsersController extends BaseAdministrationController
                 })->filter(function ($query) use ($request){
                     if ($request->has('filter_names') && !empty($request->get('filter_names'))) {
                         $query->where(DB::raw('concat(first_name," ",last_name)'),'LIKE', '%'. $request->get('filter_names') .'%');
+                    }
+                    if ($request->has('filter_mobile') && !empty($request->get('filter_mobile'))) {
+                        $query->where(DB::raw('mobile'),'LIKE', '%'. $request->get('filter_mobile') .'%');
                     }
 
                     if ($request->has('online_status') && $request->get('online_status') == 'true') {
@@ -117,6 +122,11 @@ class UsersController extends BaseAdministrationController
                 'data' => 'email',
                 'name' => 'email',
                 'title' => trans('users::admin.email'),
+                'orderable' => false,
+            ])->addColumn([
+                'data' => 'mobile',
+                'name' => 'mobile',
+                'title' => trans('users::admin.mobile'),
                 'orderable' => false,
             ])->addColumn([
                 'data' => 'last_sign_in_at',
