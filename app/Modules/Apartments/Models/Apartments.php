@@ -74,9 +74,8 @@ class Apartments extends AdminModel
     {
         return $query->where('apartments.visible', 1);
     }
-
-    public function header_media()
+    public function apartment_plans_media()
     {
-        return $this->media('header');
+        return $this->media('apartment_plans');
     }
 }

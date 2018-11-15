@@ -60,6 +60,18 @@ class FloorsController extends BaseAdministrationController
                     $actions .= ' ' . Form::mediaManager($floors,
                             [
                                 'filters' => [
+                                    'mediaable_sub_type' => 'floor_plans'
+                                ],
+                                'button' => [
+                                    'title' => 'Floor Plans',
+                                    'class' => 'media-manager btn btn-sm btn-secondary',
+                                    'icon' => 'picture-o'
+                                ]
+                            ]
+                        );
+                    $actions .= ' ' . Form::mediaManager($floors,
+                            [
+                                'filters' => [
                                     'mediaable_sub_type' => 'compass'
                                 ],
                                 'button' => [

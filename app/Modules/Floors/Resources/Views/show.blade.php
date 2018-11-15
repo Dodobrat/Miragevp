@@ -64,12 +64,12 @@
 
                         <div class="nav" role="tablist">
                             <svg viewBox="0 0 1903 1600" height="100%" width="100%" id="smth">
-                                @if(!empty($current_floor->plan_media->first()))
+                                @if(!empty($current_floor->floor_plan_media->first()))
                                     <image
                                             width="100%"
                                             height="100%"
                                             preserveAspectRatio="none"
-                                            xlink:href="{{$current_floor->plan_media->first()->getPublicPath()}}"
+                                            xlink:href="{{$current_floor->floor_plan_media->first()->getPublicPath()}}"
                                             id=""
                                     />
                                 @else

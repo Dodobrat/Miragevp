@@ -417,7 +417,7 @@ $(document).ready(function(){
 // ---------------------------------------------------
 //         SMOOTH SCROLL
 // ---------------------------------------------------
-$('.collapse').on('shown.bs.collapse', function () {
+$('.floor-coll').on('shown.bs.collapse', function () {
 
     var $panel = $(this).closest('.card');
 

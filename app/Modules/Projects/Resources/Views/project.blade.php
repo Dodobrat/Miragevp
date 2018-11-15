@@ -121,7 +121,7 @@
                         </div>
 
 
-                        <div id="collapse_{{$floor->id}}" class="collapse" aria-labelledby="heading_{{$floor->id}}" data-parent="#floor-select">
+                        <div id="collapse_{{$floor->id}}" class="collapse floor-coll" aria-labelledby="heading_{{$floor->id}}" data-parent="#floor-select">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 floor-acc-info">
