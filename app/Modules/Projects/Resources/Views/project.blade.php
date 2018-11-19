@@ -110,10 +110,10 @@
                                             {{--@endif--}}
                                         </span>
                                     </p>
-                                        @elseif($agent->isMobile())
-                                            <p class="floor-mobile-num">
-                                                {{ $floor->floor_num }}
-                                            </p>
+                                    @elseif($agent->isMobile())
+                                        <p class="floor-mobile-num">
+                                            {{ $floor->floor_num }}
+                                        </p>
                                     @endif<!--endif Desktop & Mobile-->
                                 </button>
                             </div>
@@ -148,7 +148,11 @@
                                         <a class="" href="{{ route('floor', ['slug' => $floor->slug]) }}">
 
                                             @if(!empty($floor->plan_media->first()) && $floor->show_media == true)
-                                                <img class="accordion-plan-img" src="{{$floor->plan_media->first()->getPublicPath()}}" alt="">
+                                                @if($agent->isDesktop())
+                                                    <img class="accordion-plan-img" src="{{$floor->plan_media->first()->getPublicPath()}}" alt="">
+                                                @elseif($agent->isMobile())
+                                                    <img class="accordion-plan-img clickable" src="{{$floor->plan_media->first()->getPublicPath()}}" alt="">
+                                                @endif
                                             @else
                                                 <img class="accordion-plan-img" src="{{asset('images/fallback/placeholder.png')}}" alt="">
                                             @endif

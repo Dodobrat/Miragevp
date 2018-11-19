@@ -414,13 +414,71 @@
   color: #9AB7BE;
 }
 .plan-image-container{
+  transition: 0.3s ease-in-out;
   padding: 50px;
+}
+.plan-image-container:hover{
+  transition: 0.3s ease-in-out;
+  .accordion-plan-img{
+    background-color: rgba(97,110,125,0.2);
+  }
 }
 .accordion-plan-img{
   height: 100%;
   width:100%;
   object-fit:contain;
   margin: 0 auto;
+}
+.clickable{
+  -webkit-animation: clicky 8s infinite alternate ease-in-out;
+  animation: clicky 8s infinite alternate ease-in-out;
+}
+
+@keyframes clicky {
+  0%   {
+    transform: scale(1);
+  }
+  45%{
+    transform: scale(1);
+  }
+  47.5%  {
+    transform: scale(1.05);
+  }
+  50%  {
+    transform: scale(1.025);
+  }
+  52.5%  {
+    transform: scale(1.05);
+  }
+  55%{
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes clicky {
+  0%   {
+    transform: scale(1);
+  }
+  45%{
+    transform: scale(1);
+  }
+  47.5%  {
+    transform: scale(1.05);
+  }
+  50%  {
+    transform: scale(1.025);
+  }
+  52.5%  {
+    transform: scale(1.05);
+  }
+  55%{
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .project-parallax-img-container{

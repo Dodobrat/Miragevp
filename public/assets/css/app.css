@@ -16052,7 +16052,18 @@ readers do not read off random characters that represent icons */
 }
 
 .plan-image-container {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
   padding: 50px;
+}
+
+.plan-image-container:hover {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.plan-image-container:hover .accordion-plan-img {
+  background-color: rgba(97, 110, 125, 0.2);
 }
 
 .accordion-plan-img {
@@ -16061,6 +16072,85 @@ readers do not read off random characters that represent icons */
   -o-object-fit: contain;
      object-fit: contain;
   margin: 0 auto;
+}
+
+.clickable {
+  -webkit-animation: clicky 8s infinite alternate ease-in-out;
+  animation: clicky 8s infinite alternate ease-in-out;
+}
+
+@keyframes clicky {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+
+  45% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+
+  47.5% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+
+  50% {
+    -webkit-transform: scale(1.025);
+            transform: scale(1.025);
+  }
+
+  52.5% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+
+  55% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes clicky {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+
+  45% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+
+  47.5% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+
+  50% {
+    -webkit-transform: scale(1.025);
+            transform: scale(1.025);
+  }
+
+  52.5% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+
+  55% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 .project-parallax-img-container .project-overview {

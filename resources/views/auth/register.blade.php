@@ -73,7 +73,7 @@
                     </div>
 
                     <div class="positioning input-effect{{ $errors->has('mobile') ? ' has-error' : '' }}">
-                        <input class="effect" id="mobile" type="text" name="mobile" placeholder="" required>
+                        <input class="effect" id="mobile" type="text" name="mobile" placeholder="">
                         <label>{{trans('front.mobile')}} <small><em>({{trans('front.optional')}})</em></small></label>
                         <span class="focus-border"></span>
                     </div>

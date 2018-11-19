@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Modules\Apartments\Models\Apartments;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,6 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+//        \App\User::creating(function($model){
+//            $model->last_name = strtoupper($model->last_name);
+//        });
         $this->publishes([
             __DIR__.'/../../vendor/provision/administration/resources/views' => resource_path('views/vendor/administration'),
         ],'administration');

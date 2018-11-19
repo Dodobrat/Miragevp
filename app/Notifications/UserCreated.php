@@ -2,13 +2,13 @@
 
 namespace App\Notifications;
 
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Support\Facades\Auth;
 
-class ApartmentReserved extends Notification
+class UserCreated extends Notification
 {
     use Queueable;
 
@@ -43,20 +43,20 @@ class ApartmentReserved extends Notification
     {
         return (new MailMessage)
                     ->line('The introduction to the notification.')
-                    ->action('Come back', url('/'))
+                    ->action('Notification Action', url('/'))
                     ->line('Thank you for using our application!');
     }
 
     /**
      * Get the array representation of the notification.
      *
-     * @param  mixed  $notifiable
+     * @param User $current_user
      * @return array
      */
-    public function toArray($notifiable)
+    public function toArray(User $current_user)
     {
         return [
-            'data' => 'Apartment reserved'
+            'data' => trans('notifications::front.new-user'.' '.$current_user->first_name.', '.'newsletter::front.intro')
         ];
     }
 }

@@ -51,7 +51,7 @@ class HomeController extends Controller
     {
         $current_user = Auth::user();
         $user_apartments = Apartments::where('user_id', '=', $current_user->id)->get();
-        $current_user->notify(new ApartmentReserved);
+//        $current_user->notify(new ApartmentReserved);
 
         return view('home',compact('current_user','user_apartments'));
     }
