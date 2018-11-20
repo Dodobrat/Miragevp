@@ -2,5 +2,6 @@
     "name": "Notifications",
     "slug": "notifications",
     "version": "1.0",
-    "description": "This is the description for the Notifications module."
+    "description": "This is the description for the Notifications module.",
+    "order": 1008
 }

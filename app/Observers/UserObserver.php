@@ -13,6 +13,6 @@ class UserObserver
 
     public function created(User $current_user)
     {
-        $current_user->notify(new UserCreated);
+//        $current_user->notify(new UserCreated);
     }
 }

@@ -164,7 +164,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         App\Modules\Users\Providers\UserModelServiceProvider::class,
-        App\Modules\Apartments\Providers\ApartmentModelServiceProvider::class,
 
         /*
          * Package Service Providers...

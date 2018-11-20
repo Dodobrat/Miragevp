@@ -13,6 +13,7 @@ class FloorsTranslation extends AdminModelTranslations
     protected $table = 'floors_translations';
 
     public $timestamps = false;
+
     protected $fillable = [
         'floor_num',
         'title',
