@@ -8,7 +8,55 @@
         </h1>
     </div>
 
-    <div class="container-fluid">        
+    <div class="container-fluid">
+
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Link with href
+        </a>
+
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+
+                @foreach($all_notifications->take(10) as $all_notification)
+                    <div>
+                        <ul>
+                            @if($all_notification->read == false)
+                                <li style="background-color: #eeeeee;">
+                                    <h5>{!! $all_notification->message !!}</h5>
+                                    <a href="{{ route('readAll') }}">show</a>
+                                </li>
+                            @else
+                                <li style="background-color: #ffffff;">
+                                    <h5>{!! $all_notification->message !!}</h5>
+                                    {{--<a href="{{ route('read') }}">show</a>--}}
+                                </li>
+                            @endif
+                        </ul>
+                    </div>
+
+                @endforeach
+                    <hr>
+                @foreach($user_notifications->take(10) as $notification)
+
+                    <div>
+                        <ul>
+                            @if($notification->read == false)
+                                <li style="background-color: #eeeeee;">
+                                    <h5>{!! $notification->message !!}</h5>
+                                    <a href="{{ route('readUser') }}">show</a>
+                                </li>
+                            @elseif($notification->read == true)
+                                <li style="background-color: #ffffff;">
+                                    <h5>{!! $notification->message !!}</h5>
+                                    {{--<a href="{{ route('read') }}">show</a>--}}
+                                </li>
+                            @endif
+                        </ul>
+                    </div>
+
+                @endforeach
+            </div>
+        </div>
         
         {{--<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">--}}
             {{--Notification--}}

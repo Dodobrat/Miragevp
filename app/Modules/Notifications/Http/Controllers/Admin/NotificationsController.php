@@ -61,6 +61,7 @@ class NotificationsController extends BaseAdministrationController
                 'title' => trans('notifications::admin.date'),
                 'orderable' => false,
             ]);
+
         return view('administration::empty-listing', compact('table'));
     }
 
@@ -109,8 +110,8 @@ class NotificationsController extends BaseAdministrationController
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int $id
+     * @return void
      */
     public function show($id)
     {

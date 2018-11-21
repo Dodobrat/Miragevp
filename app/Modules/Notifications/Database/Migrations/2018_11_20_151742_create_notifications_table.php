@@ -16,7 +16,11 @@ class CreateNotificationsTable extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned()->default(null)->nullable();
+            $table->boolean('all_users')->default(false);
+            $table->boolean('read')->default(false);
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
         Schema::create('notifications_translations', function (Blueprint $table) {

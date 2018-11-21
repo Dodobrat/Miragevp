@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Modules\Apartments\Models\Apartments;
+use App\Modules\Notifications\Models\Notifications;
 use App\Modules\Users\Models\UserRoles;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -33,6 +34,10 @@ class User extends Authenticatable
 
     public function apartments() {
         return $this->hasMany(Apartments::class, 'user_id', 'id');
+    }
+
+    public function notifications() {
+        return $this->hasMany(Notifications::class, 'user_id', 'id');
     }
 
 

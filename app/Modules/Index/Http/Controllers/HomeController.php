@@ -4,6 +4,7 @@ namespace App\Modules\Index\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Apartments\Models\Apartments;
+use App\Modules\Notifications\Models\Notifications;
 use App\Modules\Contacts\Models\Contacts;
 use App\Modules\Floors\Models\Floors;
 use App\Notifications\ApartmentReserved;
@@ -51,14 +52,25 @@ class HomeController extends Controller
     {
         $current_user = Auth::user();
         $user_apartments = Apartments::where('user_id', '=', $current_user->id)->get();
+        $user_notifications = Notifications::where('user_id', '=', $current_user->id)->get();
+        $all_notifications = Notifications::where('all_users', '=', 1)->get();
 //        $current_user->notify(new ApartmentReserved);
 
-        return view('home',compact('current_user','user_apartments'));
+        return view('home',compact('current_user','user_apartments', 'user_notifications', 'all_notifications'));
     }
 
-    public function markAsRead(){
+    public function markUserNotificationsAsRead(){
 
-        auth()->user()->unreadNotifications->markAsRead();
+        $current_user = Auth::user();
+        $user_notifications = Notifications::where('user_id', '=', $current_user->id);
+        $user_notifications->update(array('read' => true));
+
+        return redirect()->back();
+    }
+    public function markAllNotificationsAsRead(){
+
+        $all_notifications = Notifications::where('all_users', '=', true);
+        $all_notifications->update(array('read' => true));
 
         return redirect()->back();
     }

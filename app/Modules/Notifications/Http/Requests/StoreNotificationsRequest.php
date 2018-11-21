@@ -31,6 +31,9 @@ class StoreNotificationsRequest extends FormRequest
             $trans[$locale . '.message'] = 'required|string';
         }
 
+        $trans['user_id'] = 'nullable|integer';
+        $trans['all_users'] = 'boolean';
+
         return $trans;
     }
 }
