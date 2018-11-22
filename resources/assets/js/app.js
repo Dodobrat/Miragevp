@@ -7,7 +7,6 @@ window.Popper = require('popper.js');
 require('bootstrap/dist/js/bootstrap.js');
 var $ =require('jquery');
 require('jquery-smooth-scroll');
-require('particles.js');
 
 // ---------------------------------------------------
 //         PRELOADERS
@@ -457,5 +456,3 @@ if (document.body.contains(document.querySelector('.arrow-up'))) {
         }
     }, false);
 }
-
-

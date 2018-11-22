@@ -4,6 +4,9 @@ namespace App\Modules\Apartments\Http\Controllers;
 
 use App\Modules\Apartments\Models\Apartments;
 use App\Modules\Apartments\Models\ApartmentsTranslation;
+use App\Modules\Floors\Models\Floors;
+use App\Modules\Floors\Models\FloorsTranslation;
+use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;

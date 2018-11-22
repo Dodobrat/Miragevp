@@ -12,10 +12,6 @@ use ProVision\Administration\Facades\Settings;
 
 class FloorsController extends Controller
 {
-//    public function index(){
-//        $floors = Floors::reversed()->get();
-//        return view('floors::floors',compact('floors'));
-//    }
 
     public function show($slug){
 

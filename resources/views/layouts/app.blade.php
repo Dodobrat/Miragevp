@@ -139,13 +139,9 @@
 
             @endif
         @if(Auth::check())
-                <a class="exp-link" href="
-                                        @if(!empty($floor_plan->last()))
-                                            {{ route('floor', ['slug' => $floor_plan->last()->slug]) }}
-                                        @else
-                                            {{ abort(404) }}
-                                        @endif
-                        ">{{trans('front.floor-plan')}}</a>
+
+                <a class="exp-link" @if(!empty($floor_plan->last()))href="{{ route('floor', ['slug' => $floor_plan->last()->slug]) }}"@endif>{{trans('front.floor-plan')}}</a>
+
             @else
                 <a class="exp-link not-logged">{{trans('front.floor-plan')}}</a>
 

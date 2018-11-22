@@ -11,8 +11,4 @@ class UserObserver
         $user->last_name = strtoupper($user->last_name);
     }
 
-    public function created(User $current_user)
-    {
-//        $current_user->notify(new UserCreated);
-    }
 }
