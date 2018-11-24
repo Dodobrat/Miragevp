@@ -17327,9 +17327,8 @@ module.exports = g;
 /***/ }),
 
 /***/ "./resources/assets/js/app.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
 
 /**
  * MIRAGETOWER 2018 Copyright

@@ -23,7 +23,7 @@ class CreateApartmentsTable extends Migration
             $table->integer('user_id')->unsigned()->default(null)->nullable();
             $table->string('type');
             $table->string('position');
-            $table->float('price',8,2);
+            $table->string('price');
             NestedSet::columns($table);
             $table->timestamps();
             $table->foreign('floor_id')->references('id')->on('floors')->onDelete('cascade');

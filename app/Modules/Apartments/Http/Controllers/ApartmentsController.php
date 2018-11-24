@@ -32,6 +32,9 @@ class ApartmentsController extends Controller
             }
         }
 
-        return view('apartments::index', compact('apartments','selected_apartment'));
+        $similar = Apartments::where('id', '!=', $selected_apartment->id)->where('type', $selected_apartment->type)->where('position', $selected_apartment->position)->orderBy('id', 'desc')->take(5)->get();
+
+
+        return view('apartments::index', compact('apartments','selected_apartment','similar'));
     }
 }

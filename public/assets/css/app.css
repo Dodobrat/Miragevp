@@ -16800,7 +16800,56 @@ readers do not read off random characters that represent icons */
   fill: #D7F3F4;
 }
 
-/* Custom Scrollbar */
+/* ---------------------------------------------------
+    APARTMENT VIEW PAGE
+----------------------------------------------------- */
+
+.apartment-view {
+  background-color: #7a8791;
+  color: #d7f3f4;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.apartment-view .apartment-information {
+  padding: 30px;
+}
+
+.apartment-view .apartment-information .apartment-title {
+  font-weight: 300;
+}
+
+.apartment-view .apartment-information .apartment-title span {
+  font-weight: 500;
+}
+
+.apartment-view .apartment-information .apartment-title-border {
+  height: 3px;
+  width: 50%;
+  background-color: #fdd496;
+}
+
+.apartment-view .apartment-information .apartment-plan-container {
+  height: 200px;
+}
+
+.apartment-view .apartment-media .apartment-image-container {
+  max-width: 100%;
+  width: auto;
+  display: inline-block;
+  overflow-x: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.apartment-view .apartment-media .apartment-image-container .apartment-image {
+  display: block;
+}
+
+/* ---------------------------------------------------
+    CUSTOM SCROLLBAR
+----------------------------------------------------- */
 
 ::-webkit-scrollbar {
   width: 5px;
