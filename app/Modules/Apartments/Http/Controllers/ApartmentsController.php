@@ -34,6 +34,13 @@ class ApartmentsController extends Controller
 
         $similar = Apartments::where('id', '!=', $selected_apartment->id)->where('type', $selected_apartment->type)->where('position', $selected_apartment->position)->orderBy('id', 'desc')->take(5)->get();
 
+//        dd($selected_apartment->floor()->first()->floor_num);
+
+        Breadcrumbs::register('index', function ($breadcrumbs) use ($selected_apartment) {
+            $breadcrumbs->parent('floors_home');
+            $breadcrumbs->push(trans('apartments::front.floor-indicator') . ' ' . $selected_apartment->floor()->first()->floor_num, route('floor', ['slug' => $selected_apartment->floor()->first()->slug]));
+            $breadcrumbs->push(trans('apartments::front.apartment-indicator') . ' ' . $selected_apartment->title, route('apartment', ['slug' => $selected_apartment->slug]));
+        });
 
         return view('apartments::index', compact('apartments','selected_apartment','similar'));
     }

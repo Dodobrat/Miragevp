@@ -16816,6 +16816,11 @@ readers do not read off random characters that represent icons */
   padding: 30px;
 }
 
+.apartment-view .apartment-information .apartment-bread .breadcrumb {
+  max-width: unset;
+  margin: unset;
+}
+
 .apartment-view .apartment-information .apartment-title {
   font-weight: 300;
 }
@@ -16830,21 +16835,93 @@ readers do not read off random characters that represent icons */
   background-color: #fdd496;
 }
 
-.apartment-view .apartment-information .apartment-plan-container {
-  height: 200px;
+.apartment-view .apartment-information .apartment-plan-container .carousel-inner .carousel-item img {
+  height: 40vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin: 0 auto;
 }
 
-.apartment-view .apartment-media .apartment-image-container {
-  max-width: 100%;
-  width: auto;
+.apartment-view .apartment-information .apartment-similar-list {
+  list-style-type: none;
+}
+
+.apartment-view .apartment-information .apartment-similar-list .apartment-similar-list-item {
   display: inline-block;
-  overflow-x: auto;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  border: 2px solid #d7f3f4;
+  color: #d7f3f4;
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration: none;
 }
 
-.apartment-view .apartment-media .apartment-image-container .apartment-image {
-  display: block;
+.apartment-view .apartment-media .apartment-image-modal-button {
+  padding: 0;
+  border: 0;
+}
+
+.apartment-view .apartment-media .apartment-image-modal-button .apartment-image {
+  height: calc(100vh - 55px);
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.apartment-view .apartment-media .apartment-image-modal-button .xl-image-polygon {
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0 55%, 4% 50%, 0 44%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0 55%, 4% 50%, 0 44%);
+}
+
+.apartment-view .apartment-media .apartment-image-modal-button:hover {
+  cursor: pointer;
+}
+
+.apartment-view .apartment-media .apartment-image-modal-button:focus {
+  outline: 0;
+}
+
+.apartment-view .apartment-media .modal-full {
+  min-width: 100%;
+  margin: 0;
+}
+
+.apartment-view .apartment-media .modal-full .modal-content {
+  background-color: rgba(255, 255, 255, 0.5);
+  min-height: 100vh;
+  max-height: 100vh;
+  border: none;
+  border-radius: 0;
+}
+
+.apartment-view .apartment-media .modal-full .modal-content .close {
+  text-align: right;
+  font-size: 100px;
+  font-weight: 100;
+  padding: 10px 20px;
+}
+
+.apartment-view .apartment-media .modal-full .modal-content .tab-content .tab-pane img {
+  width: 100%;
+  max-height: 80vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.apartment-view .apartment-media .modal-full .modal-content .nav-pills {
+  padding: 0;
+}
+
+.apartment-view .apartment-media .modal-full .modal-content .nav-pills .active {
+  background-color: transparent;
+}
+
+.apartment-view .apartment-media .modal-full .modal-content .nav-pills .apartment-modal-thumb img {
+  height: 15vh;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /* ---------------------------------------------------

@@ -1070,6 +1070,12 @@
   margin: 0;
   .apartment-information{
     padding: 30px;
+    .apartment-bread{
+      .breadcrumb{
+        max-width: unset;
+        margin: unset;
+      }
+    }
     .apartment-title{
       font-weight: 300;
       span{
@@ -1082,18 +1088,90 @@
       background-color: #fdd496;
     }
     .apartment-plan-container{
-      height: 200px;
+      .carousel-inner{
+        .carousel-item{
+          img{
+            height: 40vh;
+            object-fit: contain;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+    .apartment-similar-list{
+      list-style-type: none;
+      .apartment-similar-list-item{
+        display: inline-block;
+        border: 2px solid #d7f3f4;
+        color: #d7f3f4;
+        padding: 10px 15px;
+        margin: 5px;
+        font-size: 20px;
+        font-weight: 400;
+        text-decoration: none;
+      }
     }
   }
   .apartment-media{
-    .apartment-image-container{
-      max-width: 100%;
-      width: auto;
-      display: inline-block;
-      overflow-x: auto;
-      box-sizing: border-box;
+    .apartment-image-modal-button{
+      padding: 0;
+      border: 0;
       .apartment-image{
-        display: block;
+        height: calc(100vh - 55px);
+        width: 100%;
+        object-fit: cover;
+      }
+      .xl-image-polygon{
+        -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0 55%, 4% 50%, 0 44%);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0 55%, 4% 50%, 0 44%);
+      }
+    }
+    .apartment-image-modal-button:hover{
+      cursor: pointer;
+    }.apartment-image-modal-button:focus{
+      outline: 0;
+    }
+
+
+    .modal-full {
+      min-width: 100%;
+      margin: 0;
+    }
+
+    .modal-full .modal-content {
+      background-color: rgba(255,255,255,0.5);
+      min-height: 100vh;
+      max-height: 100vh;
+      border: none;
+      border-radius: 0;
+      .close{
+        text-align: right;
+        font-size: 100px;
+        font-weight: 100;
+        padding: 10px 20px;
+      }
+      .tab-content{
+        .tab-pane{
+          img{
+            width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+          }
+        }
+      }
+      .nav-pills{
+        padding: 0;
+        .active{
+          background-color: transparent;
+        }
+        .apartment-modal-thumb{
+          img{
+            height: 15vh;
+            width: 100%;
+            object-fit: cover;
+            //padding: 0 20px;
+          }
+        }
       }
     }
   }
