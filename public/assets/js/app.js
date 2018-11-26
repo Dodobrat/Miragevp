@@ -17830,12 +17830,14 @@ $('.floor-head').click(function () {
 // ---------------------------------------------------
 //         CONTENT - CAROUSEL IMAGE CHANGE INTERVAL
 // ---------------------------------------------------
-
-$(function () {
-    $('.carousel').carousel({
-        interval: 30000
+if (document.body.contains(document.querySelector(".carousel"))) {
+    $(function () {
+        $('.carousel').carousel({
+            interval: 30000
+        });
     });
-});
+}
+
 // ---------------------------------------------------
 //         CONTENT - ADDED CUSTOM TOUCH SUPPORT FOR CAROUSEL
 // ---------------------------------------------------
@@ -17911,6 +17913,19 @@ $('.ap-link').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
 });
+
+var apartmentInfo = document.querySelector('.desk');
+var apartmentMedia = document.querySelector('.desk-media img');
+
+if (document.body.contains(apartmentInfo) && document.body.contains(apartmentMedia)) {
+
+    apartmentMedia.addEventListener('mouseover', function () {
+        apartmentInfo.classList.add('opacity-hover');
+    });
+    apartmentMedia.addEventListener('mouseout', function () {
+        apartmentInfo.classList.remove('opacity-hover');
+    });
+}
 
 /***/ }),
 

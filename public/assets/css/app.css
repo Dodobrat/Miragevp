@@ -16807,12 +16807,21 @@ readers do not read off random characters that represent icons */
 .apartment-view {
   background-color: #7a8791;
   color: #d7f3f4;
-  height: 100%;
-  width: 100%;
+  min-height: calc(100vh - 55px);
+  height: auto;
+  width: 100vw;
   margin: 0;
 }
 
+.apartment-view .opacity-hover {
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
 .apartment-view .apartment-information {
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   padding: 30px;
 }
 
@@ -16857,6 +16866,11 @@ readers do not read off random characters that represent icons */
   text-decoration: none;
 }
 
+.apartment-view .apartment-media {
+  margin: 0;
+  padding: 0;
+}
+
 .apartment-view .apartment-media .apartment-image-modal-button {
   padding: 0;
   border: 0;
@@ -16870,8 +16884,24 @@ readers do not read off random characters that represent icons */
 }
 
 .apartment-view .apartment-media .apartment-image-modal-button .xl-image-polygon {
-  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0 55%, 4% 50%, 0 44%);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0 55%, 4% 50%, 0 44%);
+  filter: saturate(1);
+  -webkit-filter: saturate(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 5% 100%, 5% 60%, 0% 52.5%, 5% 45%, 5% 0);
+  clip-path: polygon(100% 0, 100% 100%, 15% 100%, 15% 60%, 10% 52.5%, 15% 45%, 15% 0);
+}
+
+.apartment-view .apartment-media .apartment-image-modal-button .xl-image-polygon:hover {
+  position: absolute;
+  right: 0;
+  width: calc(100vw - 240px);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  filter: saturate(3);
+  -webkit-filter: saturate(3);
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 60%, 5% 52.5%, 0 45%, 0 0);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 60%, 0% 52.5%, 0 45%, 0 0);
 }
 
 .apartment-view .apartment-media .apartment-image-modal-button:hover {
@@ -16888,7 +16918,7 @@ readers do not read off random characters that represent icons */
 }
 
 .apartment-view .apartment-media .modal-full .modal-content {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #7a8791;
   min-height: 100vh;
   max-height: 100vh;
   border: none;
@@ -16896,32 +16926,58 @@ readers do not read off random characters that represent icons */
 }
 
 .apartment-view .apartment-media .modal-full .modal-content .close {
+  text-shadow: unset;
+  opacity: 1;
+  color: #ffffff;
   text-align: right;
   font-size: 100px;
   font-weight: 100;
   padding: 10px 20px;
 }
 
-.apartment-view .apartment-media .modal-full .modal-content .tab-content .tab-pane img {
+.apartment-view .apartment-media .modal-full .modal-content .modal-gallery {
+  padding: 0;
+  margin: auto auto;
+}
+
+.apartment-view .apartment-media .modal-full .modal-content .modal-gallery .tab-content .tab-pane img {
   width: 100%;
   max-height: 80vh;
   -o-object-fit: contain;
      object-fit: contain;
 }
 
-.apartment-view .apartment-media .modal-full .modal-content .nav-pills {
+.apartment-view .apartment-media .modal-full .modal-content .modal-thumb-gallery {
+  max-height: 80vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: auto 0;
   padding: 0;
 }
 
-.apartment-view .apartment-media .modal-full .modal-content .nav-pills .active {
+.apartment-view .apartment-media .modal-full .modal-content .modal-thumb-gallery .nav-pills {
+  padding: 0;
+}
+
+.apartment-view .apartment-media .modal-full .modal-content .modal-thumb-gallery .nav-pills .active {
   background-color: transparent;
 }
 
-.apartment-view .apartment-media .modal-full .modal-content .nav-pills .apartment-modal-thumb img {
+.apartment-view .apartment-media .modal-full .modal-content .modal-thumb-gallery .nav-pills .apartment-modal-thumb img {
+  border: 2px solid #d7f3f4;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.5;
   height: 15vh;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.apartment-view .apartment-media .modal-full .modal-content .modal-thumb-gallery .nav-pills .apartment-modal-thumb img:hover {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
 }
 
 /* ---------------------------------------------------
