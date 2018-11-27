@@ -17915,15 +17915,26 @@ $('.ap-link').click(function (e) {
 });
 
 var apartmentInfo = document.querySelector('.desk');
-var apartmentMedia = document.querySelector('.desk-media img');
+var apartmentMedia = document.querySelector('.desk-media .apartment-image');
+var apartmentMediaCont = document.querySelector('.desk-media');
 
 if (document.body.contains(apartmentInfo) && document.body.contains(apartmentMedia)) {
-
-    apartmentMedia.addEventListener('mouseover', function () {
-        apartmentInfo.classList.add('opacity-hover');
-    });
-    apartmentMedia.addEventListener('mouseout', function () {
-        apartmentInfo.classList.remove('opacity-hover');
+    var count = 0;
+    apartmentMedia.addEventListener('click', function () {
+        count += 1;
+        if (Math.abs(count % 2) == 1) {
+            apartmentInfo.classList.add('opacity-hover');
+            setTimeout(function () {
+                apartmentInfo.classList.add('d-none');
+            }, 0);
+            apartmentMediaCont.classList.add('col-xl-12');
+        } else if (count % 2 == 0) {
+            apartmentInfo.classList.remove('d-none');
+            setTimeout(function () {
+                apartmentInfo.classList.remove('opacity-hover');
+            }, 100);
+            apartmentMediaCont.classList.remove('col-xl-12');
+        }
     });
 }
 

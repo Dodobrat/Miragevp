@@ -1107,6 +1107,7 @@
     .apartment-similar-list{
       list-style-type: none;
       .apartment-similar-list-item{
+        transition: 0.3s ease-in-out;
         display: inline-block;
         border: 2px solid #d7f3f4;
         color: #d7f3f4;
@@ -1115,6 +1116,10 @@
         font-size: 20px;
         font-weight: 400;
         text-decoration: none;
+      }
+      .apartment-similar-list-item:hover{
+        transition: 0.3s ease-in-out;
+        background-color: rgba(0,0,0,0.2);
       }
     }
   }
@@ -1130,19 +1135,15 @@
         object-fit: cover;
       }
       .xl-image-polygon{
-        filter: saturate(1);
-        -webkit-filter: saturate(1);
         transition: 0.3s ease-in-out;
         -webkit-clip-path: polygon(100% 0, 100% 100%, 5% 100%, 5% 60%, 0% 52.5%, 5% 45%, 5% 0);
-        clip-path: polygon(100% 0, 100% 100%, 15% 100%, 15% 60%, 10% 52.5%, 15% 45%, 15% 0);
+        clip-path: polygon(100% 0, 100% 100%, 5% 100%, 5% 60%, 0% 52.5%, 5% 45%, 5% 0);
       }
       .xl-image-polygon:hover{
-        position: absolute;
-        right: 0;
-        width: calc(100vw - 240px);
+        //position: absolute;
+        //right: 0;
+        //width: calc(100vw - 240px);
         transition: 0.3s ease-in-out;
-        filter: saturate(3);
-        -webkit-filter: saturate(3);
         -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 60%, 5% 52.5%, 0 45%, 0 0);
         clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 60%, 0% 52.5%, 0 45%, 0 0);
       }
@@ -1153,29 +1154,12 @@
       outline: 0;
     }
 
-
-    .modal-full {
-      min-width: 100%;
-      margin: 0;
-    }
-
-    .modal-full .modal-content {
-      background-color: rgba(122,135,145,1);
-      min-height: 100vh;
-      max-height: 100vh;
-      border: none;
-      border-radius: 0;
-      .close{
-        text-shadow: unset;
-        opacity: 1;
-        color: #ffffff;
-        text-align: right;
-        font-size: 100px;
-        font-weight: 100;
-        padding: 10px 20px;
-      }
+    .ap-gallery{
+      margin: 0 5%;
+      padding: 0 5%;
       .modal-gallery{
-        padding: 0;
+        display: inline-block;
+        padding: 50px;
         margin: auto auto;
         .tab-content{
           .tab-pane{
@@ -1191,7 +1175,7 @@
         max-height: 80vh;
         overflow-x: hidden;
         overflow-y: auto;
-        margin: auto 0;
+        margin: 0;
         padding: 0;
         .nav-pills{
           padding: 0;
@@ -1214,7 +1198,66 @@
           }
         }
       }
+    }
 
+
+
+    .mobile-gall{
+      padding: 0 2%;
+      margin: 0 auto;
+      .mobile-gallery{
+        .tab-pane{
+          max-width: 100%;
+          width: auto;
+          overflow-x: auto;
+          box-sizing: border-box;
+          img{
+            display: block;
+            height: 75vh;
+          }
+        }
+      }
+      .mobile-pills{
+        overflow-x: auto;
+        overflow-y:hidden;
+        flex-wrap: nowrap;
+        .nav-item{
+          .apartment-thumb{
+            .apartment-thumb-image{
+              transition: 0.3s ease-in-out;
+              max-height: 100px;
+              filter: saturate(1);
+            }
+          }
+          .active{
+            background-color: transparent;
+            .apartment-thumb-image{
+              max-height: 100px;
+              filter: saturate(2);
+              border: 1px solid #d7f3f4;
+              transition: 0.3s ease-in-out;
+            }
+          }
+        }
+      }
+    }
+    .back-to-line{
+      padding: 25px 0 0 0;
+    }
+    .back-to-floor-container{
+      width: 100%;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .back-to-floor{
+        border: 1px solid #d7f3f4;
+        color: #d7f3f4;
+        text-transform: uppercase;
+        padding: 10px 10px;
+        height: auto;
+        width: auto;
+      }
     }
   }
 }
@@ -1225,6 +1268,7 @@
     CUSTOM SCROLLBAR
 ----------------------------------------------------- */
 ::-webkit-scrollbar {
+  height: 5px;
   width: 5px;
   border-radius: 4px;
 }

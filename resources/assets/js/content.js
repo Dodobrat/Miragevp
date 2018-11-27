@@ -127,15 +127,26 @@ $('.ap-link').click(function (e) {
 });
 
 let apartmentInfo = document.querySelector('.desk');
-let apartmentMedia = document.querySelector('.desk-media img');
+let apartmentMedia = document.querySelector('.desk-media .apartment-image');
+let apartmentMediaCont = document.querySelector('.desk-media');
 
 if (document.body.contains(apartmentInfo) && document.body.contains(apartmentMedia)) {
-
-    apartmentMedia.addEventListener('mouseover', function () {
-        apartmentInfo.classList.add('opacity-hover');
-    });
-    apartmentMedia.addEventListener('mouseout', function () {
-        apartmentInfo.classList.remove('opacity-hover');
+    let count = 0;
+    apartmentMedia.addEventListener('click', function () {
+        count += 1;
+        if( Math.abs(count % 2) == 1) {
+            apartmentInfo.classList.add('opacity-hover');
+            setTimeout(() => {
+                apartmentInfo.classList.add('d-none');
+            },0);
+            apartmentMediaCont.classList.add('col-xl-12');
+        }else if(count % 2 == 0){
+            apartmentInfo.classList.remove('d-none');
+            setTimeout(() => {
+                apartmentInfo.classList.remove('opacity-hover');
+            },100);
+            apartmentMediaCont.classList.remove('col-xl-12');
+        }
     });
 }
 
