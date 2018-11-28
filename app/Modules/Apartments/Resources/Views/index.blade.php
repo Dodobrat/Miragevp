@@ -3,7 +3,7 @@
 
     <section class="apartment-view">
         <div class="row">
-            <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12 col-xs-12 @if($agent->isDesktop()) desk @endif apartment-information">
+            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 @if($agent->isDesktop()) desk @endif apartment-information">
                 <div class="apartment-bread d-none d-xl-block">
                     {!! Breadcrumbs::render('index') !!}
                 </div>
@@ -60,57 +60,61 @@
                 </div>
             </div>
 
-            <div class="col-xl-7 col-lg-12 col-md-12 col-sm-12 col-xs-12 @if($agent->isDesktop()) desk-media @endif apartment-media">
-                <div class="d-none d-xl-block">
-                    <a role="button" class="apartment-image-modal-button">
-                        @if(!empty($selected_apartment->media->first()))
-                            <img class="apartment-image @if($agent->isDesktop()) xl-image-polygon @endif" src="{{$selected_apartment->media->first()->getPublicPath()}}" alt="{{$selected_apartment->slug}}">
-                        @else
-                            <img class="apartment-image" src="{{asset('images/fallback/placeholder.png')}}" alt="{{$selected_apartment->slug}}">
-                        @endif
-                    </a>
 
-                    {{--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">--}}
-                        {{--<div class="modal-dialog modal-full" role="document">--}}
-                            {{--<div class="modal-content">--}}
-                                {{--<button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
-                                    {{--<span aria-hidden="true">×</span>--}}
-                                {{--</button>--}}
-                                <div class="ap-gallery">
-                                    <div class="col-10 modal-gallery">
-                                        <div class="tab-content" id="v-pills-tabContent">
-                                            @foreach( $selected_apartment->media as $media )
-                                                <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="v-pills-{{ $media->id }}" role="tabpanel" aria-labelledby="v-pills-{{ $media->id }}-tab">
-                                                    @if(!empty($media))
-                                                        <img src="{{ $media->getPublicPath() }}" alt="">
-                                                    @else
-                                                        <img src="{{asset('images/fallback/placeholder.png')}}" alt="">
-                                                    @endif
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <div class="col-2 modal-thumb-gallery">
-                                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                            @foreach( $selected_apartment->media as $media )
-                                                <a class="apartment-modal-thumb nav-link {{ $loop->first ? 'active' : '' }}" id="v-pills-{{ $media->id }}-tab" data-toggle="pill" href="#v-pills-{{ $media->id }}" role="tab" aria-controls="v-pills{{ $media->id }}" aria-selected="true">
-
-                                                    @if(!empty($media))
-                                                        <img class="apartment-thumb-image" src="{{$media->getPublicPath()}}" alt="">
-                                                    @else
-                                                        <img class="apartment-thumb-image" src="{{asset('images/fallback/placeholder.png')}}" alt="{{$selected_apartment->slug}}">
-                                                    @endif
-                                                </a>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
-
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-
+            <div class="d-none d-xl-block">
+                <div class="car-info">
+                    <h1 class="car-title">{{$selected_apartment->title}}</h1>
+                    <div class="car-title-border"></div>
                 </div>
+
+
+                <button class="open-carousel">
+                    OPEN
+                </button>
+
+                <div id="carouselExampleIndicator" class="carousel slide apartment-carousel" data-ride="carousel">
+                    <ol class="carousel-indicators ap-car-ind">
+                        @foreach( $selected_apartment->media as $media )
+                            <li data-target="#carouselExampleIndicator" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+                        @endforeach
+                    </ol>
+                    <div class="carousel-inner">
+                        @foreach( $selected_apartment->media as $media )
+                            <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                                <img class="d-block img-custom" src="{{ $media->getPublicPath() }}" alt="{{ $media->slug }}">
+                            </div>
+                        @endforeach
+                    </div>
+                    <a class="carousel-control-prev ap-car-prev" href="#carouselExampleIndicator" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next ap-car-next" href="#carouselExampleIndicator" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 @if($agent->isDesktop()) desk-media @endif apartment-media">
+
+                    {{--<a class="apartment-image-modal-button">--}}
+                        {{--@if(!empty($selected_apartment->media->first()))--}}
+                            {{--<img class="apartment-image @if($agent->isDesktop()) xl-image-polygon @endif" src="{{$selected_apartment->media->first()->getPublicPath()}}" alt="{{$selected_apartment->slug}}">--}}
+                        {{--@else--}}
+                            {{--<img class="apartment-image" src="{{asset('images/fallback/placeholder.png')}}" alt="{{$selected_apartment->slug}}">--}}
+                        {{--@endif--}}
+                    {{--</a>--}}
+
+                    {{--@if(!empty($selected_apartment->media->first()))--}}
+                    {{--<img class="apartment-image" src="{{$selected_apartment->media->first()->getPublicPath()}}" alt="{{$selected_apartment->slug}}">--}}
+                    {{--@else--}}
+                    {{--<img class="apartment-image" src="{{asset('images/fallback/placeholder.png')}}" alt="{{$selected_apartment->slug}}">--}}
+                    {{--@endif--}}
+
+
+
+
                 <div class="d-xl-none">
                     <div class="mobile-gall">
                         <div class="tab-content mobile-gallery" id="pills-tabContent">

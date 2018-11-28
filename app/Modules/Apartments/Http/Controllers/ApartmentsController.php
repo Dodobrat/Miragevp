@@ -35,7 +35,13 @@ class ApartmentsController extends Controller
             }
         }
 
-        $similar = Apartments::where('id', '!=', $selected_apartment->id)->where('type', $selected_apartment->type)->where('position', $selected_apartment->position)->orderBy('id', 'desc')->take(5)->get();
+        $similar = Apartments::where('id', '!=', $selected_apartment->id)
+            ->where('type', $selected_apartment->type)
+            ->where('position', $selected_apartment->position)
+            ->where('user_id', null)
+            ->orderBy('id', 'desc')
+            ->take(5)
+            ->get();
 
         Breadcrumbs::register('index', function ($breadcrumbs) use ($selected_apartment) {
             $breadcrumbs->parent('floors_home');
