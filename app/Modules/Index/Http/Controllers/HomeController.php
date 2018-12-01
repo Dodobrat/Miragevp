@@ -51,9 +51,9 @@ class HomeController extends Controller
     public function index()
     {
         $current_user = Auth::user();
-        $user_apartments = Apartments::where('user_id', '=', $current_user->id)->get();
-        $user_notifications = Notifications::where('user_id', '=', $current_user->id)->get();
-        $all_notifications = Notifications::where('all_users', '=', true)->get();
+        $user_apartments = Apartments::where('user_id', $current_user->id)->get();
+        $user_notifications = Notifications::where('user_id', $current_user->id)->orderBy('created_at','desc')->get();
+        $all_notifications = Notifications::where('all_users', true)->orderBy('created_at','desc')->get();
 
         return view('home',compact('current_user','user_apartments', 'user_notifications', 'all_notifications'));
     }

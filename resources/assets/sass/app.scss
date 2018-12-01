@@ -1251,5 +1251,109 @@ input:-webkit-autofill:active {
 }
 
 /* ---------------------------------------------------
-    MEDIAQUERIES
+    DASHBOARD
 ----------------------------------------------------- */
+.notifications-bell{
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  .notifications-bell-icon{
+    @extend %fa-icon;
+    @extend .fas;
+
+    &:before {
+      content: fa-content($fa-var-bell);
+    }
+    &:hover{
+      transition: 0.3s ease-in-out;
+      color: #869AA6;
+    }
+    transition: 0.3s ease-in-out;
+    font-size: 40px;
+    color: #95ACBF;
+  }
+  .notifications-dot{
+    position: absolute;
+    margin: -25px 0 0 -10px;
+    height: 15px;
+    width: 15px;
+    background-color: #ff4d4d;
+    border-radius: 50%;
+  }
+}
+.notifications-bell:hover{
+  text-decoration: none;
+}
+
+.notifications-tray{
+  position: absolute;
+  max-width: 400px;
+  width: auto;
+  margin: 0;
+  right: 0;
+  .notifications-tray-body{
+    margin: 0;
+    padding: 0;
+    border: 1px solid #869AA6;
+    border-radius: 0;
+    .notifications-list-container{
+      .morelink{
+        transition: 0.3s ease-in-out;
+        color: #333333;
+        text-decoration: none;
+      }
+      .morelink:hover{
+        transition: 0.3s ease-in-out;
+        color: #777777;
+        text-decoration: underline;
+      }
+      .notifications-title{
+        background-color: #95ACBF;
+        font-weight: 400;
+        padding: 10px 10px;
+        margin: 0;
+        color: #ffffff;
+      }
+      .notifications-list{
+        .morecontent span {
+          display: none;
+        }
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        .notifications-unread-list-item{
+          border-top: 1px solid rgba(0,0,0,0.1);
+          background-color: rgba(0,0,0,0.05);
+          .notifications-read{
+            width: 100%;
+            height: auto;
+            text-align: center;
+            display: block;
+            padding: 5px 0;
+            transition: 0.3s ease-in-out;
+            color: #ffffff;
+            background-color: #95ACBF;
+          }
+          .notifications-read:hover{
+            transition: 0.3s ease-in-out;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #869AA6;
+          }
+          p{
+            padding: 10px 15px;
+            margin: 0;
+          }
+        }
+        .notifications-read-list-item{
+          border-top: 1px solid rgba(0,0,0,0.1);
+          background-color: #ffffff;
+          padding: 10px 15px;
+          p{
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

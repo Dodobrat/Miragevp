@@ -3,7 +3,7 @@
 
     <section class="apartment-view">
         <div class="row">
-            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12 @if($agent->isDesktop()) desk @endif apartment-information">
+            <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12 col-xs-12 @if($agent->isDesktop()) desk @endif apartment-information">
                 <div class="apartment-bread d-none d-xl-block">
                     {!! Breadcrumbs::render('index') !!}
                 </div>
@@ -69,7 +69,20 @@
 
 
                 <button class="open-carousel">
-                    OPEN
+                    <svg viewBox="-10 0 65 48">
+                        <defs>
+                            <style>
+                                .a{
+                                    fill:none;
+                                    stroke:#707070;
+                                }
+                            </style>
+                        </defs>
+                        <g transform="translate(-0.646 -0.646)">
+                            <path class="a" d="M0,0,23.555,23.555,0,47.11" transform="translate(1 1)"/>
+                            <path class="a" d="M0,0,23.555,23.555,0,47.11" transform="translate(25 1)"/>
+                        </g>
+                    </svg>
                 </button>
 
                 <div id="carouselExampleIndicator" class="carousel slide apartment-carousel" data-ride="carousel">
@@ -97,23 +110,6 @@
             </div>
 
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 @if($agent->isDesktop()) desk-media @endif apartment-media">
-
-                    {{--<a class="apartment-image-modal-button">--}}
-                        {{--@if(!empty($selected_apartment->media->first()))--}}
-                            {{--<img class="apartment-image @if($agent->isDesktop()) xl-image-polygon @endif" src="{{$selected_apartment->media->first()->getPublicPath()}}" alt="{{$selected_apartment->slug}}">--}}
-                        {{--@else--}}
-                            {{--<img class="apartment-image" src="{{asset('images/fallback/placeholder.png')}}" alt="{{$selected_apartment->slug}}">--}}
-                        {{--@endif--}}
-                    {{--</a>--}}
-
-                    {{--@if(!empty($selected_apartment->media->first()))--}}
-                    {{--<img class="apartment-image" src="{{$selected_apartment->media->first()->getPublicPath()}}" alt="{{$selected_apartment->slug}}">--}}
-                    {{--@else--}}
-                    {{--<img class="apartment-image" src="{{asset('images/fallback/placeholder.png')}}" alt="{{$selected_apartment->slug}}">--}}
-                    {{--@endif--}}
-
-
-
 
                 <div class="d-xl-none">
                     <div class="mobile-gall">

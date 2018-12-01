@@ -1,10 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-{{--{{dd($agent->isDesktop() && $agent->is('Chrome'))}}--}}
     @foreach($projects as $project)
         @if($project->visible == true)
-            {{--{{dd($project->floors->apartments)}}--}}
             <div class="project-parallax-img-container">
                 @if($agent->isDesktop() && $agent->is('Chrome'))
                     <div class="project-parallax-img-layer-one"
@@ -105,9 +103,6 @@
                                         {{$floor->apartments->count()}}/{{ $apartments->where('floor_id', $floor->id)->count() }}
                                         <br><span>
                                             {{trans('projects::front.available-aps')}}
-                                            {{--@if(!empty($floor->apartments->first()))--}}
-                                                {{--{{trans('projects::front.from')}} : € {{$floor->apartments->first()->price}}--}}
-                                            {{--@endif--}}
                                         </span>
                                     </p>
                                     @elseif($agent->isMobile())

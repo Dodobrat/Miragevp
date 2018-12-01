@@ -17783,6 +17783,42 @@ if (document.body.contains(document.querySelector('.arrow-up'))) {
     }, false);
 }
 
+// ---------------------------------------------------
+//         TRIM TEXT
+// ---------------------------------------------------
+$(document).ready(function () {
+    var showChar = 60;
+    var ellipsestext = "...";
+    var moretext = "more";
+    var lesstext = "less";
+    $('.notifications-text p').each(function () {
+        var content = $(this).html();
+
+        if (content.length > showChar) {
+
+            var c = content.substr(0, showChar);
+            var h = content.substr(showChar - 1, content.length - showChar);
+
+            var html = c + '<span class="moreellipses">' + ellipsestext + '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+
+            $(this).html(html);
+        }
+    });
+
+    $(".morelink").click(function () {
+        if ($(this).hasClass("less")) {
+            $(this).removeClass("less");
+            $(this).html(moretext);
+        } else {
+            $(this).addClass("less");
+            $(this).html(lesstext);
+        }
+        $(this).parent().prev().toggle();
+        $(this).prev().toggle();
+        return false;
+    });
+});
+
 /***/ }),
 
 /***/ "./resources/assets/js/content.js":
@@ -17917,6 +17953,10 @@ $('.ap-link').click(function (e) {
     $(this).tab('show');
 });
 
+// ---------------------------------------------------
+//         CONTENT - APARTMENT VIEW GALLERY ON CLICK
+// ---------------------------------------------------
+
 var open = document.querySelector('.open-carousel');
 var apartmentInfo = document.querySelector('.desk');
 var apartmentMediaCont = document.querySelector('.apartment-carousel');
@@ -17943,6 +17983,7 @@ if (document.body.contains(open)) {
             apartmentInfo.style.opacity = 0;
             apartmentMediaCont.style.width = '85%';
             open.style.right = '85%';
+            open.classList.add('rotated');
             carInfo.style.left = '300px';
             carInd.style.opacity = 1;
             carPrev.style.opacity = 1;
@@ -17955,12 +17996,22 @@ if (document.body.contains(open)) {
                 carInfo.style.opacity = 1;
             }, 300);
         } else if (count % 2 == 0) {
+            $(window).resize(function () {
+                if ($(main).width() < 1750) {
+                    apartmentMediaCont.style.width = '45%';
+                    open.style.right = '45%';
+                } else if ($(main).width() > 1750) {
+                    apartmentMediaCont.style.width = '45%';
+                    open.style.right = '45%';
+                }
+            });
             apartmentInfo.style.display = 'block';
             carInd.style.display = 'none';
             carPrev.style.display = 'none';
             carNext.style.display = 'none';
             apartmentMediaCont.style.width = '45%';
             open.style.right = '45%';
+            open.classList.remove('rotated');
             setTimeout(function () {
                 apartmentInfo.style.opacity = 1;
                 carInd.style.opacity = 0;
@@ -17972,29 +18023,6 @@ if (document.body.contains(open)) {
         }
     });
 }
-// let apartmentInfo = document.querySelector('.desk');
-// let apartmentMedia = document.querySelector('.desk-media .apartment-image');
-// let apartmentMediaCont = document.querySelector('.desk-media');
-//
-// if (document.body.contains(apartmentInfo) && document.body.contains(apartmentMedia)) {
-//     let count = 0;
-//     apartmentMedia.addEventListener('click', function () {
-//         count += 1;
-//         if( Math.abs(count % 2) == 1) {
-//             apartmentInfo.classList.add('opacity-hover');
-//             setTimeout(() => {
-//                 apartmentInfo.classList.add('d-none');
-//             },0);
-//             apartmentMediaCont.classList.add('col-xl-12');
-//         }else if(count % 2 == 0){
-//             apartmentInfo.classList.remove('d-none');
-//             setTimeout(() => {
-//                 apartmentInfo.classList.remove('opacity-hover');
-//             },100);
-//             apartmentMediaCont.classList.remove('col-xl-12');
-//         }
-//     });
-// }
 
 /***/ }),
 

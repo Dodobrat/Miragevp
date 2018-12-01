@@ -40,4 +40,6 @@ return [
     'by' => 'by',
     'mobile' => 'Mobile Phone',
     'optional' => 'Optional',
+    'all-notifications' => 'Notifications',
+    'user-notifications' => 'Your Notifications'
 ];

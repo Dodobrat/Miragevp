@@ -129,6 +129,10 @@ $('.ap-link').click(function (e) {
     $(this).tab('show');
 });
 
+// ---------------------------------------------------
+//         CONTENT - APARTMENT VIEW GALLERY ON CLICK
+// ---------------------------------------------------
+
 let open = document.querySelector('.open-carousel');
 let apartmentInfo = document.querySelector('.desk');
 let apartmentMediaCont = document.querySelector('.apartment-carousel');
@@ -155,6 +159,7 @@ if (document.body.contains(open)){
             apartmentInfo.style.opacity = 0;
             apartmentMediaCont.style.width = '85%';
             open.style.right = '85%';
+            open.classList.add('rotated');
             carInfo.style.left = '300px';
             carInd.style.opacity = 1;
             carPrev.style.opacity = 1;
@@ -167,12 +172,22 @@ if (document.body.contains(open)){
                 carInfo.style.opacity = 1;
             }, 300);
         }else if(count % 2 == 0){
+            $( window ).resize(function() {
+                if ($( main ).width() < 1750) {
+                    apartmentMediaCont.style.width = '45%';
+                    open.style.right = '45%';
+                }else if ($( main ).width() > 1750) {
+                    apartmentMediaCont.style.width = '45%';
+                    open.style.right = '45%';
+                }
+            });
             apartmentInfo.style.display = 'block';
             carInd.style.display = 'none';
             carPrev.style.display = 'none';
             carNext.style.display = 'none';
             apartmentMediaCont.style.width = '45%';
             open.style.right = '45%';
+            open.classList.remove('rotated');
             setTimeout(() => {
                 apartmentInfo.style.opacity = 1;
                 carInd.style.opacity = 0;
@@ -184,29 +199,6 @@ if (document.body.contains(open)){
         }
     })
 }
-// let apartmentInfo = document.querySelector('.desk');
-// let apartmentMedia = document.querySelector('.desk-media .apartment-image');
-// let apartmentMediaCont = document.querySelector('.desk-media');
-//
-// if (document.body.contains(apartmentInfo) && document.body.contains(apartmentMedia)) {
-//     let count = 0;
-//     apartmentMedia.addEventListener('click', function () {
-//         count += 1;
-//         if( Math.abs(count % 2) == 1) {
-//             apartmentInfo.classList.add('opacity-hover');
-//             setTimeout(() => {
-//                 apartmentInfo.classList.add('d-none');
-//             },0);
-//             apartmentMediaCont.classList.add('col-xl-12');
-//         }else if(count % 2 == 0){
-//             apartmentInfo.classList.remove('d-none');
-//             setTimeout(() => {
-//                 apartmentInfo.classList.remove('opacity-hover');
-//             },100);
-//             apartmentMediaCont.classList.remove('col-xl-12');
-//         }
-//     });
-// }
 
 
 

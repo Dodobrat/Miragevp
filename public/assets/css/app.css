@@ -10483,6 +10483,7 @@ a.text-dark:focus {
 .side-nav-mobile .side-nav-inside .side-nav-link #exp-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link #name-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link #exp-drop-icon,
+.notifications-bell .notifications-bell-icon,
 .far,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select .mob-i,
@@ -10511,7 +10512,8 @@ a.text-dark:focus {
 .foot span #fb,
 .foot span #tw,
 .foot span #g,
-.foot span #ig {
+.foot span #ig,
+.notifications-bell .notifications-bell-icon {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -10620,6 +10622,7 @@ a.text-dark:focus {
 .side-nav-mobile .side-nav-inside .side-nav-link .fa-pull-left#exp-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link .fa-pull-left#name-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link .fa-pull-left#exp-drop-icon,
+.notifications-bell .fa-pull-left.notifications-bell-icon,
 .far.fa-pull-left,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i.fa-pull-left,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select .fa-pull-left.mob-i,
@@ -10639,6 +10642,7 @@ a.text-dark:focus {
 .side-nav-mobile .side-nav-inside .side-nav-link .fa-pull-right#exp-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link .fa-pull-right#name-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link .fa-pull-right#exp-drop-icon,
+.notifications-bell .fa-pull-right.notifications-bell-icon,
 .far.fa-pull-right,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i.fa-pull-right,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select .fa-pull-right.mob-i,
@@ -16841,8 +16845,8 @@ readers do not read off random characters that represent icons */
 }
 
 .apartment-view .open-carousel {
-  -webkit-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out;
+  -webkit-transition: right 0.5s ease-in-out, background-color 0.3s ease-in-out;
+  transition: right 0.5s ease-in-out, background-color 0.3s ease-in-out;
   z-index: 1;
   width: 75px;
   height: 75px;
@@ -16854,10 +16858,18 @@ readers do not read off random characters that represent icons */
   color: #d7f3f4;
   background-color: #7a8791;
   border-radius: 50%;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.apartment-view .rotated {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
 
 .apartment-view .open-carousel:hover {
   cursor: pointer;
+  background-color: #6a7680;
 }
 
 .apartment-view .open-carousel:focus {
@@ -17582,6 +17594,7 @@ readers do not read off random characters that represent icons */
 .side-nav-mobile .side-nav-inside .side-nav-link #exp-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link #name-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link #exp-drop-icon,
+.notifications-bell .notifications-bell-icon,
 .far,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select .mob-i,
@@ -17610,7 +17623,8 @@ readers do not read off random characters that represent icons */
 .foot span #fb,
 .foot span #tw,
 .foot span #g,
-.foot span #ig {
+.foot span #ig,
+.notifications-bell .notifications-bell-icon {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -17719,6 +17733,7 @@ readers do not read off random characters that represent icons */
 .side-nav-mobile .side-nav-inside .side-nav-link .fa-pull-left#exp-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link .fa-pull-left#name-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link .fa-pull-left#exp-drop-icon,
+.notifications-bell .fa-pull-left.notifications-bell-icon,
 .far.fa-pull-left,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i.fa-pull-left,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select .fa-pull-left.mob-i,
@@ -17738,6 +17753,7 @@ readers do not read off random characters that represent icons */
 .side-nav-mobile .side-nav-inside .side-nav-link .fa-pull-right#exp-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link .fa-pull-right#name-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link .fa-pull-right#exp-drop-icon,
+.notifications-bell .fa-pull-right.notifications-bell-icon,
 .far.fa-pull-right,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i.fa-pull-right,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select .fa-pull-right.mob-i,
@@ -22653,7 +22669,8 @@ readers do not read off random characters that represent icons */
 .side-nav-mobile .side-nav-inside .side-nav-link #name-drop-icon,
 .side-nav-mobile .side-nav-inside .side-nav-link #exp-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link #name-drop-icon,
-.side-nav-desktop .side-nav-inside .side-nav-link #exp-drop-icon {
+.side-nav-desktop .side-nav-inside .side-nav-link #exp-drop-icon,
+.notifications-bell .notifications-bell-icon {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
 }
@@ -24240,6 +24257,129 @@ input:-webkit-autofill:active {
 }
 
 /* ---------------------------------------------------
-    MEDIAQUERIES
+    DASHBOARD
 ----------------------------------------------------- */
+
+.notifications-bell {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+}
+
+.notifications-bell .notifications-bell-icon {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  font-size: 40px;
+  color: #95ACBF;
+}
+
+.notifications-bell .notifications-bell-icon:before {
+  content: "\F0F3";
+}
+
+.notifications-bell .notifications-bell-icon:hover {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  color: #869AA6;
+}
+
+.notifications-bell .notifications-dot {
+  position: absolute;
+  margin: -25px 0 0 -10px;
+  height: 15px;
+  width: 15px;
+  background-color: #ff4d4d;
+  border-radius: 50%;
+}
+
+.notifications-bell:hover {
+  text-decoration: none;
+}
+
+.notifications-tray {
+  position: absolute;
+  max-width: 400px;
+  width: auto;
+  margin: 0;
+  right: 0;
+}
+
+.notifications-tray .notifications-tray-body {
+  margin: 0;
+  padding: 0;
+  border: 1px solid #869AA6;
+  border-radius: 0;
+}
+
+.notifications-tray .notifications-tray-body .notifications-list-container .morelink {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  color: #333333;
+  text-decoration: none;
+}
+
+.notifications-tray .notifications-tray-body .notifications-list-container .morelink:hover {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  color: #777777;
+  text-decoration: underline;
+}
+
+.notifications-tray .notifications-tray-body .notifications-list-container .notifications-title {
+  background-color: #95ACBF;
+  font-weight: 400;
+  padding: 10px 10px;
+  margin: 0;
+  color: #ffffff;
+}
+
+.notifications-tray .notifications-tray-body .notifications-list-container .notifications-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notifications-tray .notifications-tray-body .notifications-list-container .notifications-list .morecontent span {
+  display: none;
+}
+
+.notifications-tray .notifications-tray-body .notifications-list-container .notifications-list .notifications-unread-list-item {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.notifications-tray .notifications-tray-body .notifications-list-container .notifications-list .notifications-unread-list-item .notifications-read {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  display: block;
+  padding: 5px 0;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  color: #ffffff;
+  background-color: #95ACBF;
+}
+
+.notifications-tray .notifications-tray-body .notifications-list-container .notifications-list .notifications-unread-list-item .notifications-read:hover {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #869AA6;
+}
+
+.notifications-tray .notifications-tray-body .notifications-list-container .notifications-list .notifications-unread-list-item p {
+  padding: 10px 15px;
+  margin: 0;
+}
+
+.notifications-tray .notifications-tray-body .notifications-list-container .notifications-list .notifications-read-list-item {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  padding: 10px 15px;
+}
+
+.notifications-tray .notifications-tray-body .notifications-list-container .notifications-list .notifications-read-list-item p {
+  margin: 0;
+}
 
