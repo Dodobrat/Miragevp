@@ -229,7 +229,7 @@ class UsersController extends BaseAdministrationController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param EditUserRequest $request
      * @param  int $id
      * @return \Illuminate\Http\Response
      */

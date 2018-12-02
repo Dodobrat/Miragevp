@@ -7,9 +7,9 @@ use App\Modules\Apartments\Models\Apartments;
 use App\Modules\Notifications\Models\Notifications;
 use App\Modules\Contacts\Models\Contacts;
 use App\Modules\Floors\Models\Floors;
-use App\Notifications\ApartmentReserved;
+//use App\Notifications\ApartmentReserved;
+use App\Modules\Timeline\Models\Timeline;
 use App\User;
-use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
@@ -54,8 +54,9 @@ class HomeController extends Controller
         $user_apartments = Apartments::where('user_id', $current_user->id)->get();
         $user_notifications = Notifications::where('user_id', $current_user->id)->orderBy('created_at','desc')->get();
         $all_notifications = Notifications::where('all_users', true)->orderBy('created_at','desc')->get();
+        $timeline = Timeline::where('user_id', $current_user->id)->get();
 
-        return view('home',compact('current_user','user_apartments', 'user_notifications', 'all_notifications'));
+        return view('home',compact('current_user','user_apartments', 'user_notifications', 'all_notifications','timeline'));
     }
 
     public function markUserNotificationsAsRead(){

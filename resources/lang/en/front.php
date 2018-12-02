@@ -41,5 +41,8 @@ return [
     'mobile' => 'Mobile Phone',
     'optional' => 'Optional',
     'all-notifications' => 'Notifications',
-    'user-notifications' => 'Your Notifications'
+    'user-notifications' => 'Your Notifications',
+    'latest' => 'Your Timeline',
+    'congrats-on-ap' => 'Congratulations on reserving Apartment',
+    'congrats-on-of' => 'Congratulations on reserving Office',
 ];

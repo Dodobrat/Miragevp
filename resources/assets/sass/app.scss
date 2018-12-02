@@ -1253,44 +1253,76 @@ input:-webkit-autofill:active {
 /* ---------------------------------------------------
     DASHBOARD
 ----------------------------------------------------- */
-.notifications-bell{
-  position: absolute;
-  top: 100px;
-  right: 50px;
-  .notifications-bell-icon{
-    @extend %fa-icon;
-    @extend .fas;
+.dash-head{
+  background-color: #eeeeee;
+  .dash-hello{
+    display: inline-block;
+    .edit-user{
+      i{
+        @extend %fa-icon;
+        @extend .fas;
 
-    &:before {
-      content: fa-content($fa-var-bell);
+        &:after {
+          content: fa-content($fa-var-pen);
+        }
+        &:hover{
+          cursor: pointer;
+          transition: 0.3s ease-in-out;
+          color: #869AA6;
+        }
+        transition: 0.3s ease-in-out;
+        color: #95ACBF;
+        font-size: 20px;
+        position: relative;
+        bottom: 5px;
+        left: 15px;
+      }
     }
-    &:hover{
+  }
+  .notifications-bell{
+    float: right;
+    display: inline-block;
+    .notifications-bell-icon{
+      @extend %fa-icon;
+      @extend .fas;
+
+      &:before {
+        content: fa-content($fa-var-bell);
+      }
+      &:hover{
+        transition: 0.3s ease-in-out;
+        color: #869AA6;
+      }
       transition: 0.3s ease-in-out;
-      color: #869AA6;
+      font-size: 30px;
+      color: #95ACBF;
     }
-    transition: 0.3s ease-in-out;
-    font-size: 40px;
-    color: #95ACBF;
+    .notifications-dot{
+      position: absolute;
+      margin: -25px 0 0 -10px;
+      height: 15px;
+      width: 15px;
+      background-color: #ff4d4d;
+      border-radius: 50%;
+    }
   }
-  .notifications-dot{
-    position: absolute;
-    margin: -25px 0 0 -10px;
-    height: 15px;
-    width: 15px;
-    background-color: #ff4d4d;
-    border-radius: 50%;
+  .notifications-bell:hover{
+    text-decoration: none;
   }
 }
-.notifications-bell:hover{
-  text-decoration: none;
-}
+
 
 .notifications-tray{
+  z-index: 1;
   position: absolute;
   max-width: 400px;
   width: auto;
+  max-height: 600px;
+  overflow-y: auto;
   margin: 0;
   right: 0;
+  top: 192px;
+  box-shadow: 0 5px 10px -1px rgba(0,0,0,0.2);
   .notifications-tray-body{
     margin: 0;
     padding: 0;
@@ -1301,6 +1333,8 @@ input:-webkit-autofill:active {
         transition: 0.3s ease-in-out;
         color: #333333;
         text-decoration: none;
+        background-color: #eeeeee;
+        padding: 5px;
       }
       .morelink:hover{
         transition: 0.3s ease-in-out;
@@ -1354,6 +1388,40 @@ input:-webkit-autofill:active {
           }
         }
       }
+    }
+  }
+}
+
+.timeline-header{
+  margin-bottom: 25px;
+}
+.timeline {
+  list-style-type: none;
+  position: relative;
+  &:before{
+    content: ' ';
+    background: #869AA6;
+    display: inline-block;
+    position: absolute;
+    left: 29px;
+    width: 2px;
+    height: 100%;
+    z-index: 0;
+  }
+  li {
+    margin: 30px 0;
+    padding: 0 20px;
+    &:before{
+      content: ' ';
+      background: #eeeeee;
+      display: inline-block;
+      position: absolute;
+      border-radius: 50%;
+      border: 3px solid #95ACBF;
+      left: 20px;
+      width: 20px;
+      height: 20px;
+      z-index: 0;
     }
   }
 }

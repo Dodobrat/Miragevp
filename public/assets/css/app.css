@@ -10483,7 +10483,8 @@ a.text-dark:focus {
 .side-nav-mobile .side-nav-inside .side-nav-link #exp-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link #name-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link #exp-drop-icon,
-.notifications-bell .notifications-bell-icon,
+.dash-head .dash-hello .edit-user i,
+.dash-head .notifications-bell .notifications-bell-icon,
 .far,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select .mob-i,
@@ -10513,7 +10514,8 @@ a.text-dark:focus {
 .foot span #tw,
 .foot span #g,
 .foot span #ig,
-.notifications-bell .notifications-bell-icon {
+.dash-head .dash-hello .edit-user i,
+.dash-head .notifications-bell .notifications-bell-icon {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -10622,7 +10624,8 @@ a.text-dark:focus {
 .side-nav-mobile .side-nav-inside .side-nav-link .fa-pull-left#exp-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link .fa-pull-left#name-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link .fa-pull-left#exp-drop-icon,
-.notifications-bell .fa-pull-left.notifications-bell-icon,
+.dash-head .dash-hello .edit-user i.fa-pull-left,
+.dash-head .notifications-bell .fa-pull-left.notifications-bell-icon,
 .far.fa-pull-left,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i.fa-pull-left,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select .fa-pull-left.mob-i,
@@ -10642,7 +10645,8 @@ a.text-dark:focus {
 .side-nav-mobile .side-nav-inside .side-nav-link .fa-pull-right#exp-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link .fa-pull-right#name-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link .fa-pull-right#exp-drop-icon,
-.notifications-bell .fa-pull-right.notifications-bell-icon,
+.dash-head .dash-hello .edit-user i.fa-pull-right,
+.dash-head .notifications-bell .fa-pull-right.notifications-bell-icon,
 .far.fa-pull-right,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i.fa-pull-right,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select .fa-pull-right.mob-i,
@@ -17407,6 +17411,10 @@ readers do not read off random characters that represent icons */
   .project-parallax-img-container .visual-footer .visual-sales .query-info .q-i {
     padding: 8px 0;
   }
+
+  .notifications-tray {
+    max-width: 100% !important;
+  }
 }
 
 @media (max-width: 666px) {
@@ -17594,7 +17602,8 @@ readers do not read off random characters that represent icons */
 .side-nav-mobile .side-nav-inside .side-nav-link #exp-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link #name-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link #exp-drop-icon,
-.notifications-bell .notifications-bell-icon,
+.dash-head .dash-hello .edit-user i,
+.dash-head .notifications-bell .notifications-bell-icon,
 .far,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select .mob-i,
@@ -17624,7 +17633,8 @@ readers do not read off random characters that represent icons */
 .foot span #tw,
 .foot span #g,
 .foot span #ig,
-.notifications-bell .notifications-bell-icon {
+.dash-head .dash-hello .edit-user i,
+.dash-head .notifications-bell .notifications-bell-icon {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -17733,7 +17743,8 @@ readers do not read off random characters that represent icons */
 .side-nav-mobile .side-nav-inside .side-nav-link .fa-pull-left#exp-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link .fa-pull-left#name-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link .fa-pull-left#exp-drop-icon,
-.notifications-bell .fa-pull-left.notifications-bell-icon,
+.dash-head .dash-hello .edit-user i.fa-pull-left,
+.dash-head .notifications-bell .fa-pull-left.notifications-bell-icon,
 .far.fa-pull-left,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i.fa-pull-left,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select .fa-pull-left.mob-i,
@@ -17753,7 +17764,8 @@ readers do not read off random characters that represent icons */
 .side-nav-mobile .side-nav-inside .side-nav-link .fa-pull-right#exp-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link .fa-pull-right#name-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link .fa-pull-right#exp-drop-icon,
-.notifications-bell .fa-pull-right.notifications-bell-icon,
+.dash-head .dash-hello .edit-user i.fa-pull-right,
+.dash-head .notifications-bell .fa-pull-right.notifications-bell-icon,
 .far.fa-pull-right,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select i.fa-pull-right,
 .project-parallax-img-container .project-overview .overview-box .project-instructions .vis-select .fa-pull-right.mob-i,
@@ -22670,7 +22682,8 @@ readers do not read off random characters that represent icons */
 .side-nav-mobile .side-nav-inside .side-nav-link #exp-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link #name-drop-icon,
 .side-nav-desktop .side-nav-inside .side-nav-link #exp-drop-icon,
-.notifications-bell .notifications-bell-icon {
+.dash-head .dash-hello .edit-user i,
+.dash-head .notifications-bell .notifications-bell-icon {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
 }
@@ -24260,30 +24273,58 @@ input:-webkit-autofill:active {
     DASHBOARD
 ----------------------------------------------------- */
 
-.notifications-bell {
-  position: absolute;
-  top: 100px;
-  right: 50px;
+.dash-head {
+  background-color: #eeeeee;
 }
 
-.notifications-bell .notifications-bell-icon {
+.dash-head .dash-hello {
+  display: inline-block;
+}
+
+.dash-head .dash-hello .edit-user i {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  font-size: 40px;
   color: #95ACBF;
+  font-size: 20px;
+  position: relative;
+  bottom: 5px;
+  left: 15px;
 }
 
-.notifications-bell .notifications-bell-icon:before {
-  content: "\F0F3";
+.dash-head .dash-hello .edit-user i:after {
+  content: "\F304";
 }
 
-.notifications-bell .notifications-bell-icon:hover {
+.dash-head .dash-hello .edit-user i:hover {
+  cursor: pointer;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   color: #869AA6;
 }
 
-.notifications-bell .notifications-dot {
+.dash-head .notifications-bell {
+  float: right;
+  display: inline-block;
+}
+
+.dash-head .notifications-bell .notifications-bell-icon {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  font-size: 30px;
+  color: #95ACBF;
+}
+
+.dash-head .notifications-bell .notifications-bell-icon:before {
+  content: "\F0F3";
+}
+
+.dash-head .notifications-bell .notifications-bell-icon:hover {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  color: #869AA6;
+}
+
+.dash-head .notifications-bell .notifications-dot {
   position: absolute;
   margin: -25px 0 0 -10px;
   height: 15px;
@@ -24292,16 +24333,22 @@ input:-webkit-autofill:active {
   border-radius: 50%;
 }
 
-.notifications-bell:hover {
+.dash-head .notifications-bell:hover {
   text-decoration: none;
 }
 
 .notifications-tray {
+  z-index: 1;
   position: absolute;
   max-width: 400px;
   width: auto;
+  max-height: 600px;
+  overflow-y: auto;
   margin: 0;
   right: 0;
+  top: 192px;
+  -webkit-box-shadow: 0 5px 10px -1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 10px -1px rgba(0, 0, 0, 0.2);
 }
 
 .notifications-tray .notifications-tray-body {
@@ -24316,6 +24363,8 @@ input:-webkit-autofill:active {
   transition: 0.3s ease-in-out;
   color: #333333;
   text-decoration: none;
+  background-color: #eeeeee;
+  padding: 5px;
 }
 
 .notifications-tray .notifications-tray-body .notifications-list-container .morelink:hover {
@@ -24381,5 +24430,43 @@ input:-webkit-autofill:active {
 
 .notifications-tray .notifications-tray-body .notifications-list-container .notifications-list .notifications-read-list-item p {
   margin: 0;
+}
+
+.timeline-header {
+  margin-bottom: 25px;
+}
+
+.timeline {
+  list-style-type: none;
+  position: relative;
+}
+
+.timeline:before {
+  content: ' ';
+  background: #869AA6;
+  display: inline-block;
+  position: absolute;
+  left: 29px;
+  width: 2px;
+  height: 100%;
+  z-index: 0;
+}
+
+.timeline li {
+  margin: 30px 0;
+  padding: 0 20px;
+}
+
+.timeline li:before {
+  content: ' ';
+  background: #eeeeee;
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid #95ACBF;
+  left: 20px;
+  width: 20px;
+  height: 20px;
+  z-index: 0;
 }
 

@@ -1,0 +1,7 @@
+{
+    "name": "Timeline",
+    "slug": "timeline",
+    "version": "1.0",
+    "description": "This is the description for the Timeline module.",
+    "order": 1010
+}

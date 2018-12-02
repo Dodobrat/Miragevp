@@ -2,14 +2,12 @@
 
 @section('content')
 
-    <div class="container-fluid my-5">
-        <h1 class="text-center">
-           {{ trans('index::front.hello') }}, {{ $current_user->first_name }} !
-        </h1>
-    </div>
-
-
-
+    <div class="container-fluid py-5 mb-5 dash-head">
+        <h3 class="dash-hello">
+           {{ trans('index::front.hello') }}, {{ $current_user->first_name }} ! <a class="edit-user" data-toggle="modal" data-target=".bd-example-modal-lg">
+                <i></i>
+            </a>
+        </h3>
         <a class="notifications-bell" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
             <i class="notifications-bell-icon"></i>
             <span class="badge">
@@ -18,6 +16,23 @@
                 @endif
             </span>
         </a>
+    </div>
+
+
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
         <div class="collapse notifications-tray" id="collapseExample">
             <div class="card card-body notifications-tray-body">
@@ -75,23 +90,40 @@
 
             </div>
         </div>
-    <div class="container-fluid">
+
+        <div class="row justify-content-center">
+            <div class="col-xl-7 col-lg-10 col-md-12 col-sm-12 col-xs-12">
+                <h4 class="timeline-header text-center">{{ trans('front.latest') }}</h4>
+                <ul class="timeline">
+                    @foreach($user_apartments as $user_apartment)
+                        <li class="news-item">
+                            <div class="row">
+                                <div class="col-8">
+                                    @if($user_apartment->type == 'apartment')
+                                        <a class="news-title">{{ trans('front.congrats-on-ap') }} {{ $user_apartment->title }} !</a>
+                                    @elseif($user_apartment->type == 'office')
+                                        <a class="news-title">{{ trans('front.congrats-on-of') }} {{ $user_apartment->title }} !</a>
+                                    @endif
+                                </div>
+                                <div class="col-4">
+                                    <a class="float-right news-date">{{ $user_apartment->updated_at->format('d-m-Y') }}</a>
+                                </div>
+                            </div>
 
 
-
-        @foreach($user_apartments as $user_apartment)
-            @if($user_apartment->type == 'apartment')
-                <h1>your status on apartment
-                    {{ $user_apartment->title }}
-                </h1>
-            @elseif($user_apartment->type == 'office')
-                <h1>your status on office
-                    {{ $user_apartment->title }}
-                </h1>
-            @endif
-        @endforeach
-
-    </div>
+                        </li>
+                    @endforeach
+                    @foreach($timeline as $time)
+                        <li class="news-item">
+                            <a class="news-title">{{ $time->title }} !</a>
+                            <a class="float-right news-date">{{ $time->created_at->format('d-m-Y') }}</a>
+                                <hr>
+                            {!! $time->message !!}
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
 
 @endsection
 
