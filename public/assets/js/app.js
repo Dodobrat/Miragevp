@@ -17819,6 +17819,50 @@ $(document).ready(function () {
     });
 });
 
+// ---------------------------------------------------
+//         AJAX UPDATE USER INFO
+// ---------------------------------------------------
+if (document.body.contains(document.querySelector('.edit-user-form'))) {
+    $(document).ready(function () {
+        $('#ajaxSubmit').click(function (e) {
+            e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/update',
+                method: 'post',
+                data: {
+                    first_name: $('#first_name').val(),
+                    last_name: $('#last_name').val(),
+                    email: $('#email').val(),
+                    mobile: $('#mobile').val(),
+                    password: $('#password').val(),
+                    password_confirmation: $('#password_confirm').val()
+
+                },
+                success: function success(result) {
+                    if (result.errors) {
+                        $('.alert-danger').html('');
+
+                        $.each(result.errors, function (key, value) {
+                            $('.alert-danger').show();
+                            $('.alert-danger').removeClass('d-none');
+                            $('.alert-danger').addClass('mt-0 mb-4 show');
+                            $('.alert-danger').append('<li>' + value + '</li>');
+                        });
+                    } else {
+                        $('.alert-danger').hide();
+                        // $('#open').hide();
+                        $('.edit-user-form').modal('hide');
+                    }
+                } });
+        });
+    });
+}
+
 /***/ }),
 
 /***/ "./resources/assets/js/content.js":

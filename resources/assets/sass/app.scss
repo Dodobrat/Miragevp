@@ -1279,6 +1279,7 @@ input:-webkit-autofill:active {
       }
     }
   }
+
   .notifications-bell{
     float: right;
     display: inline-block;
@@ -1386,6 +1387,20 @@ input:-webkit-autofill:active {
           p{
             margin: 0;
           }
+        }
+      }
+    }
+  }
+}
+
+.edit-user-form{
+  background-color: rgba(134,154,166,0.95);
+  .modal-dialog-centered{
+    .modal-content{
+      .modal-body{
+        padding: 0;
+        .custom-form{
+          margin: 0;
         }
       }
     }

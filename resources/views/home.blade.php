@@ -4,7 +4,7 @@
 
     <div class="container-fluid py-5 mb-5 dash-head">
         <h3 class="dash-hello">
-           {{ trans('index::front.hello') }}, {{ $current_user->first_name }} ! <a class="edit-user" data-toggle="modal" data-target=".bd-example-modal-lg">
+           {{ trans('index::front.hello') }}, {{ $current_user->first_name }} ! <a class="edit-user" data-toggle="modal" data-target="#exampleModalCenter">
                 <i></i>
             </a>
         </h3>
@@ -18,21 +18,70 @@
         </a>
     </div>
 
-
-
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+    <!-- Modal -->
+    <div class="modal fade edit-user-form" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+                <div class="modal-body">
+                    <form class="form custom-form" method="POST" action="{{ url('update') }}">
+                        {{ csrf_field() }}
+                        <h3 class="text-center form-title">{{trans('front.edit')}}</h3>
+                            <div class="alert alert-danger alert-dismissible fade error d-none" role="alert">
 
+                            </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="positioning input-effect{{ $errors->has('first_name') ? ' has-error' : '' }}">
+                                    <input class="effect" id="first_name" type="text" name="first_name" placeholder="">
+                                    <label>{{ $current_user->first_name }}</label>
+                                    <span class="focus-border"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="positioning input-effect{{ $errors->has('last_name') ? ' has-error' : '' }}">
+                                    <input class="effect" id="last_name" type="text" name="last_name" placeholder="">
+                                    <label>{{ $current_user->last_name }}</label>
+                                    <span class="focus-border"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="positioning input-effect{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <input class="effect" id="email" type="email" name="email" placeholder="">
+                            <label>{{ $current_user->email }}</label>
+                            <span class="focus-border"></span>
+                        </div>
+
+                        <div class="positioning input-effect{{ $errors->has('mobile') ? ' has-error' : '' }}">
+                            <input class="effect" id="mobile" type="text" name="mobile" placeholder="">
+                            <label>{{ $current_user->mobile }} <small><em>({{trans('front.optional')}})</em></small></label>
+                            <span class="focus-border"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="positioning input-effect{{ $errors->has('password') ? ' has-error' : '' }}">
+                                    <input class="effect" id="password" type="password" name="password" placeholder="">
+                                    <label>{{trans('front.password')}}</label>
+                                    <span class="focus-border"></span>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="positioning input-effect{{ $errors->has('password') ? ' has-error' : '' }}">
+                                    <input class="effect" id="password_confirm" type="password" name="password_confirmation" placeholder="">
+                                    <label>{{trans('front.password-confirm')}}</label>
+                                    <span class="focus-border"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn" id="ajaxSubmit">{{trans('front.save')}}</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-
 
         <div class="collapse notifications-tray" id="collapseExample">
             <div class="card card-body notifications-tray-body">

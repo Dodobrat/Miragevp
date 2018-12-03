@@ -45,4 +45,6 @@ return [
     'latest' => 'Your Timeline',
     'congrats-on-ap' => 'Congratulations on reserving Apartment',
     'congrats-on-of' => 'Congratulations on reserving Office',
+    'edit' => 'Edit',
+    'save' => 'save changes'
 ];

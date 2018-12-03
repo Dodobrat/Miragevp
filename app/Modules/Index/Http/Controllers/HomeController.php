@@ -4,6 +4,7 @@ namespace App\Modules\Index\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Apartments\Models\Apartments;
+use App\Modules\Index\Http\Requests\editUserRequest;
 use App\Modules\Notifications\Models\Notifications;
 use App\Modules\Contacts\Models\Contacts;
 use App\Modules\Floors\Models\Floors;
@@ -13,6 +14,8 @@ use App\User;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\View;
 use Jenssegers\Agent\Agent;
 use ProVision\Administration\Facades\Administration;
@@ -57,6 +60,55 @@ class HomeController extends Controller
         $timeline = Timeline::where('user_id', $current_user->id)->get();
 
         return view('home',compact('current_user','user_apartments', 'user_notifications', 'all_notifications','timeline'));
+    }
+
+    public function updateUser(editUserRequest $request)
+    {
+
+        $validator = \Validator::make($request->all(), [
+            'first_name' => 'nullable|max:50|min:2',
+            'last_name' => 'nullable|max:50|min:2',
+            'email' => 'nullable|unique:users|email',
+            'mobile' => 'nullable|unique:users',
+            'password' => 'nullable|confirmed',
+            'password_confirmation' => 'nullable',
+
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
+        $current_user = Auth::user();
+        $data = $request->validated();
+        unset($data['password']);
+        unset($data['password_confirmation']);
+        unset($data['first_name']);
+        unset($data['last_name']);
+        unset($data['email']);
+        unset($data['mobile']);
+
+        $current_user->fill($data);
+
+        if ($request->filled('password')) {
+            $current_user->password = Hash::make($request->get('password'));
+        }
+        if ($request->filled('mobile')) {
+            $current_user->mobile = $request->get('mobile');
+        }
+        if ($request->filled('first_name')) {
+            $current_user->first_name = $request->get('first_name');
+        }
+        if ($request->filled('last_name')) {
+            $current_user->last_name = $request->get('last_name');
+        }
+        if ($request->filled('email')) {
+            $current_user->email = $request->get('email');
+        }
+
+        $current_user->save();
+
+        return response()->json(['success'=>'Successfully updated']);
     }
 
     public function markUserNotificationsAsRead(){
