@@ -52,7 +52,7 @@
 <div class="top-nav">
     <a id="toggler" class="top-nav-toggler">
         @if($agent->isDesktop())
-        <div class="hamburger is-active" id="hamburger">
+        <div class="hamburger" id="hamburger">
             <span class="line"></span>
             <span class="line" style="opacity: 0;"></span>
             <span class="line"></span>
@@ -79,11 +79,11 @@
 </div>
 
 @if($agent->isDesktop())
-    <div class="side-nav-desktop">
+    <div class="side-nav-desktop deactivated">
 @elseif($agent->isMobile())
     <div class="side-nav-mobile deactivated">
 @endif
-    <div class="side-nav-inside visible">
+    <div class="side-nav-inside">
 
     <a class="btn-close" id="mobileCloser">&times;</a>
     <a href="{{ route('welcome') }}" class="side-nav-link">{{ trans('front.home') }}</a>

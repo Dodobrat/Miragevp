@@ -16071,10 +16071,14 @@ readers do not read off random characters that represent icons */
 }
 
 .plan-image-container:hover .accordion-plan-img {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
   background-color: rgba(97, 110, 125, 0.2);
 }
 
 .accordion-plan-img {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
   height: 100%;
   width: 100%;
   -o-object-fit: contain;
@@ -16493,7 +16497,7 @@ readers do not read off random characters that represent icons */
   height: calc(100vh - 55px);
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: #616E7D;
+  background-color: #7a8791;
 }
 
 .breadcrumb {
@@ -16516,7 +16520,7 @@ readers do not read off random characters that represent icons */
 }
 
 .floor-selection-section {
-  padding: 5vh 0;
+  padding: 10px 0;
   margin: auto auto;
 }
 
@@ -16529,11 +16533,19 @@ readers do not read off random characters that represent icons */
 }
 
 .floor-selection-section .floor-numbers-bars {
-  margin: 0 auto;
+  margin: 20px auto 50px auto;
   min-width: 50px;
   max-width: 120px;
   height: 1px;
   background-color: #D7F3F4;
+}
+
+.floor-selection-section .small-bars {
+  margin: 0 auto;
+}
+
+.floor-selection-section .one {
+  margin-top: 20px;
 }
 
 .floor-selection-section .floor-numbers {
@@ -16561,7 +16573,7 @@ readers do not read off random characters that represent icons */
 }
 
 .floor-selection-section .floor-numbers a .floor-number {
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .floor-selection-section .floor-numbers a:hover {
@@ -16571,8 +16583,9 @@ readers do not read off random characters that represent icons */
   font-weight: 600;
 }
 
-.floor-selection-section .small-compass-desk {
-  margin: 10vh 0 0 0;
+.small-compass-desk {
+  position: relative;
+  top: 100px;
   width: 100%;
 }
 
@@ -16581,7 +16594,7 @@ readers do not read off random characters that represent icons */
   width: 100%;
   font-size: 25px;
   color: #FDD396;
-  background-color: #616E7D;
+  background-color: #7a8791;
   border: none;
 }
 
@@ -16598,7 +16611,7 @@ readers do not read off random characters that represent icons */
 }
 
 .floor-select-modal {
-  background-color: #616E7D;
+  background-color: #7a8791;
 }
 
 .floor-select-modal .floor-modal {
@@ -16608,7 +16621,7 @@ readers do not read off random characters that represent icons */
 .floor-select-modal .floor-modal .modal-content {
   border: none;
   border-radius: 0;
-  background-color: #616E7D;
+  background-color: #7a8791;
 }
 
 .floor-select-modal .floor-modal .modal-content .floor-head h1 {
@@ -16690,6 +16703,10 @@ readers do not read off random characters that represent icons */
   padding: 20px 0;
 }
 
+.current-floor-info .c-f-p-c {
+  padding: 0 5%;
+}
+
 .current-floor-info .current-floor-plan {
   margin: auto;
   width: 100%;
@@ -16715,18 +16732,24 @@ readers do not read off random characters that represent icons */
 }
 
 .current-floor-ap-info .current-floor-compass {
-  width: 100px;
-  padding-bottom: 50px;
+  width: 150px;
+  margin: 0 0 50px 30px;
 }
 
 .current-floor-ap-info .ap-info .floor-ap-title {
-  padding: 30px 0 15px 20px;
-  font-weight: 100;
-  border-bottom: 1px solid #FDD496;
+  padding: 30px 0 15px 30px;
+  font-weight: 400;
+}
+
+.current-floor-ap-info .ap-info .floor-ap-border {
+  margin-left: 30px;
+  width: 80%;
+  height: 1px;
+  background-color: #FDD496;
 }
 
 .current-floor-ap-info .ap-info .floor-ap-info {
-  padding: 10px 0 0 20px;
+  padding: 30px 30px 0 30px;
   font-size: 20px;
   font-weight: 200;
 }
@@ -16769,7 +16792,7 @@ readers do not read off random characters that represent icons */
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   stroke: #424C56;
-  stroke-width: 9px;
+  stroke-width: 15px;
 }
 
 .ap-link .ap-path-title {
@@ -16786,7 +16809,7 @@ readers do not read off random characters that represent icons */
 .ap-link:hover .path:hover {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  stroke: #FDD496;
+  fill: rgba(215, 243, 244, 0.3);
 }
 
 .ap-link:hover .ap-path-title {
@@ -16795,12 +16818,27 @@ readers do not read off random characters that represent icons */
   fill: #FDD496;
 }
 
+.path {
+  fill: transparent;
+  stroke: #424C56;
+  stroke-width: 15px;
+}
+
+.ap-path-title {
+  pointer-events: none;
+  fill: #D7F3F4;
+}
+
+.level-2 {
+  fill: transparent;
+}
+
 .booked-ap {
-  fill: #4B5159;
+  fill: rgba(97, 110, 125, 0.8);
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  stroke: transparent;
-  opacity: 0.9;
+  stroke: #424C56;
+  stroke-width: 15px;
 }
 
 .ap-booked-title {
@@ -23099,7 +23137,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  margin-left: 250px;
+  margin-left: 0;
   overflow: hidden;
   background-color: #ffffff;
   -webkit-transition: all 0.5s ease-in-out;
@@ -23735,7 +23773,7 @@ body {
 #main {
   min-height: 100vh;
   opacity: 0;
-  margin-left: 250px;
+  margin-left: 0;
   padding-top: 55px;
   overflow-x: hidden;
   -webkit-transition: all 0.5s ease-in-out;
@@ -24434,6 +24472,26 @@ input:-webkit-autofill:active {
 
 .edit-user-form {
   background-color: rgba(134, 154, 166, 0.95);
+}
+
+.edit-user-form .modal-dialog-centered .modal-content {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  border-radius: 0;
+}
+
+.edit-user-form .modal-dialog-centered .modal-content .custom-form-header {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  border-radius: 0;
+}
+
+.edit-user-form .modal-dialog-centered .modal-content .custom-form-header button {
+  font-size: 50px;
+  color: #ffffff;
+  text-shadow: none;
+  font-weight: 100;
+  padding-right: 0;
 }
 
 .edit-user-form .modal-dialog-centered .modal-content .modal-body {

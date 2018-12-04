@@ -22,13 +22,17 @@
     <div class="modal fade edit-user-form" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
+                <div class="modal-header custom-form-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 <div class="modal-body">
                     <form class="form custom-form" method="POST" action="{{ url('update') }}">
                         {{ csrf_field() }}
                         <h3 class="text-center form-title">{{trans('front.edit')}}</h3>
-                            <div class="alert alert-danger alert-dismissible fade error d-none" role="alert">
-
-                            </div>
+                            <div class="alert alert-danger alert-dismissible fade error d-none" role="alert"></div>
+                            <div class="alert alert-success alert-dismissible fade error d-none" role="alert"></div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="positioning input-effect{{ $errors->has('first_name') ? ' has-error' : '' }}">

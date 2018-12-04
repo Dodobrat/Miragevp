@@ -44,7 +44,7 @@ class Administration implements Module {
         $box->setBoxClass('col-lg-3 col-md-6 col-sm-6 col-xs-12'); //set boostrap column class
         $box->setTitle(trans('apartments::admin.dash_apartments_linkbox_title'));
         $box->setValue(Apartments::count());
-        $box->setBoxBackgroundClass('bg-green');
+        $box->setBoxBackgroundClass('bg-yellow');
         $box->setIconClass('fa fa-building-o');
         $box->setLink(trans('apartments::admin.dash_apartments_linkbox'), \Administration::route('apartments.index'));
         \Dashboard::add($box);

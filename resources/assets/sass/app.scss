@@ -309,7 +309,7 @@ body{
   top: 0;
   left: 0;
   right: 0;
-  margin-left: 250px;
+  margin-left: 0;
   overflow: hidden;
   background-color: #ffffff;
   transition: all 0.5s ease-in-out;
@@ -826,7 +826,7 @@ body{
 #main{
   min-height: 100vh;
   opacity: 0;
-  margin-left: 250px;
+  margin-left: 0;
   padding-top:55px;
   overflow-x:hidden;
   transition: all 0.5s ease-in-out;
@@ -1397,6 +1397,21 @@ input:-webkit-autofill:active {
   background-color: rgba(134,154,166,0.95);
   .modal-dialog-centered{
     .modal-content{
+      background-color: rgba(0,0,0,0);
+      border: none;
+      border-radius: 0;
+      .custom-form-header{
+        background-color: rgba(0,0,0,0);
+        border: none;
+        border-radius: 0;
+        button{
+          font-size: 50px;
+          color: #ffffff;
+          text-shadow: none;
+          font-weight: 100;
+          padding-right: 0;
+        }
+      }
       .modal-body{
         padding: 0;
         .custom-form{

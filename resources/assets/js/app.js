@@ -188,7 +188,7 @@ if (document.body.contains(sideNav)){
     function sideNavDesktop(){
         navToggler.addEventListener('click', function () {
             counter += 1;
-            if( Math.abs(counter % 2) == 1) {
+            if( counter % 2 == 0) {
                 hamburger.classList.add('is-active');
                 sideNav.classList.remove('deactivated');
                 expLinks.forEach(function (expLink) {
@@ -211,7 +211,7 @@ if (document.body.contains(sideNav)){
                         contactSection.classList.add('visible');
                     }
                 },500)
-            }else if(counter % 2 == 0){
+            }else if(Math.abs(counter % 2) == 1){
                 hamburger.classList.remove('is-active');
                 sideNavInside.classList.remove('visible');
                 copy.classList.remove('visible');
@@ -504,6 +504,7 @@ if (document.body.contains(document.querySelector('.edit-user-form'))) {
         $('#ajaxSubmit').click(function (e) {
             e.preventDefault();
             $.ajaxSetup({
+                cache: false,
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
@@ -526,14 +527,22 @@ if (document.body.contains(document.querySelector('.edit-user-form'))) {
 
                         $.each(result.errors, function (key, value) {
                             $('.alert-danger').show();
+                            $('.alert-success').hide();
                             $('.alert-danger').removeClass('d-none');
                             $('.alert-danger').addClass('mt-0 mb-4 show');
                             $('.alert-danger').append('<li>' + value + '</li>');
                         });
                     } else {
-                        $('.alert-danger').hide();
-                        // $('#open').hide();
-                        $('.edit-user-form').modal('hide');
+                        $('.alert-success').html('');
+
+                        $.each(result, function (key, value) {
+                            $('.alert-success').show();
+                            $('.alert-danger').hide();
+                            $('.alert-success').removeClass('d-none');
+                            $('.alert-success').addClass('mt-0 mb-4 show');
+                            $('.alert-success').append('<li>' + value + '</li>');
+                        // $('.edit-user-form').modal('hide');
+                        });
                     }
                 }});
         });

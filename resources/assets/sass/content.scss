@@ -420,10 +420,12 @@
 .plan-image-container:hover{
   transition: 0.3s ease-in-out;
   .accordion-plan-img{
+    transition: 0.3s ease-in-out;
     background-color: rgba(97,110,125,0.2);
   }
 }
 .accordion-plan-img{
+  transition: 0.3s ease-in-out;
   height: 100%;
   width:100%;
   object-fit:contain;
@@ -764,7 +766,7 @@
   height: calc(100vh - 55px);
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: #616E7D;
+  background-color: #7a8791;
 }
 
 .breadcrumb{
@@ -786,7 +788,7 @@
 }
 
 .floor-selection-section{
-  padding: 5vh 0;
+  padding: 10px 0;
   margin: auto auto;
   //max-height: 75vh;
   //overflow-y: scroll;
@@ -799,11 +801,17 @@
     margin: 0 auto;
   }
   .floor-numbers-bars{
-    margin: 0 auto;
+    margin: 20px auto 50px auto;
     min-width: 50px;
     max-width: 120px;
     height: 1px;
     background-color: #D7F3F4;
+  }
+  .small-bars{
+    margin: 0 auto;
+  }
+  .one{
+    margin-top: 20px;
   }
   .floor-numbers{
     margin: unset;
@@ -823,7 +831,7 @@
       font-size: 25px;
       font-weight: 100;
       .floor-number{
-        padding: 20px 0;
+        padding: 10px 0;
       }
     }
     a:hover{
@@ -832,18 +840,18 @@
       font-weight: 600;
     }
   }
-  .small-compass-desk{
-    margin: 10vh 0 0 0;
-    width: 100%;
-  }
 }
-
+.small-compass-desk{
+  position: relative;
+  top: 100px;
+  width: 100%;
+}
 .floor-select-trigger{
   padding: 15px;
   width: 100%;
   font-size: 25px;
   color: #FDD396;
-  background-color: #616E7D;
+  background-color: #7a8791;
   border: none;
   i {
     @extend %fa-icon;
@@ -862,13 +870,13 @@
 }
 
 .floor-select-modal{
-  background-color: #616E7D;
+  background-color: #7a8791;
   .floor-modal{
     margin: 0;
     .modal-content{
       border: none;
       border-radius: 0;
-      background-color: #616E7D;
+      background-color: #7a8791;
       .floor-head{
         h1{
           color: #D7F3F4;
@@ -947,6 +955,9 @@
 
 .current-floor-info{
   padding: 20px 0;
+  .c-f-p-c{
+    padding: 0 5%;
+  }
   .current-floor-plan{
     margin: auto;
     width: 100%;
@@ -972,18 +983,24 @@
   color: #D7F3F4;
   padding: 50px 0;
   .current-floor-compass {
-    width: 100px;
-    padding-bottom: 50px;
+    width: 150px;
+    margin: 0 0 50px 30px;
   }
   .ap-info{
     .floor-ap-title{
       //color: #D7F3F4;
-      padding: 30px 0 15px 20px;
-      font-weight: 100;
-      border-bottom: 1px solid #FDD496;
+      padding: 30px 0 15px 30px;
+      font-weight: 400;
+      //border-bottom: 1px solid #FDD496;
+    }
+    .floor-ap-border{
+      margin-left: 30px;
+      width: 80%;
+      height: 1px;
+      background-color: #FDD496;
     }
     .floor-ap-info{
-      padding: 10px 0 0 20px;
+      padding: 30px 30px 0 30px;
       font-size: 20px;
       font-weight: 200;
     }
@@ -1026,7 +1043,7 @@
     fill: transparent;
     transition: 0.3s ease-in-out;
     stroke: #424C56;
-    stroke-width: 9px;
+    stroke-width: 15px;
   }
   .ap-path-title{
     pointer-events: none;
@@ -1038,20 +1055,31 @@
   text-decoration: none;
   .path:hover{
     transition: 0.3s ease-in-out;
-    stroke: #FDD496;
+    fill: rgba(215,243,244,0.3);
   }
   .ap-path-title{
     transition: 0.3s ease-in-out;
     fill: #FDD496;
   }
 }
-
+.path {
+  fill: transparent;
+  stroke: #424C56;
+  stroke-width: 15px;
+}
+.ap-path-title{
+  pointer-events: none;
+  fill: #D7F3F4;
+}
+.level-2{
+  fill: transparent;
+}
 .booked-ap{
-  fill: #4B5159;
+  fill: rgba(97,110,125,0.8);
   transition: 0.3s ease-in-out;
-  stroke: transparent;
+  stroke: #424C56;
+  stroke-width: 15px;
   //stroke-width: 3px;
-  opacity: 0.9;
 }
 
 .ap-booked-title{
