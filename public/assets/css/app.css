@@ -16894,7 +16894,7 @@ readers do not read off random characters that represent icons */
   height: 75px;
   position: absolute;
   top: 90%;
-  right: 45%;
+  right: 50%;
   margin-right: -37.5px;
   border: 1px solid #d7f3f4;
   color: #d7f3f4;
@@ -16921,7 +16921,7 @@ readers do not read off random characters that represent icons */
 .apartment-view .apartment-carousel {
   position: absolute;
   right: 0;
-  width: 45%;
+  width: 50%;
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
 }
@@ -16966,6 +16966,7 @@ readers do not read off random characters that represent icons */
 }
 
 .apartment-view .apartment-information .apartment-title {
+  text-transform: capitalize;
   font-weight: 300;
 }
 
@@ -17007,6 +17008,25 @@ readers do not read off random characters that represent icons */
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+.apartment-view .apartment-information .back-to-floor-desk {
+  text-transform: uppercase;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  border: 2px solid #d7f3f4;
+  color: #d7f3f4;
+  padding: 20px 30px;
+  font-size: 20px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.apartment-view .apartment-information .back-to-floor-desk:hover {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.1);
+  text-decoration: none;
 }
 
 .apartment-view .apartment-media {
@@ -23421,7 +23441,8 @@ body {
   top: 0;
   height: 0;
   width: 100vw;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   background-color: rgba(134, 154, 166, 0.95);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -23429,7 +23450,7 @@ body {
 
 .side-nav-mobile .side-nav-inside .custom-modal .custom-modal-content {
   width: 95%;
-  margin: auto auto;
+  margin: 100px auto;
   opacity: 0;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -23468,7 +23489,7 @@ body {
   height: 100%;
   width: 250px;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
   background-color: #ffffff;
@@ -23661,16 +23682,14 @@ body {
 
 .side-nav-desktop .side-nav-inside .custom-modal .custom-modal-content {
   width: 50%;
-  margin: auto auto;
+  margin: 10% auto;
   opacity: 0;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
 
 .side-nav-desktop .side-nav-inside .custom-modal .custom-modal-content .closeBtn {
-  position: absolute;
-  right: 50px;
-  top: 0;
+  margin-left: 79%;
   z-index: 2;
   font-size: 60px;
   font-weight: 100;
@@ -24304,6 +24323,7 @@ input:-webkit-autofill:active {
 }
 
 .modal-form-wrapper {
+  margin: 0;
   background-color: white;
 }
 

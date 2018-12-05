@@ -7,4 +7,5 @@ return[
     'legend-available' => 'Available',
     'legend-multi-level' => '2-Levels',
     'choose-floor' => 'Choose a floor',
+    'view' => 'view',
 ];

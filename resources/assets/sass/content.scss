@@ -1125,7 +1125,7 @@
     height: 75px;
     position: absolute;
     top: 90%;
-    right: 45%;
+    right: 50%;
     margin-right: -37.5px;
     border: 1px solid #d7f3f4;
     color: #d7f3f4;
@@ -1146,7 +1146,7 @@
   .apartment-carousel{
     position: absolute;
     right: 0;
-    width: 45%;
+    width: 50%;
     transition: 0.5s ease-in-out;
     .ap-car-ind{
       display: none;
@@ -1183,6 +1183,7 @@
       }
     }
     .apartment-title{
+      text-transform: capitalize;
       font-weight: 300;
       span{
         font-weight: 500;
@@ -1221,6 +1222,20 @@
         transition: 0.3s ease-in-out;
         background-color: rgba(0,0,0,0.2);
       }
+    }
+    .back-to-floor-desk{
+      text-transform: uppercase;
+      transition: 0.3s ease-in-out;
+      border: 2px solid #d7f3f4;
+      color: #d7f3f4;
+      padding: 20px 30px;
+      font-size: 20px;
+      font-weight: 400;
+      text-decoration: none;
+    }.back-to-floor-desk:hover{
+      transition: 0.3s ease-in-out;
+      background-color: rgba(0,0,0,0.1);
+      text-decoration: none;
     }
   }
   .apartment-media{

@@ -53,7 +53,7 @@ class ApartmentForm extends AdminForm
             'empty_value' => ' ',
         ]);
 
-        $types = ['office' => 'Office', 'apartment' => 'Apartment'];
+        $types = ['office' => 'Office', 'apartment' => 'Apartment', 'restaurant' => 'Restaurant'];
 
 
         $this->add('type', 'select', [

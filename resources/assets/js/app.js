@@ -124,6 +124,7 @@ let btnClose = document.querySelector('#mobileCloser');
 let newsSection = document.querySelector('.news-section');
 let contactSection = document.querySelector('.contact-section');
 let copy = document.querySelector('.copy');
+let carInfo = document.querySelector('.car-info');
 let mobileCounter = 0;
 let counter = 1;
 
@@ -189,6 +190,7 @@ if (document.body.contains(sideNav)){
         navToggler.addEventListener('click', function () {
             counter += 1;
             if( counter % 2 == 0) {
+                carInfo.style.left = '300px';
                 hamburger.classList.add('is-active');
                 sideNav.classList.remove('deactivated');
                 expLinks.forEach(function (expLink) {
@@ -212,6 +214,7 @@ if (document.body.contains(sideNav)){
                     }
                 },500)
             }else if(Math.abs(counter % 2) == 1){
+                carInfo.style.left = '50px';
                 hamburger.classList.remove('is-active');
                 sideNavInside.classList.remove('visible');
                 copy.classList.remove('visible');

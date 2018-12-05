@@ -7,7 +7,7 @@
                 <div class="apartment-bread d-none d-xl-block">
                     {!! Breadcrumbs::render('index') !!}
                 </div>
-                <h1 class="apartment-title">{{ trans('apartments::front.apartment') }} <span>{{$selected_apartment->title}}</span></h1>
+                <h1 class="apartment-title">{{ $selected_apartment->type }} <span>{{$selected_apartment->title}}</span></h1>
                 <div class="apartment-title-border"></div>
                 <div class="apartment-description">
                     {!! $selected_apartment->description !!}
@@ -44,20 +44,23 @@
                     </div>
 
                 </div>
-                <div class="apartment-similar">
-                    <p class="browse-similar">{{ trans('apartments::front.browse') }} :</p>
-                    <ul class="apartment-similar-list">
-                        @foreach($similar as $other)
+                @if($similar->count() > 0)
+                    <div class="apartment-similar">
+                        <p class="browse-similar">{{ trans('apartments::front.browse') }} :</p>
+                        <ul class="apartment-similar-list">
+                            @foreach($similar as $other)
 
-                                <a class="apartment-similar-list-item" href="{{ route('apartment', ['slug' => $other->slug]) }}">
-                                    <li>
-                                        {{ $other->title }}
-                                    </li>
-                                </a>
+                                    <a class="apartment-similar-list-item" href="{{ route('apartment', ['slug' => $other->slug]) }}">
+                                        <li>
+                                            {{ $other->title }}
+                                        </li>
+                                    </a>
 
-                        @endforeach
-                    </ul>
-                </div>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <a class="back-to-floor-desk" href="{{ route('floor', ['slug' => $selected_apartment->floor()->first()->slug]) }}">{{ trans('apartments::front.back-to-floor') }}</a>
             </div>
 
 

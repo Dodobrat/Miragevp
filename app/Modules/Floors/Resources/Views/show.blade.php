@@ -293,7 +293,7 @@
                                             €  {{$apartment->price}}
                                         </div>
                                         <div class="go-to-ap">
-                                            <a href="{{ route('apartment', ['slug' => $apartment->slug]) }}">view apartment</a>
+                                            <a href="{{ route('apartment', ['slug' => $apartment->slug]) }}">{{ trans('floors::front.view') }} {{ $apartment->type }}</a>
                                         </div>
                                     </div>
 
@@ -307,36 +307,6 @@
                 </div>
             </div>
         </div>
-        {{--<div class="row">--}}
-            {{--<div class="col-xl-12 d-none d-xl-block pt-5">--}}
-                {{--<div class="row">--}}
-                    {{--<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">--}}
-                        {{--<div class="selected">--}}
-                            {{--<img src="{{ asset('images/visual-selection/legend/selected.png') }}" alt="">--}}
-                            {{--<p>{{ trans('floors::front.legend-selected') }}</p>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">--}}
-                        {{--<div class="booked">--}}
-                            {{--<img src="{{ asset('images/visual-selection/legend/booked.png') }}" alt="">--}}
-                            {{--<p>{{ trans('floors::front.legend-booked') }}</p>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">--}}
-                        {{--<div class="available">--}}
-                            {{--<img src="{{ asset('images/visual-selection/legend/available.png') }}" alt="">--}}
-                            {{--<p>{{ trans('floors::front.legend-available') }}</p>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">--}}
-                        {{--<div class="multi-level">--}}
-                            {{--<img src="{{ asset('images/visual-selection/legend/multi-level.png') }}" alt="">--}}
-                            {{--<p>{{ trans('floors::front.legend-multi-level') }}</p>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
     </div>
 
 

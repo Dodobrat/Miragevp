@@ -140,27 +140,17 @@ let carInd = document.querySelector('.ap-car-ind');
 let carPrev = document.querySelector('.ap-car-prev');
 let carNext = document.querySelector('.ap-car-next');
 let carInfo = document.querySelector('.car-info');
-let main = document.querySelector('#main');
 
 if (document.body.contains(open)){
     let count = 0;
     open.addEventListener('click', function () {
         count += 1;
         if( Math.abs(count % 2) == 1) {
-            $( window ).resize(function() {
-                if ($( main ).width() < 1750) {
-                    apartmentMediaCont.style.width = '75%';
-                    open.style.right = '75%';
-                }else if ($( main ).width() > 1750) {
-                    apartmentMediaCont.style.width = '85%';
-                    open.style.right = '85%';
-                }
-            });
             apartmentInfo.style.opacity = 0;
-            apartmentMediaCont.style.width = '85%';
-            open.style.right = '85%';
+            apartmentMediaCont.style.width = '95%';
+            open.style.right = '95%';
             open.classList.add('rotated');
-            carInfo.style.left = '300px';
+            carInfo.style.left = '50px';
             carInd.style.opacity = 1;
             carPrev.style.opacity = 1;
             carNext.style.opacity = 1;
@@ -172,21 +162,12 @@ if (document.body.contains(open)){
                 carInfo.style.opacity = 1;
             }, 300);
         }else if(count % 2 == 0){
-            $( window ).resize(function() {
-                if ($( main ).width() < 1750) {
-                    apartmentMediaCont.style.width = '45%';
-                    open.style.right = '45%';
-                }else if ($( main ).width() > 1750) {
-                    apartmentMediaCont.style.width = '45%';
-                    open.style.right = '45%';
-                }
-            });
             apartmentInfo.style.display = 'block';
             carInd.style.display = 'none';
             carPrev.style.display = 'none';
             carNext.style.display = 'none';
-            apartmentMediaCont.style.width = '45%';
-            open.style.right = '45%';
+            apartmentMediaCont.style.width = '50%';
+            open.style.right = '50%';
             open.classList.remove('rotated');
             setTimeout(() => {
                 apartmentInfo.style.opacity = 1;

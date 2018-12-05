@@ -17456,6 +17456,7 @@ var btnClose = document.querySelector('#mobileCloser');
 var newsSection = document.querySelector('.news-section');
 var contactSection = document.querySelector('.contact-section');
 var copy = document.querySelector('.copy');
+var carInfo = document.querySelector('.car-info');
 var mobileCounter = 0;
 var counter = 1;
 
@@ -17522,6 +17523,7 @@ if (document.body.contains(sideNav)) {
         navToggler.addEventListener('click', function () {
             counter += 1;
             if (counter % 2 == 0) {
+                carInfo.style.left = '300px';
                 hamburger.classList.add('is-active');
                 sideNav.classList.remove('deactivated');
                 expLinks.forEach(function (expLink) {
@@ -17545,6 +17547,7 @@ if (document.body.contains(sideNav)) {
                     }
                 }, 500);
             } else if (Math.abs(counter % 2) == 1) {
+                carInfo.style.left = '50px';
                 hamburger.classList.remove('is-active');
                 sideNavInside.classList.remove('visible');
                 copy.classList.remove('visible');
@@ -18017,27 +18020,17 @@ var carInd = document.querySelector('.ap-car-ind');
 var carPrev = document.querySelector('.ap-car-prev');
 var carNext = document.querySelector('.ap-car-next');
 var carInfo = document.querySelector('.car-info');
-var main = document.querySelector('#main');
 
 if (document.body.contains(open)) {
     var count = 0;
     open.addEventListener('click', function () {
         count += 1;
         if (Math.abs(count % 2) == 1) {
-            $(window).resize(function () {
-                if ($(main).width() < 1750) {
-                    apartmentMediaCont.style.width = '75%';
-                    open.style.right = '75%';
-                } else if ($(main).width() > 1750) {
-                    apartmentMediaCont.style.width = '85%';
-                    open.style.right = '85%';
-                }
-            });
             apartmentInfo.style.opacity = 0;
-            apartmentMediaCont.style.width = '85%';
-            open.style.right = '85%';
+            apartmentMediaCont.style.width = '95%';
+            open.style.right = '95%';
             open.classList.add('rotated');
-            carInfo.style.left = '300px';
+            carInfo.style.left = '50px';
             carInd.style.opacity = 1;
             carPrev.style.opacity = 1;
             carNext.style.opacity = 1;
@@ -18049,21 +18042,12 @@ if (document.body.contains(open)) {
                 carInfo.style.opacity = 1;
             }, 300);
         } else if (count % 2 == 0) {
-            $(window).resize(function () {
-                if ($(main).width() < 1750) {
-                    apartmentMediaCont.style.width = '45%';
-                    open.style.right = '45%';
-                } else if ($(main).width() > 1750) {
-                    apartmentMediaCont.style.width = '45%';
-                    open.style.right = '45%';
-                }
-            });
             apartmentInfo.style.display = 'block';
             carInd.style.display = 'none';
             carPrev.style.display = 'none';
             carNext.style.display = 'none';
-            apartmentMediaCont.style.width = '45%';
-            open.style.right = '45%';
+            apartmentMediaCont.style.width = '50%';
+            open.style.right = '50%';
             open.classList.remove('rotated');
             setTimeout(function () {
                 apartmentInfo.style.opacity = 1;
