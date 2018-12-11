@@ -7,12 +7,17 @@
                 <div class="apartment-bread d-none d-xl-block">
                     {!! Breadcrumbs::render('index') !!}
                 </div>
-                <h1 class="apartment-title">{{ $selected_apartment->type }} <span>{{$selected_apartment->title}}</span></h1>
-                <div class="apartment-title-border"></div>
-                <div class="apartment-description">
-                    {!! $selected_apartment->description !!}
+                <div class="mobile-ap-info">
+                    <h1 class="apartment-title">{{ $selected_apartment->type }} <span>{{$selected_apartment->title}}</span></h1>
+                    <div class="apartment-title-border"></div>
+                    <div class="apartment-description">
+                        {!! $selected_apartment->description !!}
+                    </div>
+                    <h3 class="apartment-price">€ <span class="price">{{ $selected_apartment->price }}</span></h3>
+                    <p class="apartment-before-sale">Finishing available for this apartment.</p>
+                    <span class="apartment-send-request"><a href="">send request</a></span>
                 </div>
-                <h3 class="apartment-price">€ <span class="price">{{ $selected_apartment->price }}</span></h3>
+
                 <div class="apartment-plan-container">
 
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -44,11 +49,12 @@
                     </div>
 
                 </div>
-                @if($similar->count() > 0)
-                    <div class="apartment-similar">
-                        <p class="browse-similar">{{ trans('apartments::front.browse') }} :</p>
-                        <ul class="apartment-similar-list">
-                            @foreach($similar as $other)
+                <div class="mobile-ap-info">
+                    @if($similar->count() > 0)
+                        <div class="apartment-similar">
+                            <p class="browse-similar">{{ trans('apartments::front.browse') }}:</p>
+                            <ul class="apartment-similar-list">
+                                @foreach($similar as $other)
 
                                     <a class="apartment-similar-list-item" href="{{ route('apartment', ['slug' => $other->slug]) }}">
                                         <li>
@@ -56,11 +62,13 @@
                                         </li>
                                     </a>
 
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                <a class="back-to-floor-desk" href="{{ route('floor', ['slug' => $selected_apartment->floor()->first()->slug]) }}">{{ trans('apartments::front.back-to-floor') }}</a>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <a class="back-to-floor-desk" href="{{ route('floor', ['slug' => $selected_apartment->floor()->first()->slug]) }}">{{ trans('apartments::front.back-to-floor') }}</a>
+                </div>
+
             </div>
 
 
@@ -128,7 +136,7 @@
                             @endforeach
                         </div>
 
-                        <ul class="nav nav-pills mobile-pills" id="pills-tab" role="tablist">
+                        <ul class="nav nav-pills mobile-pills my-4" id="pills-tab" role="tablist">
                             @foreach( $selected_apartment->media as $media )
                                 <li class="nav-item">
                                     <a class="apartment-thumb nav-link {{ $loop->first ? 'active' : '' }}" id="pills-{{ $media->id }}-tab" data-toggle="pill" href="#pills-{{ $media->id }}" role="tab" aria-controls="pills{{ $media->id }}" aria-selected="true">
@@ -144,7 +152,7 @@
                         </ul>
                     </div>
                     <div class="back-to-line">
-                        <svg viewBox="0 0 412 25">
+                        <svg viewBox="0 0 412 10">
                             <defs>
                                 <style>
                                     .a{
@@ -153,16 +161,11 @@
                                     }
                                 </style>
                             </defs>
-                            <g transform="translate(-347 -24.5)">
-                                <path class="a" d="M347,25H531l22.2,22.2"/>
-                                <path class="a" d="M552.8,25H369.16L347,47.2" transform="translate(206.204)"/>
-                            </g>
+                            {{--<g transform="translate(-347 -24.5)">--}}
+                                {{--<path class="a" d="M347,25H531l22.2,22.2"/>--}}
+                                {{--<path class="a" d="M552.8,25H369.16L347,47.2" transform="translate(206.204)"/>--}}
+                            {{--</g>--}}
                         </svg>
-                    </div>
-                    <div class="back-to-floor-container">
-                        <a class="back-to-floor" href="{{ route('floor', ['slug' => $selected_apartment->floor()->first()->slug]) }}">
-                            {{ trans('apartments::front.back-to-floor') }}
-                        </a>
                     </div>
                 </div>
 

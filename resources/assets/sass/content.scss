@@ -1109,7 +1109,7 @@
     top: 10%;
     left: -20%;
     .car-title{
-      font-size: 70px;
+      font-size: 35px;
       font-weight: 400;
     }
     .car-title-border{
@@ -1163,11 +1163,22 @@
       }
     }
     .ap-car-prev{
+      .carousel-control-prev-icon{
+        background-image: url("../../../public/images/arrow.png");
+        width: 75px;
+        height: 75px;
+      }
       display: none;
       opacity: 0;
       transition: 0.3s ease-in-out;
     }
     .ap-car-next{
+      .carousel-control-next-icon{
+        background-image: url("../../../public/images/arrow.png");
+        transform: rotate(180deg);
+        width: 75px;
+        height: 75px;
+      }
       display: none;
       opacity: 0;
       transition: 0.3s ease-in-out;
@@ -1175,14 +1186,17 @@
   }
   .apartment-information{
     transition: opacity 0.3s ease-in-out;
-    padding: 30px;
+    padding: 2% 0 0 4%;
     .apartment-bread{
       .breadcrumb{
+        padding-left: 0;
         max-width: unset;
         margin: unset;
       }
     }
     .apartment-title{
+      margin-top: 1%;
+      font-size: 2rem;
       text-transform: capitalize;
       font-weight: 300;
       span{
@@ -1190,45 +1204,76 @@
       }
     }
     .apartment-title-border{
+      margin-bottom: 3%;
       height: 3px;
-      width: 50%;
+      width: 30%;
       background-color: #fdd496;
+    }
+    .apartment-price{
+      font-size: 2.5rem;
+      .price{
+        font-size: 2.5rem;
+      }
+    }
+    .apartment-before-sale{
+      font-size: 20px;
+      display: inline;
+    }
+    .apartment-send-request{
+      float: right;
+      display: inline;
+      a{
+        color: #d7f3f4;
+        text-transform: uppercase;
+        font-size: 22px;
+      }
     }
     .apartment-plan-container{
       .carousel-inner{
         .carousel-item{
           img{
-            height: 40vh;
+            height: 30vh;
             object-fit: contain;
-            margin: 0 auto;
+            margin: 5% auto;
           }
         }
       }
     }
-    .apartment-similar-list{
-      list-style-type: none;
-      .apartment-similar-list-item{
-        transition: 0.3s ease-in-out;
-        display: inline-block;
-        border: 2px solid #d7f3f4;
-        color: #d7f3f4;
-        padding: 10px 15px;
-        margin: 5px;
+    .apartment-similar{
+      .browse-similar{
+        margin-bottom: 5px;
         font-size: 20px;
-        font-weight: 400;
-        text-decoration: none;
       }
-      .apartment-similar-list-item:hover{
-        transition: 0.3s ease-in-out;
-        background-color: rgba(0,0,0,0.2);
+      .apartment-similar-list{
+        padding-left: 0;
+        list-style-type: none;
+        .apartment-similar-list-item{
+          transition: 0.3s ease-in-out;
+          display: inline-block;
+          border: 2px solid #d7f3f4;
+          color: #d7f3f4;
+          padding: 10px 15px;
+          margin: 0;
+          font-size: 20px;
+          font-weight: 400;
+          text-decoration: none;
+        }
+        .apartment-similar-list-item:hover{
+          transition: 0.3s ease-in-out;
+          background-color: rgba(0,0,0,0.2);
+        }
       }
     }
+
     .back-to-floor-desk{
+      position: relative;
+      top: -58px;
+      left: 70%;
       text-transform: uppercase;
       transition: 0.3s ease-in-out;
       border: 2px solid #d7f3f4;
       color: #d7f3f4;
-      padding: 20px 30px;
+      padding: 13px 20px;
       font-size: 20px;
       font-weight: 400;
       text-decoration: none;
@@ -1252,7 +1297,8 @@
           box-sizing: border-box;
           img{
             display: block;
-            height: 75vh;
+            max-height: 75vh;
+            margin: auto;
           }
         }
       }

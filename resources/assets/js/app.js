@@ -7,6 +7,7 @@ window.Popper = require('popper.js');
 require('bootstrap/dist/js/bootstrap.js');
 var $ =require('jquery');
 require('jquery-smooth-scroll');
+require('swup');
 
 // ---------------------------------------------------
 //         PRELOADERS
@@ -190,7 +191,9 @@ if (document.body.contains(sideNav)){
         navToggler.addEventListener('click', function () {
             counter += 1;
             if( counter % 2 == 0) {
-                carInfo.style.left = '300px';
+                if(document.body.contains(carInfo)){
+                    carInfo.style.left = '300px';
+                }
                 hamburger.classList.add('is-active');
                 sideNav.classList.remove('deactivated');
                 expLinks.forEach(function (expLink) {
@@ -214,7 +217,9 @@ if (document.body.contains(sideNav)){
                     }
                 },500)
             }else if(Math.abs(counter % 2) == 1){
-                carInfo.style.left = '50px';
+                if(document.body.contains(carInfo)) {
+                    carInfo.style.left = '50px';
+                }
                 hamburger.classList.remove('is-active');
                 sideNavInside.classList.remove('visible');
                 copy.classList.remove('visible');

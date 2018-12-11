@@ -1,40 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-
-        {{--{!! Administration::getStaticBlock('key-test') !!}--}}
-        {{--TAKING STATIC BLOCK (SAME AS WRITTEN)--}}
-
-        {{--<img src="{{ \ProVision\Administration\Facades\Settings::getFile('index_landing_image') }}" alt="">--}}
-        {{--TAKING IMAGE FROM SETTINGS--}}
-
-        {{--<div>--}}
-            {{--<ul>--}}
-                {{--@foreach($users as $user)--}}
-                    {{--<li>{{ $user->getFullName() }}</li>--}}
-                {{--@endforeach--}}
-            {{--</ul>--}}
-        {{--</div>--}}
-        {{--TAKING NAMES FROM USERS AND PUTTING THEM INTO LIST--}}
-
-
-        {{--@foreach($apartments as $apartment)--}}
-        {{--@foreach ($apartment->media as $media)--}}
-        {{--<img src="{{ $media->getPublicPath() }}" alt="">--}}
-        {{--@endforeach--}}
-        {{--@endforeach--}}
-        {{--TAKE IMAGE FROM MODULE--}}
-
-        {{--<div class="land-img" style="height: 2000px;"></div>--}}
-
-        {{--<div class="landing-img"--}}
-            {{--@if(!empty(Settings::getFile('index_landing_image')))--}}
-            {{--style="background-image: url('{{ Settings::getFile('index_landing_image') }}')"--}}
-            {{--@else--}}
-            {{--style="background-image: url('{{ asset('images/google-logo.png') }}')"--}}
-                {{--@endif ></div>--}}
-
-
 <section class="landing-image-container" id="land-img">
 
 @if($agent->isDesktop() && $agent->is('Chrome'))
@@ -42,9 +8,9 @@
          @if(!empty(Settings::getFile('index_landing_image')))
          style="background-image: url('{{ Settings::getFile('index_landing_image') }}');"
          @else
-         style="background-image: url('{{ asset('images/fallback/placeholder.png') }}');"
+         style="background-image: url('{{ asset('images/land.jpg') }}');"
             @endif >
-        <div class="container">
+        <div class="container motto-cont">
             <h3 class="motto">
                 @if(!empty(Administration::getStaticBlock('motto')))
                     {!! Administration::getStaticBlock('motto') !!}
@@ -61,8 +27,8 @@
          @else
          style="background-image: url('{{ asset('images/fallback/placeholder.png') }}');"
             @endif >
-        <div class="container">
-            <h3 class="motto">
+        <div class="container motto-cont">
+            <h3 class="motto text-center">
                 @if(!empty(Administration::getStaticBlock('motto')))
                     {!! Administration::getStaticBlock('motto') !!}
                     @else
@@ -72,19 +38,15 @@
         </div>
     </div>
     @endif
-    {{--@if(!empty(Settings::getFile('index_landing_image')))--}}
-    {{--<div class="landing-image" style="background-image: url('{{ Settings::getFile('index_landing_image') }}')--}}
-
-    {{--@else--}}
-        {{--style="background-image: url('{{ asset('images/google-logo.png') }}')--}}
-    {{--@endif--}}
 
     <a class="animate" id="one" href="#loc-cont"><span></span><span></span></a>
 </section>
     <section class="location-container" id="loc-cont">
+        <div class="container-fluid loc-container">
+            <div class="row">
 
-{{--{{dd(Settings::get('index_map.lat'))}}--}}
-        <div class="row">
+
+
             {{--{{dd(Settings::get('index_map_visible'))}}--}}
             @if(Settings::get('index_map_visible') == 1)
                 <script>
@@ -161,12 +123,28 @@
                     }
                 </script>
                 <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ Settings::get('google_map_api_key') }}&callback=initMap" type="text/javascript"></script>
-                <div class="col-lg-12 col-xl-5 pl-xl-4 pr-xl-2 px-lg-4 px-md-4 px-sm-5 px-xs-5">
-                    <h1 class="section-title">{{trans('front.great-loc')}}</h1>
-                        <div id="map"></div>
+                <div class="col-lg-12 col-xl-5 pr-xl-5">
+                    <div class=" row align-items-center loc-cont-title">
+                        <div class="col-3 text-right">
+                            <img class="map-marker" src="{{ asset('images/location.png') }}" alt="">
+                        </div>
+                        <div class="col-9 text-left">
+                            <h1 class="section-title text-left">{{trans('front.center')}}<br>{{ trans('front.location') }}</h1>
+                        </div>
+
+
+                    </div>
+                        <div id="map" class="home-map"></div>
                 </div>
-                <div class="col-lg-12 col-xl-7 pr-xl-4 pl-xl-2 px-lg-4 px-md-4 px-sm-5 px-xs-5">
-                        <div class="pic"></div>
+                <div class="col-lg-12 col-xl-7 pl-xl-5">
+                        <div class="pic"
+                            @if(!empty(Settings::getFile('index_landing_image')))
+                                style="background-image: url('{{ Settings::getFile('index_landing_image') }}');"
+                            @else
+                                style="background-image: url('{{ asset('images/fallback/placeholder.png') }}');"
+                            @endif>
+
+                        </div>
                     <div class="row">
                         <div class="col loc-text">
                             <p>@if(!empty(Administration::getStaticBlock('loc')))
@@ -183,7 +161,12 @@
                 <div class="col-xl-12">
                     <div class="container-fluid">
                         <h1 class="text-center section-title">{{trans('front.great-loc')}}</h1>
-                        <div class="pic"></div>
+                        <div class="pic"
+                             @if(!empty(Settings::getFile('index_landing_image')))
+                             style="background-image: url('{{ Settings::getFile('index_landing_image') }}');"
+                             @else
+                             style="background-image: url('{{ asset('images/fallback/placeholder.png') }}');"
+                                @endif></div>
                     </div>
                     <div class="row">
                         <div class="col loc-text">
@@ -198,7 +181,7 @@
 
                 </div>
 @endif
-
+            </div>
         </div>
 
 

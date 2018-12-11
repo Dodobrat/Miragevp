@@ -1,4 +1,7 @@
 var $ =require('jquery');
+require('swup');
+
+// const swup = new Swup();
 
 // ---------------------------------------------------
 //         CONTENT - PARALLAX

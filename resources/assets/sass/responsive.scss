@@ -27,18 +27,6 @@
       margin: -50px 0 0 0;
     }
   }
-  .location-container{
-    height: auto;
-    .section-title{
-      text-align: center;
-    }
-    #map{
-      margin: 25px auto;
-    }
-    .pic{
-      margin: 0 auto 30px auto;
-    }
-  }
 }
 
 @media (min-width: 992px){
@@ -192,8 +180,16 @@
   }
   .landing-image-container{
     height: calc(100vh - 55px);
-    .motto{
-      font-size: 20px;
+    .landing-image{
+      .motto-cont{
+        margin: -15% auto 0 auto !important;
+        //margin: -10% 0 0 0 !important;
+        .motto{
+          p{
+            font-size: 35px;
+          }
+        }
+      }
     }
   }
   .contacts-map-container{
@@ -461,7 +457,61 @@
     padding: 70px 50px 100px 100px;
   }
 }
+@media (max-width: 1700px) {
+  .apartment-view{
+    .apartment-information{
+      padding: 4% 0 0 0;
+      .mobile-ap-info{
+        padding: 0 0 0 7%;
+        .apartment-send-request{
+          display: block;
+          float: none;
+        }
+        .back-to-floor-desk{
+          top: 10px;
+          left: unset;
+        }
+      }
+    }
+  }
+}
 @media (max-width: 1200px) {
+  .landing-image-container{
+    height: calc(100vh - 55px);
+    .landing-image{
+      .motto-cont{
+        margin: -15% auto 0 auto !important;
+        //margin: -10% 0 0 0 !important;
+        .motto{
+          p{
+            font-size: 40px;
+          }
+        }
+      }
+    }
+  }
+  .location-container{
+    .loc-container{
+      margin-top: 0 !important;
+      padding: 60px 5% !important;
+    }
+  }
+  .apartment-view{
+    .apartment-information{
+      .mobile-ap-info{
+        .apartment-send-request{
+          display: inline;
+          float: right;
+          padding-right: 7%;
+        }
+        .back-to-floor-desk{
+          top: -58px;
+          left: 60%;
+        }
+      }
+
+    }
+  }
   .accordion-plan-img{
     width: 70%;
     margin: 0 15%;
@@ -471,6 +521,24 @@
   }
 }
 @media (max-width: 850px) {
+  .apartment-view{
+    .apartment-information{
+      .mobile-ap-info{
+        .apartment-send-request{
+          display: block;
+          float: none;
+        }
+        .back-to-floor-desk{
+          top: 10px;
+          left: unset;
+        }
+      }
+
+    }
+    .apartment-media{
+      margin-top: 50px;
+    }
+  }
   .accordion-plan-img{
     width: 90%;
     margin: 0 5%;
@@ -479,8 +547,76 @@
     padding: 70px 20px 0 70px;
   }
 }
+@media (max-width: 550px) {
+  .landing-image-container{
+    .landing-image{
+      .motto-cont{
+        margin: -25% auto 0 auto !important;
+        .motto{
+          p{
+            font-size: 25px;
+          }
+        }
+      }
+    }
+  }
+  .location-container{
+    .loc-cont-title{
+      .map-marker{
+        width: 70px !important;
+      }
+      .section-title{
+        padding-left: 10px;
+        font-size: 40px !important;
+      }
+    }
+
+  }
+  .apartment-view{
+    .apartment-information{
+      padding: 5% 0 0 0;
+      .mobile-ap-info{
+        padding: 0 0 0 8%;
+        .apartment-before-sale{
+          font-size: 18px;
+        }
+        .apartment-send-request{
+          display: block;
+          float: none;
+        }
+        .back-to-floor-desk{
+          top: 10px;
+          left: unset;
+        }
+      }
+    }
+  }
+}
 
 @media (max-width: 400px) {
+  .landing-image-container{
+    .landing-image{
+      .motto-cont{
+        margin: -30% auto 0 auto !important;
+        .motto{
+          p{
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+  .apartment-view{
+    .apartment-information{
+      .apartment-similar{
+        .apartment-similar-list{
+          .apartment-similar-list-item{
+            padding: 10px 10px;
+          }
+        }
+      }
+    }
+  }
   .floor-details{
     font-size: 1.5rem;
   }
@@ -493,5 +629,36 @@
   }
   .floor-acc-info{
     padding: 50px 10px 0 50px;
+  }
+}
+@media (max-width: 350px) {
+  .landing-image-container{
+    .landing-image{
+      .motto-cont{
+        margin: -30% auto 0 auto !important;
+        .motto{
+          p{
+            font-size: 17px;
+          }
+        }
+      }
+    }
+  }
+  .apartment-view{
+    .apartment-information{
+      .mobile-ap-info{
+        padding: 0 0 0 10%;
+        .apartment-similar{
+          .apartment-similar-list{
+            .apartment-similar-list-item{
+              padding: 8px 8px;
+            }
+          }
+        }
+        .back-to-floor-desk{
+          font-size: 18px;
+        }
+      }
+    }
   }
 }
