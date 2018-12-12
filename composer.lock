@@ -2639,12 +2639,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ProVisionBG/administration.git",
-                "reference": "777ca8e106b3c42ec8bc118fbc2d7beab23a39ce"
+                "reference": "17b6fd034527dd60d608f86c266b1adaae017018"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ProVisionBG/administration/zipball/777ca8e106b3c42ec8bc118fbc2d7beab23a39ce",
-                "reference": "777ca8e106b3c42ec8bc118fbc2d7beab23a39ce",
+                "url": "https://api.github.com/repos/ProVisionBG/administration/zipball/17b6fd034527dd60d608f86c266b1adaae017018",
+                "reference": "17b6fd034527dd60d608f86c266b1adaae017018",
                 "shasum": ""
             },
             "require": {
@@ -2721,7 +2721,7 @@
                 "laravel",
                 "modular"
             ],
-            "time": "2018-11-30T12:09:55+00:00"
+            "time": "2018-12-12T09:50:53+00:00"
         },
         {
             "name": "provision/laravel-meta-tags",
@@ -2905,12 +2905,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ProVisionBG/translation.git",
-                "reference": "e2554a0a6f7132a59d82aa320cef50af4e2fdecf"
+                "reference": "227ab0b18ed793c7cf943206251e42d2207c6804"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ProVisionBG/translation/zipball/e2554a0a6f7132a59d82aa320cef50af4e2fdecf",
-                "reference": "e2554a0a6f7132a59d82aa320cef50af4e2fdecf",
+                "url": "https://api.github.com/repos/ProVisionBG/translation/zipball/227ab0b18ed793c7cf943206251e42d2207c6804",
+                "reference": "227ab0b18ed793c7cf943206251e42d2207c6804",
                 "shasum": ""
             },
             "require": {
@@ -2953,7 +2953,7 @@
                 "provision",
                 "translation"
             ],
-            "time": "2018-08-02T10:27:35+00:00"
+            "time": "2018-12-12T11:34:53+00:00"
         },
         {
             "name": "provision/visual-builder",

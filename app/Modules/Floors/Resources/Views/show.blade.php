@@ -67,7 +67,7 @@
                     </div>
 
                 </div>
-                <img src="{{asset('images/visual-selection/legend/leegend (2).JPG')}}" alt="" class="small-compass-desk d-none d-xl-block">
+                <img src="{{asset('images/visual-selection/legend.JPG')}}" alt="" class="small-compass-desk d-none d-xl-block">
             </div>
             <div class="col-xl-10 col-lg-12 col-md-12 col-sm-12 col-xs-12 current-floor-info">
                 <div class="row">
@@ -259,11 +259,11 @@
                                     @if(!empty($current_floor->compass_media->first()))
                                         <img class="small-floor-compass" src="{{$current_floor->compass_media->first()->getPublicPath()}}" alt="{{$current_floor->slug}}">
                                     @else
-                                        <img class="small-floor-compass" src="{{asset('images/fallback/placeholder.png')}}" alt="{{$current_floor->slug}}">
+                                        <img class="small-floor-compass" src="{{asset('images/visual-selection/compass.png')}}" alt="{{$current_floor->slug}}">
                                     @endif
                                 </div>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-9">
-                                    <img src="{{asset('images/visual-selection/legend/leegend (2).JPG')}}" alt="" class="small-compass">
+                                    <img src="{{asset('images/visual-selection/legend.JPG')}}" alt="" class="small-compass">
                                 </div>
                             </div>
                                 </div>
@@ -275,7 +275,7 @@
                         @if(!empty($current_floor->compass_media->first()))
                             <img class="current-floor-compass d-none d-xl-block" src="{{$current_floor->compass_media->first()->getPublicPath()}}" alt="{{$current_floor->slug}}">
                         @else
-                            <img class="current-floor-compass d-none d-xl-block" src="{{asset('images/fallback/placeholder.png')}}" alt="{{$current_floor->slug}}">
+                            <img class="current-floor-compass d-none d-xl-block" src="{{asset('images/visual-selection/compass.png')}}" alt="{{$current_floor->slug}}">
                         @endif
 
                             <div class="ap-info tab-content" id="nav-tabContent">
