@@ -178,20 +178,6 @@
     margin-left: 0;
     padding: 55px 0 0 0;
   }
-  .landing-image-container{
-    height: calc(100vh - 55px);
-    .landing-image{
-      .motto-cont{
-        margin: -15% auto 0 auto !important;
-        //margin: -10% 0 0 0 !important;
-        .motto{
-          p{
-            font-size: 35px;
-          }
-        }
-      }
-    }
-  }
   .contacts-map-container{
     padding: 50px 15px;
   }
@@ -476,26 +462,6 @@
   }
 }
 @media (max-width: 1200px) {
-  .landing-image-container{
-    height: calc(100vh - 55px);
-    .landing-image{
-      .motto-cont{
-        margin: -15% auto 0 auto !important;
-        //margin: -10% 0 0 0 !important;
-        .motto{
-          p{
-            font-size: 40px;
-          }
-        }
-      }
-    }
-  }
-  .location-container{
-    .loc-container{
-      margin-top: 0 !important;
-      padding: 60px 5% !important;
-    }
-  }
   .apartment-view{
     .apartment-information{
       .mobile-ap-info{
@@ -548,30 +514,6 @@
   }
 }
 @media (max-width: 550px) {
-  .landing-image-container{
-    .landing-image{
-      .motto-cont{
-        margin: -25% auto 0 auto !important;
-        .motto{
-          p{
-            font-size: 25px;
-          }
-        }
-      }
-    }
-  }
-  .location-container{
-    .loc-cont-title{
-      .map-marker{
-        width: 70px !important;
-      }
-      .section-title{
-        padding-left: 10px;
-        font-size: 40px !important;
-      }
-    }
-
-  }
   .apartment-view{
     .apartment-information{
       padding: 5% 0 0 0;
@@ -594,18 +536,6 @@
 }
 
 @media (max-width: 400px) {
-  .landing-image-container{
-    .landing-image{
-      .motto-cont{
-        margin: -30% auto 0 auto !important;
-        .motto{
-          p{
-            font-size: 20px;
-          }
-        }
-      }
-    }
-  }
   .apartment-view{
     .apartment-information{
       .apartment-similar{
@@ -632,18 +562,6 @@
   }
 }
 @media (max-width: 350px) {
-  .landing-image-container{
-    .landing-image{
-      .motto-cont{
-        margin: -30% auto 0 auto !important;
-        .motto{
-          p{
-            font-size: 17px;
-          }
-        }
-      }
-    }
-  }
   .apartment-view{
     .apartment-information{
       .mobile-ap-info{

@@ -438,6 +438,10 @@ $('.animate').smoothScroll({
     offset: -55,
     speed: 800,
 });
+$('.exp-link').smoothScroll({
+    offset: -55,
+    speed: 800,
+});
 
 $('.arrow-up').smoothScroll({
     offset: -55,

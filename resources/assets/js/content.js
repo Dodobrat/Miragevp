@@ -13,6 +13,7 @@ $(window).scroll(function () {
 function parallax() {
     let wScroll = $(window).scrollTop();
     $('.parallax-img').css('background-position', 'center '+(wScroll*0.6)+'px');
+    // $('.view-container-parallax-img').css('background-position', 'center '+(wScroll*0.3)+'px');
     $('.project-parallax-img-layer-one').css('background-position', 'center '+(wScroll*0.35)+'px');
     $('.project-parallax-img-layer-two').css('background-position', 'center '+(wScroll*0.5)+'px');
 }

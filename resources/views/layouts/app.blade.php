@@ -186,7 +186,7 @@
                     </div>
                 </div>
             @endif
-        <a class="exp-link" href="{{ route('showroom') }}">{{trans('front.showroom')}}</a>
+        <a class="exp-link" href="/#showroom">{{trans('front.showroom')}}</a>
     </div>
     <a class="side-nav-link" href="{{ route('blog') }}">{{trans('front.lifestyle')}}</a>
     <a class="side-nav-link" href="{{ route('contact') }}">{{trans('front.contact')}}</a>

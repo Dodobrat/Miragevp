@@ -60,6 +60,10 @@ class Administration implements Module {
             'label' => trans($module['slug'].'::admin.landing_image'),
             'path' => '/uploads/settings/'.$module['slug'].'_landing_image'
         ]);
+        $form->add($module['slug'].'_view_image', 'file', [
+            'label' => trans($module['slug'].'::admin.view_image'),
+            'path' => '/uploads/settings/'.$module['slug'].'_view_image'
+        ]);
         $form->add($module['slug'] . '_map', 'address_picker', [
             'label' => trans($module['slug'] . '::admin.map'),
         ]);

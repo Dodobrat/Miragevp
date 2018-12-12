@@ -3,51 +3,49 @@
 
 <section class="landing-image-container" id="land-img">
 
-@if($agent->isDesktop() && $agent->is('Chrome'))
+@if($agent->isDesktop())
     <div class="landing-image parallax-img"
          @if(!empty(Settings::getFile('index_landing_image')))
-         style="background-image: url('{{ Settings::getFile('index_landing_image') }}');"
+            style="background-image: url('{{ Settings::getFile('index_landing_image') }}');"
          @else
-         style="background-image: url('{{ asset('images/land.jpg') }}');"
-            @endif >
+            style="background-image: url('{{ asset('images/land.jpg') }}');"
+         @endif>
         <div class="container motto-cont">
             <h3 class="motto">
                 @if(!empty(Administration::getStaticBlock('motto')))
                     {!! Administration::getStaticBlock('motto') !!}
-                    @else
+                @else
                     {{ trans('front.static-block-motto') }}
                 @endif
             </h3>
         </div>
     </div>
-    @else
+@elseif($agent->isMobile())
     <div class="landing-image static-img"
-         @if(!empty(Settings::getFile('index_landing_image')))
-         style="background-image: url('{{ Settings::getFile('index_landing_image') }}');"
-         @else
-         style="background-image: url('{{ asset('images/fallback/placeholder.png') }}');"
-            @endif >
-        <div class="container motto-cont">
+        @if(!empty(Settings::getFile('index_landing_image')))
+            style="background-image: url('{{ Settings::getFile('index_landing_image') }}');"
+        @else
+            style="background-image: url('{{ asset('images/land.jpg') }}');"
+        @endif>
+        <div class="container mob-motto-cont">
             <h3 class="motto text-center">
                 @if(!empty(Administration::getStaticBlock('motto')))
                     {!! Administration::getStaticBlock('motto') !!}
-                    @else
+                @else
                     {{ trans('front.static-block-motto') }}
                 @endif
             </h3>
         </div>
     </div>
-    @endif
+@endif
 
     <a class="animate" id="one" href="#loc-cont"><span></span><span></span></a>
+
 </section>
-    <section class="location-container" id="loc-cont">
-        <div class="container-fluid loc-container">
-            <div class="row">
 
-
-
-            {{--{{dd(Settings::get('index_map_visible'))}}--}}
+<section class="location-container" id="loc-cont">
+    <div class="container-fluid">
+        <div class="row">
             @if(Settings::get('index_map_visible') == 1)
                 <script>
                     function initMap(){
@@ -123,140 +121,158 @@
                     }
                 </script>
                 <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ Settings::get('google_map_api_key') }}&callback=initMap" type="text/javascript"></script>
-                <div class="col-lg-12 col-xl-5 pr-xl-5">
-                    <div class=" row align-items-center loc-cont-title">
-                        <div class="col-3 text-right">
+
+                <div class="col-xl-5 col-lg-12 pr-xl-4">
+                    <div class=" row align-items-center justify-content-center location-container-title">
+                        <div class="col-4 text-right">
                             <img class="map-marker" src="{{ asset('images/location.png') }}" alt="">
                         </div>
-                        <div class="col-9 text-left">
-                            <h1 class="section-title text-left">{{trans('front.center')}}<br>{{ trans('front.location') }}</h1>
+                        <div class="col-8 text-left">
+                            <h1 class="location-container-text">{{trans('front.center')}}<br>{{ trans('front.location') }}</h1>
                         </div>
-
-
                     </div>
-                        <div id="map" class="home-map"></div>
+                    <div id="map" class="home-map"></div>
                 </div>
-                <div class="col-lg-12 col-xl-7 pl-xl-5">
-                        <div class="pic"
-                            @if(!empty(Settings::getFile('index_landing_image')))
-                                style="background-image: url('{{ Settings::getFile('index_landing_image') }}');"
-                            @else
-                                style="background-image: url('{{ asset('images/fallback/placeholder.png') }}');"
-                            @endif>
-
-                        </div>
-                    <div class="row">
-                        <div class="col loc-text">
-                            <p>@if(!empty(Administration::getStaticBlock('loc')))
-                                    {!! Administration::getStaticBlock('loc') !!}
-                                @else
-                                    {{ trans('front.static-block-loc-section') }}
-                                @endif
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-        @else
-                <div class="col-xl-12">
-                    <div class="container-fluid">
-                        <h1 class="text-center section-title">{{trans('front.great-loc')}}</h1>
-                        <div class="pic"
-                             @if(!empty(Settings::getFile('index_landing_image')))
-                             style="background-image: url('{{ Settings::getFile('index_landing_image') }}');"
-                             @else
-                             style="background-image: url('{{ asset('images/fallback/placeholder.png') }}');"
-                                @endif></div>
-                    </div>
-                    <div class="row">
-                        <div class="col loc-text">
-                            <p>@if(!empty(Administration::getStaticBlock('loc')))
-                                    {!! Administration::getStaticBlock('loc') !!}
-                                @else
-                                    {{ trans('front.static-block-loc-section') }}
-                                @endif
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-@endif
-            </div>
-        </div>
-
-
-
-
-        <a class="animate" id="two" href="#view-cont"><span></span><span></span></a>
-    </section>
-
-    <section class="view-container" id="view-cont">
-        <h1 class="text-center section-title">{{trans('front.extra-view')}}</h1>
-        <a class="animate" id="three" href="#show-cont"><span></span><span></span></a>
-    </section>
-
-    <section class="showroom-preview-container" id="show-cont">
-        <h1 class="text-center section-title">{{Settings::getLocale('showroom_page_title', false)}}</h1>
-
-        <div class="container-fluid">
-            <div class="card-deck flex-column flex-lg-row flex-wrap" id="show-deck">
-                @foreach($showrooms->take(3) as $showroom)
-
-
-                    <div class="card">
-                        @if(!empty($showroom->media->first()))
-                            <img class="card-img" src="{{$showroom->media->first()->getPublicPath()}}" alt="Card image cap">
+                <div class="col-xl-7 col-lg-12 pl-xl-4">
+                    <div class="pic"
+                        @if(!empty(Settings::getFile('index_landing_image')))
+                            style="background-image: url('{{ Settings::getFile('index_landing_image') }}');"
                         @else
-                            <img class="card-img" src="{{asset('images/fallback/placeholder.png')}}" alt="Card image cap">
-                        @endif
-                        <div class="card-img-overlay">
-                            <h5 class="card-title">{{ $showroom->title }}</h5>
-                            <div class="card-text">{!! $showroom->description !!}</div>
-                        </div>
-                        <button class="card-button" type="button" data-toggle="modal" data-target=".show_{{$showroom->id}}">{{trans('showroom::front.thumb_show')}}</button>
+                            style="background-image: url('{{ asset('images/fallback/placeholder.png') }}');"
+                        @endif>
                     </div>
-
-
-                    <div class="modal fade bd-example-modal-lg show_{{$showroom->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <button class="close-modal-carousel">&times;</button>
-                        <div class="modal-dialog modal-lg modal-dialog-centered">
-                            <div class="modal-content showroom-content">
-                                <div id="carousel_{{$showroom->id}}" class="carousel slide" data-ride="carousel">
-                                    <div class="carousel-inner">
-                                        @if($showroom->show_media === true)
-                                            @foreach($showroom->media as $media)
-                                                <div class="carousel-item @if($loop->first) active @endif">
-                                                    <img class="d-block w-100" src="{{ $media->getPublicPath() }}" alt="MirageTower">
-                                                    <div class="carousel-caption d-none d-md-block">
-                                                        @if(!empty($media->title) or !empty($media->description))
-                                                            <h5><span>{{ $media->title }}</span></h5>
-                                                            <p><span>{!! $media->description !!}</span></p>
-                                                        @endif
-
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        @endif
-                                    </div>
-                                    <a class="carousel-control-prev" href="#carousel_{{$showroom->id}}" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carousel_{{$showroom->id}}" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </div>
-                            </div>
+                    <div class="row">
+                        <div class="col location-container-block">
+                            <p>
+                                @if(!empty(Administration::getStaticBlock('loc')))
+                                    {!! Administration::getStaticBlock('loc') !!}
+                                @else
+                                    {{ trans('front.static-block-loc-section') }}
+                                @endif
+                            </p>
                         </div>
                     </div>
+                </div>
+            @else
+                <div class="col-xl-12">
+                    <h1 class="text-center">{{trans('front.great-loc')}}</h1>
+                    <div class="pic"
+                        @if(!empty(Settings::getFile('index_landing_image')))
+                            style="background-image: url('{{ Settings::getFile('index_landing_image') }}');"
+                        @else
+                            style="background-image: url('{{ asset('images/fallback/placeholder.png') }}');"
+                        @endif>
+                    </div>
+                    <div class="row">
+                        <div class="col location-container-block">
+                            <p>
+                                @if(!empty(Administration::getStaticBlock('loc')))
+                                    {!! Administration::getStaticBlock('loc') !!}
+                                @else
+                                    {{ trans('front.static-block-loc-section') }}
+                                @endif
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        </div>
+    </div>
 
-                @endforeach
+    <a class="animate" id="two" href="#view-cont"><span></span><span></span></a>
 
+</section>
+
+<section class="view-container" id="view-cont">
+    <div class="view-container-bg view-container-parallax-img"
+         @if(!empty(Settings::getFile('index_view_image')))
+         style="background-image: url('{{ Settings::getFile('index_view_image') }}');"
+         @else
+         style="background-image: url('{{ asset('images/land.jpg') }}');"
+            @endif>
+        <h1 class="container-fluid view-container-title">{{trans('front.extra-view')}}</h1>
+        <div class="container-fluid">
+            <div class="row view-container-box">
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+
+                </div>
             </div>
         </div>
+    </div>
 
-    </section>
+    <a class="animate" id="three" href="#showroom"><span></span><span></span></a>
+</section>
+
+<section class="showroom-container" id="showroom">
+
+    <h1 class="showroom-container-title">{{Settings::getLocale('showroom_page_title', false)}}</h1>
+
+    <div class="container-fluid">
+
+        {{--<div class="card-deck flex-column flex-lg-row flex-wrap" id="show-deck">--}}
+            {{--@foreach($showrooms->take(3) as $showroom)--}}
+
+
+                {{--<div class="card">--}}
+                    {{--@if(!empty($showroom->media->first()))--}}
+                        {{--<img class="card-img" src="{{$showroom->media->first()->getPublicPath()}}" alt="Card image cap">--}}
+                    {{--@else--}}
+                        {{--<img class="card-img" src="{{asset('images/fallback/placeholder.png')}}" alt="Card image cap">--}}
+                    {{--@endif--}}
+                    {{--<div class="card-img-overlay">--}}
+                        {{--<h5 class="card-title">{{ $showroom->title }}</h5>--}}
+                        {{--<div class="card-text">{!! $showroom->description !!}</div>--}}
+                    {{--</div>--}}
+                    {{--<button class="card-button" type="button" data-toggle="modal" data-target=".show_{{$showroom->id}}">{{trans('showroom::front.thumb_show')}}</button>--}}
+                {{--</div>--}}
+
+
+                {{--<div class="modal fade bd-example-modal-lg show_{{$showroom->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">--}}
+                    {{--<button class="close-modal-carousel">&times;</button>--}}
+                    {{--<div class="modal-dialog modal-lg modal-dialog-centered">--}}
+                        {{--<div class="modal-content showroom-content">--}}
+                            {{--<div id="carousel_{{$showroom->id}}" class="carousel slide" data-ride="carousel">--}}
+                                {{--<div class="carousel-inner">--}}
+                                    {{--@if($showroom->show_media === true)--}}
+                                        {{--@foreach($showroom->media as $media)--}}
+                                            {{--<div class="carousel-item @if($loop->first) active @endif">--}}
+                                                {{--<img class="d-block w-100" src="{{ $media->getPublicPath() }}" alt="MirageTower">--}}
+                                                {{--<div class="carousel-caption d-none d-md-block">--}}
+                                                    {{--@if(!empty($media->title) or !empty($media->description))--}}
+                                                        {{--<h5><span>{{ $media->title }}</span></h5>--}}
+                                                        {{--<p><span>{!! $media->description !!}</span></p>--}}
+                                                    {{--@endif--}}
+
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+                                        {{--@endforeach--}}
+                                    {{--@endif--}}
+                                {{--</div>--}}
+                                {{--<a class="carousel-control-prev" href="#carousel_{{$showroom->id}}" role="button" data-slide="prev">--}}
+                                    {{--<span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
+                                    {{--<span class="sr-only">Previous</span>--}}
+                                {{--</a>--}}
+                                {{--<a class="carousel-control-next" href="#carousel_{{$showroom->id}}" role="button" data-slide="next">--}}
+                                    {{--<span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
+                                    {{--<span class="sr-only">Next</span>--}}
+                                {{--</a>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+
+            {{--@endforeach--}}
+
+        {{--</div>--}}
+    </div>
+
+</section>
         @include('layouts.footer')
 
         {{--<a id="top" href="#land-img"><i></i></a>--}}

@@ -19344,6 +19344,10 @@ $('.animate').smoothScroll({
     offset: -55,
     speed: 800
 });
+$('.exp-link').smoothScroll({
+    offset: -55,
+    speed: 800
+});
 
 $('.arrow-up').smoothScroll({
     offset: -55,
@@ -19479,6 +19483,7 @@ $(window).scroll(function () {
 function parallax() {
     var wScroll = $(window).scrollTop();
     $('.parallax-img').css('background-position', 'center ' + wScroll * 0.6 + 'px');
+    // $('.view-container-parallax-img').css('background-position', 'center '+(wScroll*0.3)+'px');
     $('.project-parallax-img-layer-one').css('background-position', 'center ' + wScroll * 0.35 + 'px');
     $('.project-parallax-img-layer-two').css('background-position', 'center ' + wScroll * 0.5 + 'px');
 }
