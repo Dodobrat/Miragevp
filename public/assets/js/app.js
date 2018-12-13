@@ -19653,6 +19653,65 @@ if (document.body.contains(open)) {
     });
 }
 
+// ---------------------------------------------------
+//         CONTENT - SHOWROOMS SLIDE LIST
+// ---------------------------------------------------
+if (document.body.contains(document.querySelector('.showroom-container-list'))) {
+    (function () {
+        var x = void 0,
+            newX = void 0,
+            left = void 0,
+            down = void 0;
+
+        $(".showroom-container-list").mousedown(function (e) {
+            down = true;
+            x = e.pageX;
+            left = $(this).scrollLeft();
+        });
+
+        $(".showroom-container-list").mousemove(function (e) {
+            e.preventDefault();
+            if (down) {
+                newX = e.pageX;
+                $(this).scrollLeft(left + x - newX);
+            }
+        });
+
+        $("body").mouseup(function (e) {
+            down = false;
+        });
+        $("body").keydown(function (e) {
+            left = $("div").scrollLeft();
+            var articleWidth = $('article').width();
+            var margin = 2 * parseInt($('article').css("marginLeft"));
+            if (e.keyCode == 39) $("div").scrollLeft(left + articleWidth + margin);
+            if (e.keyCode == 37) $("div").scrollLeft(left - articleWidth - margin);
+        });
+
+        //MOBILE
+        var slideDiv = document.querySelector('.showroom-container-list');
+        slideDiv.addEventListener('touchstart', function () {
+            var touches = event.changedTouches;
+            down = true;
+            x = touches[0].pageX;
+            left = $('.showroom-container-list').scrollLeft();
+        });
+
+        slideDiv.addEventListener('touchmove', function (event) {
+            event.stopPropagation();
+            var touches = event.changedTouches;
+            if (down) {
+                var _newX = touches[0].pageX;
+                $('.showroom-container-list').scrollLeft(left + x - _newX);
+            }
+        });
+
+        slideDiv.addEventListener('touchend', function () {
+            down = false;
+        });
+    })();
+}
+
 /***/ }),
 
 /***/ "./resources/assets/sass/app.scss":

@@ -6,6 +6,8 @@ return [
     'visual-selection' => 'Visual Selection',
     'floor-plan' => 'Floor Plans',
     'showroom' => 'Showroom',
+    'first-class' => 'first class',
+    'interior' => 'interiors',
     'lifestyle' => 'Lifestyle',
     'sign-in' => 'Sign In',
     'sign-up' => 'Sign Up',
@@ -31,7 +33,7 @@ return [
     'static-block-motto' => 'Static Block "motto"',
     'static-block-loc-section' => 'Static Block "loc"',
     'static-block-contact' => 'Static Block "contact-desc"',
-    'extra-view' => 'Extraordinary View',
+    'extra-view' => 'Amazing views',
     'center' => 'Central',
     'location' => 'Location',
     'scroll' => 'Scroll',
@@ -47,5 +49,8 @@ return [
     'congrats-on-ap' => 'Congratulations on reserving Apartment',
     'congrats-on-of' => 'Congratulations on reserving Office',
     'edit' => 'Edit',
-    'save' => 'save changes'
+    'save' => 'save changes',
+    'panoramic-view' => 'Panoramic View',
+    'available-upgrading' => 'Available Upgrading',
+    'best-loc' => 'Best Location'
 ];

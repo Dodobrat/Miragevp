@@ -28,13 +28,11 @@
             style="background-image: url('{{ asset('images/land.jpg') }}');"
         @endif>
         <div class="container mob-motto-cont">
-            <h3 class="motto text-center">
-                @if(!empty(Administration::getStaticBlock('motto')))
-                    {!! Administration::getStaticBlock('motto') !!}
-                @else
-                    {{ trans('front.static-block-motto') }}
-                @endif
-            </h3>
+            @if(!empty(Administration::getStaticBlock('motto')))
+                {!! Administration::getStaticBlock('motto') !!}
+            @else
+                {{ trans('front.static-block-motto') }}
+            @endif
         </div>
     </div>
 @endif
@@ -122,25 +120,25 @@
                 </script>
                 <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ Settings::get('google_map_api_key') }}&callback=initMap" type="text/javascript"></script>
 
-                <div class="col-xl-5 col-lg-12 pr-xl-4">
+                <div class="col-xl-6 col-lg-12 pl-xl-4">
                     <div class=" row align-items-center justify-content-center location-container-title">
-                        <div class="col-4 text-right">
-                            <img class="map-marker" src="{{ asset('images/location.png') }}" alt="">
+                        <div class="col-2 text-right">
+                            <img class="map-marker" src="{{ asset('images/mark.png') }}" alt="">
                         </div>
-                        <div class="col-8 text-left">
-                            <h1 class="location-container-text">{{trans('front.center')}}<br>{{ trans('front.location') }}</h1>
+                        <div class="col-10 text-left">
+                            <h1 class="location-container-text">
+                                <?php
+                                $str= trans('front.best-loc');
+                                $exploded=explode(" ",$str);
+                                echo str_replace(" ","<br>",$str);
+                                ?>
+                            </h1>
                         </div>
                     </div>
-                    <div id="map" class="home-map"></div>
-                </div>
-                <div class="col-xl-7 col-lg-12 pl-xl-4">
-                    <div class="pic"
-                        @if(!empty(Settings::getFile('index_landing_image')))
-                            style="background-image: url('{{ Settings::getFile('index_landing_image') }}');"
-                        @else
-                            style="background-image: url('{{ asset('images/fallback/placeholder.png') }}');"
-                        @endif>
+                    <div class="pic-cont">
+                        <img class="pic" src="{{ asset('images/iconss.png') }}">
                     </div>
+
                     <div class="row">
                         <div class="col location-container-block">
                             <p>
@@ -152,6 +150,9 @@
                             </p>
                         </div>
                     </div>
+                </div>
+                <div class="col-xl-6 col-lg-12 pr-xl-4">
+                    <div id="map" class="home-map"></div>
                 </div>
             @else
                 <div class="col-xl-12">
@@ -188,19 +189,57 @@
          @if(!empty(Settings::getFile('index_view_image')))
          style="background-image: url('{{ Settings::getFile('index_view_image') }}');"
          @else
-         style="background-image: url('{{ asset('images/land.jpg') }}');"
+         style="background-image: url('{{ asset('images/viewss.jpg') }}');"
             @endif>
-        <h1 class="container-fluid view-container-title">{{trans('front.extra-view')}}</h1>
-        <div class="container-fluid">
-            <div class="row view-container-box">
-                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12">
-
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12">
-
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12">
-
+        <h1 class="container-fluid view-container-title">
+            <?php
+                $str= trans('front.extra-view');
+	            $exploded=explode(" ",$str);
+	            echo str_replace(" ","<br>",$str);
+            ?>
+        </h1>
+        <div class="view-container-section">
+            <div class="container-fluid">
+                <div class="row justify-content-center text-center view-container-box">
+                    <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-image-container">
+                            <img src="{{ asset('images/view/mishena.png') }}" alt="">
+                        </div>
+                        <h1>
+                            <?php
+                            $str= trans('front.visual-selection');
+                            $exploded=explode(" ",$str);
+                            echo str_replace(" ","<br>",$str);
+                            ?>
+                        </h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consequuntur culpa delectus deserunt dicta doloribus, eius eum ipsa itaque iure numquam porro provident quo repellat saepe soluta ut voluptas voluptatem.</p>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-image-container">
+                            <img src="{{ asset('images/view/360.png') }}" alt="">
+                        </div>
+                        <h1>
+                            <?php
+                            $str= trans('front.panoramic-view');
+                            $exploded=explode(" ",$str);
+                            echo str_replace(" ","<br>",$str);
+                            ?>
+                        </h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consequuntur culpa delectus deserunt dicta doloribus, eius eum ipsa itaque iure numquam porro provident quo repellat saepe soluta ut voluptas voluptatem.</p>
+                    </div>
+                    <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-image-container">
+                            <img src="{{ asset('images/view/connection.png') }}" alt="">
+                        </div>
+                        <h1>
+                            <?php
+                            $str= trans('front.available-upgrading');
+                            $exploded=explode(" ",$str);
+                            echo str_replace(" ","<br>",$str);
+                            ?>
+                        </h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consequuntur culpa delectus deserunt dicta doloribus, eius eum ipsa itaque iure numquam porro provident quo repellat saepe soluta ut voluptas voluptatem.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -210,90 +249,81 @@
 </section>
 
 <section class="showroom-container" id="showroom">
-
-    <h1 class="showroom-container-title">{{Settings::getLocale('showroom_page_title', false)}}</h1>
-
     <div class="container-fluid">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="card-deck flex-column flex-lg-row flex-wrap" id="show-deck">
-            @foreach($showrooms as $showroom)
-
-
-                <div class="card">
-                    @if(!empty($showroom->media->first()))
-                        <img class="card-img" src="{{$showroom->media->first()->getPublicPath()}}" alt="Card image cap">
-                    @else
-                        <img class="card-img" src="{{asset('images/fallback/placeholder.png')}}" alt="Card image cap">
-                    @endif
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">{{ $showroom->title }}</h5>
-                        <div class="card-text">{!! $showroom->description !!}</div>
+        <div class="row">
+            <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12 col-xs-12 showroom-description-container">
+                <article class="showroom-description">
+                    <img src="{{asset('images/showroom/chair.jpg')}}">
+                    <div class="overlay">
+                        <span class="showroom-bordered">{{ trans('front.showroom') }}</span>
+                        <h1 class="showroom-class">{{ trans('front.first-class') }}</h1>
+                        <h2 class="showroom-interior">{{ trans('front.interior') }}</h2>
                     </div>
-                    <button class="card-button" type="button" data-toggle="modal" data-target=".show_{{$showroom->id}}">{{trans('showroom::front.thumb_show')}}</button>
-                </div>
+                </article>
+            </div>
+            <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="showroom-container-list">
+                    <div class="slide">
+                        @foreach($showrooms as $showroom)
+                            <article type="button" data-toggle="modal" data-target=".show_{{$showroom->id}}">
 
-
-                <div class="modal fade bd-example-modal-lg show_{{$showroom->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                    <button class="close-modal-carousel">&times;</button>
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content showroom-content">
-                            <div id="carousel_{{$showroom->id}}" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    @if($showroom->show_media === true)
-                                        @foreach($showroom->media as $media)
-                                            <div class="carousel-item @if($loop->first) active @endif">
-                                                <img class="d-block w-100" src="{{ $media->getPublicPath() }}" alt="MirageTower">
-                                                <div class="carousel-caption d-none d-md-block">
-                                                    @if(!empty($media->title) or !empty($media->description))
-                                                        <h5><span>{{ $media->title }}</span></h5>
-                                                        <p><span>{!! $media->description !!}</span></p>
-                                                    @endif
-
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    @endif
-                                </div>
-                                <a class="carousel-control-prev" href="#carousel_{{$showroom->id}}" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carousel_{{$showroom->id}}" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-                        </div>
+                                @if(!empty($showroom->media->first()))
+                                    <img src="{{$showroom->media->first()->getPublicPath()}}" alt="Card image cap">
+                                @else
+                                    <img src="{{asset('images/fallback/placeholder.png')}}" alt="Card image cap">
+                                @endif
+                                <button>
+                                    <?php
+                                    explode(" ", $showroom->title);
+                                    echo str_replace(" ","<br>",$showroom->title);
+                                    ?>
+                                </button>
+                            </article>
+                        @endforeach
                     </div>
                 </div>
-
-            @endforeach
-
+            </div>
         </div>
     </div>
+    @foreach($showrooms as $showroom)
+        <div class="modal fade bd-example-modal-lg show_{{$showroom->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <button class="close-modal-carousel">&times;</button>
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content showroom-content">
+                    <div id="carousel_{{$showroom->id}}" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            @foreach( $showroom->media as $media )
+                                <li data-target="#carousel_{{$showroom->id}}" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+                            @endforeach
+                        </ol>
+                        <div class="carousel-inner">
+                            @if($showroom->show_media === true)
+                                @foreach($showroom->media as $media)
+                                    <div class="carousel-item @if($loop->first) active @endif">
+                                        <img class="d-block w-100" src="{{ $media->getPublicPath() }}" alt="MirageTower">
+                                        @if(!empty($media->title) or !empty($media->description))
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5><span>{{ $media->title }}</span></h5>
+                                                <p><span>{!! $media->description !!}</span></p>
+                                            </div>
+                                        @endif
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
+                        <a class="carousel-control-prev" href="#carousel_{{$showroom->id}}" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel_{{$showroom->id}}" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
 
 </section>
         @include('layouts.footer')

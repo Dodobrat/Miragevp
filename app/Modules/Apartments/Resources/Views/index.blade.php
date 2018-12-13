@@ -10,7 +10,7 @@
                 <div class="mobile-ap-info">
                     <h1 class="apartment-title">{{ $selected_apartment->type }} <span>{{$selected_apartment->title}}</span></h1>
                     <div class="apartment-title-border"></div>
-                    <div class="apartment-description">
+                    <div class="apartment-description pr-5">
                         {!! $selected_apartment->description !!}
                     </div>
                     <h3 class="apartment-price">€ <span class="price">{{ $selected_apartment->price }}</span></h3>

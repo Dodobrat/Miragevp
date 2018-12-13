@@ -218,13 +218,13 @@
     @if( !empty($contacts_cache->first()->phone) || !empty($contacts_cache->first()->address) || !empty($contacts_cache->first()->email) )
         <div class="contact-section visible">
             @if(!empty($contacts_cache->first()->address))
-                <p class="contact-section-address">{{ trans('front.contacts_address') }} <span>{{ $contacts_cache->first()->address }}</span></p>
+                <p class="contact-section-address"><span>{{ $contacts_cache->first()->address }}</span></p>
             @endif
             @if(!empty($contacts_cache->first()->phone))
-                <p class="contact-section-phone">{{ trans('front.contacts_phone') }} <span>{{ $contacts_cache->first()->phone }}</span></p>
+                <p class="contact-section-phone"><span>{{ $contacts_cache->first()->phone }}</span></p>
             @endif
             @if(!empty($contacts_cache->first()->email))
-                <p class="contact-section-email">{{ trans('front.contacts_email') }} <span>{{ $contacts_cache->first()->email }}</span></p>
+                <p class="contact-section-email"><span>{{ $contacts_cache->first()->email }}</span></p>
             @endif
         </div>
     @endif

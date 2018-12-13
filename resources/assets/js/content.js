@@ -185,5 +185,56 @@ if (document.body.contains(open)){
     })
 }
 
+// ---------------------------------------------------
+//         CONTENT - SHOWROOMS SLIDE LIST
+// ---------------------------------------------------
+if (document.body.contains(document.querySelector('.showroom-container-list'))){
+(function() {
+    let x, newX, left, down;
 
+    $(".showroom-container-list").mousedown(function(e) {
+        down = true;
+        x = e.pageX;
+        left = $(this).scrollLeft();
+    });
 
+    $(".showroom-container-list").mousemove(function(e) {
+        e.preventDefault();
+        if (down) {
+            newX = e.pageX;
+            $(this).scrollLeft(left+x-newX);
+        }
+    });
+
+    $("body").mouseup(function(e) {down=false;});
+    $("body").keydown(function(e) {
+        left = $("div").scrollLeft();
+        let articleWidth = $('article').width();
+        let margin = 2 * parseInt($('article').css("marginLeft"));
+        if (e.keyCode == 39)
+            $("div").scrollLeft(left + articleWidth + margin);
+        if (e.keyCode == 37)
+            $("div").scrollLeft(left - articleWidth - margin);
+    });
+
+    //MOBILE
+    let slideDiv = document.querySelector('.showroom-container-list');
+    slideDiv.addEventListener('touchstart', function() {
+        let touches = event.changedTouches;
+        down = true;
+        x = touches[0].pageX;
+        left = $('.showroom-container-list').scrollLeft();
+    });
+
+    slideDiv.addEventListener('touchmove', function(event){
+        event.stopPropagation();
+        let touches = event.changedTouches;
+        if (down) {
+            let newX = touches[0].pageX;
+            $('.showroom-container-list').scrollLeft(left+x-newX);
+        }
+    });
+
+    slideDiv.addEventListener('touchend', function(){ down = false;});
+})();
+}
