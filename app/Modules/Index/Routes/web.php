@@ -16,7 +16,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
     Route::get('/', 'IndexController@index')->name('welcome');
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/markUserNotificationsAsRead', 'HomeController@markUserNotificationsAsRead')->name('readUser');
+    Route::get('/markUserNotificationsAsRead/{id}', 'HomeController@markUserNotificationsAsRead')->name('readUser');
     Route::get('/markAllNotificationsAsRead', 'HomeController@markAllNotificationsAsRead')->name('readAll');
     Route::post('update', 'HomeController@updateUser');
 });

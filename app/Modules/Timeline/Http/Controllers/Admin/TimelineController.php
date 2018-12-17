@@ -107,7 +107,7 @@ class TimelineController extends BaseAdministrationController
     public function store(StoreTimelineRequest $request)
     {
         $timeline = new Timeline();
-        $data = $request->only(array_keys($request->rules()));
+        $data = $request->validated();
 
         $timeline->fill($data);
         $timeline->save();
@@ -168,7 +168,7 @@ class TimelineController extends BaseAdministrationController
     public function update(StoreTimelineRequest $request, $id)
     {
         $timeline = Timeline::where('id', $id)->first();
-        $data = $request->only(array_keys($request->rules()));
+        $data = $request->validated();
 
         $timeline->fill($data);
         $timeline->save();

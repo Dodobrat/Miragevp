@@ -122,14 +122,14 @@
                         </h4>
                         <ul class="notifications-list">
                             @foreach($user_notifications->take(10) as $notification)
-                                @if($notification->read == false)
+                                @if(!$notification->read)
                                     <li class="notifications-unread-list-item">
                                         <div class="notifications-text">
-                                            {!! $notification->message !!}
+                                            {!! $notification->message !!} {{ $notification->id }}
                                         </div>
-                                        <a class="notifications-read" href="{{ route('readUser') }}">&#10003;</a>
+                                        <a class="notifications-read" href="{{ route('readUser', ['id' => $notification->id]) }}">&#10003;</a>
                                     </li>
-                                @elseif($notification->read == true)
+                                @else
                                     <li class="notifications-read-list-item">
                                         <div class="notifications-text">
                                             {!! $notification->message !!}

@@ -55,7 +55,7 @@ class HomeController extends Controller
     {
         $current_user = Auth::user();
         $user_apartments = Apartments::where('user_id', $current_user->id)->get();
-        $user_notifications = Notifications::where('user_id', $current_user->id)->orderBy('created_at','desc')->get();
+        $user_notifications = Notifications::where('user_id', $current_user->id)->orderBy('read')->get();
         $all_notifications = Notifications::where('all_users', true)->orderBy('created_at','desc')->get();
         $timeline = Timeline::where('user_id', $current_user->id)->get();
 
@@ -111,18 +111,16 @@ class HomeController extends Controller
         return response()->json(['success'=>'Successfully updated']);
     }
 
-    public function markUserNotificationsAsRead(){
-
-        $current_user = Auth::user();
-        $user_notifications = Notifications::where('user_id', '=', $current_user->id);
-        $user_notifications->update(array('read' => true));
+    public function markUserNotificationsAsRead($id){
+        $user_notifications = Notifications::where('user_id', Auth::id())->where('id', $id);
+        $user_notifications->update(['read' => true]);
 
         return redirect()->back();
     }
     public function markAllNotificationsAsRead(){
 
-        $all_notifications = Notifications::where('all_users', '=', true);
-        $all_notifications->update(array('read' => true));
+        $all_notifications = Notifications::where('all_users', true);
+        $all_notifications->update(['read' => true]);
 
         return redirect()->back();
     }

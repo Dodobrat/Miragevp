@@ -64,16 +64,6 @@ class Apartments extends AdminModel
         return $this->hasOne(User::class, 'id', 'user_id');
     }
 
-    /**
-     * Scope a query to only include active users.
-     *
-     * @param $query
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeActive($query)
-    {
-        return $query->where('apartments.visible', 1);
-    }
     public function apartment_plans_media()
     {
         return $this->media('apartment_plans');

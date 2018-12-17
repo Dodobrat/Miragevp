@@ -15997,6 +15997,82 @@ readers do not read off random characters that represent icons */
   background: rgba(0, 0, 0, 0.4);
 }
 
+#help {
+  overflow-x: hidden;
+}
+
+.help-top-nav {
+  width: 100vw;
+  background-color: #414E55;
+  color: #ffffff;
+}
+
+.help-top-nav .full-title {
+  font-weight: 200;
+}
+
+.help-top-nav .cut-title {
+  font-weight: 200;
+}
+
+.help-top-nav .cut-title span {
+  font-weight: 600;
+}
+
+.toc {
+  position: fixed;
+  padding: 50px 0 0 0;
+}
+
+.toc h5 {
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.toc .js-toc-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.toc .js-toc-list li {
+  padding: 5px 0;
+}
+
+.toc .js-toc-list li a {
+  width: 100%;
+  text-decoration: none;
+  color: #414E55;
+}
+
+.toc .js-toc-list li a:hover {
+  text-decoration: none;
+  color: #777777;
+}
+
+.toc .js-toc-list li .is-active {
+  border-bottom: 1px solid #414E55;
+  text-decoration: none;
+}
+
+.toc .js-toc-list li .is-active:hover {
+  color: #dddddd;
+  text-decoration: none;
+}
+
+.help-content-container .help-title {
+  padding: 20px;
+}
+
+.help-content-container p {
+  padding: 0 20px;
+}
+
+@media (max-width: 1200px) {
+  .toc {
+    position: relative;
+  }
+}
+
 /*!
  * Font Awesome Free 5.3.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)

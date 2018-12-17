@@ -79,13 +79,17 @@ class LoginController extends Controller
         $user = Socialite::driver($service)->user();
         $name = explode(' ', $user->getName());
 
-        $socialUser = User::firstOrCreate(
-        [
-            'first_name' => $name[0],
-            'last_name' => $name[1],
-            'provider' => $service,
-            'email' => $user->getEmail()
-        ]);
+        $socialUser = User::where('email', $user->getEmail())->first();
+
+        if (!$socialUser) {
+            $socialUser->fill([
+                'first_name' => $name[0],
+                'last_name' => $name[1],
+                'provider' => $service,
+                'email' => $user->getEmail()
+            ]);
+        }
+
         // $user->token;
         $socialUser->save();
         Auth::login($socialUser, true);

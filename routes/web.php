@@ -18,4 +18,5 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     Route::get('logout', 'Auth\LoginController@logout');
     Route::get('auth/{service}', 'Auth\LoginController@redirectToProvider');
     Route::get('auth/{service}/callback', 'Auth\LoginController@handleProviderCallback');
+    Route::view('/help', 'help');
 });
