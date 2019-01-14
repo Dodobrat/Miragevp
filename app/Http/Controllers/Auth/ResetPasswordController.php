@@ -41,11 +41,6 @@ class ResetPasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        $contacts_cache = Cache::remember('contacts_cache' . Administration::getLanguage(), env('CACHE_DEFAULT', 360), function () {
-            return Contacts::get();
-        });
-
-        View::share('contacts_cache', $contacts_cache);
 
         $floor_plan = Floors::reversed()->get();
         View::share('floor_plan', $floor_plan);

@@ -8,13 +8,13 @@ class ContactForm extends AdminForm
 {
     public function buildForm()
     {
-        $this->add('description', 'editor', [
-            'label' => trans('contacts::admin.description'),
+        $this->add('title', 'text', [
+            'label' => trans('contacts::admin.title'),
             'translate' => true
         ]);
 
-        $this->add('title', 'text', [
-            'label' => trans('contacts::admin.title'),
+        $this->add('description', 'editor', [
+            'label' => trans('contacts::admin.description'),
             'translate' => true
         ]);
 
@@ -28,10 +28,15 @@ class ContactForm extends AdminForm
             'translate' => true,
         ]);
 
-
         $this->add('phone', 'text', [
             'label' => trans('contacts::admin.phone'),
             'translate' => true,
+        ]);
+
+        $this->add('show_map', 'checkbox', [
+            'label' => trans('blog::admin.show_map'),
+            'value' => 1,
+            'checked' => @$this->model->show_map,
         ]);
 
         $this->add('map', 'address_picker', [

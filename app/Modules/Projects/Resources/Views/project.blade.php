@@ -186,27 +186,27 @@
                         <div class="container-fluid">
 
 
-                        @if(isset($contacts_cache) == true)
-                            @if( !empty($contacts_cache->first()->phone) || !empty($contacts_cache->first()->address) || !empty($contacts_cache->first()->email) )
-                                <div class="row query-info">
-                                    @if(!empty($contacts_cache->first()->address))
-                                        <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12 q-i">
-                                            {{ $contacts_cache->first()->address }}
-                                        </div>
-                                    @endif
-                                    @if(!empty($contacts_cache->first()->email))
-                                        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12 q-i">
-                                            {{ $contacts_cache->first()->email }}
-                                        </div>
-                                    @endif
-                                    @if(!empty($contacts_cache->first()->phone))
-                                        <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12 q-i">
-                                            {{ $contacts_cache->first()->phone }}
-                                        </div>
-                                    @endif
-                                </div>
-                            @endif
-                        @endif<!--endif CONTACTS CACHE-->
+                        {{--@if(isset($contacts_cache) == true)--}}
+                            {{--@if( !empty($contacts_cache->first()->phone) || !empty($contacts_cache->first()->address) || !empty($contacts_cache->first()->email) )--}}
+                                {{--<div class="row query-info">--}}
+                                    {{--@if(!empty($contacts_cache->first()->address))--}}
+                                        {{--<div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12 q-i">--}}
+                                            {{--{{ $contacts_cache->first()->address }}--}}
+                                        {{--</div>--}}
+                                    {{--@endif--}}
+                                    {{--@if(!empty($contacts_cache->first()->email))--}}
+                                        {{--<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12 q-i">--}}
+                                            {{--{{ $contacts_cache->first()->email }}--}}
+                                        {{--</div>--}}
+                                    {{--@endif--}}
+                                    {{--@if(!empty($contacts_cache->first()->phone))--}}
+                                        {{--<div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12 q-i">--}}
+                                            {{--{{ $contacts_cache->first()->phone }}--}}
+                                        {{--</div>--}}
+                                    {{--@endif--}}
+                                {{--</div>--}}
+                            {{--@endif--}}
+                        {{--@endif<!--endif CONTACTS CACHE-->--}}
                         </div>
                     </div>
 

@@ -59,6 +59,11 @@ class ContactsController extends BaseAdministrationController
                 'title' => trans('administration::administrators.id'),
                 'orderable' => false,
             ])->addColumn([
+                'data' => 'title',
+                'name' => 'title',
+                'title' => trans('contacts::admin.title'),
+                'orderable' => false,
+            ])->addColumn([
                 'data' => 'phone',
                 'name' => 'phone',
                 'title' => trans('contacts::admin.phone'),

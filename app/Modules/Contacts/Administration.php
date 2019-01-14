@@ -75,9 +75,17 @@ class Administration implements Module
             'label' => trans($module['slug'] . '::admin.title'),
             'translate' => true
         ]);
-        $form->add($module['slug'] . '_page_title', 'text', [
-            'label' => trans($module['slug'] . '::admin.page_title'),
+        $form->add($module['slug'] . '_address', 'text', [
+            'label' => trans($module['slug'] . '::admin.address'),
             'translate' => true
+        ]);
+        $form->add($module['slug'] . '_phone', 'text', [
+            'label' => trans($module['slug'] . '::admin.phone'),
+            'translate' => false
+        ]);
+        $form->add($module['slug'] . '_email', 'text', [
+            'label' => trans($module['slug'] . '::admin.email'),
+            'translate' => false
         ]);
     }
 }

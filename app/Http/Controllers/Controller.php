@@ -19,12 +19,6 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        $contacts_cache = Cache::remember('contacts_cache' . Administration::getLanguage(), env('CACHE_DEFAULT', 360), function () {
-            return Contacts::get();
-        });
-
-        View::share('contacts_cache', $contacts_cache);
-
         $floor_plan = Floors::reversed()->get();
         View::share('floor_plan', $floor_plan);
 
