@@ -23338,11 +23338,6 @@ body {
   font-size: 18px;
 }
 
-.contacts-map-container {
-  width: 100%;
-  padding: 50px 50px;
-}
-
 .animate {
   position: absolute;
   bottom: 100px;
@@ -24534,6 +24529,98 @@ body {
 }
 
 /* ---------------------------------------------------
+    CONTACT PAGE STYLE
+----------------------------------------------------- */
+.contact-info-tabs .contact-info-tab-item {
+  padding: 20px 20px;
+}
+
+.contact-info-tabs .contact-info-tab-item a {
+  max-width: 150px;
+  max-height: 150px;
+  background-color: #7a869d;
+  border-radius: 50%;
+  padding: 5%;
+  border: 10px solid #ffffff;
+  -webkit-box-shadow: 0 0 0 1px #7a869d;
+          box-shadow: 0 0 0 1px #7a869d;
+}
+
+.contact-info-tabs .contact-info-tab-item a img {
+  width: 100px;
+  height: 100px;
+}
+
+.contact-info-tabs .contact-info-tab-item p {
+  text-align: center;
+}
+
+.contact-info-section {
+  background-color: #D3DAE0;
+  padding: 0;
+}
+
+.contact-info-section .left-contact-section {
+  padding: 50px 15px;
+}
+
+.contact-info-section .left-contact-section .left-contact-section-container {
+  padding: 0 30px;
+}
+
+.contact-info-section .left-contact-section .left-contact-section-container .contact-section-title {
+  color: #ffffff;
+  font-size: 3.5em;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.contact-info-section .left-contact-section .left-contact-section-container .contact-section-address {
+  color: #7a869d;
+  font-style: italic;
+}
+
+.contact-info-section .left-contact-section .left-contact-section-container .contact-section-desc {
+  color: #7a869d;
+  font-weight: 300;
+}
+
+.contact-info-section .left-contact-section .left-contact-section-container .contact-section-phone {
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.contact-info-section .left-contact-section .left-contact-section-container .contact-section-phone span {
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.contact-info-section .left-contact-section .left-contact-section-container .contact-section-working-days {
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.contact-info-section .left-contact-section .left-contact-section-container .contact-section-working-days span {
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.contact-info-section .right-contact-section-container {
+  padding: 0;
+}
+
+.contact-info-section .right-contact-section-container .contact-section-right-img {
+  width: 100%;
+  height: 100%;
+  max-height: 50vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* ---------------------------------------------------
     FOOTER STYLE
 ----------------------------------------------------- */
 .foot {
@@ -24669,12 +24756,34 @@ body {
           box-shadow: 0px 7px 30px -5px rgba(0, 0, 0, 0.3);
 }
 
+.con-cust-form {
+  background-color: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding: 0 30px;
+  margin: 0;
+}
+
+.con-bg-form {
+  background-color: white;
+  padding: 75px 0;
+}
+
 .form-title {
   margin-top: -40px;
   padding: 20px 0px;
   letter-spacing: 3px;
   text-transform: uppercase;
   font-weight: 200;
+}
+
+.con-form-title {
+  margin-top: -40px;
+  padding: 20px 0px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  color: #869AA6;
 }
 
 :focus {
@@ -24713,7 +24822,7 @@ input:-webkit-autofill:active {
 .effect {
   border: 0;
   padding: 10px 10px;
-  background-color: #FDD496;
+  background-color: rgba(134, 154, 166, 0.2);
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
 }
@@ -24730,7 +24839,7 @@ input:-webkit-autofill:active {
   left: 50%;
   width: 0;
   height: 2px;
-  background-color: #FDD496;
+  background-color: #869AA6;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -24749,7 +24858,7 @@ input:-webkit-autofill:active {
   left: 10px;
   width: 100%;
   top: 10px;
-  color: #ffffff;
+  color: #869AA6;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   letter-spacing: 0.5px;
@@ -24793,6 +24902,14 @@ input:-webkit-autofill:active {
 
 .submit-btn:focus {
   outline: 0;
+}
+
+.con-submit-btn {
+  width: unset;
+  padding: 10px 20px;
+  margin: 0;
+  text-transform: capitalize;
+  font-weight: 400;
 }
 
 .news-section {

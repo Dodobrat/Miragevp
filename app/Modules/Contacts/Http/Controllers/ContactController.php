@@ -16,7 +16,7 @@ class ContactController extends Controller
 {
     public function index(){
 
-        $contacts = Contacts::withTranslation()->get();
+        $contacts = Contacts::withTranslation()->with('contact_media')->get();
 
         if (empty($contacts)) {
             return redirect()->back();

@@ -14,5 +14,6 @@ return [
     'dash_contacts_linkbox' => 'View Contacts',
     'map' => 'Google Map',
     'visible' => 'Map Visible',
+    'working_days' => 'Working Days',
 
 ];

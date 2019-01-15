@@ -18,6 +18,11 @@ class ContactForm extends AdminForm
             'translate' => true
         ]);
 
+        $this->add('working_days', 'editor', [
+            'label' => trans('contacts::admin.working_days'),
+            'translate' => true
+        ]);
+
         $this->add('email', 'text', [
             'label' => trans('contacts::admin.email'),
             'translate' => true

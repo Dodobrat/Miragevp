@@ -31,6 +31,18 @@ class ContactsController extends BaseAdministrationController
             $datatables = Datatables::of($contacts)
                 ->addColumn('action', function ($contact) {
                     $actions = '';
+                    $actions .= ' ' . Form::mediaManager($contact,
+                            [
+                                'filters' => [
+                                    'mediaable_sub_type' => 'contact_media'
+                                ],
+                                'button' => [
+                                    'title' => 'Contact Icon',
+                                    'class' => 'media-manager btn btn-sm btn-warning',
+                                    'icon' => 'picture-o'
+                                ]
+                            ]
+                        );
                     if (!empty($contact->deleted_at)) {
                         //
                     } else {
@@ -39,6 +51,8 @@ class ContactsController extends BaseAdministrationController
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('contacts.edit', $contact->id)) . $actions;
                 })->addColumn('show_map', function ($contacts) {
                     return Form::adminSwitchButton('show_map', $contacts);
+                })->addColumn('working_days', function ($contacts) {
+                    return strip_tags($contacts->working_days);
                 });
 
             return $datatables->make(true);
@@ -62,6 +76,11 @@ class ContactsController extends BaseAdministrationController
                 'data' => 'title',
                 'name' => 'title',
                 'title' => trans('contacts::admin.title'),
+                'orderable' => false,
+            ])->addColumn([
+                'data' => 'working_days',
+                'name' => 'working_days',
+                'title' => trans('contacts::admin.working_days'),
                 'orderable' => false,
             ])->addColumn([
                 'data' => 'phone',

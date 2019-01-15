@@ -1,15 +1,18 @@
 @extends('layouts.app')
 @section('content')
 
-
     {{--<h1 class="text-center page-title">{{Settings::getLocale('contacts_page_title', false)}}</h1>--}}
     <h1 class="text-center page-title">{{trans('front.contact')}}</h1>
 
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <ul class="nav nav-pills my-3 contact-info-tabs justify-content-center" id="pills-tab" role="tablist">
     @foreach($contacts as $map)
-
-            <li class="nav-item">
-                <a class="nav-link {{ $loop->first ? 'active' : '' }}" id="pills-{{ $map->id }}-tab" data-toggle="pill" href="#pills-{{ $map->id }}" role="tab" aria-controls="pills-{{ $map->id }}" aria-selected="true">{{ $map->title }}</a>
+            <li class="nav-item contact-info-tab-item">
+                <a class="nav-link {{ $loop->first ? 'active' : '' }}" id="pills-{{ $map->id }}-tab" data-toggle="pill" href="#pills-{{ $map->id }}" role="tab" aria-controls="pills-{{ $map->id }}" aria-selected="true">
+                    @if(!empty($map->contact_media->first()))
+                        <img src="{{ $map->contact_media->first()->getPublicPath() }}" alt="">
+                    @endif
+                </a>
+                <p>{{ $map->title }}</p>
             </li>
 
     @endforeach
@@ -19,16 +22,47 @@
         @foreach($contacts as $map)
             <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="pills-{{ $map->id }}" role="tabpanel" aria-labelledby="pills-{{ $map->id }}-tab">
 
-                <div class="text-center page-desc">
-                    @if(!empty($map->description))
-                        {!!  $map->description !!}
-                    @endif
-                </div>
+                <section class="container-fluid contact-info-section">
+
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+                                <div class="row">
+                                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 left-contact-section">
+                                        <div class="row left-contact-section-container">
+                                            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                                                <h1 class="contact-section-title">{{ $map->title }}</h1>
+                                                <h5 class="contact-section-address">{{ $map->address }}</h5>
+                                                <div class="contact-section-desc">{!! $map->description !!}</div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-lg-right text-md-left">
+                                                <h5 class="contact-section-phone">
+                                                    <span>{{ trans('contacts::front.telephone') }}:</span><br>{{ $map->phone }}
+                                                </h5>
+                                                <div class="contact-section-working-days">
+                                                    <span>{{ trans('contacts::front.working_days') }}:</span><br>
+                                                    {!! $map->working_days !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 right-contact-section-container">
+                                        @if(!empty($map->contact_media->first()))
+                                            <img class="contact-section-right-img" src="{{ $map->contact_media->first()->getPublicPath() }}" alt="">
+                                        @else
+                                            <img class="contact-section-right-img" src="{{ asset('images/fallback/placeholder.png') }}" alt="">
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    
+                </section>
+
 
                 @if($map->show_map == 1)
-                    <div class="contacts-map-container">
-                        <div id="map" style="height: 500px; width: 100%;margin: auto;"></div>
-                    </div>
+                    <div id="map" style="height: 350px; width: 100%;margin: auto;"></div>
                     <script>
                         function initMap(){
 
@@ -58,6 +92,9 @@
                                     {"featureType": "water","elementType": "geometry","stylers": [{"color": "#000000"}]},
                                     {"featureType": "water","elementType": "labels.text.fill","stylers": [{"color": "#3d3d3d"}]}
                                 ],
+                                name: {
+                                    name: ['Dark']
+                                },
                                 mapTypeControlOptions: {
                                     mapTypeIds: ['roadmap', 'styled_map']
                                 },
@@ -105,12 +142,12 @@
 
                 @endif
 
-<div class="container-fluid">
+<div class="container-fluid con-bg-form">
     <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 form-wrapper">
-            <form class="form custom-form" method="POST" action="{{ route('contact.store') }}">
+        <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 form-wrapper">
+            <form class="form custom-form con-cust-form" method="POST" action="{{ route('contact.store') }}">
                 {{ csrf_field() }}
-                <h3 class="text-center form-title">{{ trans('front.send_request') }}{{ $map->title }}</h3>
+                <h3 class="text-left con-form-title">{{ trans('contacts::front.send_request') }}{{ $map->title }}</h3>
                 @if ($errors->any())
                     <div class="mt-0 mb-4 alert alert-danger alert-dismissible fade show error" role="alert">
                         {{ $errors->first() }}
@@ -167,12 +204,9 @@
 
                 </div>
 
-
-
-
                 <input type="hidden" name="contact_id" value="{{$map->id}}">
 
-                <button type="submit" class="submit-btn">{{trans('contacts::front.send')}}</button>
+                <button type="submit" class="submit-btn float-right con-submit-btn">{{trans('contacts::front.send')}}</button>
 
             </form>
         </div>
@@ -193,5 +227,5 @@
     {{--@endforeach--}}
 
 
-    @include('layouts.footer')
+    {{--@include('layouts.footer')--}}
 @endsection

@@ -28,6 +28,7 @@ class CreateContactsTable extends Migration
             $table->integer('contacts_id')->unsigned();
             $table->string('title')->nullable()->default(null);
             $table->longText('description')->nullable()->default(null);
+            $table->longText('working_days')->nullable()->default(null);
             $table->string('email')->nullable()->default(null);
             $table->text('address')->nullable()->default(null);
             $table->string('phone')->nullable()->default(null);

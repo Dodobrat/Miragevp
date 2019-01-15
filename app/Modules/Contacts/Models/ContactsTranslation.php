@@ -14,6 +14,7 @@ class ContactsTranslation extends AdminModelTranslations
     protected $fillable = [
         'title',
         'description',
+        'working_days',
         'email',
         'address',
         'phone'

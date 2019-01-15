@@ -14,6 +14,7 @@ class Contacts extends AdminModel
     public $translatedAttributes = [
         'title',
         'description',
+        'working_days',
         'email',
         'address',
         'phone',
@@ -31,4 +32,9 @@ class Contacts extends AdminModel
     ];
 
     protected $with = ['translations'];
+
+    public function contact_media()
+    {
+        return $this->media('contact_media');
+    }
 }
