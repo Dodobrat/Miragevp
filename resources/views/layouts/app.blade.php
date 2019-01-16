@@ -215,23 +215,23 @@
 @endguest
     </div>
 
+        {{--{{dd(Settings::get('contacts_phone'))}}--}}
 
+@if( !empty(Settings::get('contacts_phone')) || !empty(Settings::getLocale('contacts_address')) || !empty(Settings::get('contacts_email')) )
+    <div class="contact-section">
+        @if(!empty(Settings::getLocale('contacts_address')))
+            <p class="contact-section-address"><span>{{ Settings::getLocale('contacts_address') }}</span></p>
+        @endif
+        @if(!empty(Settings::get('contacts_phone')))
+            <p class="contact-section-phone"><span>{{ Settings::get('contacts_phone') }}</span></p>
+        @endif
+        @if(!empty(Settings::get('contacts_email')))
+            <p class="contact-section-email"><span>{{ Settings::get('contacts_email') }}</span></p>
+        @endif
+    </div>
+@endif
 
-{{--@if( !empty($contacts_cache->first()->phone) || !empty($contacts_cache->first()->address) || !empty($contacts_cache->first()->email) )--}}
-    {{--<div class="contact-section visible">--}}
-        {{--@if(!empty($contacts_cache->first()->address))--}}
-            {{--<p class="contact-section-address"><span>{{ $contacts_cache->first()->address }}</span></p>--}}
-        {{--@endif--}}
-        {{--@if(!empty($contacts_cache->first()->phone))--}}
-            {{--<p class="contact-section-phone"><span>{{ $contacts_cache->first()->phone }}</span></p>--}}
-        {{--@endif--}}
-        {{--@if(!empty($contacts_cache->first()->email))--}}
-            {{--<p class="contact-section-email"><span>{{ $contacts_cache->first()->email }}</span></p>--}}
-        {{--@endif--}}
-    {{--</div>--}}
-{{--@endif--}}
-
-    <div class="news-section visible">
+    <div class="news-section">
         <form method="POST" action="{{ route('newsletter_subscriber.store') }}">
             {{ csrf_field() }}
             <div class="positioning input-effect{{ $errors->has('news_email') ? ' has-error' : '' }}" id="news-field">
@@ -258,7 +258,7 @@
         </form>
     </div>
 
-    <p class="copy visible">{{ config('app.name', 'MIRAGETOWER') }} &copy;</p>
+    <p class="copy">{{ config('app.name', 'MIRAGETOWER') }} &copy;</p>
 
 </div><!--end Mobile side nav-->
     </div><!--end Desktop side nav-->

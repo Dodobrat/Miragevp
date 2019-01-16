@@ -4,19 +4,22 @@
     {{--<h1 class="text-center page-title">{{Settings::getLocale('contacts_page_title', false)}}</h1>--}}
     <h1 class="text-center page-title">{{trans('front.contact')}}</h1>
 
-    <ul class="nav nav-pills my-3 contact-info-tabs justify-content-center" id="pills-tab" role="tablist">
-    @foreach($contacts as $map)
-            <li class="nav-item contact-info-tab-item">
-                <a class="nav-link {{ $loop->first ? 'active' : '' }}" id="pills-{{ $map->id }}-tab" data-toggle="pill" href="#pills-{{ $map->id }}" role="tab" aria-controls="pills-{{ $map->id }}" aria-selected="true">
-                    @if(!empty($map->contact_media->first()))
-                        <img src="{{ $map->contact_media->first()->getPublicPath() }}" alt="">
-                    @endif
-                </a>
-                <p>{{ $map->title }}</p>
-            </li>
+    <div class="container">
+        <ul class="nav nav-pills my-3 contact-info-tabs justify-content-lg-center" id="pills-tab" role="tablist">
+            @foreach($contacts as $map)
+                <li class="nav-item contact-info-tab-item">
+                    <a class="nav-link {{ $loop->first ? 'active' : '' }}" id="pills-{{ $map->id }}-tab" data-toggle="pill" href="#pills-{{ $map->id }}" role="tab" aria-controls="pills-{{ $map->id }}" aria-selected="true">
+                        @if(!empty($map->contact_media->first()))
+                            <img src="{{ $map->contact_media->first()->getPublicPath() }}" alt="">
+                        @endif
+                    </a>
+                    <p>{{ $map->title }}</p>
+                </li>
 
-    @endforeach
-    </ul>
+            @endforeach
+        </ul>
+    </div>
+
 
     <div class="tab-content" id="pills-tabContent">
         @foreach($contacts as $map)
@@ -46,8 +49,8 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 right-contact-section-container">
-                                        @if(!empty($map->contact_media->first()))
-                                            <img class="contact-section-right-img" src="{{ $map->contact_media->first()->getPublicPath() }}" alt="">
+                                        @if(!empty($map->contact_loc_media->first()))
+                                            <img class="contact-section-right-img" src="{{ $map->contact_loc_media->first()->getPublicPath() }}" alt="">
                                         @else
                                             <img class="contact-section-right-img" src="{{ asset('images/fallback/placeholder.png') }}" alt="">
                                         @endif

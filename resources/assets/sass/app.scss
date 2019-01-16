@@ -1141,18 +1141,27 @@ body{
 /* ---------------------------------------------------
     CONTACT PAGE STYLE
 ----------------------------------------------------- */
-.contact-info-tabs{
 
+.contact-info-tabs{
+  overflow-x: auto;
+  overflow-y:hidden;
+  flex-wrap: nowrap;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   .contact-info-tab-item{
     padding: 20px 20px;
     a{
       max-width: 150px;
       max-height: 150px;
-      background-color: #7a869d;
+      background-color: #D3DAE0;
       border-radius: 50%;
       padding: 5%;
       border: 10px solid #ffffff;
       box-shadow: 0 0 0 1px #7a869d;
+      &.active{
+        background-color: #FDD397;
+      }
       img{
         width: 100px;
         height: 100px;
@@ -1163,6 +1172,8 @@ body{
     }
   }
 }
+
+
 .contact-info-section{
   background-color: #D3DAE0;
   padding: 0;
@@ -1447,6 +1458,7 @@ input:-webkit-autofill:active {
   outline: 0;
 }
 .con-submit-btn{
+  background: #D3DAE0;
   width: unset;
   padding: 10px 20px;
   margin: 0;

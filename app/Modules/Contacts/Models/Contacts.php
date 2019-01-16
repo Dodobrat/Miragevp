@@ -37,4 +37,8 @@ class Contacts extends AdminModel
     {
         return $this->media('contact_media');
     }
+    public function contact_loc_media()
+    {
+        return $this->media('contact_loc_media');
+    }
 }

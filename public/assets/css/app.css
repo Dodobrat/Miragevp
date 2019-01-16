@@ -24531,6 +24531,17 @@ body {
 /* ---------------------------------------------------
     CONTACT PAGE STYLE
 ----------------------------------------------------- */
+.contact-info-tabs {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.contact-info-tabs::-webkit-scrollbar {
+  display: none;
+}
+
 .contact-info-tabs .contact-info-tab-item {
   padding: 20px 20px;
 }
@@ -24538,12 +24549,16 @@ body {
 .contact-info-tabs .contact-info-tab-item a {
   max-width: 150px;
   max-height: 150px;
-  background-color: #7a869d;
+  background-color: #D3DAE0;
   border-radius: 50%;
   padding: 5%;
   border: 10px solid #ffffff;
   -webkit-box-shadow: 0 0 0 1px #7a869d;
           box-shadow: 0 0 0 1px #7a869d;
+}
+
+.contact-info-tabs .contact-info-tab-item a.active {
+  background-color: #FDD397;
 }
 
 .contact-info-tabs .contact-info-tab-item a img {
@@ -24905,6 +24920,7 @@ input:-webkit-autofill:active {
 }
 
 .con-submit-btn {
+  background: #D3DAE0;
   width: unset;
   padding: 10px 20px;
   margin: 0;
