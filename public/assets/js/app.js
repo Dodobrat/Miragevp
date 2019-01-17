@@ -19781,6 +19781,59 @@ if (document.body.contains(document.querySelector('.edit-user-form'))) {
     });
 }
 
+// ---------------------------------------------------
+//         AJAX EMAIL SEND
+// ---------------------------------------------------
+if (document.body.contains(document.querySelector('.con-bg-form'))) {
+    $(document).ready(function () {
+        $('.submit-btn').on('click', function (e) {
+            var self = $(this);
+            e.preventDefault();
+            $.ajaxSetup({
+                cache: false,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/store',
+                method: 'post',
+                data: {
+                    names: self.closest('.custom-form').find('input[name="names"]').val(),
+                    phone: self.closest('.custom-form').find('input[name="phone"]').val(),
+                    email: self.closest('.custom-form').find('input[name="email"]').val(),
+                    comment: self.closest('.custom-form').find('textarea[name="comment"]').val(),
+                    contact_id: self.closest('.custom-form').find('input[name="contact_id"]').val()
+
+                },
+
+                success: function success(result) {
+                    if (result.errors) {
+                        $('.alert-danger').html('');
+
+                        $.each(result.errors, function (key, value) {
+                            $('.alert-danger').show();
+                            $('.alert-success').hide();
+                            $('.alert-danger').removeClass('d-none');
+                            $('.alert-danger').addClass('mt-0 mb-4 show');
+                            $('.alert-danger').append('<li>' + value + '</li>');
+                        });
+                    } else {
+                        $('.alert-success').html('');
+
+                        $.each(result, function (key, value) {
+                            $('.alert-success').show();
+                            $('.alert-danger').hide();
+                            $('.alert-success').removeClass('d-none');
+                            $('.alert-success').addClass('mt-0 mb-4 show');
+                            $('.alert-success').append('<li>' + value + '</li>');
+                        });
+                    }
+                } });
+        });
+    });
+}
+
 /***/ }),
 
 /***/ "./resources/assets/js/content.js":

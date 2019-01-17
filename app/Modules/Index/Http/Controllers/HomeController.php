@@ -64,7 +64,6 @@ class HomeController extends Controller
 
     public function updateUser(editUserRequest $request)
     {
-
         $validator = \Validator::make($request->all(), [
             'first_name' => 'nullable|max:50|min:2',
             'last_name' => 'nullable|max:50|min:2',
@@ -72,7 +71,6 @@ class HomeController extends Controller
             'mobile' => 'nullable|unique:users',
             'password' => 'nullable|confirmed',
             'password_confirmation' => 'nullable',
-
         ]);
 
         if ($validator->fails())

@@ -148,45 +148,42 @@
 <div class="container-fluid con-bg-form">
     <div class="row justify-content-center">
         <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 form-wrapper">
-            <form class="form custom-form con-cust-form" method="POST" action="{{ route('contact.store') }}">
+            <form class="form custom-form con-cust-form" method="POST" action="{{ url('store') }}">
                 {{ csrf_field() }}
                 <h3 class="text-left con-form-title">{{ trans('contacts::front.send_request') }}{{ $map->title }}</h3>
-                @if ($errors->any())
-                    <div class="mt-0 mb-4 alert alert-danger alert-dismissible fade show error" role="alert">
-                        {{ $errors->first() }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                @elseif(session()->has('status'))
-                    <div class="mt-0 mb-4 alert alert-success alert-dismissible fade show error" role="alert">
-                        <span>{{ session()->get('status') }}</span>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                @endif
+                <div class="alert alert-danger alert-dismissible fade error d-none" role="alert">
+                    {{--{{ $errors->first() }}--}}
+                    {{--<button type="button" class="close" data-dismiss="alert" aria-label="Close">--}}
+                        {{--<span aria-hidden="true">&times;</span>--}}
+                    {{--</button>--}}
+                </div>
+                <div class="alert alert-success alert-dismissible fade error d-none" role="alert">
+                    {{--<span>{{ session()->get('status') }}</span>--}}
+                    {{--<button type="button" class="close" data-dismiss="alert" aria-label="Close">--}}
+                        {{--<span aria-hidden="true">&times;</span>--}}
+                    {{--</button>--}}
+                </div>
 
                 <div class="row">
                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="positioning input-effect{{ $errors->has('names') ? ' has-error' : '' }}">
-                                    <input class="effect" id="names" type="text" name="names" placeholder="" required>
+                                    <input class="effect" id="names_{{$map->id}}" type="text" name="names" placeholder="" required>
                                     <label>{{trans('contacts::front.names')}}</label>
                                     <span class="focus-border"></span>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="positioning input-effect{{ $errors->has('phone') ? ' has-error' : '' }}">
-                                    <input class="effect" id="phone" type="text" name="phone" placeholder="" required>
+                                    <input class="effect" id="phone_{{$map->id}}" type="text" name="phone" placeholder="" required>
                                     <label>{{trans('contacts::front.phone')}}</label>
                                     <span class="focus-border"></span>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="positioning input-effect{{ $errors->has('email') ? ' has-error' : '' }}">
-                                    <input class="effect" id="email" type="email" name="email" placeholder="" required>
+                                    <input class="effect" id="email_{{$map->id}}" type="email" name="email" placeholder="" required>
                                     <label>{{trans('contacts::front.email')}}</label>
                                     <span class="focus-border"></span>
                                 </div>
@@ -197,7 +194,7 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="positioning input-effect{{ $errors->has('comment') ? ' has-error' : '' }}">
-                                    <textarea class="effect" id="comment" type="text" name="comment" placeholder="" required></textarea>
+                                    <textarea class="effect" id="comment_{{$map->id}}" type="text" name="comment" placeholder="" required></textarea>
                                     <label>{{trans('contacts::front.comment')}}</label>
                                     <span class="focus-border" id="textarea"></span>
                                 </div>
@@ -207,9 +204,9 @@
 
                 </div>
 
-                <input type="hidden" name="contact_id" value="{{$map->id}}">
+                <input type="hidden" name="contact_id" value="{{ $map->id }}">
 
-                <button type="submit" class="submit-btn float-right con-submit-btn">{{trans('contacts::front.send')}}</button>
+                <button type="button" class="submit-btn float-right con-submit-btn" id="ajaxSubmitCon_{{$map->id}}">{{trans('contacts::front.send')}}</button>
 
             </form>
         </div>

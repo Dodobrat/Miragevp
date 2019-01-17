@@ -26,7 +26,17 @@ class ContactController extends Controller
 
     public function store(SendRequestContact $request)
     {
-        $requestData = $request->validated();
+        $validator = \Validator::make($request->all(), [
+            'names' => 'required|max:50|min:2',
+            'email' => 'required|email',
+            'phone' => 'required|min:5|max:14',
+            'comment' => 'required|max:300',
+        ]);
+        if ($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
+
         $contact_id = $request->input('contact_id');
 
         $contactInfo = Contacts::whereHas('translations', function ($query) use ($contact_id) {
@@ -34,16 +44,11 @@ class ContactController extends Controller
                 ->where('contacts_id', $contact_id);
         })->first();
 
-        if (empty($contactInfo)) {
-            return redirect()->back();
-        }
-
-        Mail::send('contacts::emails.send_contacts', ['data' => $requestData], function ($m) use ($requestData, $contactInfo) {
+        Mail::send('contacts::emails.send_contacts', ['data' => $validator], function ($m) use ($validator, $contactInfo) {
             $m->subject(trans('contacts::front.mail_subject'));
             $m->to($contactInfo->email, $contactInfo->title);
         });
 
-        return back()->with('status', trans('contacts::front.email-success'));
-
+        return response()->json(['success'=>'E-mail successfully sent'], 200);
     }
 }

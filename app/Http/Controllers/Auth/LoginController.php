@@ -77,6 +77,7 @@ class LoginController extends Controller
         $socialUser = User::where('email', $user->getEmail())->first();
 
         if (!$socialUser) {
+            $socialUser = new User();
             $socialUser->fill([
                 'first_name' => $name[0],
                 'last_name' => $name[1],

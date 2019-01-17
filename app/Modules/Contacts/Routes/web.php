@@ -16,10 +16,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
     /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
     Route::get('/contact', 'ContactController@index')->name('contact');
-    Route::post('/store',
-        [
-            'as' => 'contact.store',
-            'uses' => 'ContactController@store'
-        ]);
+    Route::post('store','ContactController@store');
 });
 
