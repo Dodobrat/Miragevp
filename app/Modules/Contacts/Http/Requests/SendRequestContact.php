@@ -25,12 +25,6 @@ class SendRequestContact extends FormRequest
     {
         $trans = [];
 
-        $trans['names'] = 'required|string';
-        $trans['email'] = 'required|email';
-        $trans['phone'] = 'required|string';
-        $trans['comment'] = 'required|string';
-        $trans['contact_id'] = 'required|numeric';
-
         return $trans;
     }
 }
