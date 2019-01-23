@@ -43,18 +43,6 @@ class ContactsController extends BaseAdministrationController
                                 ]
                             ]
                         );
-                    $actions .= ' ' . Form::mediaManager($contact,
-                            [
-                                'filters' => [
-                                    'mediaable_sub_type' => 'contact_loc_media'
-                                ],
-                                'button' => [
-                                    'title' => 'Contact Location Image',
-                                    'class' => 'media-manager btn btn-sm btn-success',
-                                    'icon' => 'picture-o'
-                                ]
-                            ]
-                        );
                     if (!empty($contact->deleted_at)) {
                         //
                     } else {

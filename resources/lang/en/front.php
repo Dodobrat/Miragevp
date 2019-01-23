@@ -12,7 +12,7 @@ return [
     'sign-in' => 'Sign In',
     'sign-up' => 'Sign Up',
     'locked-page' => 'This page is locked! If you want to see it you have to be a member!',
-    'contact' => 'Contact',
+    'contact' => 'Contact us',
     'login' => 'Login',
     'email' => 'E-mail',
     'password' => 'Password',

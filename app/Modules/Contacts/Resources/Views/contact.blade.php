@@ -2,7 +2,7 @@
 @section('content')
 
     {{--<h1 class="text-center page-title">{{Settings::getLocale('contacts_page_title', false)}}</h1>--}}
-    <h1 class="text-center page-title">{{trans('front.contact')}}</h1>
+    <h2 class="text-center contact-title">{{trans('front.contact')}}</h2>
 
     <div class="container">
         <ul class="nav nav-pills my-3 contact-info-tabs justify-content-lg-center" id="pills-tab" role="tablist">
@@ -11,9 +11,12 @@
                     <a class="nav-link {{ $loop->first ? 'active' : '' }}" id="pills-{{ $map->id }}-tab" data-toggle="pill" href="#pills-{{ $map->id }}" role="tab" aria-controls="pills-{{ $map->id }}" aria-selected="true">
                         @if(!empty($map->contact_media->first()))
                             <img src="{{ $map->contact_media->first()->getPublicPath() }}" alt="">
+                        @else
+                            <img src="{{ asset('images/fallback/placeholder.png') }}" alt="">
                         @endif
+                            <p>{{ $map->title }}</p>
                     </a>
-                    <p>{{ $map->title }}</p>
+                    <br><br><br><br>
                 </li>
 
             @endforeach
@@ -25,51 +28,55 @@
         @foreach($contacts as $map)
             <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="pills-{{ $map->id }}" role="tabpanel" aria-labelledby="pills-{{ $map->id }}-tab">
 
-                <section class="container-fluid contact-info-section">
-
-                        <div class="row justify-content-center">
-                            <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+        <div class="row justify-content-center">
+            <div class="col-lg-1 col-md-none" style="background-color: #7B8793;"></div>
+            <div class="col-lg-10 col-md-12">
+                <div class="row">
+                    <div class="col-lg-7 col-md-12 contact-left-section">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12">
+                                @if(!empty($map->contact_media->first()))
+                                    <img class="contact-left-img" src="{{ $map->contact_media->first()->getPublicPath() }}" alt="">
+                                @else
+                                    <img class="contact-left-img" src="{{ asset('images/fallback/placeholder.png') }}" alt="">
+                                @endif
+                            </div>
+                            <div class="col-lg-8 col-md-12">
+                                <h1 class="contact-left-title">{{ $map->title }}</h1>
                                 <div class="row">
-                                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 left-contact-section">
-                                        <div class="row left-contact-section-container">
-                                            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                                                <h1 class="contact-section-title">{{ $map->title }}</h1>
-                                                <h5 class="contact-section-address">{{ $map->address }}</h5>
-                                                <div class="contact-section-desc">{!! $map->description !!}</div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-lg-right text-md-left">
-                                                <h5 class="contact-section-phone">
-                                                    <span>{{ trans('contacts::front.telephone') }}:</span><br>{{ $map->phone }}
-                                                </h5>
-                                                <div class="contact-section-working-days">
-                                                    <span>{{ trans('contacts::front.working_days') }}:</span><br>
-                                                    {!! $map->working_days !!}
-                                                </div>
-                                            </div>
+                                    <div class="col">
+                                        <span class="contact-left-span">{{ trans('contacts::front.working_days') }}:</span><br>
+                                        <div class="contact-left-work">
+                                            {!! $map->working_days !!}
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 right-contact-section-container">
-                                        @if(!empty($map->contact_loc_media->first()))
-                                            <img class="contact-section-right-img" src="{{ $map->contact_loc_media->first()->getPublicPath() }}" alt="">
-                                        @else
-                                            <img class="contact-section-right-img" src="{{ asset('images/fallback/placeholder.png') }}" alt="">
-                                        @endif
+                                    <div class="col">
+                                        <span class="contact-left-span">{{ trans('contacts::front.telephone') }}:</span><br>
+                                        <h5 class="contact-left-phone">{{ $map->phone }}</h5>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
 
-                    
-                </section>
+                    </div>
+                    <div class="col-lg-5 col-md-12 contact-right-section">
+                        <h5 class="contact-right-title">{{ $map->address }}</h5>
+                        <div class="contact-right-desc">{!! $map->description !!}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1 col-md-none" style="background-color: #D3DAE0;"></div>
+        </div>
+
 
 
                 @if($map->show_map == 1)
-                    <div id="map" style="height: 350px; width: 100%;margin: auto;"></div>
+                    <div id="map-{{$map->id}}" style="height: 350px; width: 100%;margin: auto;"></div>
                     <script>
                         function initMap(){
+                            let map{{$map->id}};
 
-                            let map = new google.maps.Map(document.getElementById('map'),{
+                            map{{$map->id}} = new google.maps.Map(document.getElementById('map-{{$map->id}}'),{
                                 zoom: 13,
                                 center: {lat: parseFloat("{{ $map->lat }}") , lng: parseFloat("{{ $map->lng }}")},
                                 styles: [
@@ -112,7 +119,7 @@
                             };
                             let marker = new google.maps.Marker({
                                 position:{lat: parseFloat("{{ $map->lat }}") , lng: parseFloat("{{ $map->lng }}")},
-                                map:map,
+                                map:map{{$map->id}},
                                 icon: custMark,
                             });
 
@@ -136,8 +143,8 @@
                                     {"featureType": "water","elementType": "geometry","stylers": [{"color": "#c9c9c9"}]},
                                     {"featureType": "water","elementType": "labels.text.fill","stylers": [{"color": "#9e9e9e"}]}], {name: 'Light'});
 
-                            map.mapTypes.set('styled_map', styledMapType);
-                            map.setMapTypeId('styled_map');
+                            map{{$map->id}}.mapTypes.set('styled_map', styledMapType);
+                            map{{$map->id}}.setMapTypeId('styled_map');
                         }
                     </script>
                     <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ Settings::get('google_map_api_key') }}&callback=initMap" type="text/javascript"></script>
@@ -152,16 +159,8 @@
                 {{ csrf_field() }}
                 <h3 class="text-left con-form-title">{{ trans('contacts::front.send_request') }}{{ $map->title }}</h3>
                 <div class="alert alert-danger alert-dismissible fade error d-none" role="alert">
-                    {{--{{ $errors->first() }}--}}
-                    {{--<button type="button" class="close" data-dismiss="alert" aria-label="Close">--}}
-                        {{--<span aria-hidden="true">&times;</span>--}}
-                    {{--</button>--}}
                 </div>
                 <div class="alert alert-success alert-dismissible fade error d-none" role="alert">
-                    {{--<span>{{ session()->get('status') }}</span>--}}
-                    {{--<button type="button" class="close" data-dismiss="alert" aria-label="Close">--}}
-                        {{--<span aria-hidden="true">&times;</span>--}}
-                    {{--</button>--}}
                 </div>
 
                 <div class="row">
