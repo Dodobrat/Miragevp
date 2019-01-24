@@ -5,7 +5,7 @@
     <div class="blog-banner" style="background: url('{{ asset('images/fallback/banner.png') }}')">
 
         <div class="row">
-            <div class="col-10">
+            <div class="col-lg-10 col-sm-12 col-12">
                 <h1 class="text-center blog-banner-title">{{Settings::getLocale('blog_page_title', false)}}</h1>
             </div>
         </div>
@@ -21,7 +21,7 @@
         @foreach($blog as $post)
             @if($post->visible == true)
                 @if($post->id % 2 == 0)
-                    <div class="col-lg-7 col-md-12 col-12 my-md-5 px-md-5">
+                    <div class="col-lg-7 col-md-12 col-12 my-5 px-4">
                         <div class="row upper-row">
                             <div class="col-2 align-self-end">
                                 <p class="post-date">
@@ -32,7 +32,7 @@
                                     @endif
                                 </p>
                             </div>
-                            <div class="col-10">
+                            <div class="col-10 px-0">
                                 <h2 class="post-title text-right">
                                     @if(strlen($post->title) >= 100)
                                         {{substr($post->title,0,100)." ..."}}
@@ -52,14 +52,14 @@
                                     @endif
                                 </p>
                             </div>
-                            <div class="col-10">
+                            <div class="col-10 px-0">
                                 <p class="post-author text-right">
                                     {{$post->author}}
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5 col-md-12 col-12 my-5">
+                    <div class="col-lg-5 col-md-12 col-12 my-5 px-1">
                         <button class="post-link" type="button" data-toggle="modal" data-target=".read_{{ $post->id }}">
                             @if(!empty($post->thumbnail_media->first()) && $post->show_media == true)
                                 <img class="post-img" src="{{$post->thumbnail_media->first()->getPublicPath()}}">
@@ -70,9 +70,9 @@
                     </div>
 
                 @else
-                    <div class="col-lg-7 col-md-12 col-12 my-md-5 px-md-5 d-block d-lg-none">
+                    <div class="col-lg-7 col-md-12 col-12 my-5 px-4 d-block d-lg-none">
                         <div class="row upper-row">
-                            <div class="col-10">
+                            <div class="col-10 px-0">
                                 <h2 class="post-title">
                                     @if(strlen($post->title) >= 100)
                                         {{substr($post->title,0,100)." ..."}}
@@ -92,7 +92,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-10">
+                            <div class="col-10 px-0">
                                 <p class="post-author">
                                     {{$post->author}}
                                 </p>
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5 col-md-12 col-12 my-5">
+                    <div class="col-lg-5 col-md-12 col-12 my-5 px-1">
                         <button class="post-link" type="button" data-toggle="modal" data-target=".read_{{ $post->id }}">
                             @if(!empty($post->thumbnail_media->first()) && $post->show_media == true)
                                 <img class="post-img" src="{{$post->thumbnail_media->first()->getPublicPath()}}">
@@ -117,9 +117,9 @@
                             @endif
                         </button>
                     </div>
-                    <div class="col-lg-7 col-md-12 col-12 my-5 px-md-5 d-none d-lg-block">
+                    <div class="col-lg-7 col-md-12 col-12 my-5 px-4 d-none d-lg-block">
                         <div class="row upper-row">
-                            <div class="col-10">
+                            <div class="col-10 px-0">
                                 <h2 class="post-title">
                                     @if(strlen($post->title) >= 100)
                                         {{substr($post->title,0,100)." ..."}}
@@ -139,7 +139,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-10">
+                            <div class="col-10 px-0">
                                 <p class="post-author">
                                     {{$post->author}}
                                 </p>
