@@ -72,6 +72,10 @@ class Administration implements Module {
             'label' => trans($module['slug'] . '::admin.page_title'),
             'translate' => true
         ]);
+        $form->add($module['slug'] . '_page_description', 'editor', [
+            'label' => trans($module['slug'] . '::admin.page_description'),
+            'translate' => true
+        ]);
 
     }
 }

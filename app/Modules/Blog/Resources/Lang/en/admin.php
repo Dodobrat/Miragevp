@@ -25,6 +25,7 @@ return [
     'dash_blog_linkbox_title' => 'Blog Posts',
     'dash_blog_linkbox' => 'View Blog Posts',
     'page_title' => 'Page Title',
+    'page_description' => 'Page Description',
     'filter_blog' => 'Search Blog Posts',
     'date_made' => 'Date created',
 ];

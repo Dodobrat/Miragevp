@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class BlogController extends Controller
 {
     public function index() {
-        $blog = Blog::reversed()->with(['thumbnail_media','header_media'])->paginate(9);
+        $blog = Blog::reversed()->with(['thumbnail_media','header_media'])->paginate(5);
         return view('blog::blog',compact('blog'));
     }
 }
