@@ -24529,6 +24529,8 @@ body {
 .contact-info-tabs .contact-info-tab-item a img {
   width: 75px;
   height: 75px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .contact-info-tabs .contact-info-tab-item a p {
